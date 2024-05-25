@@ -1,0 +1,37 @@
+1106: 
+	1.iphone Contextmemu bug
+	2.iphone serverWorker caches err
+	3.???engine removeFinallyPromise, Promise.race
+	
+	
+	
+	upData 
+	serviceWorker.onmessage change to addEventListener
+	
+	bug 例题(10届，14题）
+	先手防抓禁分类，
+	先手冲四解决禁手：逼白落禁手，冲四后用黑子解禁手，冲四后用白子解禁手
+	先手增加防点
+	
+	VCT进攻级别判断bug
+	挡对手冲四时会忽略原来的V，出现进攻级别不够的误判
+	
+	
+	IOS桌面图标启动
+通过桌面图标启动后，navigator.standalone会等于true，只要判断这个变量就够了。
+
+安卓桌面图标启动
+通过桌面图标启动后，CSS的媒体查询是能够探测到的，换而用js写，下面的结果为True。
+
+window.matchMedia('(display-mode: standalone)').matches
+
+点点题bug
+
+这种点点题如果有疑问可以发到群里来。因为答题器题集里面有一些错题，当初我制作题集的时候可能摆错棋子，或者输入了错误的答案。
+目前已发现的错题
+五子茶馆解题大赛01~10届：25✔，43✔, 66✔，90✔，91✔，113✔，130✔
+五子茶馆解题大赛11~20届：5✔, 32✔, 74✔，75✔，76✔，94✔，101✔, 150✔
+五子茶馆解题大赛21~47届：58✔，83✔,189✔
+五子茶馆解题大赛小题目大全： 2✔, 4✔, 110✔，96
+
+入门白先三手吉: 61✔，174✔

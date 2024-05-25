@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<link rel="shortI icon" sizes=32×32 href="./pic/favicon.ico" />
+	<link rel="preload" href="./style/font/PFSCMedium1.woff" as="font" type="font/woff" crossorigin="anonymous">
+	<link rel="preload" href="./style/font/PFSCHeavy1.woff" as="font" type="font/woff" crossorigin="anonymous">
+	<link href="./style/main.css" rel="stylesheet" type="text/css">
+	<link rel="preload" href="./UI/View.js" as="script">
+	<link rel="preload" href="./UI/Button.js" as="script">
+	<link rel="preload" href="./UI/msgbox.js" as="script">
+	<link rel="preload" href="./ReadLib/script/RenjuLib.js" as="script">
+	<title>lib2sgf</title>
+</head>
+
+<body>
+	<div id="w">
+		<div id="title">
+			LIB2SGF
+		</div>
+		<div id="but">
+		</div>
+		<div id="filename">
+		</div>
+		<div id="status">
+			打开一个五子棋lib棋谱，自动转换成sgf棋谱。会保留棋谱的标记和注解。
+		</div>
+		<a id="downlink"> </a>
+	</div>
+	<script>
+		function $(id) { return document.getElementById(id) }
+	</script>
+	<script>
+		window.SCRIPT_VERSIONS = {};
+	</script>
+	<script src="./UI/View.js"></script>
+	<script src="./UI/Button.js"></script>
+	<script src="./UI/msgbox.js"></script>
+	<script src="./script/saveFile.js"></script>
+	<script src="./ReadLib/script/RenjuLib.js"></script>
+	<script>
+		let d = document;
+		let dw = 0; //网页可见宽度
+		let dh = 0; //网页可见高度
+		dw = d.documentElement.clientWidth;
+		dh = d.documentElement.clientHeight;
+		let cWidth = dw < dh ? dw * 0.95 : dh * 0.95;
+		cWidth = dw < dh ? cWidth : dh < dw / 2 ? dh : dw / 2;
+
+		let viewport = new View(dw);
+		viewport.resize();
+
+		document.body.onload = () => {
+			window.loadAnimation = (() => {
+				let status = $("status");
+				return {
+					open: () => {},
+					close: () => { status.innerHTML = "" },
+					text: (txt) => { status.innerHTML = txt }
+				}
+			})()
+
+			let div = $("w");
+			let s = div.style;
+			s.position = "absolute";
+			s.left = parseInt((dw - cWidth) / 2) + "px";
+			s.textAlign = "center";
+
+			div = $("title");
+			s = div.style;
+			s.position = "absolute";
+			s.left = "0px";
+			s.top = "0px";
+			s.width = cWidth + "px";
+			s.fontSize = "100px";
+
+			div = $("but");
+			s = div.style;
+			s.position = "absolute";
+			s.left = (cWidth - 300) / 2 + "px";
+			s.top = "150px";
+
+			let fileField = new Button(div, "file", 0, 0, 300, 100);
+			fileField.show();
+			fileField.setText("选择文件");
+			fileField.setonchange(function() {
+				let file = this.files[0],
+					filename = (this.value).split("\\").pop();
+				this.value = "";
+				$("filename").innerHTML = filename;
+				RenjuLib.openLib(file)
+					.then(() => $("status").innerHTML = "开始编码SGF")
+					.then(RenjuLib.lib2sgf)
+					.then(bufObj => {
+						$("status").innerHTML = "编码完成";
+						return bufObj;
+					})
+					.then(function(bufObj) {
+						let len = 0;
+						RenjuLib.closeLib();
+						if (bufObj.buf.byteLength < bufObj.byteLen) {
+							len = bufObj.buf.byteLength;
+							alert(`发生意外错误，丢失了${parseInt((bufObj.byteLen - len)/bufObj.byteLen*10000)/100}%的数据，保存的是不完整的棋谱`)
+						}
+						else len = bufObj.byteLen;
+						$("status").innerHTML = "复制数据";
+						downloadSGF(new Uint8Array(bufObj.buf, 0, len), filename)
+					})
+			});
+
+			let download = new Button(div, "button", 0, 0, 300, 100);
+			download.setText("点击下载")
+
+			div = $("filename");
+			s = div.style;
+			s.position = "absolute";
+			s.left = "0px";
+			s.top = "300px";
+			s.width = cWidth + "px";
+			s.fontSize = "50px";
+
+
+			div = $("status");
+			s = div.style;
+			s.position = "absolute";
+			s.left = "0px";
+			s.top = "450px";
+			s.width = cWidth + "px";
+			s.fontSize = "50px";
+
+			div = $("downlink");
+			s = div.style;
+			s.position = "absolute";
+			s.left = "0px";
+			s.top = "600px";
+			s.width = cWidth + "px";
+			s.fontSize = "50px";
+			div.onclick = function() {
+				div.innerHTML = "";
+				div.href && setTimeout(() => URL.revokeObjectURL(div.href), 1000 * 60);
+			}
+
+			function downloadSGF(buffer, filename) {
+				filename += ".sgf";
+				//let mimetype = "application/sgf";
+				$("status").innerHTML = filename;
+				download.show();
+				download.setontouchend(() => {
+					saveFile.save(buffer, filename);
+					download.hide();
+				});
+			}
+
+			setTimeout(function() {
+				RenjuLib.reset({
+					isBusy: () => false,
+					setBusy: () => {},
+					newGame: () => {},
+					cBoard: null,
+					getShowNum: () => 0,
+					setPlayMode: () => {}
+				});
+
+			}, 1000 * 1);
+		}
+	</script>
+
+</body>
+
+</html>

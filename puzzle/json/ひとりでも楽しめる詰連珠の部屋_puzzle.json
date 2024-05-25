@@ -1,0 +1,4336 @@
+{"link": "https://lfz084.gitee.io/renju/puzzle.html",
+  "defaultSettings": {
+    "title": "ひとりでも楽しめる詰連珠の部屋"
+  },
+  "puzzles": [
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11I10G9H9H8I9H7J9I7G8H6I8I6J6",
+      "//第001题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10G9G8J8H8E7I7H7F6J7I6E6F5H6H5I5",
+      "//第002题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10H8H9I8K8I7F7G6H7H5I6",
+      "//第003题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10J9J10G8H9H8I9I8J8I7H7F6H6G6G5",
+      "//第004题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I12H11G10I11H10J10I10F9H8H9J8E8G7F7J7H7",
+      "//第005题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11E10F10G9G10F8H8G8G7I8H7F7G6I7",
+      "//第006题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11F12E10F10G10I10H10G9K9H9H8E8J8H7H6I7",
+      "//第007题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9G11K9H11H8I9I8J9F7G8I7J7G6F6E5H5",
+      "//第008题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11F11F10H10G10I9H9G8H8I7I8J7H7G5I6I5",
+      "//第009题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G11E10H10F10I10E9F9I9J9H8E8I8F8F7J8H7G7G6E6",
+      "//第010题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10F10F9I10F8I9H8G8F7G7I7J7I6F6J5H6",
+      "//第011题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F11I10H10G9J10I9H9G8F8H8I8J8G7I6I7K6K5",
+      "//第012题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10F10I10G10G9F9G8I9H8J7I7J6",
+      "//第013题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10G10E9G9H8H9I8J8I7H7J7E6G6F6H6I6H5G5",
+      "//第014题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11F11G10H10G9J10H9I9J9G8K9K8H8J7G6J5",
+      "//第015题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12G12G11I12I11K11J11G10K9J10H8G9J8J9K8I8",
+      "//第016题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9K10H8G9I8G8K8J8G7J7H7F6H5H6",
+      "//第017题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9H9H8J9K8J8H7L7I7G6M6G5I5H5H4K5I4J4",
+      "//第018题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9H9H8I9J8J9F7G7H7H6I5J5",
+      "//第019题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I12I11H11F10K11K10I10H9G8J9H8F8I7J8",
+      "//第020题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F11E9I10F9G9H9J9G8E8H8F8I8F7H6H7",
+      "//第021题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9H9G8I9H8E8I8J8I7H6J7I6G5H5F4G4",
+      "//第022题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11H9J11I9F9E8F8H8G8H7J8H5H6",
+      "//第023题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12H11G11F10G10H9G9I9F8J9H8G8J8G7H6H7",
+      "//第024题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F11H9G9F8J9H8G8I8H6H7J6",
+      "//第025题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H10H9G9J9G8H8J8H7I6J7J6",
+      "//第026题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10H10F9I10H9G9G8I9H8J9I7G7J7H7H6I6",
+      "//第027题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10G11H9I11I9F8H8G8G7I8H7F6I6H6",
+      "//第028题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10E9F8I9H8G8I8F7H7J7G6H6J6F5",
+      "//第029题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G12G11E11E10F10F9H10G9I9F8H8I7H6G6",
+      "//第030题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11F11E10I11H9H10J9I10G8J8H8H7I8I6I7J6",
+      "//第031题模式": "三手胜"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11I10G9J10J9F9G8H9H8K8J8F7G7I7H7G6J7J6K6",
+      "//第032题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E11G10H11G8I10H8G9G7F8I7H7J7H6",
+      "//第033题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11F10G9I10I9H9H8J9K8G8H7G7I7J7I6H6",
+      "//第034题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10H8I9I8K8G7H7I7F6J7H6G5I5H5J5",
+      "//第035题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "L12J12J11K12J9I10H8J8I8H7K8J7K7K6",
+      "//第036题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K9K10H8G8J8I8J7F7H6I7I6K6J6H5K5J5",
+      "//第037题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10G8G10H8H9I8J8G7H7I7H6J7G5G6I5",
+      "//第038题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10J9H9G8I9H8F8F7E7G7G6H5H6",
+      "//第039题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11E10E9F10F9F8E8G8H8E7I8H6H7E5F6G5",
+      "//第040题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9F10I9I10G8G9H8J8I8F7I7G7F6I6",
+      "//第041题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11G11G9F10H9I10I9J9H8G8G7F6J7I6G6H5",
+      "//第042题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10H8H9F7I9I7K8J7H6I6I5J6K5",
+      "//第043题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10G10H10H9E8G8H8I8F7F6J7G5H6I5",
+      "//第044题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G11G9I10J9H9H8F8J8K8G6H7H6I7I6J6",
+      "//第045题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9H10E8I9G8F8H8J7I7F6H5H6I5J5",
+      "//第046题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11I9J10K9H9I8H8I7J8G6J7J6H6H5I6I5",
+      "//第047题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10H8H10K8I9G7F7G6H7H5I7J5G5",
+      "//第048题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G10J9G9F8H9H8E8I8F7F6H6",
+      "//第049题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10H10F10J10F9E9H9F8I9G8H8J8G7F7I7I6H6J6J5I5",
+      "//第050题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G10I10H10F9G9I9H9H8K9G7I8I7K7J7F6",
+      "//第051题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10G9H9I9K9J9H8G8K8K7F7I6G7J6K6H5",
+      "//第052题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G11G9H10H9J10F8F9H8K9I8G8I7G6H5J6",
+      "//第053题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F11G9G11H9H10G8I9H8F8I8K8J8H7I7J6J7K6J5I5",
+      "//第054题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11I10K10H9F8K9H8G7J8K7J7I6H6H5I5J5",
+      "//第055题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10F11I10G10F9G9E8F8G8F7H8G7J8I7H7I6H6H5",
+      "//第056题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H9F9I9F8E8G8I8H8G7J8H7I7I5I6J5",
+      "//第057题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10I11I10F10I9J10J9H9G8F8H8K8I8H7H6J7",
+      "//第058题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11G8I9H8F8I8J8H7H6G6I6G5F5J5G4",
+      "//第059题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11J11F10H10I10F9H9I9G8F8H8K8I8G7J8J7H6G5",
+      "//第060题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10F9H9G9G8I9H8F8K8I8G7J8K7G6G5K6",
+      "//第061题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11J12G10G11H10F10I10K10J10F9H8H9F7K8I7G7J7I6",
+      "//第062题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10H10H8G9I8H9G7F7H7I7J7K7J6H6I5F5",
+      "//第063题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F8H10H8G9J8H9G7I8I7G6J6H6H5J5",
+      "//第064题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11E11E10H10F10F9G9I9G8E8H8G6G7H6",
+      "//第065题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I12I11H11G10G9H10H9F9H8I8K8J8K6H7",
+      "//第066题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10G10F9J9H9F8I9I8H8H6H7I6J5G5",
+      "//第067题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H10I9I10H8F9I8H9G7J8I7H7J7F6G5G6",
+      "//第068题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9J10E8G9F8J9H8G8G7F7H7G6J7H6",
+      "//第069题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9F8E8E7H8G7H7I7F6E6I6H6",
+      "//第070题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11H9J11K9I9H8J8H7G6F6H6K6I6",
+      "//第071题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H11F9J10I9K9G8F8H8E7I8H7I7J7H6I6",
+      "//第072题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J9H10F8E8G8J8H8H7I8K6I6G5F5H4I5I4",
+      "//第073题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J12J11H11K10J10F9K9I9H8I8G7J8J7J6",
+      "//第074题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11G10F10J10I9G9F8J9H8G8F6I8G6F7H5G7",
+      "//第075题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11I11I10I9F8K9H8G8K8G7H7J7I7H6J6K5",
+      "//第076题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11I10F10F9H9G9G8K9I8F8J8H8E7F7I7H7G5H6H5",
+      "//第077题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9I10J9K10G8H9H8J8I8E7I7G7J7E6F6H6G5J6",
+      "//第078题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H9H8I9I8G7E7H7F7J7I7H6F6G5",
+      "//第079题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12I12J12F11H11G11F10K10J10G9G8I8H8K8J8G7",
+      "//第080题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G9F9H9I9F8H8J8F7J7H7F6I7I6",
+      "//第081题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G9G8I9H8I8J8G7F7F6F5G6H5J5",
+      "//第082题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11F11E9H11G8F9H8I8G6G7H6H7H5F6I5J6",
+      "//第083题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9H11I9J11J9G10H8I10J8I8F7G7",
+      "//第084题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10J10F9G9H8I9J8F7J7G7",
+      "//第085题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11H10H9I10I9K9H8I8J8K8G7H7I7F6G6H6",
+      "//第086题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10G11F10H11E9G9H8H9F7E8I7J8J7E7F6H7",
+      "//第087题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11G11H9H10H8J10J8I9G7H7I7H6J7I6",
+      "//第088题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11F11G10F10J10H10G9I10H9I9H8J9G6H7H6F6",
+      "//第089题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11G9G10I9H9G8J9H8J8I7G7J7H7K7J6G6I5",
+      "//第090题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9G10H9E9E8F8G8J8H8H7G7J7I7G6",
+      "//第091题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10G9G8E8H8I8E7F7H7G7F6G5G6F4",
+      "//第092题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11I12H11G11F10E10G10G9F9H9H8F8J8G6I7H6",
+      "//第093题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11I11J10F9G9H9G8I9H8J8I8I7K8J7H6G6J6H5",
+      "//第094题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10F10G9G10H8H9I8I9I7H7J7H5H6I5",
+      "//第095题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H10I9J10J9E9F8K9H8E8J8I8G7J7H7G6I7H6",
+      "//第096题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9H10G8I10H8K9I8F8J8K8F7H7G7I7J6F6",
+      "//第097题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "D9G10I9H9H8J9I8G7E7I7H7E6G6H6",
+      "//第098题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10E9F9J9H9F8E8G8K8H8J7G7F6I6H6E5G5",
+      "//第099题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K11H12I10G11J10K10J9I9H8I8H7G7I7J7G6I6",
+      "//第100题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H8I8I7L7J7G6K7H6I6J6G5K6I4H5K3J5",
+      "//第101题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G10H9H10H8J9J8I7G5G6J5J6",
+      "//第102题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10E10F9H10G9H9H8I9I8E8I7K8J7J6",
+      "//第103题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11G11H11F10I11H10I10H9G9F8G8K8H8J7I7J6",
+      "//第104题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10G11F9H11H8I9I8J9G7G8H7F7J7K6G6H5",
+      "//第105题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H11H10F10G9I10G8H9H8F8I7G7F6J7G6H6I5J6",
+      "//第106题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9F10G9H9H8G8I8G7I7J7E6H6G6I6G5E5I5H4I4J4",
+      "//第107题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11K11J10I10G9F9I9G8J9I8H8G7H7I7G6F6I5H6",
+      "//第108题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9H10I9J10J9H9L9K9G8I8H8F7I6G6F5H6",
+      "//第109题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11I10I11J10K10F9G9K9H9G8I9H8K8J6J7J5K7",
+      "//第110题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10G11H10I10J10H9H8I9I8E8F7J8G7E7H7G6E6I5",
+      "//第111题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11G10F9G9G8E8I8H8J8G7F7I6G6",
+      "//第112题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10J10H9G9J9F8G8H8G7I8I7F7K7H7K6J7G5I6I5",
+      "//第113题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11E11G11I11H11I10I9E8K9F8H8G8F7J8I7J7",
+      "//第114题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11F10G9G10H9J8H8K8I8G7H7G6I7H6J7I6J6J5H5K5",
+      "//第115题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9E10H9I10I9J9F8E8H8G8I7G7J7H6G6J6",
+      "//第116题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11H10I10J10H9K10I9G9K9G8H8J7G7K6J6I5L6J5",
+      "//第117题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9H10H8J9I8G8J8I7H7J7J6H6K5J5K4I4",
+      "//第118题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G11E9H10F9K10H9G9H8I9J8K8I7H7J7I6I5J6",
+      "//第119题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11I12I10F10K10J10F8F9H8G9I8J9F7G8H7I7K7H6",
+      "//第120题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9H9F8G8H8I7J6J7H5G6I5J5",
+      "//第121题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10E9G9H9F8I9H8G8G7I8J7E7G6G5",
+      "//第122题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10G10G9F9H9I9G8J8H8F7I8I7G7H5",
+      "//第123题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10H9H10H8I9I8G8G7K8G6H7I6H6J5G5",
+      "//第124题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9H10I9G9F8J9H8G8F7I8J6I7I5J7I4F6",
+      "//第125题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F11I10H11J10K10G9F9H8H9I8I9G7G8H7I7J7H6",
+      "//第126题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H11H9H10K9F9G8I9H8K8J8I7H7H6J7J6",
+      "//第127题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11G10J11F9G9I9H8J9I8K8J8I6J7J6",
+      "//第128题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12G11G10G9J10H9J9K9H8G8I7I8J7J8G6I6H6K6",
+      "//第129题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9F11G9J10H9F9I9E7H8I7H7H6I5I6",
+      "//第130题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10J11F9F10H9G10I9G9H8F8F7I8H6G6I5H5",
+      "//第131题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10I11H10J11G8J10H8G9I8I9J7F8F6G7",
+      "//第132题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12G12G10F11F9H11I9J10H8H9I8G8H7G7I7I6",
+      "//第133题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10F10I10G10G9E9F8H9H8I9I8J8G7E7H6J6I6H5",
+      "//第134题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9J10I9G9J9I8H8L8J8G7F7H7I6I7",
+      "//第135题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G10J10H10H9I9F8E8G8F7H8I6G6J5",
+      "//第136题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H11J10K11F9G9I9H9H8G8G7I8H7F7I7F6",
+      "//第137题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G9G8I8H8G7I7J7H5F6I5G6J5G5G4I4",
+      "//第138题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G12K11J11K10F10G9J10I9K9H8G8I8H7G7I7J7F6H6J6",
+      "//第139题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9J10J9G9H8H9I8K8E7F7G7I7H7G6I6F5",
+      "//第140题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10G11G9F10H9H10I9J9G8F7H8G7G6I5",
+      "//第141题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G10G9I9H9J9H8G8I8H7I7J6",
+      "//第142题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G11H9F9H8G9I8I9J8J9H7K8I7E7J7G7F6H6G6K6",
+      "//第143题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11I10I9J10H8J9I8E8H7F7I7G7F6H6G6J6",
+      "//第144题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10D11F10G10D9G9F9H9E8C8G8D8H8E7C7F7D7E6F6G5",
+      "//第145题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9F10G9G10F8E9H8H9F7H7I7I6F6J6I5F5K5G5",
+      "//第146题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10J10F9G9H9H8I9I8G8H7J7I7J6G6F5",
+      "//第147题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H10F9K10H9G9I9J9H8J8K8G7E7F6I7F5G6G5",
+      "//第148题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11J11I10F9H9G9G8I9H8F8G7H7F5G6",
+      "//第149题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10F10G9H9J9I9H8G8H7J8I7G6H6H5I6J5",
+      "//第150题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11H10F10E9H9F9F8J9I8H8J8G7E6G6G5",
+      "//第151题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10J11H9G10F8F9H8I9J8I8H7K8I6H6",
+      "//第152题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10J11J9J10H8G8J8I8H7I7K7H6",
+      "//第153题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10I9I10H8H9I8F8F7G8G6J8I6H6J6F5",
+      "//第154题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9F11J9G11H8H9I8K9J8K8I7H7J7J6H6G5F5I5",
+      "//第155题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11G11J11F10F9I10H9G9I9J9H8F8F7G6H6H5",
+      "//第156题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11H9J11I9G9G8J8H8F7G7I7E6F6",
+      "//第157题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10G8G9H8H9I8J8H7F7J7G6J6I6I5G5",
+      "//第158题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12F11F10I11G10J11I10E10F9H10I9J10G8J8H8E7I8I7",
+      "//第159题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11H10G10F9I10I9G8I8H8F6G7G6",
+      "//第160题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H9I9I8J9K8H8H7G6I7J6F6K5I5I4J5",
+      "//第161题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9H10E8G9G8H9H8I7J8J7H7H6J6I6",
+      "//第162题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11I10J11J10I9F9F8G9H8I8J8F7G7I7H7H5",
+      "//第163题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11I10F9G9H8F8G7G8H7J7I7F6",
+      "//第164题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G9J9I9F8E8H8E7I7G7H6J6E5F5",
+      "//第165题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G12I12I11G10F10H9J9I9G8F8H8H7I8I7",
+      "//第166题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11F11J10H10H9G9H8I9I8J9F7K8H7G7I7K6J7I5",
+      "//第167题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E11G10I9G9J9H8G8J8K8G7F7H7G6F6H6",
+      "//第168题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "D10G11F10E10G10H10E9H9G9F8H8I7",
+      "//第169题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11I11K10I9J9F8H8F7G7H7I7K7I6H6J6K5",
+      "//第170题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G11G10I10G9I9H9J9H8F8K8H7F7F6H6H5",
+      "//第171题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11H11L11I11K10K11L10H10I9J10H8L9J8K8",
+      "//第172题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F13F12F11G12F10E10I10J10F9H9E8F8H8G8I8G7E7H7",
+      "//第173题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11H9I9K9F8G8I8H8J8F6F7I6I7J6H6",
+      "//第174题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11F10G10J10I10G9K10H9F8E8H8G8F7J8I7K8J7H6K6I6",
+      "//第175题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9I10G8J10H8H9J8F8G7K8H6H7H5G6",
+      "//第176题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H10F9I10J9G8F8J8H8H7I8I7J7G6H5K6",
+      "//第177题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H10G9H9J9G8F8J8H8G7I8H7K8H5G6I5",
+      "//第178题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G11F9I11G9H9H8F8G7I8I7H7H6J6I5G5",
+      "//第179题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11K11G10I10J9F9H8H9I8I9F7E8G7G8H5H6",
+      "//第180题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12I11H10G10I10J10K9G9L9H9H8H7K8K7",
+      "//第181题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11J10K11K10I10I9G8F8H7H8K7I7G6J7J6",
+      "//第182题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11K11G10F10J10H10G9E9I9F9F8H9H8J9J8K8F7G7",
+      "//第183题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J12K11H11G10I11I10J10I9H8J9K8J8G7H7J7L7",
+      "//第184题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12J13H11G12I11K11K10H10G9J10I9H9H8F8F7I8H7G7I7J6",
+      "//第185题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11F10G9H10H9F9I9J9H8I8F7I7G7F6J7I6",
+      "//第186题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11G12G11I11G10F10G9H10I9I10G8H9H8J8H7G7",
+      "//第187题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9J10J9K10H8H9I8K9J8G8H7I7J7G5J6J5",
+      "//第188题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12H12F11K12H11I10J11J10K11F9G9G8K9K8H8I7",
+      "//第189题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12F11E10G11G10F10H9G9F8I9H8I8I7F7I6G6",
+      "//第190题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10I10K9H9G8J9H8F8I8F7H7I7H6H5I6J5",
+      "//第192题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10F10G9H10H9F9H8I9I8J9F7G8H7G7I7J7",
+      "//第193题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11I12I11H10I10H9H8J9K8H7H6K7",
+      "//第194题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G10J10I10F9H9G8F8H8K8I8H7F7H6G6K6I6G5J6J5",
+      "//第195题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10I11K10L11L10J10I9G8H8I8K8J8H7G7I6H6",
+      "//第196题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9H10G8I9H8K9K8F8F7I7G7L7G5G6H5F5I5K5",
+      "//第197题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10G10E8H10H8H9I8J8F7E7E6G6I6H6",
+      "//第198题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H9F9G8G9G7H8H7F6G6H5H6G4G5",
+      "//第199题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H11J11I11H10F10I10G10J10E9F9H9G9I9F8E7H8I7",
+      "//第200题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11F9G10H9J10H8E9I8J8K8H7H6K7J6I6",
+      "//第201题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E10G10H10F9I10I9E9H8H9I8F8F7G8H7G6",
+      "//第202题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10G11F10I11G10D10H10I10I9G9H8H9H7I8I7J7I6H6",
+      "//第203题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11K11J11G9H10H9H8G8I8J8H7K8I7I6H6G5",
+      "//第204题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11I11G10J11I10H10J10H9G9I9J9F8H8K8K7J7",
+      "//第205题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10J11H10F10I10H9K9L9H8I8H7G7H6I7K6J7I5J5",
+      "//第206题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11J10H9G8I9H8F8J8G7F7I7H7I6J6K6I5H5",
+      "//第207题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11E9F10F9H9I9K9J8F8K8H8H7G7I7H6F6H5J6",
+      "//第208题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11J10I11H9F10H8I10F7D8G7F8I7H7E5E6F5H6",
+      "//第209题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11H11G10J10I10G9I9H9F8E8H8G8I8I7G7F6H7G6",
+      "//第210题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H10H9G9I9G8H8L8H7G7F6I7I6K7J6H6G5F5",
+      "//第211题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G12F11F10H10G10I10J9G9G8H9H8G7F7I7J7H6I5J6",
+      "//第212题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10E8G9H8J8I8G7G6H7H6E5F5H5I5J5",
+      "//第213题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9G10G8H10H8J8I8F7F6H7I6G6G5F5",
+      "//第214题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10H10G10E9I9G9H8K9J8F8E7G8I7I8E6H7",
+      "//第215题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12G12J12H12H11H10I11K10J10H9G9G8K9I8H8I7",
+      "//第216题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G10I9I10J9H9G8F8H8I8K8K7J7H6J5J6",
+      "//第217题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G11G9H11J9F9H8I9J8I8K8J7H7F6G6H6I6I5",
+      "//第218题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10J9H9H8I8I7F7G6H7G5H6H5I6",
+      "//第219题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10F10G9H9G8I8H8G7I7H6G6I6I5H4",
+      "//第220题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9G10G9H10G8H9H8F8J8H7I7J6",
+      "//第221题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11F11J11H11G10J10H10G9J9H9H8J8I8G6H7H6",
+      "//第222题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10G12G10G11H10E10I10J10E9H9I9J8H8G7I8I7J7E6",
+      "//第223题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12H11J10I11F9K10J9G9G8I8H8K8J8H7I7J7",
+      "//第224题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I12H11H10I11J10K10F9G9J9G8H8K8J8H7I7J7",
+      "//第225题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H8G8G7F7I6J7G5H6H5I5H3F4",
+      "//第226题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J12G12H11I12G10K11I10K10J10G9I9H9J9I8H8J8I7H7J7H6J6K5",
+      "//第227题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H9I9F8H8J8I6H7J6J7F5E5G5J5",
+      "//第228题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11G9H10G8H9H8I9J8F8E7I8J7K8K7F7H6J6I5H5",
+      "//第229题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10J10F9H9G9F8I9G8H8I8J8K8F7H7G7K7J7E6H6G5I6I5",
+      "//第230题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10E9J10F9G9J9H9F8F7H8G7I7H7H6J7F5H5",
+      "//第231题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9H10H8I9I8K9J8G8F7K8H7H6J6F5",
+      "//第232题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G11J11I10I9J10J9H9K9L9H8I8H7L8I7J6H6G5",
+      "//第233题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K14I13J13K13F12L12J12G11K11H10J10I10H9G9K9I9H8J9",
+      "//第234题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G12J11H12F10E10H10G10F9I10I9J10H8G8G7H7I7F6H6I6",
+      "//第235题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11G9I10H9F9G8J9H8J8K8G7J7H7G6F6H6J6",
+      "//第236题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I12H11G10I10G9F9I9H9J9I8G8G7H8I7",
+      "//第237题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11J10I10H9F9E8I9G8H8I8G7E7H7G6I6H6",
+      "//第238题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11F9H10I9J10H8G9I8H9H6J8F5I7I5G5",
+      "//第239题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9F10F8G9H8H9I8G8E7J8H7J7I7H6",
+      "//第240题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12I13I12H12I11J12K11F11F10J11I10K9J10G8H8G7G6H7",
+      "//第241题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10I10E9D9G9F9J9I9G8J8H8F7I8H7J5I6G4G5",
+      "//第242题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H10H9F9J9G9E8D8F8E7H8G7H7I7J6I6",
+      "//第243题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G12G11G10J10J9G9G8I9H8E8H6I7I6J6",
+      "//第244题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11I11G8I10H8J10I8E9F7I9G7F8J7H7F6G6",
+      "//第245题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E11I10H10G9J9H9G8H8J8F6G7G5H6",
+      "//第246题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G9I9I8H8K8F7H7G7I7G6J7F5F6J5J6",
+      "//第247题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H11J11F10F9G10G8I9H8F8I8E7F6G7H6G6F5H5",
+      "//第248题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9F10G9H9H8F7J8I7K7I6G6F5H6G5",
+      "//第249题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11F9H10I9H9J9F7G8G7H8G6E6H6F5G5",
+      "//第250题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10H11H9I11G8I9H8K9I8F8G7F7J7H7F6G6H6K6",
+      "//第251题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G10I10J10K10H9I9K9G8L9H8I8K8H7J7H6K6I6",
+      "//第252题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12H11J11I11G10K11J10G9E9J9F9G8H8I8H7F7G6K6I6H5",
+      "//第253题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11I11J10G10J9H10F8H9H8K9I8G8I7J8J7I6",
+      "//第254题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9H9G9F8I9K8G8H7H8I7I8J7G7F6I6G6",
+      "//第255题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G10I10G9F9I9H8G8E7I8G7F7I7I6F6E5J6K5",
+      "//第256题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11G11G10I10H10E9I9G9F8H9G8I8H8E7I7H7G6F6",
+      "//第257题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11H12H10G9I10I9H9K9H8I8J8G7K7H7H6J7",
+      "//第258题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11H10K11J10L10K10H9H8I9J8I8L8H7",
+      "//第259题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10G10I10F9I9G9J9H9G8J8H8L8I8G7K8H7F7I7K7L7J6K6",
+      "//第260题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11G9F10H9G8H8I8H7K8I7H6H5K6J5I5",
+      "//第261题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10I9J9H8I8G7E7G6H7H6I7J6F6E5I6H5F4",
+      "//第262题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11H10H9J10G8G9H8I8E7J8F7G7I7E6I6F6G5I5",
+      "//第263题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G12G11H11H9H10I9G8F8H8H7I8K7I7I6J7K6",
+      "//第264题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12G11H10H11H9G10K9J9G8J8H8L8I8G7K8H7J7K7I6H5",
+      "//第265题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J12H11J11I11G10L11I10L10K10K9H8I8J8H7K8I7H6K6",
+      "//第266题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10K10J10L10H9J9I9H8K9K8G8H7I8J7J8K7L7L6I6H5K6",
+      "//第267题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10I11I10J11H9F10I9G9F8J9H8E8K8I8H7K7H5H6I5I6",
+      "//第268题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11H11F10J11G9H10H9I10I9F9F8G8H8G7J8I7H7K7I6H6",
+      "//第269题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10H11I10H10F9E9I9G9G8J9H8H7I6I7J6H6",
+      "//第270题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I13I12K12F11H11H10J11I10K10L10H9I9H8J9I8I7",
+      "//第271题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11H10J9K10H8H9I8K8J8F7G7F6H7I6",
+      "//第272题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9H10H9G9H8J9I8E8G6J8H6G7I5H7",
+      "//第273题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9E10H9I9H8F8I8G8F7E7I7G7F6H7I5J7",
+      "//第274题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11F12F11I12H11G11I11E10F9I10I9G8H8I7",
+      "//第275题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11K11L11H10G10I10G9H9I9F8J9I7H8H6J7I6",
+      "//第276题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10K11F9E9G8G9H8F8I8K8J8H7G6J7I6H5",
+      "//第277题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G11G10H11H10F10F9G9G8H9H8I9I8F8F7I6H7J6H6H5",
+      "//第278题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11G9G10I9J10G8F9H8H9I8F8G7I7I6H6",
+      "//第279题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11H9J11J9H10H8I9I8K8J8G6H7H6F5G5",
+      "//第280题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H8H9J8K9K8I8J7G7H6G6G5I6H5J6I5J5",
+      "//第281题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11H9K11K9G9H8J8H7G7F6K7I6H6",
+      "//第282题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10H10G10J10I10H9I9K9G8F8H8H7J8I7G7F6J7G6",
+      "//第283题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H11I9K11G8H9H8J9I8J8K8F7H7G7F6G6J6I6",
+      "//第284题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G11I10I11E9G9I9H9F8E8G8K8H8H7I7K7J7G6H5H6",
+      "//第285题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10I11H10J11J10F10K9I10H8L10H7J8I6J7K6H6",
+      "//第286题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11G10J10I10F8K10H8I9I8G8K8H6H7J6",
+      "//第287题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G11H9J10E8G9G8K9H8F8J8I8E7F7I7H7G6G5",
+      "//第288题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11I11J11K11I10K10J10H9I9G8H8I8I7G7",
+      "//第289题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H9G8J9H8J8H7G7G6I7H6I6G5J6",
+      "//第290题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10I10F9G9G8H9H8J8I8H7I7G6J7H6G4G5",
+      "//第291题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F9H8I9I8K8J8H7G7I7G6G5J6H5",
+      "//第292题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11I11J10F10G9I10H9F9I9J9H8G8I8G7F7J7I7J5",
+      "//第293题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11F10H10J10F9G9H9I9F8J9H8E8I7G7H6H7",
+      "//第294题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11H10I11I10J11I9H9J9F8G8H8I8F7E7H6G7I6F6",
+      "//第295题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K12K11G10L11I9H10J9J10K9G9H8H9J8I8L8I7J7K7K6J6",
+      "//第296题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10H9H10F8F9H8J8I8H7I7J7G6H6J6I5G5K5",
+      "//第297题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12E11F10F11F9H10G9I10I9H9H8K9I8K8J7H7K7I7",
+      "//第298题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10I9J10J9H9H8I8G7K8I7H7J7G6I6H6F5H5",
+      "//第299题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11E11F10H11G10J10I10E9G9H9H8I9I8G8G7K7I7I6J7J6",
+      "//第300题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H9J9I9F8I8H8G7H7J7G6G5H6J5K6G4I5K4",
+      "//第301题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10G11G10F9I9H9E8F8H8I8E7G7G6E6",
+      "//第302题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H11G9F10J9I9F8G8H8J8G7F7I7H5H6I5",
+      "//第303题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11I10H9J10I9E8H8G8F7E7G7I7I6G6I5H6",
+      "//第304题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11G12H11I12I10I11J9J10K9G9H8I9J8I7K7J6",
+      "//第305题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 64,
+      "stones": "J11J10I10H9K9I9H8K8I8F7J8F6G7H6K7G5H5I5J5J4",
+      "//第306题模式": "VCT"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10G12G10F11J10I10F9G9H9I9H8J8G7F7H6H7I6G6",
+      "//第307题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F9H9I9H8F8I8G8J8K8G6K7",
+      "//第308题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11E9F10G9F9G8F8I8H8F7J8G7H7I7G6H6",
+      "//第309题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11G12H11I11G10E10H10I10I9H9J9I8H8G7I7K7",
+      "//第310题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11J12J11F10H10I10G9H9I9F8G8I8H8K8H7G7J7K7",
+      "//第311题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H9J10I9H8F8J8I8G7K8K7G6H6G5",
+      "//第312题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10I10J10G9F9I9G8I8H8G7I7J7F6G6H6J6I6H5",
+      "//第313题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H11I10I9F8G8H8J8I8F7E7G7G6F6H5I6I5J6",
+      "//第314题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10D9H10F9I10H9E9E8G8I8H8G7E7I7F7H6F5H5",
+      "//第315题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J12J11F10K11H10G10I10G9J10I9J9I8H8K8J8H6I7J6",
+      "//第316题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9G10H8H10I8G9G7J8E6H7G6J7H6F6F5G4",
+      "//第317题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10I9K9J9H8G8J8L8F7I6J7J6K7G5",
+      "//第318题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H10G9I10H9F9I9J9K9G8H8J8F7I7G7F6H7I5",
+      "//第319题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11I10H10F9D8H9G8I8H8J8G7D7E6F7F5H7H5G5",
+      "//第320题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9G10H9E9G8J8H8E7I8H7K8K7J6H6",
+      "//第321题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "D9G10G9E9C8F9F8C7H8E7D7F7H7I7H5F6G4H6",
+      "//第322题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9H10G8I9H8F8I8H7G7J7I7H6H5K6I5G5",
+      "//第323题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G8F9H8G9F7E8I7H7I6H6H5G5F4G4",
+      "//第324题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H11H9J11J9G9F8I9H8I8J8I7H7J6J7H5I6I5",
+      "//第325题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11E12E10H12H10J11I10G10E9G9H9I9G8F8H8H7I8H6I6G5",
+      "//第326题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10I12K10K12G9H11J9F10G8H9H8K9J8I8F7G7H6H7",
+      "//第327题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E12F10I11I10E9D9H9I9H8G8I8G7E6H6",
+      "//第328题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11F10H11H10K10L10H9J9H8F8L8I8H7I7K7J5I6K5",
+      "//第329题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9F10F9G9H9I9H8F8H7G8I7F7E6H6",
+      "//第330题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11H10I10F8G8G7H8H7I7K7F6G6I6J6",
+      "//第331题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G12G11I12H11G10F9I9H9H8F8F7G8G7I7H6F6",
+      "//第332题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E11G10E10I10J10G9H9I9I8G8J8H8G7",
+      "//第333题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11F10H10H9I10I8H8K8J8G7I7K7G6F6I6I5",
+      "//第334题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H11H10G9G8I9H8I8J8E7I7G7J7F6G6J6I6I5",
+      "//第335题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11J9H9G8I9H8F8F7I8G7E7H7G5G6H5",
+      "//第336题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K11I11I10F9K10I9H8K9K8J7H7K7I6H6L6K6",
+      "//第337题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F8I9G8E8H8G7I6H7G5J6I5H5G4G3",
+      "//第338题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F9J10I9G9G8F8J8H8F7J7I7F6G6H5F5I5H4",
+      "//第339题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10I10H10H9G8F8H8I8I7H7G6H6G5I6",
+      "//第340题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10F11K10I10F9G9H9F8J9G8H8I8G7I7H7F6I6H6",
+      "//第341题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11F11G10H10F9I10I9J9H8G8I8J8H7G6I5H6",
+      "//第342题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11K9G9G8I9H8K8J8G6G7I6",
+      "//第343题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10E10E8H10H8F8F7G7F6H7H6I7E5I6",
+      "//第344题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F8I10H8I9I8J9J8G8G6I7J6J7G5F6J5G4",
+      "//第345题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9H10I9J10H8K8I8F7J8H7G6F6F5I6",
+      "//第346题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G10F9J10H8G9I8I9K7J8G6F6H6H5I6I5",
+      "//第347题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G10I9I10K9F9G8J8H8F7H7H6I6H5G5I5",
+      "//第348题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11H10J10E9H9G9F8I9G8J9H8E8I7F6H5G6",
+      "//第349题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9E10F9I10I9G9F8F7H8G7H7J7H6H5",
+      "//第350题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "D10E10F9F10G9D8E8F8H8G8H7E7E6F5",
+      "//第351题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11H10J10E9F8H9G8I8H8I7G7F6G6G5",
+      "//第352题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10J11F9E10I9G9G8I8H8E7H6H7",
+      "//第353题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10H11I9J9K9F8G8J8H8H7K7I7I6I5",
+      "//第354题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12G11I10I11G9F9H9F8K9I8H8J8J7H7H6G5",
+      "//第355题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9F10J9E9F8I9H8G8H7J8I7F7H6H5",
+      "//第356题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10J11F9I10L9I9H8K9J8K8H7G7J7H6K7K6H5I4",
+      "//第357题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11J11I11F10H10G10J10F9G8H9H8H6H7G5",
+      "//第358题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9H10I9K10H8F8I8K8J8H7G7I7H6F6J5J6",
+      "//第359题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G12H12G11K11I11G10I10H10G9F9G8I9H8F8I7I8J7H7K7J6",
+      "//第360题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I12F10K10J10I9G9G8H9H8J9I8K9J7F8G6H6",
+      "//第361题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H10J9I10G8H9H8I8H7J8I7I6G6G5H4H5",
+      "//第362题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10H10F9I10H8G9I8H9J8K8G7H7I5G6",
+      "//第363题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9I10I9F9H8H9K8J9E7F8I7I8I6J6J5I5",
+      "//第364题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10F9G9H9I9H8J9I8I7H7G6K7J6F5H5",
+      "//第365题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G12F10H10G10K10I10E9F9G9J9H9H8E8E7J8I7H7",
+      "//第366题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J12H12H11L12I11J11G10H10I10G9K10H9G8F8H8H7F7I7",
+      "//第367题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H11F9K11G9E9J9I9H8G8J8J7I7H6I6J6",
+      "//第368题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H9H8K9K8G8H7I7J6J7H5F6J5I6",
+      "//第369题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10G11F9G9H9I9F8J9H8E8I7H7I6J6",
+      "//第370题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H8I8I7L7K6J6I5L6J5H5L5L4G4I3I4G2",
+      "//第371题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9F10F9G10F8I9H8J9J8D8D7I8E7F7H6G7",
+      "//第372题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10F9J9H9G8F8H8J8F7E7G7J7H7H6I7G5",
+      "//第373题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10G11E8I11F8E9H8H9I8G8K8J8I7J7I6I5",
+      "//第374题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H13H12H11I12E10G11G10I10H10G9J10E8F9J8H9F7H8G7I7H7",
+      "//第375题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H10F9I10H9I9J9K9G8F8H8J7J8K7H7I6J6K6",
+      "//第376题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11F10F9H10G9E9F8I9G8E8H8H7I7I5J6K5",
+      "//第377题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11G11F10E10G10H9E8F8G8E7H8H7I6J7H5I5",
+      "//第378题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H11H9I9H8G8I7I8J7G6F6J5J6K5",
+      "//第379题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K11I10I9J10J9H9H8K8G7E7G6J7H4G5",
+      "//第380题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9J11K9F10G8L10H8I8J8G7K8H7I7L7J6H6G5K5",
+      "//第381题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H10H9J10I9E8F8G8H8E7I8H7F7I7",
+      "//第382题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9I10G8G9H8H9I8J9F7F8E6G7G6H7I5J6H4H5",
+      "//第383题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11I10G10F9J10E8E9F8H9H8F7J8I7G6G5",
+      "//第384题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10G11H10F10F9G9J9I9F8E8H8G6E7H6F5I5",
+      "//第385题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11J10E10F9H10H9I9G8E8H8G7H7I7F6H6I5I6J5H5",
+      "//第386题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10J10I9K10J9E9K9H9F8G8H8K8I8I7G7H5H6J5",
+      "//第387题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9I10I9K10J9F9F8G9H8H9G7K9H7J7I7F6J6H6",
+      "//第388题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11G10I11H10I10D9E9H9G8J8H8G7F7I7",
+      "//第389题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F10G9H10F8I10H8F9I8H9K8J8G7F6J7H6",
+      "//第390题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10G9H8J9J8I8I7K8L7H7I6H6J6K6G5H5J5I5",
+      "//第391题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11H10K10I10H9I9G8E8H8I8J8G7F7K7H7E6I7H6",
+      "//第392题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E10F9J10E8E9G8G9H8I9I8F8G7J7H7G6I7I6",
+      "//第393题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10F11F10H11G10D10H10I10E8G9H8F8F7G8I7J7J6F6",
+      "//第394题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10F11I9K10F8E9H8G8J8K8F7I7G7F6H7G6F5I5",
+      "//第395题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10I9H9H8E8F7I8G7J8I7H7J7K7G6F6J6G5H5K5",
+      "//第396题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H12H13G11I11J11F10G10H10I10H9G9K9F8G8H8H7I8I7",
+      "//第397题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11I10E10J10H10K9G9F8J9G8E8H8J8I8H7",
+      "//第398题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10F11G9I11H8J9J8G8K8I8G7L8H7I7J7L7J6K6K5H5",
+      "//第399题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10G10G9H10H9K10J9E9E8F9G8F8H8F7I8I7H7I6H6H5",
+      "//第400题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11I9F9F8E8G8J8H8K8H7G7F6J7I6H6H5F5",
+      "//第401题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E11H10H11D9D10F9G10F8H9H8J9J7F7E6H7",
+      "//第402题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10G10G9H10H9F9G8I9H8F7H7I7G6I6",
+      "//第403题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11F9E10H9G8F8H8J8I8E7F7H7G6H6I6F4G5G4",
+      "//第404题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11D12F10H9G10I9G9J9H8G8I8J8G7F7D6H7E6I7H6F6",
+      "//第405题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9F10I9J10H8H9K8I8G7F7H7K7I7E5F6I5J6K5",
+      "//第406题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11K12J11I11K11K10J10I9F8G8H8K7H7H6J7J6",
+      "//第407题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11G10F9G9H9I9J9E8H8G8F7I8G7E7H7G6H5H6",
+      "//第408题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10I11J10H9J9I9G8F8H8I8G7J8I7F7E6H7H6H5",
+      "//第410题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10F11E9G10G9F9D8G8F8C7H8G7I8I7H6E6I6F6E5F5",
+      "//第411题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11H11G9G10F8H9H8G8K8I8G7I7K7J7I6G6K6H6H5K5",
+      "//第412题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G10H8J10I8J9J8L9J7G8G6H7K6J6F5I5J5L5",
+      "//第413题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J9I10G8H9H8K9J8E8E7I8I7G7G6H7H6G5",
+      "//第414题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9G10I9H10G8G9H8J9G6G7I6H7K6J6J5H5",
+      "//第415题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G10I10K10J9H9H8G8I8I7H7J7J6F6G5H6",
+      "//第416题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9H10I9K10H8F8J8I8G7K8H7I7H6F6K6H5",
+      "//第417题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E11F11I11G11H10J11I10F10F9G9F8H9H8J8G7E7J6I7",
+      "//第418题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9H10H8I9F7F8H7G7K7J7L7L6I6J5",
+      "//第419题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F10G9I10I9H9H8G8I8K8F7F6G6H6I6G4J6H4",
+      "//第420题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H9F8J9H8J8H7L8J7G6K6H6H5I5",
+      "//第422题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K10H9G8K9H8F8J8K8G7H7H6J7I6F6K6G6",
+      "//第423题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F12E12F11G12I11I12G10F10H9I10H8J10I8I9G6H7K6J7",
+      "//第424题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "D10E10H10G10D9C9E8F9H8I9E7I8G6F7I6G7F5H6",
+      "//第425题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10I11G9H9F8G8H8E7I8H7I6J7E5H6F5H5",
+      "//第426题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9H10H9I10F8G8H8J8I8E7F7G7E6I7",
+      "//第427题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J12H11H10I11F9E9G9H9I9G8J9E7F8G7H8J6",
+      "//第428题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E10F9G9E8F8J8H8E7J7H7G6J6H6F5I6J5",
+      "//第429题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10G11F9F10J9I10K9L10F8H9H8I9K8H7F7J6K7K6",
+      "//第430题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11I10J10G9H9I9J9H8F8K8I7G7F5H6H5",
+      "//第431题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "D9C10D8D10E8C9H8F9I8E7E6H7G6D6D5F6E5C4",
+      "//第432题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11G10H10I10F8H9H8J8I8F7H7G7E6H6I5F5F4H5",
+      "//第433题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11G10F10I10I9G9F8H9G8J9H8E8F7E6I7F6G6J6K5I5",
+      "//第434题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H9H10I9H8G8H7I8J7J8K7G7F6K6G6J5L6K5",
+      "//第435题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10I9J9F8H8J8G7H7I7D6F6J5H6G4G5H4",
+      "//第436题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J9I10H8I8K8G7H6H7I6G6E5J6G5J5I5F4H4I4",
+      "//第437题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11H12H10G10I9J10E8G9F8G8H8J8I8F7G7G6H7H6",
+      "//第438题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H11H10F10E9G9H9G8H8K8F7E7G7I7H7E6I6H6",
+      "//第439题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9E10E8H9F8J9H8G8I8J7G7G6H7H6",
+      "//第440题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E11G10F11E9F9H9I9F8G8H8J8I8G7I7H6J7K6",
+      "//第441题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10H10E9J9I9K9H8F8K8J8G7H7I7F6J7I6H6G5J6K5",
+      "//第442题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11H12J11K12G10H10I10J10E8F9H8I9I8K8J8J6J7K6",
+      "//第443题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11J12G10H11H10F10J10H9G9I9J9G8H8I8H7J7I7H6K6L6",
+      "//第444题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10J10J9H9H8I8J8K8F7G7H7I7J7K7H4F4",
+      "//第445题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10E11I9F9G8H9H8I8J8G7F7H6H5I6",
+      "//第446题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11G11I11H10I9I10F8E9G8I8H8G7J7J6F6H5H6G4",
+      "//第447题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11H10H9I10I9G8H8J8I8F7K8I7G7J7K7F6H5I6",
+      "//第448题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "L11G11G10I10H10G9J10H9I9J9F8L8H8G7K8J7H7L7I7I6",
+      "//第449题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10J11J9I10L9M10H8I9J8K9K8L8M8J6H6K5M6M5",
+      "//第450题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I11I10H10H9K9I9G8K8H8F7J8H7G7J7J6G5",
+      "//第451题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I10F10J10H10G9I9H9J9G8F7H8H7I7G5H6I5",
+      "//第452题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10I10H9F9I9F8G8H8F7I8K7J7I6H6J6H5",
+      "//第453题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11I11I10G10E8H9F8J9H8G8I8E7G7J7E6G6K6H6",
+      "//第454题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10F9E9H9J9F8H8G8J8J7E7E6F7G6H6J6K5F5I4I5",
+      "//第455题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9K11I9G10K9I10F8J9H8G8I8J7H7H6K6I6",
+      "//第456题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11I11K10G10F9H10G9L10I9H9G8F8H8L8K7H7I6H6K5J6",
+      "//第457题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G9H9I9H8F8D7H7G7E6I7I6D6F5H6H5",
+      "//第458题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F9H10H9I10J9I9H8G8H7G7I7I5I6J5",
+      "//第459题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E9J10H9F9K9I9G8E8H8J8K8H7H6H5G5I5J5H4",
+      "//第460题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10G11H10I11I10J10I9H9G8F8H8J8K7G6H6K6G5I5",
+      "//第461题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F10F11K9H10G8F9H8G9K8J8I7H7G6J7I6H6J6J5K4K5",
+      "//第462题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H9H10F8I10H8G8J8G7F7H7L7J7J6K6I5L6",
+      "//第463题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J10H11H8G9K8I9G7J8H7I7K7J7J6K5H5H4",
+      "//第464题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11F12I11I10G10K10H10G9I9H9J9F8H8K7I8F6G7J6",
+      "//第465题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "I9I10H8G9I8K8I7G7F6J7G6E6H6J6I6H5K6I5",
+      "//第466题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K11H11G10I11H10J10G9H9F8I9H8E8I8G8F7E7H7G7I7J6",
+      "//第467题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11G10J9J10G8G9H8I9I7I8J7G7L7H7G6K7I6H5G5J5",
+      "//第468题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9G10J9I9H8I8F7G7H7I7H6G6I6H5",
+      "//第469题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G11G12H10I12J10G10H9I10J9I9H8F8I8H7F7J7G7I6",
+      "//第470题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "D9F11E9D10H9H10E8F9F8G8H8D7E7F7H7G7G6E6D5H5",
+      "//第471题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10G11I10E9F9H9J9K9H8G8H7I8J7J8G6K8H6F6I6H5",
+      "//第472题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10F9G9H9H8H7I8I7G6E6H6F6H5I5",
+      "//第473题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G10H10I10G9E9H9H8E8E7G8F7G6I7H6I6F5G5H5",
+      "//第474题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "K11G11H10I11E9I10I9J10G8G9H8F8I8K8J8I7H7H6",
+      "//第475题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11G10K11J10H9K10J9G9K9I9H8I8H7H6",
+      "//第476题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H11H12F10D11G10F11G9I10H9J9H8G8J8H7E6I7J6F6",
+      "//第477题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "F11G12I10F10E9J10F9G9I9H9G8J8H8G7I8H7F7I7J7I5",
+      "//第478题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "G9I10J9J10H8I9H7G8H6J8J5H5K5I5",
+      "//第479题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "E12I12H11F10G10H10J9G9G8I9H8E8F7I8I7G7G6H7H6G5",
+      "//第480题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11H10G10F9I10G9H8H7I7J7I6H6J6L6K6I5H5L5",
+      "//第481题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11H10G10F9I10G9H8H7I7J7I6H6J6L6K6I5H5L5",
+      "//第482题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "J11H10G10F9I10G9H8H7I7J7I6H6J6L6K6I5H5L5",
+      "//第483题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 67,
+      "stones": "H10I11G9F10F8I9H8G8G7G6F6H6G4F5",
+      "//第484题模式": "三手胜"
+    }
+  ]
+}

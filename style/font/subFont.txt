@@ -1,0 +1,44 @@
+Noto_Sans_SC        6840 char gb2312
+︾
+Noto_Sans           012345678,a~z,A~Z
+︾
+Symbola             emojisub.txt - "❌"
+︾
+system
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pingfang 
+︾
+PingFang Bold
+︾
+Symbola
+︾
+system
+
+6000+ gbk
+︽︾☆★▲○◎■
+emojisub.txt - "→←↑↓↖↗↙↘↔↕"
+
+
+012345678,a~z,A~Z
+◐
+emojisub.txt
+
+emojisub.txt - "❌"

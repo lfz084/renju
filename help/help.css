@@ -1,0 +1,427 @@
+@font-face {
+    font-family: mHeiTi;
+    src: url('../style/font/NotoSansSC-Regular.subset.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mHeiTi;
+    src: url('../style/font/NotoSansSC-Medium.subset.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mHeiTi;
+    src: url('../style/font/NotoSansSC-SemiBold.subset.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: mHeiTi;
+    src: url('../style/font/NotoSansSC-Bold.subset.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+body * { max-height: 999999px; }
+
+html,
+body {
+    height: 100%;
+    width: 800px;
+    /*viewport width=800*/
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 300;
+    line-height: 2;
+    scroll-behavior: auto;
+    /*smooth;*/
+    -webkit-user-select: text;
+    -ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+    -webkit-overflow-scrolling: touch;
+    /*background-color: #303030*/
+    /* Chrome/Safari/Opera */
+}
+html::-webkit-scrollbar {
+	display: none;
+}
+body::-webkit-scrollbar {
+	display: none;
+}
+
+body.loading {
+    opacity: 0;
+}
+
+body.finish {
+    opacity: 1;
+    animation: finish 1000ms ease-in;
+    animation-fill-mode: both;
+}
+
+
+@keyframes finish {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes loading {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+
+div.topDiv {
+    width: 770px;
+    height: 200px;
+    margin: 15px 15px;
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 300;
+    /*
+    border-bottom: 5px outset #ccc;
+    display: table-cell;
+    vertical-align: bottom;
+    */
+}
+
+div.buttomDiv {
+    width: 770px;
+    height: 200px;
+    margin: 15px 15px;
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 300;
+    /*
+    border-top: 5px inset #ccc;
+    display: table-cell;
+    vertical-align: top;
+    */
+}
+
+div.bodyDiv {
+    width: 750px;
+    margin: 25px 25px;
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 300;
+}
+
+a {
+    color: #683366;
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 600;
+    line-height: 2;
+    cursor: pointer;
+}
+
+/* 未被访问的链接 */
+a:link {
+    color: #683366;
+}
+
+/* 已被访问的链接 */
+a:visited {
+    color: #683366;
+}
+
+/* 将鼠标悬停在链接上 */
+a:hover {
+    color: #885588;
+    text-decoration: underline;
+}
+
+/* 被选择的链接 */
+a:active {
+    color: #228;
+    text-decoration: underline;
+}
+
+
+h3 {
+    color: #222;
+    font-size: 36px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 10px 10px;
+}
+
+
+
+h4 {
+    color: #222;
+    font-size: 32px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 10px 10px;
+}
+
+
+.cancelFocus {
+
+    animation: cancelFocus 700ms ease-in;
+    animation-fill-mode: both;
+}
+
+
+@keyframes cancelFocus {
+    0% {
+        /*background-color: #ccc;*/
+    }
+
+    100% {
+        /*background-color: #dddddd;*/
+    }
+}
+
+
+.focus {
+    border: 5px solid green; /*防止 safari 下设置失败*/
+    animation: focus 700ms ease-in;
+    animation-fill-mode: both;
+}
+
+@keyframes focus {
+    0% {
+        border: 5px solid green;
+        /*background-color: #dddddd;*/
+    }
+
+    100% {
+        /*background-color: #ccc;*/
+        border: 5px solid green;
+    }
+}
+
+
+ul,
+ol {
+    color: #228;
+    font-size: 25px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 300;
+    line-height: 2;
+}
+ul li::marker {
+    color: #228;
+}
+ol li::marker {
+    color: #228;
+}
+
+ul[colorDepth="0"],
+ol[colorDepth="0"] {
+    background-color: #d8d8d8;
+    border: 1px solid #d5d5d5;
+}
+
+ul[colorDepth="1"],
+ol[colorDepth="1"] {
+    background-color: #d3d3d3;
+    border: 1px solid #cccccc;
+}
+
+ul[colorDepth="2"],
+ol[colorDepth="2"] {
+    background-color: #cdcdcd;
+    border: 1px solid #c5c5c5;
+}
+
+ul[colorDepth="3"],
+ol[colorDepth="3"] {
+    background-color: #c8c8c8;
+    border: 1px solid #bcbcbc;
+}
+
+ul[colorDepth="4"],
+ol[colorDepth="4"] {
+    background-color: #c3c3c3;
+    border: 1px solid #b5b5b5;
+}
+
+ul[colorDepth="5"],
+ol[colorDepth="5"] {
+    background-color: #bdbdbd;
+    border: 1px solid #acacac;
+}
+
+ul[colorDepth="6"],
+ol[colorDepth="6"] {
+    background-color: #b8b8b8;
+    border: 1px solid #a5a5a5;
+}
+
+
+
+li {
+    color: #222;
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 600;
+    line-height: 2;
+}
+
+img {
+    opacity: 0.68;
+}
+
+text {
+    color: #333;
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 300;
+    line-height: 2;
+}
+
+mark {
+    color: #333;
+    background-color: #dddd88;
+    font-size: 30px;
+    font-family: mHeiTi, Roboto, emjFont, Symbola;
+    font-weight: 300;
+    line-height: 2;
+}
+
+@keyframes showFocus {
+    0% {
+        opacity: 0.8;
+        height: 0px;
+    }
+
+    100% {
+        opacity: 0;
+        height: 100px;
+    }
+}
+
+
+.showFocus {
+    background-color: white;
+    width: 100%;
+    animation: showFocus 700ms ease-in;
+    animation-fill-mode: both;
+}
+
+
+@keyframes hideFocus {
+    0% {
+        opacity: 0;
+        height: 100px;
+    }
+
+    100% {
+        opacity: 0;
+        height: 0px;
+    }
+}
+
+
+.hideFocus {
+    background-color: white;
+    width: 100%;
+    animation: hideFocus 700ms ease-in;
+    animation-fill-mode: both;
+}
+
+
+@keyframes showList {
+    0% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.showList {
+
+    animation: showList 500ms ease-in;
+    animation-fill-mode: both;
+}
+
+
+@keyframes hideList {
+    0% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hideList {
+
+    animation: hideList 500ms ease-in;
+    animation-fill-mode: both;
+}
+
+
+
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        display: block;
+        -ms-transform: scale(0.6);
+        transform: scale(0.6);
+
+    }
+
+    100% {
+        opacity: 0.937;
+        -ms-transform: scale(1);
+        transform: scale(1);
+        display: none;
+    }
+}
+
+
+@keyframes hide {
+    0% {
+        opacity: 0.937;
+        -ms-transform: scale(1);
+        transform: scale(1);
+        display: block;
+    }
+
+    100% {
+        opacity: 0;
+        -ms-transform: scale(0.6);
+        transform: scale(0.6);
+        display: none;
+
+    }
+}
+
+.show {
+
+    background-color: red;
+    animation: show 300ms ease-in;
+    animation-fill-mode: both;
+}
+
+.hide {
+
+    animation: hide 300ms ease-in;
+    animation-fill-mode: both;
+}

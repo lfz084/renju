@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		textarea {
+			width: 980px;
+			height: 980px;
+			border: "5px solid black";
+		}
+	</style>
+	<script src="md5/md5.min.js"></script>
+</head>
+
+<body>
+	<textarea id="textarea"></textarea>
+	<script>
+		document.body.onload = function() {
+		try{
+			let versionInfo;
+			function createMD5(url) {
+				return fetch(url + "?=cache=onlyNet")
+					.then(response => response.ok ? response.arrayBuffer() : Promise.reject())
+					.then(buffer => {
+						const hash = md5.create();
+						hash.update(buffer);
+						return hash.hex();
+					})
+					.catch(() => Promise.reject(`fetch error: ${url}`))
+			}
+			
+			fetch("Version/SOURCE_FILES.json?cache=onlyNet")
+				.then(response => response.ok ? response.json() : Promise.reject("fetch SOURCE_FILES.json error"))
+				.then(info => {
+					const ps = [];
+					versionInfo = info;
+					versionInfo["md5"] = {};
+					const keys = Object.keys(versionInfo.files);
+					keys.map(key => ps.push(createMD5(versionInfo.files[key]).then(md5code => versionInfo["md5"][key] = md5code)))
+					return Promise.all(ps);
+				})
+				.then(() => document.getElementById("textarea").value = JSON.stringify(versionInfo, null, 2))
+				.catch(e => {
+					alert(e && e.stack || e)
+				})
+			
+		}catch(e){alert(e.stack)}
+		}
+	</script>
+</body>
+
+</html>

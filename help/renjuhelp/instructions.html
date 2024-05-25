@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>使用说明</title>
+    <link rel="preload" href="../help.css" as="style" />
+    <link rel="preload" href="../help.js" as="script" />
+    <link href="../help.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="loading">
+    <script src="../help.js"></script>
+    <h4>棋盘支持的操作
+        <ul>...
+            <text>
+                <li><b>触摸操作方式</b></li>
+                <ul>...
+                    <li>单击</li>
+                    <ul id="touchClick">...
+                        <li>添加<a href="#addNum">棋子</a>，<a href="#addLb">标记</a>...</li>
+                        <li>点击棋子，标记 可以删除<a href="#cleNum">棋子</a>，<a href="#cleLb">标记</a>...</li>
+                    </ul>
+                    <li>双击</li>
+                    <ul id="touchDbClick">...
+                        <li>双击棋子<a href="#cleNumFlash">快速悔棋</a></li>
+                        <li>双击空格，弹出<a href="#editLb">编辑标记窗口</a></li>
+                    </ul>
+                    <li>长按</li>
+                    <ul id="keepTouch">...
+                        <li>长按棋盘边框区域，放大/缩小棋盘</li>
+                        <li>长按棋盘中间区域，弹出菜单</li>
+                        <li>添加图片时，触发<a href="#drag">拖动操作</a></li>
+                        <li>长按最后一手棋，更改最后一手棋的显示方式</li>
+                    </ul>
+                    <li>拖动</li>
+                    <ul>...
+                        <li>加载棋盘图片时<a href="#lockCBD">对齐棋盘</a>格子</li>
+                    </ul>
+                    <li>双指缩放</li>
+                    <ul>...
+                        <text>软件默认是不可以进行缩放操作的，但是在<a href="#loadImg">输入棋盘图片</a>时可以缩放，放大图片可以帮你精确定位棋盘坐标。</text>
+                        <mark>很多浏览器都默认开启强制缩放功能，这时候缩放功能将不被限制。</mark>
+                    </ul>
+                </ul>
+            </text>
+            <text>
+                <li><b>鼠标操作方式</b></li>
+                <ul>...
+                    <li>左键单击 = <a href="#touchClick">触摸单击</a></li>
+                    <li>左键双击 = <a href="#touchDbClick">触摸双击</a></li>
+                    <li>右键单击 = <a href="#keepTouch">触摸长按</a></li>
+                </ul>
+            </text>
+        </ul>
+    </h4>
+    <h4>按钮功能的介绍
+        <ul>...
+            <li>分享图片, 分享原图</li>
+            <ul>...
+                <text>利用浏览器的分享功能把棋盘图片分享到社交软件。</text>
+            </ul>
+            <li>清空标记</li>
+            <ul>...
+                <text>清除棋盘上面的标记</text>
+            </ul>
+            <li>帮助</li>
+            <ul>...
+                <text>打开帮助文档</text>
+            </ul>
+            <li>||<< , <<,>>, >>||</li>
+            <ul>...
+                <text>前进，后退按钮</text>
+            </ul>
+            <li>设置</li>
+            <ul>...
+                <li>显示手数</li>
+                <li>显示禁手</li>
+                <li>显示路线</li>
+                <mark>PS：显示活三，冲四的路线</mark>
+                <li>放大棋盘</li>
+                <li>设置棋盘大小</li>
+                <li>设置棋盘坐标</li>
+                <li>加载按键设置</li>
+                <li>设置按键位置</li>
+            </ul>
+            <li>新棋局</li>
+            <ul>...
+                <text>清空棋盘，重新开始摆棋</text>
+            </ul>
+            <li>↔180°， ↗90°</li>
+            <ul>...
+                <text>翻转棋盘，会清除掉所有标记</text>
+            </ul>
+            <li>←，→，↑，↓</li>
+            <ul>...
+                <text>移动棋盘，只会清除掉线段，箭头标记</text>
+            </ul>
+            <li>黑先，白先</li>
+            <ul>...
+                <text>设置计算时的先手方</text>
+            </ul>
+            <li>找点</li>
+            <ul>...
+                <li>VCT选点</li>
+                <ul>...
+                    <text>找出VCT的攻击点。找VCT攻击点 ≠ (找活三级别+找冲四点)</text>
+                </ul>
+                <li>做V点</li>
+                <ul>...
+                    <text>找出符合五子茶馆定义的做V点。</text>
+                    <mark><b>做V点：</b>做一手棋，假设对方不防，下一手就可以VCF的点。(<i>这里的VCF，是指两步以上冲四的VCF。不包括黑棋的四三，白棋的四四等...)</i></mark>
+                </ul>
+                <li>做43杀</li>
+                <ul>...
+                    <text>找出做43杀点。包括白棋的做44，做单冲四抓禁手。</text>
+                    <mark><b>做43点：</b>做一手棋，假设对方不防，下一手就可以四三胜的点。</mark>
+                </ul>
+                <li>活三级别</li>
+                <ul>...
+                    <text>找出所有活三级别的进攻点。</text>
+                </ul>
+                <li>活三</li>
+                <li>三三</li>
+                <li>四四</li>
+                <li>长连</li>
+                <li>五连</li>
+                <li>活四</li>
+                <li>冲四</li>
+                <li>眠三</li>
+            </ul>
+            <li>解题</li>
+            <ul>...
+                <li>快速找VCF</li>
+                <ul>...
+                    <text>找到一个VCF就退出。</text>
+                </ul>
+                <li>找全VCF</li>
+                <ul>...
+                    <text>把所有的VCF路线都找出来。</text>
+                </ul>
+                <li>找双杀</li>
+                <ul>...
+                    <text>找五子茶馆定义的狭义双杀点。</text>
+                    <ul>...
+                        <img width=80% style="position: relative;left:0%" src="instructions/twoVCF0.svg" />
+                        <text><b>五子茶馆定义的狭义双杀：</b>第一手做两套以上的活三级别杀(第一手不能是直接活三点)，不管对方怎么防守，都可以在下一手开始VCF胜。</text>
+                        <mark>PS：上面定义了典型的双杀点。其实还有一些特例也属于狭义双杀点。
+                            <ol>...
+                                <li>第一手是复活三点</li>
+                                <ul>...
+                                    <text>前面定义了第一手不能是直接活三点，好像就剩下做43，做VCF的手段了。其实黑棋的活三级别手段还有复活三。</text>
+                                    <ul>...
+                                        <img width=80% style="position: relative;left:0%" src="instructions/twoVCF1.svg" />
+                                    </ul>
+                                </ul>
+                                <li>对方用了先手冲四</li>
+                                <ul>...
+                                    <text>如果对方用了先手冲四，下一手不能直接VCF了，那这样好像就不是双杀了。其实不能这样判断，只要挡完冲四后还可以保持活三级别以上的进攻，就还要继续深入计算。直到防守方没有冲四了，再VCF也是狭义双杀。</text>
+                                    <ul>...
+                                        <text>虽然第三手不是VCF,但是第一手还是双杀点</text>
+                                        <img width=80% style="position: relative;left:0%" src="instructions/twoVCF2.svg" />
+                                    </ul>
+                                </ul>
+                            </ol>
+                        </mark>
+                    </ul>
+                </ul>
+                <li>大道五目</li>
+                <ul>...
+                    <text>限珠题，解题要求是两颗棋子内43胜。</text>
+                    <ul>...
+                        <text>大道五目属于四手五连的一个分支，可以看做简单模式的四手五连</text>
+                        <ul>...
+                            <img width=80% style="position: relative;left:0%" src="instructions/simpleWin.svg" />
+                        </ul>
+                    </ul>
+                </ul>
+                <li>三手五连</li>
+                <ul>...
+                    <text>限珠题，解题要求是三颗棋子内五连胜。</text>
+                    <ul>...
+                        <text>第一手活三级别，第二手<a href="#freeFourLevel">活四级别</a>，第三手五连。</text>
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/threeWin0.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/threeWin1.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/threeWin2.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/threeWin3.svg" />
+                    </ul>
+                    <mark id="freeFourLevel"><b>活四级别：</b>指活四，白棋的四四，白棋的单冲四抓禁手。它们距离五连就还差一颗棋子。</mark>
+                </ul>
+                <li>四手五连</li>
+                <ul>...
+                    <text>限珠题，解题要求是四颗棋子内五连胜。</text>
+                    <ul>...
+                        <text>黑先，第一手活三级别，第二手活三级别，第三手<a href="#freeFourLevel">活四级别</a>，第四手五连。</text>
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin0.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin1.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin2.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin3.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin4.svg" />
+                        <text>白先，第一手活二级别，第二手活三级别，第三手<a href="#freeFourLevel">活四级别</a>，第四手五连。</text>
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin5.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin6.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin7.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin8.svg" />
+                        <p></p>
+                        <img width=80% style="position: relative;left:0%" src="instructions/fourWin9.svg" />
+                    </ul>
+                </ul>
+                <li>禁手路线分析</li>
+                <ul>...
+                    <text>判断棋盘上面的禁手点和假禁手点。</text>
+                </ul>
+                <li>防冲四抓禁</li>
+                <ul>...
+                    <text>找五子茶馆定义的防单冲四抓禁点。</text>
+                </ul>
+                <li>找VCF防点(深度+1)</li>
+                <ul>...
+                    <text>先找第一套VCF的防点，然后验证下一手棋是否还有VCF，排除还有VCF的防点。</text>
+                </ul>
+                <li>找VCF防点(深度+∞)</li>
+                <ul>...
+                    <text>找所有VCF的共防点，会把所有冲四分支冲完为止。</text>
+                </ul>
+                <li>坂田三手胜</li>
+                <ul>...
+                    <text>算法还不成熟，可能出现错解。</text>
+                </ul>
+                <li>VCT</li>
+                <ul>...
+                    <text>算法还不成熟，计算效率太低。</text>
+                </ul>
+            </ul>
+            <li>⇨VCF</li>
+            <ul>...
+                <text>切换VCF路线</text>
+            </ul>
+            <li> ◐</li>
+            <ul>...
+                <text>黑，白轮流添加棋子。会按添加顺序记录棋子，可以设置显示手数。</text>
+                <ol>...
+                    <li id="addNum">点击空格，添加棋子</li>
+                    <li id="cleNum">点击棋子，删除最后一手棋</li>
+                    <li id="cleNumFlash">双击第n手棋，快速悔棋到第n手</li>
+                </ol>
+            </ul>
+            <li>●,○</li>
+            <ul>...
+                <text>自由添加棋子。不会记录棋子的添加顺序，不能显示手数。</text>
+                <ol>...
+                    <li>点击空格，添加棋子</li>
+                    <li>点击棋子，删除棋子</li>
+                </ol>
+            </ul>
+            <li>■, ◎, ▲, ✖,</li>
+            <ul>...
+                <text>设置添加的标记符号，在棋盘空格上面添加标记。</text>
+                <ol>...
+                    <li id="addLb">点击空格，添加标记</li>
+                    <li id="cleLb">点击标记，删除标记</li>
+                    <li id="editLb">双击空格(标记)可以弹出编辑标记窗口</li>
+                    <mark>在自由添加的棋子上面也可以添加标记</mark>
+                </ol>
+            </ul>
+            <li>←箭头...</li>
+            <ul>...
+                <text>添加更多的标记</text>
+                <ul>...
+                    <li>箭头和线条标记</li>
+                    <ul>...
+                        <li>添加箭头，线条</li>
+                        <ol>...
+                            <li>点击棋盘交叉线，选择起点</li>
+                            <li>在米字线与棋盘坐标交叉点上面点击，确认结束点</li>
+                            <img width=80% style="position: relative;left:0%" src="instructions/createLine.jpg" />
+                        </ol>
+                        <li>选择和删除</li>
+                        <ol>...
+                            <li>点击线条与棋盘坐标的交叉点，选择线条。有重合的优先选择最上层。</li>
+                            <li>在选定的线条与棋盘坐标交叉点上面，点击删除。</li>
+                            <img width=80% style="position: relative;left:0%" src="instructions/deleteLine.jpg" />
+                        </ol>
+                        <mark>PS：箭头标记, 字符标记，棋子，线条标记的图层关系是从上到下的关系，即箭头在最上层。在同一图层的标记当中，后添加的覆盖在上面。</mark>
+                    </ul>
+                    <li>ABC...， abc...， 123...</li>
+                    <ul>...
+                        <text>连续输入字母，数字标记</text>
+                    </ul>
+                    <li>自定义标记</li>
+                    <ul>...
+                        <text>连续输入编辑好的标记</text>
+                    </ul>
+                    <li>❌, ☆ </li>
+                    <img width=80% style="position: relative;left:0%" src="instructions/mark.svg" />
+                </ul>
+            </ul>
+            <li>下手为❶</li>
+            <ul>...
+                <text>忽略前面的手数，下一手棋开始为第一手</text>
+                <ul>...
+                    <img width=80% style="position: relative;left:0%" src="instructions/nextOne.svg" />
+                </ul>
+            </ul>
+            <li>重置手数</li>
+            <ul>...
+                <text>恢复最开始的手数</text>
+                <ul>...
+                    <img width=80% style="position: relative;left:0%" src="instructions/resetNum.svg" />
+                </ul>
+            </ul>
+            <li>输入代码</li>
+            <ul>...
+                <text>输入棋局的代码，字母不分大小写。输入代码过程中，程序会自动过滤代码中的无意义字符。比如输入“五子棋h8五子棋h9五子棋” = “h8H9” = “H8H9”)</text>
+            </ul>
+            <li>输出代码</li>
+            <ul>...
+                <text>输出的代码分三部分[标准代码部分+{自由添加的黑子坐标}+{自由添加的白子坐标}]</text>
+                <ul>...
+                    <img width=80% style="position: relative;left:0%" src="instructions/code.jpg" />
+                </ul>
+            </ul>
+            <li>输入图片</li>
+            <ul id="loadImg">...
+                <text>把棋局截图输入棋盘。在手机上面你可以从相册打开图片，也可以拍照打开图片。</text>
+                <ol>...
+                    <li>校准图片上面的坐标</li>
+                    <ol id="lockCBD">...
+                        <li>设置行数，列数。</li>
+                        <text>根据棋盘图片可视区域的行数，列数设置。</text>
+                        <li>校准棋盘坐标</li>
+                        <text id="drag">长按棋盘，触发拖动操作。先让虚线方框对齐棋盘，再微调虚线方框，使得虚线圆圈尽可能对准图片中棋子。</text>
+                        <mark>PS：只要对准棋盘两个对角，就可以快速对齐棋盘。点击虚线框边角，可以微调整。有的棋盘图片 棋子不是正对棋盘交叉线，以虚线圆圈对正棋子为准。小屏手机用户可以双指缩放图片，看的更清楚哦</mark>
+                        <img width=80% style="position: relative;left:0%" src="instructions/selectBoard.jpg" />
+                    </ol>
+                    <li>自动识别棋子</li>
+                    <ol>...
+                        <li>点击自动识别</li>
+                        <mark>PS：自动识别原理 是通过计算棋子坐标附近的 平均颜色来实现的。所以前面校准棋盘很重要，如果颜色太过丰富的棋盘 是很难识别成功的。</mark>
+                        <li>验证棋子是否准确</li>
+                        <text><mark>为了方便对比，红色五角星代表黑子，黑色五角星代表白子。</mark>自动识别的棋子可能会有误差，这个时候就可以手动编辑一下棋子</text>
+                        <li>●：添加，删除黑子</li>
+                        <li>○：添加，删除白子</li>
+                        <img width=80% style="position: relative;left:0%" src="instructions/putBoard.jpg" />
+                    </ol>
+                    <li>摆入棋子</li>
+                    <ol>...
+                    <text>如果不是标准的15路棋盘，需要定位天元点。长按(或鼠标右键点击)图片上面的天元点 进行定位。</text>
+                    </ol>
+                </ol>
+            </ul>
+            <li>截图</li>
+            <ul>...
+                <text>快速截图</text>
+                <mark>苹果手机的浏览器上面不能自动下载截图，只能查看截图。如果要保存截图，可以长按图片弹出菜单。</mark>
+            </ul>
+        </ul>
+    </h4>
+    <h4>菜单的操作
+        <ul>...
+            <li>触摸上下滑动</li>
+            <li>点击按钮︾，︽滚动菜单</li>
+            <mark>PS：带有▼标记的按钮都可以弹出菜单。在棋盘上面长按(或者鼠标右键)可以弹出菜单。</mark>
+        </ul>
+    </h4>
+    <h4>浏览器的兼容性
+            <ul id="browser">...
+                <li>安卓手机推荐使用Chrome, Opera浏览器</li>
+                <li>苹果手机推荐使用Safari浏览器</li>
+                <li>经过测试发现，手机QQ自带浏览器也支持大部分功能</li>
+                <mark>如果有部分功能不能正常运行，请尝试使用推荐的浏览器，并更新到最新版本。</mark>
+            </ul>
+	</h4>
+	<h4>离线工作
+            <ul id="offLine">...
+                <text>软件会自动保存你打开过的网页，用来支持离线运行。当你在没有网络的情况下，也可以正常打开软件。你不需要担心更新的问题，直到你下次连上网络时，软件会自动为你下载最新版本。</text>
+            </ul>
+    </h4>
+	<h4>如何下载app
+            <ul id="pwa">...
+                <text>在最新版的浏览器上面，支持将网页保存为一个app。你可以获得类似原生app一样的体验。请参考下面的操作进行设置。</text>
+                <ul>...
+                    <li>安卓手机 Chrome 浏览器的设置</li>
+                    <ul>...
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_c1.jpg" /><br>
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_c2.jpg" /><br>
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_c3.jpg" /><br>
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_c4.jpg" /><br>
+                    </ul>
+                    <li>苹果手机 Safari 浏览器的设置</li>
+                    <ul>...
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_s1.jpg" /><br>
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_s2.jpg" /><br>
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_s3.jpg" /><br>
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa_s4.jpg" /><br>
+                    </ul>
+                    <li>软件运行效果</li>
+                    <ul>...
+                        <img width=80% style="position: relative;left:0%" src="instructions/pwa.png" />
+                    </ul>
+                </ul>
+            </ul>
+	</h4>
+</body>
+
+</html>

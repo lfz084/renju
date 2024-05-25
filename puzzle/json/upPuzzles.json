@@ -1,0 +1,143 @@
+[
+	{
+		"title": "五子茶馆小题目大全",
+		"puzzles": [
+			{
+				"index": 2,
+				"puzzle": {
+					"blackStones": "B7C1D3E4F3F2F1G3G2G1H4J2",
+    				"whiteStones": "B1E3H7H3H2I2J6J1"
+    			}
+			},
+			{
+				"index": 4,
+				"puzzle": {
+					"options": "c9d9d8"
+				}
+			},
+			{
+				"index": 96,
+				"puzzle": {
+					"options": "k10e9f5f4g8g7g6g5h7i8"
+				}
+			},
+			{
+				"index": 110,
+				"puzzle": {
+					"options": "e12f12h12j12k12l11e10h10i10j10"
+				}
+			},
+			{
+				"index": 121,
+				"puzzle": {
+					"comment": "白1做VCF，找出黑棋所有的防点",
+					"labels": ["i6,1"]
+				}
+			}
+		]
+	},
+	{
+		"title": "入门题白先三手詰",
+		"puzzles": [
+			{
+				"index": 61,
+				"puzzle": {
+					"stones": "G10K10H10F9J9H9H8I9I8G8F7E6H7G6F6D4F3",
+					"mode": 67
+				}
+			},
+			{
+				"index": 174,
+				"puzzle": {
+					"stones": "H11H12J11I11K11H10F10I10G10G9J10H9I9J9L9K9F8H8H7M13K15",
+					"mode": 67
+				}
+			}
+		]
+	},
+	{
+		"title": "五子茶馆解题大赛01~10届",
+		"puzzles": [
+			{
+				"index": 25,
+				"puzzle": {
+					"options": "D14G11G13"
+				}
+				},
+			{
+				"index": 66,
+				"puzzle": {
+					"options": "A9B10B12D9D11D14D15F12F14G12G15I12"
+				}
+				},
+			{
+				"index": 90,
+				"puzzle": {
+					"comment": "黑1做四三杀，白棋找出所有(先手防点)"
+				}
+				},
+			{
+				"index": 91,
+				"puzzle": {
+					"options": "k8g14g11d13d11c12b11"
+				}
+				}
+			]
+	},
+	{
+		"title": "五子茶馆解题大赛11~20届",
+		"puzzles": [
+			{
+				"index": 5,
+				"puzzle": {
+					"options": "F12H12"
+				}
+			},
+			{
+				"index": 32,
+				"puzzle": {
+					"options": "J14H4",
+					"whiteStones": "A15B14B1C2D3E14L12M15N11O14O13"
+				}
+			},
+			{
+				"index": 74,
+				"puzzle": {
+					"comment": "图中黑棋有几个活三\nA: 2个\nB: 3个\nC: 4个\nD: 5个"
+				}
+			},
+			{
+				"index": 75,
+				"puzzle": {
+					"options": "J2"
+				}
+			},
+			{
+				"index": 94,
+				"puzzle": {
+					"rotate": 0
+				}
+			},
+			{
+				"index": 150,
+				"puzzle": {
+					"comment": "图中X是几层禁手判断\nA: 2层\nB: 3层\nC: 4层\nD: 5层",
+					"labels": ["B2,A","E2,B","K2,C","N2,D","D13,X"]
+				}
+			}
+		]
+	},
+	{
+		"title": "五子茶馆解题大赛21~47届",
+		"puzzles": [
+			{
+				"index": 189,
+				"puzzle": {
+					"options": "I7"
+				}
+			}
+		]
+	}
+	
+]
+      

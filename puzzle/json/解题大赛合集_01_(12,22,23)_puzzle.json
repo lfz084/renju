@@ -1,0 +1,808 @@
+{"link": "https://lfz084.gitee.io/renju/puzzle.html",
+  "defaultSettings": {
+    "title": "五子茶馆解题大赛双杀赛01-03期"
+  },
+  "puzzles": [
+    {
+      "image": "data:image/jpeg;base64,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73zn/NV/dWKdt7dURP8Aj1esPe+wV82PdIrePODePOEdfF6975z/AJqv7ni9e985/wA1X93Lrra5FXrB1fr5se6RW8ecG8ecI6+L173zn/NV/c8Xr3vnP+ar+511tcir1g6v182PdIrePODePOEdfF6975z/AJqv7ni9e985/wA1X9zrra5FXrB1fr5se6RW8ecG8ecI6+L173zn/NV/c8Xr3vnP+ar+511tcir1g6v182PdIrePODePOEdfF6975z/mq/ueL173zn/NV/c662uRV6wdX6+bHukVvHnBvHnCOvi9e985/wA1X9zxeve+c/5qv7nXW1yKvWDq/XzY90it484N484R18Xr3vnP+ar+54vXvfOf81X9zrra5FXrB1fr5se6RW8ecG8ecI6+L173zn/NV/c8Xr3vnP8Amq/uddbXIq9YOr9fNj3SK3jzg3jzhHXxeve+c/5qv7ni9e985/zVf3OutrkVesHV+vmx7pFbx5wbx5wjr4vXvfOf81X9zxeve+c/5qv7nXW1yKvWDq/XzY90it484N484R18Xr3vnP8Amq/ueL173zn/ADVf3OutrkVesHV+vmx7pFbx5wbx5wjr4vXvfOf81X9zxeve+c/5qv7nXW1yKvWDq/XzY90it484N484R18Xr3vnP+ar+54vXvfOf81X9zrra5FXrB1fr5se6RW8ecG8ecI6+L173zn/ADVf3cZydemf+m8/5qv7nXW1yKvWDq/XzY90jN484N484R1jK16I/wCms+f+9V/c8Xr3vnP+ar+511tcir1g6v182PdIrePODePOEdfF6975z/mq/ueL173zn/NV/c662uRV6wdX6+bHukVvHnBvHnCOvi9e985/zVf3PF6975z/AJqv7nXW1yKvWDq/XzY90it484O9HnCOvite985/zVf3W6snX6KvxJ1vUNo/1Yyq/u4V7cWqKZq+hV6wnq/c7rse6R2+6rE3B3aJTi2rWHqN7IuXdp/a3Jmr2+2ZZKw823mW+/bud6JjflKzZVtDhM1pjoT0ap7pV/E4S7hatK43f274tUT3p33ldWaJnvh0wByAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0M/UKMLHruVzERTvPV3p6SxJ2g8TTlTcwcS7+1t3qqbkeyNpmJVTaLNpyrC9On8qt0PQwOFnF3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",
+      "mode": 0,
+      "comment": ""
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F10F11G10E10H10J10E9G9F9H9D8E8F8I8G8C7H8F7G7H6F6E5",
+      "//第01题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "blackStones": "D13D11D9E15F13J15K14",
+      "whiteStones": "A12B12D12E14E13J14J13K15K13",
+      "//第02题模式": ""
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I10J11J10H10K10H9J9I9H8G8I8K8J8H7",
+      "//第03题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I13I14H12G13I12H13I11J12J11K11I10L10J10H9K10I9J9G8H8K8I8H7",
+      "//第04题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "K13H13I12J12L12K12J11M12K11I11L11M11I10L10J10H9K10I9J9G8H8K8I8H7",
+      "//第05题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I13I14G12F13I12J13J12K13H11H12I11E11K11G11F10E10G10J10H10L10I10H9G9I9H8F8",
+      "//第06题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I13H14H12L12J12H11G11I11K11J11G10F10I10H10J10H9L10M9I9I8J9G7H8J7",
+      "//第07题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10D10E9I10I9L10K9G9F8H9H8I8J8K7G7F6",
+      "//第08题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "J12F10G10H10I10H9J10F8F9I8G9F7I9G7H8H7I7H6G6F5I5",
+      "//第09题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10K11I10K10J10G9I9H9H8J9J8K7",
+      "//第10题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I9H10K9H9L9J9H8I8J8G7I7L7J7H6K7J6",
+      "//第11题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "D11F12F11E11G11K11D10I10E10F9H10G9J10H9D9C8I9D8G8F8H8J8",
+      "//第12题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H12I13G11F12H10H11F9J10I9H9E8F8H8G8F7D7G7H7G6H5",
+      "//第13题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I12J11I10K11J10F10I9K10J9H9H8I8K8G7I7H7G6J7I6L7K6H6G5H5",
+      "//第14题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G12G13G11F12I11H12J11J12G10K11H10I10J10H9I9I8H8G7",
+      "//第15题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F12G13G12J13I12H12J12I11G11K11H11H10J11I10G10H9J10J9I9I8H8G7",
+      "//第16题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I12J13H11G12K11L12G10J11I10H10J10H9I9I8J9F7H8G7",
+      "//第17题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "C12B13E12F13F12H13G12D12D11G11F11D10E10G10F10J10H10C9B9G9F9H9H8F8G7G8",
+      "//第18题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I10H10J10H9K10I9J9G8H8K8I8H7J8J7",
+      "//第19题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G11E11F10H11H10I11E9G10G9H9I9D8F8J8H8F6G7H6",
+      "//第20题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "blackStones": "C10D14E13E11F15F14F13G15H14I11",
+      "whiteStones": "D13D11E14E12G14H15H11",
+      "//第21题模式": ""
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "blackStones": "E13E11F15F14F13G13H14",
+      "whiteStones": "E12G14H13",
+      "//第22题模式": ""
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F10I10H10F9I9G9G8H9H8J9G7I8H7I7J7K7I6F6H5G4",
+      "//第23题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F11G11K11H11G10I11H10J11I10D10B9F10D9J10E9C9I9G9E8H9F8G8H8E7D7G6F7H6G7E5F6F5",
+      "//第24题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 210,
+      "stones": "H10G11K10J10I9J9H8K9I8G8J8H7G7I7J7G6H6I5I6",
+      "//第25题模式": "找狭义双防点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 210,
+      "stones": "H10I11G9F10E8H9H8G8E7D7F7F6G7I5H6",
+      "//第26题模式": "找狭义双防点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G11F12K11L12F10I11H10I10J10G9K10H9L10J9E9K9I9D8G8I8H8J8J7G7L7H7L6K7",
+      "//第27题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 210,
+      "stones": "F13D12D11E11G11G10D10I10E10E9F10F9H10H9D9F8I9J8G8G7H8",
+      "//第28题模式": "找狭义双防点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 210,
+      "blackStones": "B13D13D12F14F7G15G9G7H8",
+      "whiteStones": "A11D11F8G8H10I9",
+      "//第29题模式": "找狭义双防点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 210,
+      "stones": "H12H11I10H10J10H9G9I9I8L9J8H8H7F5H6",
+      "//第30题模式": "找狭义双防点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10H11I10G10H9K10J9G9K9I9H8G8I8J8K8I7G7K7H7G6J7H6",
+      "//第31题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "E10D11H10I10F9E9I9G9E8H9G8I8H8F7G7K7H7F6J7I6",
+      "//第32题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "J13I14K12L13J11K11L11H10I10J10J9G9H8I9J8I8K8I7H7L7J7I6I5J6",
+      "//第33题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G11G12I11E11F10J11G10I10H10J10E9H9G9I9K9D8G8F8H8G7",
+      "//第34题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10G9J9H9H8I9M8I8H7J8I7K8J7L8K7G7J6L7I5I6L5L6H4J5I4G3",
+      "//第35题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10G9J9H9H8I9I7I8J7K8K7L7J6J5",
+      "//第36题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "E13G14F13H13G13C12E12I12G12E11D11F11I11D10J11I10E10J10G10G9H10H9F9I9J9E8H8I8I7J7",
+      "//第37题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G12H13H12E11E10H11F10C10G10H10I10F9D9G9E9H9J9I9E8D8G8I8H8I7",
+      "//第38题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G12G13G11H13J11H11G10K11H10I10J10H9K10J9I9I8H8J8K8G7",
+      "//第39题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "K13K14I12G12H11J11G10H10I10F9J10H9I9I8H8G7",
+      "//第40题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I12G13J12I13K12L12G11J11H11L11I11F10G10H10I10F9J10H9L10I9G9J9L9K9H8G8",
+      "//第41题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10I11J9L10K9G9H8H9J8I8G7K7I7F6J7J6",
+      "//第42题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H13H14E12I13G12D12H12F11G11G10H11K10F10F9E9H9G9I9J9D8G8F8H8K8I8I7H7G6",
+      "//第43题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "J9G9H8I9H7I8G6J8H6F6I6J6J5K6J4H5I3I5J3K4K3L3",
+      "//第44题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G12H11K11I11H10J10I10K10G9F9J9H9K9I9H8G8J8I8K8G7F7L7H7H6I7J6F6H5G6E4F5F4",
+      "//第45题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "K9J10H8L10J8I9L8I8M8G7I7H7M7K7H6L7J6L6K6G5I5K5J5J4",
+      "//第46题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "J11G11F10K11G10D10J10I10E9F9I9G9D8H9E8J9H8C8J8G8D7I8G7E7H7F7K7F6D6H6E6L6F5D5E4E5F4D4G4H3",
+      "//第47题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G12I12I11G11H10G10I10J10I9G9H8H9I8L9K8J8G7H7J7I7H6F6I6J6K6I5H5L5K4G4",
+      "//第48题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F10F11G10C10H10D10D9E10E9G9F9H9D8I9E8G8F8C7H8D7F7E7G7F6",
+      "//第49题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I13H12L11G11I10F10J10K10G9L10K9H9H8I9L8J9G6H7H6M7G5I6G3G4",
+      "//第50题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10G9J9H9H8I9I7I8J7J8K7L8I6L7J6H6H5K5I5G4",
+      "//第51题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I10F10K10J10G9I9F8J9G8I8H8L8J8G7E7H7I7D6J7I6H6G5J6J5I5K5",
+      "//第52题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G12G13G11H13J11F12G10H11H10I10J10H9K10J9I9I8H8G7K8K7",
+      "//第53题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F10H9F9F8K9J8E8E7H8G7I8H7K8I7F7K7J7E6D6F6H6G6M6I6G5J6H5K6I5L6J5F5M5K5I4J3I3",
+      "//第54题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G10I11H10F10G9I9F8E8G8G7H8H7F7E6I7H6",
+      "//第55题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "E9E10G9C9D8H9H8F8C7G8D7G7F7I7F6B6H6G6D5E5G5D4F4H4",
+      "//第56题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G13H12H10G10G9I10I9H9F8D8G8J8H8E7F7I7G7F6H7G6H6H5G5I5",
+      "//第57题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "J12K13H11H12I11K11J11G10H10H9I10I9J9F8G8J8H8K8I8H7",
+      "//第58题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I9G9H8H9J8J9G7I8I7K7J7F6H6G5J4I5",
+      "//第59题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G11F12F10G9E9H9I9J9F8D8H8I8G7I7H7F6J7H6I6H5",
+      "//第60题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G11J12J11E11F10H11G10I10H10H9E9I9G9D8J9G8H8I8I7J6",
+      "//第61题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "J11J12F10E11H10I10G9H9J9I9G8F8H8K8I8G7J8J7H7G6I6J5",
+      "//第62题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G11G12I11E11F10J11G10H9E9I9G9D8H8F8I8H7",
+      "//第63题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I10H11F9L10J9E9E8G9G8H9H8I9J8F8D7I8E7F7H7G7I7C6J7I6E6J6H6M6K6G5",
+      "//第64题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H12H13K11K12G10G11I10H11K10L11G9H10I9J10J9H9K9F8H8J8I8I7",
+      "//第65题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F12G13E11D12I11J12J11L11K11G10D10C9F10E9K10I9F9L9G9F8H8G8I8H7F7I7K7J7",
+      "//第66题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "J9G9H8H9J8I9H7K9I7I8J7K7H6J6",
+      "//第67题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G10F10G9I9G8F8H8G7I8H7I7I6J7G5H6I5J6J5H5K5L5M5",
+      "//第68题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F10F11H10H11E9E10F9G9J9I9D8K9F8I8H8C7J8G7E7H7I7F6G6J6H6G5",
+      "//第69题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G14H13J13K13J12H12K12I12I11H11H10J11J10I10E9G9J9H9G8I9H8I8J7",
+      "//第70题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H13I14G12F12I12H11F11G10H10J10I10D9F9G9J9H9H8I9G7G8E6F7H6I7E5F6G5F5I5E4F4J4G3H2",
+      "//第71题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H14I15I14C14C13J14I13J13C12K13I12D12J12L12K12E11C11J11F11K11I11E10M11F10D10I10H10G9J10H9E9I9F9K9J9D8G8F8H8I8J7J6I6H5",
+      "//第72题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H9G10H8I9I8J9H7J8I7J7K7H6J6K5I5H4",
+      "//第73题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H8I9L8M9M8J8J7H7K7I7I6L7J6G6H5L6I5K5I4G4K4H4J3I2",
+      "//第74题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H11F11G10F10F9I10H9J9I9E8H8G8I8J8K8H7G7F6J7K6I6H5",
+      "//第75题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "I10J11H9G9L9I9G8K9H8M9I8F8L8J8I7H7J7M7K7K6L7L6J6H4I5I4",
+      "//第76题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H8I9L8M9M8J8J7H7K7I7I6L7J6G6H5L6I5K5I4G4J3H4",
+      "//第77题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H11G10H9F9G8I9H8K9I8F8I7J8J7H7K7K6J6K5I5H4",
+      "//第78题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "L10J10I9H9H8J9J8K9L8I8H7M8I7G7K7J7H6L6J6I5K6K5",
+      "//第79题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10G10D9I10I9E9G8F9H8G9I8H9F7J8G7I7H7F6G6F5",
+      "//第80题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "G9H9H8I9I8G8F7E7H7I6I7J6G6F5H5I4",
+      "//第81题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "E11G11I11C10H10F10J10I10C9K10E9D9I9G9C8H9D8J9E8K9G8F8I8H8J8E7K8H7C7K7I7E6D6H6G6I6J6C5H5F5I5K5J5J4",
+      "//第82题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "K14J13I13I12H12J12G11H11J11L11K11F10H10G10J10I10K10G9L10H9F9I9J9K9H8G8I8J8K8H7F7I7J7K7G6I6",
+      "//第83题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "F10G11G10I10H10M10E9G9J9H9L9I9H8F8J8I8K8K7I7J6J7K6H6G5",
+      "//第84题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H11G12G10I12H10F10I10G9F9H9J9I9E8D8F8I8H8J8I7D7J7K7H6J6",
+      "//第85题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H13J13E11G12H11I12I11D11K11G11G10J10H10M10I10G9F9H9J9I9L9E8H8G8K8I8H7G7I7K7J7L7",
+      "//第86题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H11G11G10I11I10L11J10H10K10G9F9H9I9J9F8K9H8E8J8I8H7F7J7G7G6K7K6N7M6H6I5I6K5J6L5J5K4J4L4N3M4I2J3K2",
+      "//第87题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "stones": "H10H11J9G9H8I9I7I8J7J8I6K7J6H6H5L6J5K5M5G4K4L3",
+      "//第88题模式": "找狭义双杀点"
+    }
+  ]
+}

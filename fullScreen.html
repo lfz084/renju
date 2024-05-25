@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>全屏测试</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<script>
+		const dw = document.documentElement.clientWidth;
+		const dh = document.documentElement.clientHeight;
+		const sw = window.screen.width;
+		const sh = window.screen.height;
+		const gridWidth = 980;
+		const boardH = dw < dh ? dw :
+			dh * 2 < dw ?
+			dh : dw / 2;
+		const w_scale = sw / 2 / boardH;
+		const h_scale = sh / boardH;
+		const scale = dw < dh ? sw / dw :
+			w_scale < h_scale ?
+			w_scale : h_scale;
+		
+		const CHAR_FULL_SCREEN = "+";
+		const CHAR_EXIT_SCREEN = "-";
+		const fullDiv = document.createElement("fullDiv");
+		const IFRAME = document.createElement("iframe");
+		const btn = document.createElement("button");
+
+		document.body.appendChild(fullDiv);
+		fullDiv.appendChild(IFRAME);
+
+		Object.assign(fullDiv.style, {
+			padding: "0px 0px 0px 0px",
+			borderStyle: "none",
+			border: "hidden",
+			position: "absolute",
+			left: "0px",
+			top: "0px", //dw<dh ? "0px": (dh - boardH) / 2 + "px",
+			width: dw + "px",
+			height: dh + "px"
+		})
+
+		Object.assign(IFRAME.style, {
+			padding: "0px 0px 0px 0px",
+			borderStyle: "none",
+			background: "#fff",
+			border: "hidden",
+			overflow: "hidden",
+			scroll: "no",
+			position: "absolute",
+			left: "0px",
+			top: "0px",
+			width: dw + "px",
+			height: dh + "px"
+		})
+		
+		const butWidth = ~~(boardH * 180 / gridWidth);
+		const butFontSize = ~~(boardH * 160 / gridWidth);
+		Object.assign(btn.style, {
+			position: "absolute",
+			left: (dw - butWidth) / 2 + "px",
+			top: (dh - boardH / 3) - butWidth / 2 + "px",
+			width: butWidth + "px",
+			height: butWidth + "px",
+			opacity: "0.638",
+			borderRadius: butWidth / 2 + "px",
+			fontSize: butFontSize + "px",
+			lienHeight: butWidth + "px",
+			textAlign: "center",
+			margin: "0px 0px 0px 0px",
+			padding: "0px 0px 0px 0px",
+			border: "none",
+			zIndex: "999",
+        	opacity: "0.33"
+		})
+	
+
+		IFRAME.src = "./renju.html";
+		
+		const showFullscreenButton = (() => {
+			let touchmoveCount;
+			let touchendCount;
+			let lastTime;
+			let timer;
+			const funClick = () => {
+				event.cancelBubble = true;
+				event.preventDefault();
+				document.fullscreenElement && fullscreenCancle() || fullscreenEnabled()
+				hide();
+			};
+			
+			IFRAME.addEventListener("load", () => {
+				window.console = IFRAME.contentWindow.console;
+				IFRAME.contentWindow.addEventListener("touchmove", touchmove, true);
+				IFRAME.contentWindow.addEventListener("mousemove", touchmove, true);
+				IFRAME.contentWindow.addEventListener("touchend", touchend, true);
+				IFRAME.contentWindow.addEventListener("mouseup", touchend, true);
+				show(3000);
+			}, true);
+			btn.addEventListener("touchend", funClick, true);
+			btn.addEventListener("mouseup", funClick, true);
+			reset();
+			
+			function reset() {
+				touchmoveCount = 0;
+				touchendCount = 0;
+				lastTime = 0;
+				timer = clearInterval(timer) && null;
+			}
+			
+			function show(delay = 1200) {
+				console.log("show")
+				lastTime = new Date().getTime();
+				timer = setInterval(() => {
+					new Date().getTime() - lastTime > delay && hide()
+				}, 1000);
+				fullDiv.appendChild(btn);
+				const isFull = document.fullscreenElement;
+				btn.innerHTML = isFull ? CHAR_EXIT_SCREEN : CHAR_FULL_SCREEN;
+				Object.assign(btn.style,{
+					left: ((isFull ? sw : dw )- butWidth) / 2 + "px",
+					top: (isFull ? sh - butWidth * scale / 1.5 : dh - boardH / 2.2) - butWidth / 2 + "px",
+					transformOrigin: `${ butWidth / 2 }px ${ butWidth / 2 }px`,
+					transform: isFull ? `scale(${scale})` : `scale(${1})`,
+					color: IFRAME.contentWindow.document.body.style.backgroundColor || "white",
+					backgroundColor: IFRAME.contentWindow.document.body.style.color || "black",
+				})
+			}
+			
+			function hide() {
+				reset()
+				fullDiv.removeChild(btn);
+			}
+			
+			function touchmove() {
+				const time = new Date().getTime();
+				time - lastTime < 500 && touchmoveCount++;
+				lastTime = time;
+				!timer && touchmoveCount > 2 && show();
+				//window.console.log(`touchmoveCount: ${touchmoveCount}`)
+			}
+			
+			function touchend() {
+				touchmoveCount = 0;
+				timer && ++touchendCount > 1 && hide();
+				//window.console.log(`${event.type}: ${touchendCount}`)
+			}
+			
+			return { show, hide, touchmove, touchend };
+		})()
+
+		function fullscreenEnabled() {
+			const styleScale = `scale(${scale})`;
+
+			if (dw < dh) {
+				IFRAME.style.height = `${parseInt(IFRAME.style.width) * sh / sw }px`;
+			}
+			IFRAME.style.left = `${ (sw - parseInt(IFRAME.style.width)) / 2 }px`;
+			IFRAME.style.top = `${ (sh - parseInt(IFRAME.style.height)) / 2 }px`;
+			IFRAME.style.transformOrigin = `${ parseInt(IFRAME.style.width) / 2 }px ${ parseInt(IFRAME.style.height) / 2 }px`;
+			IFRAME.style.transform = styleScale;
+			
+			fullDiv.style.width = sw + "px";
+			fullDiv.style.height = sh + "px";
+
+			//去掉全屏黑边
+			const contentDocument = IFRAME.contentWindow.document;
+			const backgroundColor = contentDocument.body.style.backgroundColor || contentDocument.body.style.background || "white";
+			fullDiv.style.backgroundColor = backgroundColor;
+
+			requestFullScreen(fullDiv);
+		}
+
+		function fullscreenCancle() {
+			const styleScale = `scale(1)`;
+
+			document.exitFullscreen();
+
+			IFRAME.style.left = `0px`;
+			IFRAME.style.top = `0px`;
+			if (dw < dh) {
+				IFRAME.style.height = sh / scale + "px";
+			}
+			IFRAME.style.transformOrigin = "0px 0px";
+			IFRAME.style.transform = styleScale;
+			
+			fullDiv.style.width = dw + "px";
+			fullDiv.style.height = dh + "px";
+		}
+
+
+		function requestFullScreen(element) {
+			if (element.requestFullscreen) {
+				element.requestFullscreen();
+			}
+			//FireFox
+			else if (element.mozRequestFullScreen) {
+				element.mozRequestFullScreen();
+			}
+			//Chrome等
+			else if (element.webkitRequestFullScreen) {
+				element.webkitRequestFullScreen();
+			}
+			//IE11
+			else if (element.msRequestFullscreen) {
+				element.msRequestFullscreen();
+			}
+		}
+
+		fullDiv.addEventListener("fullscreenchange", function(e) {
+			if (!document.fullscreenElement) {
+				fullscreenCancle();
+			}
+		});
+		
+		
+		
+		
+	</script>
+</body>
+
+</html>

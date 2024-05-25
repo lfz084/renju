@@ -1,0 +1,136 @@
+{
+  "body": {
+    "color": "#333333",
+    "backgroundColor": "#fffffd"
+  },
+  "a": {
+    "color": "#6f6fc7"
+  },
+  "Button": {
+    "color": "#333333",
+    "selectColor": "black",
+    "backgroundColor": "#f0f0f0",
+    "selectBackgroundColor": "#d0d0d0",
+    "icons": [
+      "./UI/theme/grey/arrow-cw-svgrepo-com.svg"
+    ]
+  },
+  "InputButton": {
+    "color": "#333333",
+    "selectColor": "black",
+    "backgroundColor": "#f0f0f0",
+    "selectBackgroundColor": "#d0d0d0"
+  },
+  "Board": {
+    "backgroundColor": "#f0f0f0",
+    "wNumColor": "white",
+    "bNumColor": "#000000",
+    "wNumFontColor": "#000000",
+    "bNumFontColor": "#ffffff",
+    "LbBackgroundColor": "#f0f0f0",
+    "coordinateColor": "#000000",
+    "lineColor": "#000000",
+    "borderColor": "#bbbbbb",
+    "wLastNumColor": "#ff0000",
+    "bLastNumColor": "#ffaaaa",
+    "moveWhiteColor": "#bbbbbb",
+    "moveBlackColor": "#bbbbbb",
+    "moveWhiteFontColor": "#ffffff",
+    "moveBlackFontColor": "#000000",
+    "moveLastFontColor": "red"
+  },
+  "exWindow": {
+    "color": "black",
+    "borderColor": "black",
+    "backgroundColor": "#fffffd",
+    "icons": [
+      "./UI/theme/grey/xmark-circle-svgrepo-com.svg"
+    ]
+  },
+  "msgWindow": {
+    "color": "black",
+    "backgroundColor": "#999999",
+    "textareaBackgroundColor": "#fffffd"
+  },
+  "share": {
+    "color": "black",
+    "backgroundColor": "#aaaaaa",
+    "iconDownload": "./UI/theme/grey/arrow-to-line-down-svgrepo-com.svg",
+    "iconClose": "./UI/theme/grey/xmark-svgrepo-com.svg"
+  },
+  "ButtonBoard": {
+    "color": "#333333",
+    "selectColor": "black",
+    "backgroundColor": "#f0f0f0",
+    "selectBackgroundColor": "#d0d0d0"
+  },
+  "fullscreenUI": {
+    "btnBoard": {
+      "leftButtons": [
+        {
+          "icons": [
+            "./UI/theme/grey/question-circle-svgrepo-com.svg"
+          ]
+        },
+        {
+          "icons": [
+            "./UI/theme/grey/fullscreen-alt-svgrepo-com.svg",
+            "./UI/theme/grey/fullscreen-exit-alt-svgrepo-com.svg"
+          ]
+        },
+        {
+          "icons": [
+            "./UI/theme/grey/sun-svgrepo-com.svg",
+            "./UI/theme/grey/eye-svgrepo-com.svg",
+            "./UI/theme/grey/moon-svgrepo-com.svg"
+          ]
+        },
+        {
+          "icons": [
+            "./UI/theme/grey/arrow-cw-svgrepo-com.svg"
+          ]
+        }
+      ],
+      "rightButtons": [
+        {
+          "icons": [
+            "./UI/theme/grey/contrast-setting-svgrepo-com.svg"
+          ]
+        },
+        {
+          "icons": [
+            "./UI/theme/grey/alpha-w.svg"
+          ]
+        },
+        {
+          "icons": [
+            "./UI/theme/grey/alpha-k.svg"
+          ]
+        },
+        {
+          "icons": [
+            "./UI/theme/grey/house-svgrepo-com.svg"
+          ]
+        }
+      ],
+      "topButtons": [
+        {
+          "icons": [
+            "./UI/theme/grey/dots-3-horizontal-svgrepo-com.svg",
+            "./UI/theme/grey/dots-3-vertical-svgrepo-com.svg"
+          ]
+        }
+      ]
+    },
+    "btnRotateRight": {
+      "icons": [
+        "./UI/theme/grey/arrow-ccw-svgrepo-com.svg"
+      ]
+    },
+    "btnRotateDown": {
+      "icons": [
+        "./UI/theme/grey/arrow-cw-svgrepo-com.svg"
+      ]
+    }
+  }
+}

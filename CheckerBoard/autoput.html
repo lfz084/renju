@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="../style/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <script src="../emoji/emoji.js"></script>
+    <script src="../UI/View.js"></script>
+    <script src="../script/utils.js"></script>
+    <script src="../script/bindEvent.js"></script>
+    <script src="../UI/Button.js"></script>
+    <script src="CheckerBoard.js"></script>
+    <script src="image2board.js"></script>
+    <script src="../UI/mainUI.js"></script>
+    <script>
+        function gray() {
+            let sum = 0;
+            const ctx = canvas.getContext("2d");
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+            for (let i = (data.length >>> 2) - 1; i >= 0; i--) {
+                const r = data[i * 4 + 0];
+                const g = data[i * 4 + 1];
+                const b = data[i * 4 + 2];
+                const c = Math.max(r, g, b) - Math.min(r, g, b) > 100 ? 255 : 0;
+                const gy = Math.max(c, (data[i * 4 + 0] * 0.3 + data[i * 4 + 1] * 0.59 + data[i * 4 + 2] * 0.11));
+                data[i * 4 + 0] = gy;
+                data[i * 4 + 1] = gy;
+                data[i * 4 + 2] = gy;
+                sum += gy;
+            }
+            const imageData = new ImageData(data, canvas.width, canvas.height)
+            ctx.putImageData(imageData, 0, 0);
+            //binarization(sum/(data.length >>> 2));
+        }
+
+        function binarization(threshold) {
+            const ctx = canvas.getContext("2d");
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+            for (let i = (data.length >>> 2) - 1; i >= 0; i--) {
+                const v = data[i * 4 + 0] > threshold ? 255 : 0;
+                data[i * 4 + 0] = v;
+                data[i * 4 + 1] = v;
+                data[i * 4 + 2] = v;
+            }
+            const imageData = new ImageData(data, canvas.width, canvas.height)
+            ctx.putImageData(imageData, 0, 0);
+        }
+        
+        function color16() {
+            const ctx = canvas.getContext("2d");
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+            for (let i = (data.length >>> 2) - 1; i >= 0; i--) {
+                data[i * 4 + 0] = data[i * 4 + 0] >>> 5 << 5;
+                data[i * 4 + 1] = data[i * 4 + 1] >>> 5 << 5;
+                data[i * 4 + 2] = data[i * 4 + 2] >>> 5 << 5;
+            }
+            const imageData = new ImageData(data, canvas.width, canvas.height)
+            ctx.putImageData(imageData, 0, 0);
+        }
+        
+        function zoomin() {
+            const ctx = canvas.getContext("2d");
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+            const width = canvas.width << 1;
+            const height = canvas.height << 1;
+            const uintc8 = new Uint8ClampedArray(width * height * 4);
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const idx = (y >>> 1) * canvas.width + (x >>> 1);
+                    uintc8[(y * width + x) * 4 + 0] = uintc8[(y * width + x) * 4 + 1] = uintc8[(y * width + x) * 4 + 2] = data[idx * 4 + 0];
+                    uintc8[(y * width + x) * 4 + 3] = 255;
+                }
+            }
+            const imageData = new ImageData(uintc8, width, height)
+            canvas.width = width;
+            canvas.height = height;
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        function zoomout() {
+            const ctx = canvas.getContext("2d");
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+            const width = canvas.width >>> 1;
+            const height = canvas.height >>> 1;
+            const uintc8 = new Uint8ClampedArray(width * height * 4);
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const idx = y * 2 * canvas.width + x * 2;
+                    const idx1 = (y * 2 + 1) * canvas.width + x * 2
+                    const p1 = data[idx * 4 + 0];
+                    const p2 = data[(idx + 1) * 4 + 0];
+                    const p3 = data[idx1 * 4 + 0];
+                    const p4 = data[(idx1 + 1) * 4 + 0];
+                    uintc8[(y * width + x) * 4 + 0] = uintc8[(y * width + x) * 4 + 1] = uintc8[(y * width + x) * 4 + 2] = Math.min(p1, p2, p3, p4);
+                    uintc8[(y * width + x) * 4 + 3] = 255;
+                }
+            }
+            const imageData = new ImageData(uintc8, width, height)
+            canvas.width = width;
+            canvas.height = height;
+            ctx.putImageData(imageData, 0, 0);
+        }
+    </script>
+    <script>
+        const d = document;
+        const dw = d.documentElement.clientWidth;
+        const dh = d.documentElement.clientHeight;
+
+        const MANUAL = 0;
+        const UNLOCK = 1;
+        const LOCK = 2;
+
+        let status = UNLOCK;
+        const buttons = [];
+        const buttonSettings = [
+            {
+                type: "file",
+                text: "open",
+                change: async function() {
+                    await unlockArea();
+                    await cBoard.loadImgFile(this.files[0]);
+                    cBoard.putImg();
+                    cBoard.resetCutDiv();
+                    setTimeout(() => this.value = "", 0)
+                }
+        },
+            {
+                type: "checkbox",
+                text: "lockArea",
+                touchend: async function() {
+                    try {
+                        this.checked = !this.checked;
+                        if (this.checked) await lockArea();
+                        else unlockArea();
+                    } catch (e) { alert(e.stack) }
+                }
+        },
+            {
+                type: "button",
+                text: "gray",
+                touchend: async function() {
+                    gray();
+                }
+        },
+            {
+                type: "button",
+                text: "binarization",
+                touchend: async function() {
+                    binarization(127);
+                }
+        },
+            {
+                type: "button",
+                text: "zoomin",
+                touchend: async function() {
+                    zoomin()
+                }
+        },
+            {
+                type: "button",
+                text: "zoomout",
+                touchend: async function() {
+                    zoomout()
+                }
+        },
+            {
+                type: "button",
+                text: "color16",
+                touchend: async function() {
+                    color16()
+                }
+        },
+            {
+                type: "button",
+                text: "autoput",
+                touchend: async function() {
+
+                }
+        }
+    ];
+
+        buttonSettings.splice(8, 0, createCanvas(), null);
+        /*buttonSettings.splice(1, 0, null, null);
+        buttonSettings.splice(8, 0, null, null);
+        buttonSettings.splice(12, 0, null, null);
+        buttonSettings.splice(16, 0, null, null);
+        buttonSettings.splice(20, 0, null, null);*/
+        if (dw > dh) {
+            buttonSettings.splice(0, 0, null, null, null, null);
+        }
+
+        async function lockArea() {
+            if (status == UNLOCK) {
+                await cBoard.lockArea();
+                const ctx = canvas.getContext("2d");
+                canvas.width = cBoard.width;
+                canvas.height = cBoard.height;
+                ctx.drawImage(cBoard.canvas, 0, 0, cBoard.width, cBoard.width, 0, 0, cBoard.width, cBoard.width);
+                status = LOCK;
+            }
+        }
+
+        async function unlockArea() {
+            if (status == LOCK) {
+                cBoard.unlockArea();
+                status = UNLOCK;
+            }
+        }
+
+        function createButtons(settings) {
+            settings.map(setting => {
+                if (setting) {
+                    if (setting.type == "div" || setting.type == "canvas") {
+                        buttons.push(setting);
+                    }
+                    else {
+                        buttons.push(new Button(document.body, setting.type, 0, 0, mainUI.buttonWidth, mainUI.buttonHeight));
+                        const button = buttons[buttons.length - 1];
+                        setting.text && button.setText(setting.text);
+                        setting.accept && (button.input.accept = setting.accept);
+                        setting.touchend && button.setontouchend(setting.touchend);
+                        setting.change && button.setonchange(setting.change);
+                        setting.options && button.addOptions(setting.options);
+                        setting.type == "select" && mainUI.createMenu(button);
+                    }
+                }
+                else buttons.push(undefined);
+            })
+            return buttons;
+        }
+
+        function createCmdDiv() {
+            try {
+                const cDiv = mainUI.createCmdDiv();
+                const buttons = createButtons(buttonSettings);
+                mainUI.addButtons(buttons, cDiv, 0);
+                return cDiv;
+            } catch (e) { alert(e.stack) }
+        }
+
+        function createCanvas() {
+            const canvas = document.createElement("canvas");
+            canvas.setAttribute("id", "canvas");
+            mainUI.upDiv.appendChild(canvas);
+            return {
+                type: "canvas",
+                canvas: canvas,
+                move: move,
+                width: mainUI.cmdWidth * 3 / 4,
+                height: mainUI.cmdWidth * 3 / 4
+            }
+        }
+
+        function createCBoard() {
+            const cbd = new CheckerBoard(mainUI.upDiv, (mainUI.gridWidth - mainUI.cmdWidth) / 2, (mainUI.gridWidth - mainUI.cmdWidth) / 2, mainUI.cmdWidth, mainUI.cmdWidth);
+            cbd.backgroundColor = "white";
+            cbd.showCheckerBoard();
+            cbd.bodyScale = mainUI.bodyScale;
+            return cbd;
+        }
+
+        function move(left = this.left, top = this.top, width = this.width, height = this.height, parentNode = this.parentNode) {
+            parentNode.appendChild(this[this.type]);
+            this[this.type].style.position = "absolute";
+            this[this.type].style.height = height + "px";
+            this[this.type].style.width = width + "px";
+            this[this.type].style.left = left + "px";
+            this[this.type].style.top = top + "px";
+        }
+
+        const cBoard = new CheckerBoard(mainUI.upDiv, (mainUI.gridWidth - mainUI.cmdWidth) / 2, (mainUI.gridWidth - mainUI.cmdWidth) / 2, mainUI.cmdWidth, mainUI.cmdWidth);
+        cBoard.showCheckerBoard();
+        const cmdDiv = createCmdDiv();
+        const canvas = document.getElementById("canvas");
+        document.body.onload = () => {
+            try {
+            	mainUI.viewport.scrollTop();
+            } catch (e) { alert(e.stack) }
+        }
+    </script>
+</body>
+
+</html>

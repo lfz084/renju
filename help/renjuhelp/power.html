@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>五子棋的子力</title>
+    <link rel="preload" href="../help.css" as="style" />
+    <link rel="preload" href="../help.js" as="script" />
+    <link href="../help.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="loading">
+    
+        <mark>后面讲到的棋子都是指同色棋子</mark>
+    
+    <h4 id="five">五的知识点
+        <ul>...
+            <li><a href="#isFive">五连</a>：在一条线上面刚刚好连成五颗棋子。</li>
+            <li><a href="#isFivePoint">五连点</a>：能够形成五连的点</li>
+            <mark>PS：<a href="#notPower">五连否定</a>&nbsp;<a href="#foul">禁手</a>，否定<a href="#isFour">活四</a>...五连出现棋局结束 其它没有成五的子力都被否定。</mark>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/five.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="four">四的知识点
+        <ul>...
+            <li><a href="#isFour">活四</a>：在一条线上面连成四颗棋子，在四颗棋子相连的两端各有一个<a href="#isFivePoint">五连点</a>。</li>
+            <li><a href="#isFreeFourPoint">活四点</a>：能够形成活四的点</li>
+            <li><a href="#isFour">冲四</a>：在一条线上 相连的五个格子内有四颗同色棋子，剩下一个空格是这四颗棋子相关的唯一五连点。</li>
+            <li><a href="#isFourPoint">冲四点</a>：能够形成冲四的点</li>
+            <li>其它的四：没有五连点的四</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0%" src="power/four.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="three">三的知识点
+        <ul>...
+            <li><a href="#isThree">活三</a>：能够成为<a href="#isFour">活四</a>的三。</li>
+            <ul>...
+                <li>连活三</li>
+                <li>跳活三</li>
+            </ul>
+            <li><a href="#isFreeThreePoint">活三点</a>：能够形成活三的点</li>
+            <li><a href="#isThree">眠三</a>：只能够成为冲4的三。</li>
+            <li><a href="#isThreePoint">眠三点</a>：能够形成眠三的点</li>
+            <li>其它的三：即没有<a href="#isFreeFourPoint">活四点</a>，也没有<a href="#isFourPoint">冲四点</a>的三</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0%" src="power/three.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="two">二的知识点
+        <ul>...
+            <li><a href="#isTwo">活二</a>：能够成为<a href="#isThree">活三</a>的二</li>
+            <ul>...
+                <li>连活二</li>
+                <li>跳活二</li>
+                <li>大跳活二</li>
+            </ul>
+            <li><a href="#isFreeTwoPoint">活二点</a>：能够形成活二的点</li>
+            <li><a href="#isTwo">眠二</a>：只能够成为<a href="#isThree">眠三</a>的二</li>
+            <li><a href="#isTwoPoint">眠二点</a>：能够形成眠二的点</li>
+            <li>其它的二：即没有<a href="#isFreeThreePoint">活三点</a>，也没有<a href="#isThreePoint">眠三点</a>的二</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0%" src="power/two.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="one">一的知识点
+        <ul>...
+            <li><a href="#isOne">活一</a></li>
+            <li><a href="#isOne">眠一</a></li>
+            <li>其它的一：即没有<a href="#isFreeTwoPoint">活二点</a>，也没有<a href="#isTwoPoint">眠二点</a>的一</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0%" src="power/one.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="foul">禁手
+        <ul>...
+            <li><a href="#isSix">长连禁手</a>：黑棋一子落下,在一条线上面相连棋子在六颗以上（包括六颗), 这手棋就是长连禁手</li>
+            <li><a href="#isFF">四四禁手</a>：黑棋一子落下,在棋盘上面增加了两个(或更多)<a href="#isFour">冲四</a>或<a href="#isFour">活四</a>,这手棋就是四四禁手</li>
+            <li><a href="#isTT">三三禁手</a>：黑棋一子落下,在棋盘上面增加了两个(或更多)与这手棋相交的<a href="#isThree">活三</a>,这手棋就是三三禁手</li>
+            <mark>PS:<a href="#notPower">五连否定</a>禁手，只有黑棋才有禁手,白棋没有禁手。禁手之间不否认，禁手出现棋局结束，<a href="#notPower">禁手否定</a>冲四，<a href="#isFour">活四</a>等...其它没有<a href="#isFive">五连</a>的子力</mark>
+            <ul>...
+                <img width=80% style="position: relative;left:0%" src="power/simplefoul.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="complexFoul">复杂禁手
+        <ul>...
+            <li>复杂三三禁手：在判断三三禁手的过程中，出现了<a href="#notPower">禁手否定</a>&nbsp;<a href="#isFreeFourPoint">活四点</a>(或者<a href="#notPower">五连否定</a>&nbsp;<a href="#isFreeFourPoint">活四点</a>)的禁手</li>
+            <mark>PS:只有三三禁手,才有复杂禁手</mark>
+            <ul>...
+                <img width=80% style="position: relative;left:0%" src="power/foul.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="isFive">五的判断
+        <ul>...
+            <li>刚刚好连成五颗棋子</li>
+            <mark>PS：<a href="#notPower">五连否定</a>其它没有<a href="#five">五连</a>的子力。因为白棋没有长连<a href="#foul">禁手</a>，白棋的长连等同<a href="#five">五连</a></mark>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isFive.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="isFour">四的判断
+        <ul>...
+            <li><a href="#four">活四</a>：有两个<a href="#isFivePoint">五连点</a></li>
+            <li><a href="#four">冲四</a>：只有一个五连点</li>
+            <li>其它的四：没有五连点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isFour.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="isThree">三的判断
+        <ul>...
+            <li><a href="#three">活三</a>：最少一个<a href="#isFreeFourPoint">活四点</a></li>
+            <li><a href="#three">眠三</a>：只有<a href="#isFourPoint">冲四点</a></li>
+            <li>其它的三：即没有活四点，也没有冲四点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isThree.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="isTwo">二的判断
+        <ul>...
+            <li><a href="#two">活二</a>：最少一个<a href="#isFreeThreePoint">活三点</a></li>
+            <li><a href="#two">眠二</a>：只有<a href="#isThreePoint">眠三点</a></li>
+            <li>其它的二：即没有活三点，也没有眠三点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isTwo.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="isOne">一的判断
+        <ul>...
+            <li><a href="#one">活一</a>：最少一个<a href="#isFreeTwoPoint">活二点</a></li>
+            <li><a href="#one">眠一</a>：只有<a href="#isTwoPoint">眠二点</a></li>
+            <li>其它的一：即没有活二点，也没有眠二点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isOne.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <!--
+    <mark>后续的判断都是一条线上面的</mark>
+    -->
+    <h4 id="isFivePoint">五连点的判断
+        <ul>...
+            <li>能够成<a href="#isFive">五连</a>的点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isFivePoint.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="isFreeFourPoint">活四点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isFour">活四</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是活四点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isFreeFourPoint.svg" />
+            </ul>
+        </OL>
+    </h4>
+    <h4 id="isFourPoint">冲四点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isFour">冲四</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是冲四点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isFourPoint.svg" />
+            </ul>
+        </OL>
+    </h4>
+    <h4 id="isFreeThreePoint">活三点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isThree">活三</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是活三点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isFreeThreePoint.svg" />
+            </ul>
+        </OL>
+    </h4>
+    <h4 id="isThreePoint">眠三点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isThree">眠三</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是眠三点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isThreePoint.svg" />
+            </ul>
+        </OL>
+    </h4>
+    <h4 id="isFreeTwoPoint">活二点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isTwo">活二</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是活二点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isFreeTwoPoint.svg" />
+            </ul>
+        </OL>
+    </h4>
+    <h4 id="isTwoPoint">眠二点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isTwo">眠二</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是眠二点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/isTwoPoint.svg" />
+            </ul>
+        </OL>
+    </h4>
+    <h4 id="isFreeOnePoint">活一点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isOne">活一</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是活一点</li>
+        </OL>
+    </h4>
+    <h4 id="isOnePoint">眠一点的判断
+        <OL>...
+            <li>填子</li>
+            <li>填子的交叉线上增加了<a href="#isOne">眠一</a></li>
+            <li>填子点不能是<a href="#isFivePoint">五连点</a></li>
+            <li>填子点不能是<a href="#foul">禁手</a></li>
+            <li>同时满足2，3，4才是眠一点</li>
+        </OL>
+    </h4>
+    <h4 id="isSix">长连禁手的判断
+        <ol>...
+            <li>填子</li>
+            <li>四个方向逐个判断长连</li>
+            <ol>...
+                <li>在这条线上，有长连的形状</li>
+                <li>其它方向没有<a href="#isFive">五连</a></li>
+                <li>同时满足前面条件，才是长连禁</li>
+            </ol>
+            <li>找够一个长连，是长连<a href="#foul">禁手</a></li>
+            <li>没有找到长连，不是长连禁手</li>
+        </ol>
+    </h4>
+    <h4 id="isFF">四四禁手的判断
+        <ol>...
+            <li>填子</li>
+            <li>四个方向逐个判断</li>
+            <li>找够两个<a href="#isFour">冲四</a>（或<a href="#isFour">活四</a>），是四四<a href="#foul">禁手</a></li>
+            <li>不够两个冲四（或活四），不是四四禁手</li>
+            <mark>PS：一条线上，可能会有两个冲四。这种情况就是一条线上面的四四禁手</mark>
+        </ol>
+    </h4>
+    <h4 id="isTT">三三禁手的判断
+        <ol>...
+            <li>填子</li>
+            <li>四个方向逐个判断<a href="#isThree">活三</a></li>
+            <li>找够两个活三，是三三<a href="#foul">禁手</a></li>
+            <li>不够两个活三，不是三三禁手</li>
+        </ol>
+    </h4>
+    <h4 id="notPower">被否定的子力
+        <ul>...
+            <li><a href="#isFive">五连</a>否定其它子力</li>
+            <li><a href="#foul">禁手</a>否定其它子力</li>
+            <mark>PS：当棋盘上面出现五连（或禁手）时，棋局已经结束，其它还没有五连的子力都被否定</mark>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="power/noPower.svg" />
+            </ul>
+        </ul>
+    </h4>
+    <script src="../help.js"></script>
+</body>
+
+</html>

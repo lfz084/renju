@@ -1,0 +1,14 @@
+{"link": "https://lfz084.gitee.io/renju/puzzle.html",
+  "defaultSettings": {
+  	"title": "错题复习"
+  },
+  "puzzles": [
+  	{
+  	  "size": 15,
+      "mode": 0,
+  	  "title": "错题复习",
+      "blackStones": "F8G9G7H10H8H6I9I7J8",
+      "comment": "你做错的题目会自动添加到这个题集，你答对之后会自动删除"
+    }
+  ]
+}

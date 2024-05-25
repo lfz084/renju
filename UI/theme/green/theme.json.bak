@@ -1,0 +1,84 @@
+{
+	"body": {
+		"color": "#112200",
+		"backgroundColor": "#197200"
+	},
+	"a": {
+		"color": "#663366"
+	},
+	"Button": {
+		"color": "#112200",
+		"selectColor": "black",
+		"backgroundColor": "#197200",
+		"selectBackgroundColor": "#115800"
+	},
+	"InputButton": {
+		"color": "#112200",
+		"selectColor": "black",
+		"backgroundColor": "#197200",
+		"selectBackgroundColor": "#115800"
+	},
+	"Board": {
+		"backgroundColor": "#197200",
+		"wNumColor": "#859080",
+		"bNumColor": "#000000",
+		"wNumFontColor": "#000000",
+		"bNumFontColor": "#99aa88",
+		"LbBackgroundColor": "#197200",
+		"coordinateColor": "#000000",
+		"lineColor": "#000000",
+		"borderColor": "#115500",
+		"wLastNumColor": "#783000",
+		"bLastNumColor": "#883000",
+		"moveWhiteColor": "#bbbbbb",
+		"moveBlackColor": "#bbbbbb",
+		"moveWhiteFontColor": "#ffffff",
+		"moveBlackFontColor": "#000000",
+		"moveLastFontColor": "red"
+	},
+	"exWindow": {
+		"color": "#112200",
+		"borderColor": "#112200",
+		"backgroundColor": "#197200",
+		"icons": ["./UI/theme/green/xmark-circle-svgrepo-com.svg"]
+	},
+	"msgWindow": {
+		"color": "#112200",
+		"backgroundColor": "#115800",
+		"textareaBackgroundColor": "#197200"
+	},
+	"share": {
+		"color": "#112200",
+		"backgroundColor": "#119800",
+		"iconDownload": "./UI/theme/green/arrow-to-line-down-svgrepo-com.svg",
+		"iconClose": "./UI/theme/green/xmark-svgrepo-com.svg"
+	},
+	"ButtonBoard": {
+		"color": "#112200",
+		"selectColor": "black",
+		"backgroundColor": "#197200",
+		"selectBackgroundColor": "#115800"
+	},
+	"fullscreenUI": {
+		"btnBoard": {
+			"leftButtons": [
+				{ "icons": ["./UI/theme/green/question-circle-svgrepo-com.svg"] },
+				{ "icons": ["./UI/theme/green/fullscreen-alt-svgrepo-com.svg", "./UI/theme/green/fullscreen-exit-alt-svgrepo-com.svg"] },
+				{ "icons": ["./UI/theme/green/sun-svgrepo-com.svg", "./UI/theme/green/eye-svgrepo-com.svg", "./UI/theme/green/moon-svgrepo-com.svg"] },
+				{ "icons": ["./UI/theme/green/arrow-cw-svgrepo-com.svg"] }],
+			"rightButtons": [
+				{ "icons": ["./UI/theme/green/contrast-setting-svgrepo-com.svg"] },
+				{ "icons": ["./UI/theme/green/alpha-w.svg"] },
+				{ "icons": ["./UI/theme/green/alpha-k.svg"] },
+				{ "icons": ["./UI/theme/green/house-svgrepo-com.svg"] }],
+			"topButtons": [{ "icons": ["./UI/theme/green/dots-3-horizontal-svgrepo-com.svg", "./UI/theme/green/dots-3-vertical-svgrepo-com.svg"] }]
+		},
+		"btnRotateRight": {
+			"icons": ["./UI/theme/green/arrow-ccw-svgrepo-com.svg"]
+		},
+		"btnRotateDown": {
+			"icons": ["./UI/theme/green/arrow-cw-svgrepo-com.svg"]
+		}
+	}
+}
+	

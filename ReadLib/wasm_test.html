@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>new test</title>
+    <style>
+        body {
+            background: #ccc;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .center_text {
+            display: inline-block;
+            width: 800px
+        }
+
+        .sequence-buffer {
+            font-size: 24.5px;
+            line-height: 1.28;
+            background: #cdcdcd;
+            width: 800px;
+            height: 750px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            border: #bbb solid 5px;
+        }
+
+        .sequence-log {
+            font-size: 30px;
+            line-height: 1.28;
+            background: #000;
+            color: #fff;
+            width: 800px;
+            height: 750px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            border: #bbb solid 5px;
+            word-wrap: break-word;
+            overflow-y: scroll;
+            opacity: 0.75;
+        }
+
+        button {
+            font-size: 30px;
+            width: 130px;
+            height: 50px;
+            border: solid black 1px;
+        }
+
+        #current {
+            font-size: 30px;
+            width: 200px;
+            height: 50px;
+            border: solid black 1px;
+        }
+
+        #loadSize {
+            font-size: 30px;
+            width: 180px;
+            height: 50px;
+            border: solid black 1px;
+        }
+
+        #file {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="center_text">
+            <div class="left">
+                <p><span>url: </span><span class="sequence-url"></span></p>
+                <p><span>response: </span><span class="sequence-response"></span></p>
+                <p><span>bytes: </span><span class="sequence-bytes"></span></p>
+                <p><span>time: </span><span class="sequence-time"></span></p>
+                <p><span>main return: </span><span class="sequence-message"></span></p>
+                <p><span>buffer size :</span><span class="sequence-memory"></span></p>
+                <button id="but_file">loadFile</button>
+                <button id="but_text">text</button>
+                <button id="but_code">code</button>
+                <button id="but_bytes"> bytes </button>
+                <button id="but_go"> Go </button>
+                <br><br>
+                <button id="but_next"> &gt;&gt; </button>
+                <button id="but_previous"> &lt;&lt; </button>
+                <button id="but_start"> ||&lt;&lt; </button>
+                <input id="current" type="text" />
+                <input id="loadSize" type="text" />
+                <input id="file" type="file" />
+                <p><textarea class="sequence-buffer"></textarea></p>
+                <p>
+                    <div class="sequence-log"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        //该方法用于从js环境向指定的共享堆内存段填充数据
+        function importArrayToBuffer(memory, array, offset) {
+            const importBuffer = new Uint32Array(memory.buffer, offset, array.length);
+            for (let i = 0; i < array.length; i++) {
+                importBuffer[i] = array[i];
+            }
+        }
+
+        function getFreeBuffer(size) {
+            log(`new: size=${size}, start=${current}`);
+            let rt = current;
+            current += size;
+            current >= memory.buffer.byteLength &&
+                (memory.grow(100),
+                    document.querySelector('.sequence-memory').innerText = `${memory.buffer.byteLength/1024/1024}M`)
+            return rt;
+        }
+
+        function buf2String(buffer, pChar) {
+            let BUF_LENGTH = 1024 * 64,
+                buf = new Uint8Array(buffer, pChar, BUF_LENGTH);
+            for (let i = 0; i < BUF_LENGTH; i++) {
+                if (buf[i] * 1 == 0 || i == BUF_LENGTH - 1) {
+                    str = buf.slice(0, i);
+                    //return `${str}`;
+                    return String.fromCharCode(...str).split("\n");
+                    //return String.fromCharCode(67,13,10,68);
+                }
+            }
+            return "log:\n  empty";
+        }
+
+        function binary(uint8Arr) {
+            let txt = "",
+                len = uint8Arr.length;
+            for (let i = 0; i < len; i++) {
+                txt += ("00000000" + uint8Arr[i].toString(2)).slice(-8) + " ";
+            }
+            return txt;
+        }
+
+        function hex(uint8Arr) {
+            let txt = "",
+                len = uint8Arr.length;
+            for (let i = 0; i < len; i++) {
+                txt += "0x" + ("00" + uint8Arr[i].toString(16)).slice(-2) + " ";
+            }
+            return txt;
+        }
+
+        function text(uint8Arr) {
+            let txt = "",
+                len = uint8Arr.length;
+            for (let i = 0; i < len; i++) {
+                txt += String.fromCharCode(uint8Arr[i]);
+            }
+            return txt;
+        }
+
+        let log_Str = "";
+
+        let log = function() {
+            let timer = null;
+            return function(message) {
+                log_Str = `${log_Str}<p>${message}</p>\n`;
+                timer && clearTimeout(timer);
+                timer = setTimeout(function() {
+                    document.querySelector('.sequence-log').innerHTML = log_Str;
+                    timer = null;
+                }, 500);
+            }
+        }()
+
+        function grow(pages = 100) {
+            try {
+                memory.grow(pages);
+                let size = 1024 * 64 * pages,
+                    len = size / 4,
+                    buf = new Uint32Array(memory.buffer, memory.buffer.byteLength - size, len);
+                for (let i = 0; i < len; i++) {
+                    buf[i] = 0;
+                }
+                document.querySelector('.sequence-memory').innerText = `${memory.buffer.byteLength/1024/1024}M`;
+                log(`memory.grow(${pages}), ${pages/16}M, buffer size = ${memory.buffer.byteLength/1024/1024}M`);
+                return pages;
+            }
+            catch (err) {
+                log(`${err.message || err}`);
+                return 0;
+            }
+        }
+
+        function getBranchNodes(path) {
+            try {
+                let x, y,
+                    uint8 = new Uint8Array(memory.buffer, 67648, 1024);
+                for (let i = 0; i < path.length; i++) {
+                    x = path[i] % 15 + 1;
+                    y = ~~(path[i] / 15) + 1;
+                    uint8[i * 2] = x;
+                    uint8[i * 2 + 1] = y;
+                }
+                exports._Z14getBranchNodesP6CPointi(67648, path.length);
+                log(`getBranchNodes end`);
+            }
+            catch (err) {
+                alert(err);
+            }
+        }
+
+        function maxMemory(bufSize, scl) {
+            return new Promise((resolve, reject) => {
+                function max(bufSize, scl) {
+                    let pages = resetBuffer(bufSize, scl);
+                    scl -= 1;
+                    if (pages) resolve(pages);
+                    else if (scl >= 1) setTimeout(() => max(bufSize, scl), 0);
+                    else reject(`手机空闲内存太小了,请关闭后台应用释放内存`);
+                }
+                max(bufSize, scl);
+            });
+        }
+
+        function createSGFBuffer(byteLen) {
+            return new Promise((resolve, reject) => {
+                try {
+                    resolve(new ArrayBuffer(byteLen));
+                }
+                catch (err) {
+                    reject(`手机空闲内存太小了,请关闭后台应用释放内存`);
+                }
+            })
+        }
+
+        function resetBuffer(libSize, scl) {
+            let data_buf = exports._Z13getDataBufferv(),
+                data_buf_size = parseInt(libSize * scl) + 1,
+                bufSize = data_buf + data_buf_size,
+                pages = parseInt((bufSize - memory.buffer.byteLength) / 1024 / 64) + 1;
+            log(`libSize: ${libSize}, scl: ${scl}\n data_buf: ${data_buf}, bufSize: ${bufSize}, byteLength: ${memory.buffer.byteLength},pages: ${pages}`)
+            return grow(pages);
+        }
+
+        function main() {
+            setTimeout(() => {
+                INPUT_CURRENT.value = exports._Z13getDataBufferv();
+                INPUT_LOADSIZE.value = load_length;
+                printBuffer();
+                //log(buf2String(memory.buffer, exports._Z12getLogBufferv()));
+                document.querySelector('.sequence-memory').innerText = `${memory.buffer.byteLength/1024/1024}M`;
+            }, 1000);
+            try {
+                startTime = new Date().getTime();
+
+                document.querySelector('.sequence-message').innerText = exports._Z4initv(LIB_SIZE);
+
+                log(`comment_buffer address : ${exports._Z16getCommentBufferv()}`);
+                log(`boardText_buffer address : ${exports._Z18getBoardTextBufferv()}`);
+                log(`data_buffer address : ${exports._Z13getDataBufferv()}`);
+
+                //exports._Z14test_newCPointj(1024*1024*8);
+                //exports._Z16test_newMoveNodej(1024*1024);
+                //log(exports._Z10test_Stacki(1024*1024));
+                //log(`getVariant = ${exports._Z15test_getVariantv()}`);
+                maxMemory(LIB_SIZE, 8)
+                    .then(function(pages) {
+                        log(`申请 ${parseInt(pages/16)+1}M 内存 OK`);
+                        exports._Z12setMemoryEndj(memory.buffer.byteLength - exports._Z13getDataBufferv());
+
+                        ( /*grow(parseInt(LIB_SIZE/1024/64*5)+1),*/
+                            /*resetBuffer(LIB_SIZE, 5),*/
+                            log(`checkVersion = ${exports._Z12checkVersionv()}`),
+                            log(`loadAllMoveNode() = ${exports._Z15loadAllMoveNodev()}`),
+                            log(`createRenjuTree = ${exports._Z15createRenjuTreev()}`),
+                            log(`getAutoMove = ${exports._Z11getAutoMovev()}`));
+                        getBranchNodes([112, 224, 115, 209, 100, 223, 114, 208], 8);
+
+                        let isFormat = false;
+                        createSGFBuffer(exports._Z16getSGFByteLengthb(isFormat))
+                            .then(buf => {
+                                log(`bufSize = ${buf.byteLength}`);
+                                sgfUint8 = new Uint8Array(buf);
+                            })
+                            .then(() => {
+                                log(`lib2sgf = ${exports._Z7lib2sgfb(isFormat)}`);
+                                log(`sgfUint8Len = ${sgfUint8Len}`)
+                            })
+                            .catch(err => {
+                                log(err)
+                            })
+
+                        document.querySelector('.sequence-time').innerText = ` ${new Date().getTime() - startTime}`;
+                    })
+            }
+            catch (err) {
+                alert(err);
+                log(err);
+            }
+
+        }
+
+        const FREE_BUFFER_ADDRESS = 65536 * 158;
+        let current_Data = 0,
+            libData = new Uint8Array([255, 82, 101, 110, 76, 105, 98, 255, 3, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 120, 0, 121, 128, 106, 192, 91, 192, 76, 64, 122, 128, 107, 192, 92, 192, 77, 64, 123, 0, 108, 192, 93, 192, 78, 64]),
+            LIB_SIZE = libData.length,
+            sgfUint8 = new Uint8Array(0),
+            sgfUint8Len = 0;
+        let exports,
+            memory = new WebAssembly.Memory({ initial: 256, maximum: 256 * 256 }),
+            current = FREE_BUFFER_ADDRESS,
+            importObject = {
+                env: {
+                    memcpy: function(param1, param2, param3) {
+                        log(`memcpy: start=${param1}, value=${param2}, length=${param3}`);
+                        let buf = new Uint8Array(memory.buffer, 0, memory.buffer.byteLength);
+                        for (let i = 0; i < param3; i++) {
+                            buf[param1 + i] = buf[param2 + i];
+                        }
+                        return param1;
+                    },
+                    memset: function(param1, param2, param3) {
+                        log(`memset: start=${param1}, value=${param2}, length=${param3}`);
+                        let buf = new Uint8Array(memory.buffer, param1, param3);
+                        for (let i = 0; i < param3; i++) {
+                            buf[i] = param2;
+                        }
+                        return param1;
+                    },
+                    _Z9getBufferPhj: function(pBuffer, size) {
+                        if (size == 0) return 0;
+                        if (current_Data < LIB_SIZE) {
+                            let i = 0,
+                                uintArray = new Uint8Array(memory.buffer, pBuffer, size);
+                            for (i = 0; i < size; i++) {
+                                if (current_Data >= LIB_SIZE) break;
+                                uintArray[i] = libData[current_Data++];
+                            }
+                            log(`pBuffer = ${pBuffer}, size = ${size}, rt = ${i}`);
+                            return i;
+                        }
+                        else {
+                            log(`pBuffer = ${pBuffer}, size = ${size}, rt = ${0}`);
+                            return 0;
+                        }
+                    },
+                    _Z7loadingjj: function(current, end) {
+                        log(`current = ${current}, end = ${end}`)
+                    },
+                    emscripten_resize_heap: function(...arg) {
+                        alert(`reset_heap ${arg}`);
+                    },
+                    _Z14outputSGFCachePcj: function(pBuffer, byteLen) {
+                        log(`_Z14outputSGFCachePcj pBuffer = ${pBuffer}, byteLen = ${byteLen}`);
+                        let uint8 = new Uint8Array(memory.buffer, pBuffer, byteLen);
+                        for(let i = 0; i < byteLen; i++) {
+                            sgfUint8[sgfUint8Len++] = uint8[i];
+                        }
+                        let st = sgfUint8Len - byteLen - 0,
+                            u8 = new Uint8Array(sgfUint8.buffer, st > 0 ? st : 0, 0 + 1024);
+                        log(`str: ${String.fromCharCode(...u8)}`)
+                    },
+                    _Z4growj: () => 0,
+                    _Z11memoryBoundv: () => { alert(`memory bounds: ${parseInt((current_Data / LIB_SIZE)*1000)/10}%`) },
+                }
+            }
+        //从远程加载一个WASM的模块，并将该模块中的内容转换成二进制数据
+        let startTime = new Date().getTime(),
+            url = "script/RenLib.wasm";
+        document.querySelector('.sequence-url').innerText = url;
+        fetch(url)
+            .then(response => {
+                document.querySelector('.sequence-response').innerText = `${response}`;
+                return response.arrayBuffer()
+            })
+            .then(bytes => {
+                document.querySelector('.sequence-bytes').innerText = `${bytes}`;
+                //通过浏览器提供的标准WebAssembly接口来编译和初始化一个Wasm模块
+                return WebAssembly.instantiate(bytes, importObject);
+            })
+            .then(results => {
+                exports = results.instance.exports;
+                memory = exports.memory;
+
+                //输出下载，编译及实例化模块花费的时间
+                document.querySelector('.sequence-time').innerText = ` ${new Date().getTime() - startTime}`;
+                document.querySelector('.sequence-memory').innerText = `${memory.buffer.byteLength/1024/1024}M`;
+                //document.querySelector('.sequence-message').innerText = exports._Z4initj(LIB_SIZE);
+                //取出从Wasm模块中导出的函数
+                log(Object.keys(exports).join("\n<br>"));
+                log(`out_buffer address : ${exports._Z12getOutBufferv()}`);
+                log(`in_buffer address : ${exports._Z11getInBufferv()}`);
+                log(`log_buffer address : ${exports._Z12getLogBufferv()}`);
+                log(`error_buffer address : ${exports._Z14getErrorBufferv()}`);
+                log(`libFile_buffer address : ${exports._Z16getLibFileBufferv()}`);
+
+                //main();
+            });
+    </script>
+    <script>
+        const BUT_FILE = document.getElementById("but_file"),
+            BUT_TEXT = document.getElementById("but_text"),
+            BUT_CODE = document.getElementById("but_code"),
+            BUT_BYTES = document.getElementById("but_bytes"),
+            BUT_GO = document.getElementById("but_go"),
+            BUT_NEXT = document.getElementById("but_next"),
+            BUT_PREVIOUS = document.getElementById("but_previous"),
+            BUT_START = document.getElementById("but_start"),
+            INPUT_FILE = document.getElementById("file"),
+            INPUT_CURRENT = document.getElementById("current"),
+            INPUT_LOADSIZE = document.getElementById("loadSize");
+
+        let selected = BUT_BYTES,
+            load_length = 1024 * 8;
+
+        function getArrBuf(file) {
+            return new Promise((resolve, reject) => {
+                let fr = new FileReader();
+                fr.onload = () => {
+                    resolve(fr.result);
+                }
+                fr.onerror = err => {
+                    reject(err);
+                }
+                fr.readAsArrayBuffer(file);
+            });
+        }
+
+        function loadMemoryBuffer(buffer, start, length = load_length) {
+            length = start + length > buffer.byteLength ?
+                buffer.length - start :
+                length;
+            INPUT_CURRENT.value = start;
+            return new Uint8Array(buffer, start, length);
+        }
+
+        function printBuffer() {
+            let current = parseInt(INPUT_CURRENT.value),
+                uint8Arr = loadMemoryBuffer(memory.buffer, current, load_length);
+
+            switch (selected) {
+                case BUT_TEXT:
+                    //alert(`text ${uint8Arr.length}`);
+                    document.querySelector('.sequence-buffer').innerText = text(uint8Arr);
+                    break;
+                case BUT_CODE:
+                    //alert(`code ${uint8Arr.length}`);
+                    document.querySelector('.sequence-buffer').innerText = binary(uint8Arr);
+                    break;
+                case BUT_BYTES:
+                    //alert(`bytes ${uint8Arr.length}`);
+                    document.querySelector('.sequence-buffer').innerText = `[${uint8Arr}]`;
+                    break;
+            }
+        }
+
+        BUT_FILE.onclick = function() {
+            INPUT_FILE.click();
+        }
+
+        INPUT_LOADSIZE.onchange = function() {
+            load_length = parseInt(INPUT_LOADSIZE.value);
+        }
+
+        INPUT_FILE.onchange = function() {
+            let file = INPUT_FILE.files[0];
+            getArrBuf(file)
+                .then(buffer => {
+                    current_Data = 0;
+                    libData = new Uint8Array(buffer);
+                    LIB_SIZE = libData.length;
+                    main();
+                })
+        }
+
+        BUT_TEXT.onclick = function() {
+            selected = BUT_TEXT;
+            printBuffer();
+        }
+
+        BUT_CODE.onclick = function() {
+            selected = BUT_CODE;
+            printBuffer();
+        }
+
+        BUT_BYTES.onclick = function() {
+            selected = BUT_BYTES;
+            printBuffer();
+        }
+
+        BUT_GO.onclick = function() {
+            printBuffer();
+        }
+
+        BUT_NEXT.onclick = function() {
+            let current = parseInt(INPUT_CURRENT.value);
+            if (current + load_length <= memory.buffer.byteLength) {
+                current = current + load_length;
+                INPUT_CURRENT.value = current;
+                printBuffer();
+            }
+        }
+
+        BUT_PREVIOUS.onclick = function() {
+            let current = parseInt(INPUT_CURRENT.value);
+            if (current > 0) {
+                current -= load_length;
+                current < 0 && (current = 0);
+                INPUT_CURRENT.value = current;
+                printBuffer();
+            }
+        }
+
+        BUT_START.onclick = function() {
+            let current = parseInt(INPUT_CURRENT.value);
+            if (current) {
+                current = 0;
+                INPUT_CURRENT.value = current;
+                printBuffer();
+            }
+        }
+    </script>
+</body>
+
+</html>

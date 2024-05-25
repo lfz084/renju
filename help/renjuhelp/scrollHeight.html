@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        div.console {
+            color: black;
+            background-color: #eeeeee;
+            position: fixed;
+            top: 200px;
+            width: 500px;
+            height: 100px;
+            font-size: 25px;
+        }
+
+        div.body {
+            background-color: #dddddd;
+            width: 600px;
+            height: 5000px;
+        }
+    </style>
+</head>
+
+<body> 
+    <div class="body"></div>
+    <script>
+        (() => {  // test scrollHeight
+            const CONSOLE = document.createElement("div");
+            let s = CONSOLE.style;
+            s.color = "black";
+            s.backgroundColor = "#eeeeee";
+            s.position = "fixed";
+            s.top = "200px";
+            s.width = "500px";
+            s.height = "100px";
+            s.fontSize = "25px";
+            document.body.appendChild(CONSOLE);
+            setInterval(() => {
+                CONSOLE.innerText = `
+            body.scrollHeight = ${document.body.scrollTop}\n
+            documentElement.scrollTop = ${document.documentElement.scrollTop}\n
+            window.pageYOffset = ${window.pageYOffset}
+            `
+            }, 500)
+        })();
+    </script>
+</body>
+
+</html>

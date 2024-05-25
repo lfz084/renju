@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>更新历史</title>
+    <link rel="preload" href="../help.css" as="style" />
+    <link rel="preload" href="../help.js" as="script" />
+    <link href="../help.css" rel="stylesheet" type="text/css">
+    <style>
+        .line {
+            width: 100%;
+            height: 80px;
+        }
+        .line>div {
+            background: black;
+            position: relative;
+            top: 37px;
+            width: 100%;
+            height: 5px;
+            opacity: 20%;
+        }
+        .firstChild{
+            color: #865608;
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <script src="../help.js"></script>
+    <script>
+        const LINE = "<div class='line'><div></div></div>",
+            CUR_VER = window.top.upData && window.top.upData.currentVersion,
+            UPDATA_INFO = window.top.UPDATA_INFO || {"无":["请在app内打开本页面"]};
+        let innerHTML = "<noHide>",
+            keys = Object.keys(UPDATA_INFO),
+            firstIdx = keys.length - 1;
+            
+        if (CUR_VER && !UPDATA_INFO[CUR_VER]) {
+            UPDATA_INFO[CUR_VER] = [];
+            keys.push(CUR_VER);
+            firstIdx++;
+        }
+        
+        for (let j = firstIdx; j >= 0; j--) {
+            let key = keys[j],
+                infoArr = UPDATA_INFO[key],
+                Msg = LINE;
+            if (key) {
+                Msg += `<h3 ${j==firstIdx?"class='firstChild'":""}>${j==firstIdx?"当前":"历史"}版本： ${key}`;
+                Msg += "<ol>";
+                for (let i = 0; i < infoArr.length; i++)
+                    Msg += `<li ${j==firstIdx?"class='firstChild'":""}>${infoArr[i]}</li>`;
+                Msg += "</ol>";
+                Msg += "</h3>"
+                innerHTML += Msg;
+            }
+        }
+        innerHTML += LINE;
+        innerHTML += "</noHide>";
+        document.body.innerHTML = innerHTML;
+    </script>
+</body>
+
+</html>

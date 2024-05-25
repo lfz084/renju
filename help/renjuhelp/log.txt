@@ -1,0 +1,44 @@
+http://localhost:7700/help/helpbk.js:183]
+cancel getScrollY= +0, targetScrollTop=0
+[http://localhost:7700/help/helpbk.js:300]
+doc.h0 body.scH=0
+[http://localhost:7700/help/helpbk.js:196]
+getScrollY= +0, targetScrollTop=381
+[http://localhost:7700/help/helpbk.js:294]
+0,2,2.4,3.1,4.2,6.4,10.8,21,49.5,90.8,90.8,49.5,21,10.8,6.4,4.2,3.1,2.4,2,0
+[http://localhost:7700/help/helpbk.js:183]
+cancel getScrollY= +380.4, targetScrollTop=381
+[http://localhost:7700/help/helpbk.js:183]
+cancel getScrollY= +0, targetScrollTop=0
+[http://localhost:7700/help/helpbk.js:300]
+doc.h0 body.scH=380
+[http://localhost:7700/help/helpbk.js:196]
+getScrollY= +380, targetScrollTop=1947
+[http://localhost:7700/help/helpbk.js:294]
+0,2,2.4,3.1,4.2,6.4,10.8,21,49.5,147.6,536.2,536.2,147.6,49.5,21,10.8,6.4,4.2,3.1,2.4,2,0
+[http://localhost:7700/help/helpbk.js:183]
+cancel getScrollY= +1946.4, targetScrollTop=1947
+
+
+
+
+http://localhost:7700/help/help.js:183]
+cancel getScrollY= +0, targetScrollTop=0
+[http://localhost:7700/help/help.js:300]
+doc.h0 body.scH=0
+[http://localhost:7700/help/help.js:196]
+getScrollY= +0, targetScrollTop=381
+[http://localhost:7700/help/help.js:294]
+0,2,2.4,3.1,4.2,6.4,10.8,21,49.5,90.8,90.8,49.5,21,10.8,6.4,4.2,3.1,2.4,2,0
+[http://localhost:7700/help/help.js:183]
+cancel getScrollY= +380.4, targetScrollTop=381
+[http://localhost:7700/help/help.js:183]
+cancel getScrollY= +0, targetScrollTop=0
+[http://localhost:7700/help/help.js:300]
+doc.h0 body.scH=380
+[http://localhost:7700/help/help.js:196]
+getScrollY= +380, targetScrollTop=1947
+[http://localhost:7700/help/help.js:294]
+0,2,2.4,3.1,4.2,6.4,10.8,21,49.5,147.6,536.2,536.2,147.6,49.5,21,10.8,6.4,4.2,3.1,2.4,2,0
+[http://localhost:7700/help/help.js:183]
+cancel getScrollY= +1946.4, targetScrollTop=1947

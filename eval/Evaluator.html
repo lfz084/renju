@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>new test</title>
+    <style>
+        body {
+            background: #ccc;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .center_text {
+            display: inline-block;
+            width: 800px
+        }
+
+        .sequence-buffer {
+            font-size: 24.5px;
+            line-height: 1.28;
+            background: #cdcdcd;
+            width: 800px;
+            height: 750px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            border: #bbb solid 5px;
+        }
+
+        .sequence-log {
+            font-size: 30px;
+            line-height: 1.28;
+            background: #000;
+            color: #fff;
+            width: 800px;
+            height: 750px;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            border: #bbb solid 5px;
+            word-wrap: break-word;
+            overflow-y: scroll;
+            opacity: 0.75;
+        }
+
+        button {
+            font-size: 30px;
+            width: 130px;
+            height: 50px;
+            border: solid black 1px;
+        }
+
+        #current {
+            font-size: 30px;
+            width: 200px;
+            height: 50px;
+            border: solid black 1px;
+        }
+
+        #loadSize {
+            font-size: 30px;
+            width: 180px;
+            height: 50px;
+            border: solid black 1px;
+        }
+
+        #file {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="center_text">
+            <div class="left">
+                <p><span>url: </span><span class="sequence-url"></span></p>
+                <p><span>response: </span><span class="sequence-response"></span></p>
+                <p><span>bytes: </span><span class="sequence-bytes"></span></p>
+                <p><span>time: </span><span class="sequence-time"></span></p>
+                <p><span>main return: </span><span class="sequence-message"></span></p>
+                <p><span>buffer size :</span><span class="sequence-memory"></span></p>
+                <button id="but_file">loadFile</button>
+                <button id="but_text">text</button>
+                <button id="but_code">code</button>
+                <button id="but_bytes"> bytes </button>
+                <button id="but_go"> Go </button>
+                <br><br>
+                <button id="but_next"> &gt;&gt; </button>
+                <button id="but_previous"> &lt;&lt; </button>
+                <button id="but_start"> ||&lt;&lt; </button>
+                <input id="current" type="text" />
+                <input id="loadSize" type="text" />
+                <input id="file" type="file" />
+                <p><textarea class="sequence-buffer"></textarea></p>
+                <p>
+                <div class="sequence-log"></div>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const LEVEL_WIN = 10;
+        const LEVEL_FREEFOUR = 9;
+        const LEVEL_NOFREEFOUR = 8;
+        const LEVEL_DOUBLEFREETHREE = 7;
+        const LEVEL_DOUBLEVCF = LEVEL_DOUBLEFREETHREE;
+        const LEVEL_FREETHREE = 6;
+        const LEVEL_VCF = LEVEL_FREETHREE;
+        const LEVEL_VCT = 4;
+        const LEVEL_NONE = 0;
+
+        //--------------- lineInfo ------------------
+
+        const FREE = 1; //0b00000001
+        const MAX = 14; //0b00001110
+        const MAX_FREE = 15; //0b00001111
+        const FOUL = 16; //0b00010000
+        const FOUL_FREE = 17; //0b00010001
+        const FOUL_MAX = 30; //0b00011110
+        const FOUL_MAX_FREE = 31; //0b00011111
+        const MARK_MOVE = 224; //0b11100000
+        const FREE_COUNT = 0x0700; //0b00000111 00000000
+        const ADD_FREE_COUNT = 0x800; //0b00001000 00000000
+        const MAX_COUNT = 0x7000; //0b01110000 00000000
+        const DIRECTION = 0x7000; //0b01110000 00000000
+        const ADD_MAX_COUNT = 0x8000; //0b10000000 00000000
+        const ZERO = 0;
+        const ONE_FREE = 3;
+        const ONE_NOFREE = 2;
+        const TWO_FREE = 5;
+        const TWO_NOFREE = 4;
+        const THREE_FREE = 7;
+        const THREE_NOFREE = 6;
+        const FOUR_FREE = 9;
+        const FOUR_NOFREE = 8;
+        const LINE_DOUBLE_FOUR = 24;
+        const FIVE = 10;
+        const SIX = 28;
+        const SHORT = 14; //空间不够
+
+        // index ，转字母数字坐标
+        function idxToName(idx) {
+            let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let x = idx % 15;
+            let y = ~~(idx / 15);
+            if (x < 0 || x >= 15 || y < 0 || y >= 15)
+                return "--";
+            else
+                return (alpha.charAt(x) + (15 - y));
+        }
+
+        window.movesToName = function movesToName(moves, maxLength) {
+            let name = "";
+            for (let i = 0; i < moves.length; i++) {
+                name += `${i?",":""}${idxToName(moves[i])}`;
+                if (name.length >= maxLength) {
+                    name += "......";
+                    break;
+                }
+            }
+            return name;
+        };
+    </script>
+    <script>
+        function buf2String(buffer, pChar) {
+            let BUF_LENGTH = 1024 * 64,
+                buf = new Uint8Array(buffer, pChar, BUF_LENGTH);
+            for (let i = 0; i < BUF_LENGTH; i++) {
+                if (buf[i] * 1 == 0 || i == BUF_LENGTH - 1) {
+                    str = buf.slice(0, i);
+                    //return `${str}`;
+                    return String.fromCharCode(...str).split("\n");
+                    //return String.fromCharCode(67,13,10,68);
+                }
+            }
+            return "log:\n  empty";
+        }
+
+        function binary(uint8Arr) {
+            let txt = "",
+                len = uint8Arr.length;
+            for (let i = 0; i < len; i++) {
+                txt += ("00000000" + uint8Arr[i].toString(2)).slice(-8) + " ";
+            }
+            return txt;
+        }
+
+        function hex(uint8Arr) {
+            let txt = "",
+                len = uint8Arr.length;
+            for (let i = 0; i < len; i++) {
+                txt += "0x" + ("00" + uint8Arr[i].toString(16)).slice(-2) + " ";
+            }
+            return txt;
+        }
+
+        function text(uint8Arr) {
+            let txt = "",
+                len = uint8Arr.length;
+            for (let i = 0; i < len; i++) {
+                txt += String.fromCharCode(uint8Arr[i]);
+            }
+            return txt;
+        }
+
+        let log_Str = "";
+
+        let log = function() {
+            let timer = null;
+            return function(message) {
+                log_Str = `${log_Str}<p>${message}</p>\n`;
+                timer && clearTimeout(timer);
+                timer = setTimeout(function() {
+                    document.querySelector('.sequence-log').innerHTML = log_Str;
+                    timer = null;
+                }, 500);
+            }
+        }()
+
+        function grow(pages = 100) {
+            try {
+                memory.grow(pages);
+                let size = 1024 * 64 * pages,
+                    len = size / 4,
+                    buf = new Uint32Array(memory.buffer, memory.buffer.byteLength - size, len);
+                for (let i = 0; i < len; i++) {
+                    buf[i] = 0;
+                }
+                document.querySelector('.sequence-memory').innerText = `${memory.buffer.byteLength/1024/1024}M`;
+                log(`memory.grow(${pages}), buffer size = ${memory.buffer.byteLength/1024/1024}M`);
+                return pages;
+            }
+            catch (err) {
+                alert(err);
+            }
+        }
+
+        function getBranchNodes(path) {
+            try {
+                let x, y,
+                    uint8 = new Uint8Array(memory.buffer, 67648, 1024);
+                for (let i = 0; i < path.length; i++) {
+                    x = path[i] % 15 + 1;
+                    y = ~~(path[i] / 15) + 1;
+                    uint8[i * 2] = x;
+                    uint8[i * 2 + 1] = y;
+                }
+                exports._Z14getBranchNodesP6CPointi(67648, path.length);
+                log(`getBranchNodes end`);
+            }
+            catch (err) {
+                alert(err);
+            }
+        }
+
+        const FREE_BUFFER_ADDRESS = 65536 * 158;
+        let current_Data = 0,
+            libData = new Uint8Array([255, 82, 101, 110, 76, 105, 98, 255, 3, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 120, 0, 121, 128, 106, 192, 91, 192, 76, 64, 122, 128, 107, 192, 92, 192, 77, 64, 123, 0, 108, 192, 93, 192, 78, 64]),
+            LIB_SIZE = libData.length;
+        let exports,
+            memory = new WebAssembly.Memory({ initial: 256, maximum: 256 * 256 }),
+            current = FREE_BUFFER_ADDRESS,
+            importObject = {
+                env: {
+                    memcpy: function(param1, param2, param3) {
+                        //log(`memcpy: param1=${param1}, param2=${param2}, length=${param3}`);
+                        if ((param1 & 1) == 0 && (param2 & 1) == 0 && (param3 & 1) == 0) {
+                            param3 >>= 1;
+                            let buf1 = new Uint16Array(memory.buffer, param1, param3),
+                                buf2 = new Uint16Array(memory.buffer, param2, param3);
+                            for (let i = 0; i < param3; i++) {
+                                buf1[i] = buf2[i];
+                            }
+                        }
+                        else {
+                            let buf1 = new Uint8Array(memory.buffer, param1, param3),
+                                buf2 = new Uint8Array(memory.buffer, param2, param3);
+                            for (let i = 0; i < param3; i++) {
+                                buf1[i] = buf2[i];
+                            }
+                        }
+
+                        return param1;
+                    },
+                    memset: function(param1, param2, param3) {
+                        //log(`memset: start=${param1}, value=${param2}, length=${param3}`);
+                        if ((param1 & 3) == 0 && (param3 & 3) == 0) {
+                            param2 |= ((param2 << 24) | (param2 << 16) | (param2 << 8));
+                            param3 >>= 2;
+                            let buf = new Uint32Array(memory.buffer, param1, param3);
+                            for (let i = 0; i < param3; i++) {
+                                buf[i] = param2;
+                            }
+                        }
+                        else if ((param1 & 1) == 0 && (param3 & 1) == 0) {
+                            param2 |= (param2 << 8);
+                            param3 >>= 1;
+                            let buf = new Uint16Array(memory.buffer, param1, param3);
+                            for (let i = 0; i < param3; i++) {
+                                buf[i] = param2;
+                            }
+                        }
+                        else {
+                            let buf = new Uint8Array(memory.buffer, param1, param3);
+                            for (let i = 0; i < param3; i++) {
+                                buf[i] = param2;
+                            }
+                        }
+
+                        return param1;
+                    },
+                    _Z3logPhj: function(buf, len) {
+                        log(`[${movesToName(new Uint8Array(memory.buffer, buf, len))}]`);
+                    },
+                    _Z3logd: function(num) {
+                        log(`log: ${num}`);
+                    },
+                    _Z9getBufferPhj: function(pBuffer, size) {
+                        if (size == 0) return 0;
+                        if (current_Data < parseInt(INPUT_LOADSIZE.value)) {
+                            let i = 0,
+                                uint8Array = new Uint8Array(memory.buffer, pBuffer, size);
+                            for (i = 0; i < size; i++) {
+                                if (current_Data >= LIB_SIZE) break;
+                                uint8Array[i] = libData[current_Data++];
+                            }
+                            i < size && log(`pBuffer = ${pBuffer}, size = ${size}, rt = ${i}`);
+                            return i;
+                        }
+                        else {
+                            log(`pBuffer = ${pBuffer}, size = ${size}, rt = ${0}, end = ${current_Data}`);
+                            return 0;
+                        }
+                    },
+                    _Z7loadingjj: function(current, end) {},
+                    emscripten_resize_heap: function(...arg) {
+                        alert(`reset_heap ${arg}`);
+                    },
+                    _Z4growj: grow,
+                }
+            };
+
+
+        //从远程加载一个WASM的模块，并将该模块中的内容转换成二进制数据
+        let startTime = new Date().getTime(),
+            url = "Evaluator.wasm";
+        document.querySelector('.sequence-url').innerText = url;
+        fetch(url)
+            .then(response => {
+                document.querySelector('.sequence-response').innerText = `${response}`;
+                return response.arrayBuffer()
+            })
+            .then(bytes => {
+                document.querySelector('.sequence-bytes').innerText = `${bytes}`;
+                //通过浏览器提供的标准WebAssembly接口来编译和初始化一个Wasm模块
+                return WebAssembly.instantiate(bytes, importObject);
+            })
+            .then(results => {
+                try {
+                    exports = results.instance.exports;
+                    memory = exports.memory;
+                    //memory.grow(100);
+
+                    //输出下载，编译及实例化模块花费的时间
+                    document.querySelector('.sequence-time').innerText = ` ${new Date().getTime() - startTime}`;
+                    document.querySelector('.sequence-memory').innerText = `${memory.buffer.byteLength/1024/1024}M`;
+                    //document.querySelector('.sequence-message').innerText = exports.main(8*1024*1024)/1024/1024;
+
+
+                    //取出从Wasm模块中导出的函数
+                    log(Object.keys(exports).join("\n<br>"));
+                    /*
+                    alert(exports._Z16createEmptyListsv());
+                    alert(exports._Z14createIdxListsv());
+                    alert(exports._Z20createAroundIdxTablev());
+                    alert(exports._Z14createIdxTablev());
+                    alert(exports._Z7moveIdxhch(112, 0, 0));
+                    */
+                    const BOARD_SIZE = 15,
+                        RULES = 2;
+                    exports._Z4inithh(BOARD_SIZE, RULES);
+                    
+                    /*
+                    let s = "aroundIdx = [";
+                    for (let i = 0; i < 225; i++) {
+                        s += `${i?",":""}${exports._Z9aroundIdxhh(224,i)}`;
+                    }
+                    s += "]";
+                    log(s);
+                    */
+
+                    const COLOR = 1,
+                        CENTER_IDX = 112,
+                        ARR = exports._Z11getInBufferv(),
+                        ARR1 = ARR + 226,
+                        INFO_ARR = ARR1 + 226,
+                        MOVES = INFO_ARR + 452,
+                        MOVES1 = MOVES + 226;
+                    let arrBuffer = new Int8Array(memory.buffer, ARR, 226),
+                        arrBuffer1 = new Int8Array(memory.buffer, ARR1, 226),
+                        movesBuffer = new Uint8Array(memory.buffer, MOVES, 225),
+                        movesBuffer1 = new Uint8Array(memory.buffer, MOVES1, 225);
+
+                    for (let i = 0; i < 112; i++) {
+                        movesBuffer1[i] = movesBuffer[i] = i;
+                    }
+                    //movesBuffer1[70] = 55;
+                    //alert(exports._Z12isRepeatMovePhS_h(MOVES, MOVES1, 72));
+                    //alert(exports._Z11isChildMovePhhS_h(MOVES, 72, MOVES1, 72));
+
+                    //msg(`[${cBoard.getArray()}]`,"input")
+                    let initArr = arrBuffer.slice(0),
+                        sTime = new Date().getTime();
+                    // 1S, 3S, 160S, 90S
+                    let vcfArr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1];
+                    //let vcfArr = [2,2,0,0,0,0,2,0,2,0,1,0,0,2,2,1,0,1,0,0,0,0,0,1,2,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,1,1,0,1,0,0,0,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,2,1,2,0,0,0,1,0,1,0,0,0,0,2,0,1,2,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,2,1,0,1,0,0,0,0,0,1,1,0,0,0,2,0,0,0,1,0,2,0,2,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,2,0,0,0,2,2,1,0,0,0,2,0,2,1,2,2,0,0,0,2,0,1,0,0,0,0,1,0,1,0,1,0,0,1,1,-1];
+                    //let vcfArr = [1, 0, 1, 1, 0, 0, 0, 0, 2, 0, 0, 1, 1, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 2, 0, 1, 2, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 1, 2, 0, 0, 2, 1, 1, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 2, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 1, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 0, 0, 2, 0, 1, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 2, 0, 1, 2, 0, 0, 1, 1, 0, 0, 0, 2, 0, 2, 0, 1, 0, 0, 1, -1];
+                    //let vcfArr = [0,2,2,0,0,0,1,1,0,0,1,2,2,2,2,1,0,0,1,0,0,0,0,0,0,1,0,1,0,1,1,0,0,0,1,0,0,0,0,0,2,1,2,2,2,0,0,0,0,0,2,0,1,0,0,0,0,0,0,0,0,2,0,1,0,2,0,0,2,0,0,0,0,0,2,0,2,1,0,0,0,1,0,0,2,0,0,0,0,1,0,0,0,0,0,0,2,2,0,0,0,1,0,0,0,1,2,0,0,0,0,2,1,0,0,0,0,0,1,2,0,0,0,0,0,0,0,1,0,2,2,2,0,0,0,1,0,0,0,0,0,2,0,0,0,0,2,0,0,2,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,1,0,1,2,2,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,2,1,2,1,2,0,0,2,0,0,0,0,1,0,0,0,1,0,1,-1];
+
+                    ///let vcfArr = [0,0,0,0,0,0,1,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,1,0,-1,-1,-1,-1,-1,-1,-1,-1,0,0,1,0,1,0,0,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,1,0,0,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,0,0,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
+                    for (let i = 0; i < 226; i++) {
+                        arrBuffer[i] = vcfArr[i];
+                    }
+
+                    sTime = new Date().getTime();
+
+                    /*   
+                    for (let i = (1); i > 0; i--) {
+                        exports._Z8resetVCFv();
+                    }
+                    alert(new Date().getTime() - sTime);
+
+                    sTime = new Date().getTime();
+                    for (let keyLen = 50; keyLen < 75; keyLen+=2) {
+                        for (let keySum = 0; keySum < 7434; keySum++) {
+                            //movesBuffer[0] = keySum & 255;
+                            exports._Z17vcfTransTablePushhjPhPc(keyLen, keySum, MOVES, ARR);
+                            //movesBuffer[6] = 8;
+                            //movesBuffer[8] = 6;
+                            for (let i = 0; i < 1; i++) {
+                                if (!exports._Z16vcfTransTableHashjPhPc(keyLen, keySum, MOVES, ARR)) {
+                                    alert("findMoves not eq");
+                                    break;
+                                };
+                            }
+                        }
+                    }
+                    alert(new Date().getTime() - sTime);
+
+                    exports._Z8resetVCFv();
+
+                    sTime = new Date().getTime();
+                    for (let keyLen = 62; keyLen < 160; keyLen+=2) {
+                        for (let keySum = 0; keySum < 7434; keySum++) {
+                            exports._Z15vcfPositionPushhjPc(keyLen, keySum, ARR);
+                            //arrBuffer[224] = 5;
+                            for (let i = 0; i < 1; i++) {
+                                if (!exports._Z14vcfPositionHashjPc(keyLen, keySum, ARR)) {
+                                    alert("vcfHasPosition not eq");
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    alert(new Date().getTime() - sTime);
+                    */
+
+
+                    for (let direction = 3; direction >= 0; direction--) {
+                        for (let move = -4; move < 5; move++) {
+                            log(`${exports._Z11getArrValuehchPc(212, move, direction, ARR)}`);
+                        }
+                        let info = exports._Z13testLineThreehhcPc(212, direction, 1, ARR);
+                        log(`testLineThree: ${info}`);
+                        log(`free: ${info & FREE}, max: ${info & MAX}, foul: ${info & FOUL}`);
+                    }
+
+
+                    log(`BOARD_SIZE = ${BOARD_SIZE}, \n RULES = ${RULES}`);
+                    log(`CENTER_IDX = ${CENTER_IDX}, \n COLOR = ${COLOR}, \n ARR = ${ARR}`);
+                    log(`arr = [${arrBuffer}]`);
+                    log(`moveIdx = ${exports._Z7moveIdxhch(CENTER_IDX, 0, 0)}`);
+                    log(`getFreeFourPoint = ${exports._Z19getBlockThreePointshPct(112, ARR, 135)}`);
+                    log(`isFoul = ${exports._Z6isFoulhPc(CENTER_IDX, ARR)}`);
+                    log(`isFoul = ${exports._Z6isFoulhPc(98, ARR)}`);
+                    exports._Z8testFourPccPt(ARR, COLOR, INFO_ARR);
+                    let infoArr = new Uint16Array(memory.buffer, INFO_ARR, 225);
+                    for (let i = 0; i < 225; i++) {
+                        let isFoul = infoArr[i] & FOUL,
+                            free = infoArr[i] & FREE,
+                            max = (infoArr[i] & MAX) >> 1;
+
+                        if (isFoul) {
+                            log(`${idxToName(i)} is foul`);
+                        }
+                        else if (max == 4) {
+                            log(`${idxToName(i)} is ${max}, ${free?"free":"notFree"}`);
+                        }
+                    }
+
+
+                    /*
+                    let level = exports._Z8getLevelPcc(ARR, COLOR);
+                    log(`getLevel = ${level & 0xff}, idx = ${level >> 8}`);
+                    for (let direction = 0; direction < 4; direction++) {
+                        log(`direction = ${direction}`);
+                        log(`getArrValue = ${exports._Z11getArrValuehchPc(CENTER_IDX, 0, direction, ARR)}`);
+                        log(`testLineFour = ${exports._Z12testLineFourhhcPc(CENTER_IDX, direction, COLOR, ARR)}`);
+                        log(`testLineThree = ${exports._Z13testLineThreehhcPc(CENTER_IDX, direction, COLOR, ARR)}`);
+                        log(`testLine = ${exports._Z8testLinehhcPc(CENTER_IDX, direction, COLOR, ARR)}`);
+                    }
+                    */
+                }
+                catch (err) {
+                    alert(err.message);
+                }
+            });
+    </script>
+    <script>
+        const BUT_FILE = document.getElementById("but_file"),
+            BUT_TEXT = document.getElementById("but_text"),
+            BUT_CODE = document.getElementById("but_code"),
+            BUT_BYTES = document.getElementById("but_bytes"),
+            BUT_GO = document.getElementById("but_go"),
+            BUT_NEXT = document.getElementById("but_next"),
+            BUT_PREVIOUS = document.getElementById("but_previous"),
+            BUT_START = document.getElementById("but_start"),
+            INPUT_FILE = document.getElementById("file"),
+            INPUT_CURRENT = document.getElementById("current"),
+            INPUT_LOADSIZE = document.getElementById("loadSize");
+
+        let selected = BUT_BYTES,
+            load_length = 1024 * 8;
+
+        function getArrBuf(file) {
+            return new Promise((resolve, reject) => {
+                let fr = new FileReader();
+                fr.onload = () => {
+                    resolve(fr.result);
+                }
+                fr.onerror = err => {
+                    reject(err);
+                }
+                fr.readAsArrayBuffer(file);
+            });
+        }
+
+        function loadMemoryBuffer(buffer, start, length = load_length) {
+            length = start + length > buffer.byteLength ?
+                buffer.length - start :
+                length;
+            INPUT_CURRENT.value = start;
+            return new Uint8Array(buffer, start, length);
+        }
+
+        function printBuffer() {
+            let current = parseInt(INPUT_CURRENT.value),
+                uint8Arr = loadMemoryBuffer(memory.buffer, current, load_length);
+
+            switch (selected) {
+                case BUT_TEXT:
+                    //alert(`text ${uint8Arr.length}`);
+                    document.querySelector('.sequence-buffer').innerText = text(uint8Arr);
+                    break;
+                case BUT_CODE:
+                    //alert(`code ${uint8Arr.length}`);
+                    document.querySelector('.sequence-buffer').innerText = binary(uint8Arr);
+                    break;
+                case BUT_BYTES:
+                    //alert(`bytes ${uint8Arr.length}`);
+                    document.querySelector('.sequence-buffer').innerText = `[${uint8Arr}]`;
+                    break;
+            }
+        }
+
+        BUT_FILE.onclick = function() {
+            INPUT_FILE.click();
+        }
+
+        INPUT_LOADSIZE.onchange = function() {
+            load_length = parseInt(INPUT_LOADSIZE.value);
+        }
+
+        INPUT_FILE.onchange = function() {
+            let file = INPUT_FILE.files[0];
+            getArrBuf(file)
+                .then(buffer => {
+                    current_Data = 0;
+                    libData = new Uint8Array(buffer);
+                    LIB_SIZE = libData.length;
+                    main();
+                })
+        }
+
+        BUT_TEXT.onclick = function() {
+            selected = BUT_TEXT;
+            printBuffer();
+        }
+
+        BUT_CODE.onclick = function() {
+            selected = BUT_CODE;
+            printBuffer();
+        }
+
+        BUT_BYTES.onclick = function() {
+            selected = BUT_BYTES;
+            printBuffer();
+        }
+
+        BUT_GO.onclick = function() {
+            printBuffer();
+        }
+
+        BUT_NEXT.onclick = function() {
+            let current = parseInt(INPUT_CURRENT.value);
+            if (current + load_length <= memory.buffer.byteLength) {
+                current = current + load_length;
+                INPUT_CURRENT.value = current;
+                printBuffer();
+            }
+        }
+
+        BUT_PREVIOUS.onclick = function() {
+            let current = parseInt(INPUT_CURRENT.value);
+            if (current > 0) {
+                current -= load_length;
+                current < 0 && (current = 0);
+                INPUT_CURRENT.value = current;
+                printBuffer();
+            }
+        }
+
+        BUT_START.onclick = function() {
+            let current = parseInt(INPUT_CURRENT.value);
+            if (current) {
+                current = 0;
+                INPUT_CURRENT.value = current;
+                printBuffer();
+            }
+        }
+    </script>
+</body>
+
+</html>

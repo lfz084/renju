@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style>
+        img {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <script src="../CheckerBoard/CheckerBoard.js"></script>
+    <script>
+        const CODEURLS = ["H5J8H10G10F9F8D5I8C9L10K7G7K13D12J12D13G12J3N7F3I6D8L11K5B3M8A7M3L2E2%%%15%0",
+            "H8H6F6E4F8H9K10%%%15%0",
+            "C13D13D12C12E12%%%6%0"
+        ]
+        let cBoard = new CheckerBoard(document.body, 1000, 0, 1000, 1000);
+
+        function newGame(data) {
+            if (data.cBoardSize != "undefined" && data.cBoardSize)
+                cBoard.setSize(parseInt(data.cBoardSize));
+            if (data.coordinateType != "undefined" && data.coordinateType)
+                cBoard.setCoordinate(parseInt(data.coordinateType));
+            if (data.firstColor != "undefined" && data.firstColor) cBoard.firstColor = data.firstColor;
+            if (parseInt(data.resetNum) > 0) cBoard.resetNum = parseInt(data.resetNum);
+            if (data.moves) cBoard.unpackCodeType(data.moves, TYPE_NUMBER, TYPE_NUMBER, true);
+            if (data.whiteMoves) cBoard.unpackCodeType(data.whiteMoves, TYPE_WHITE, TYPE_WHITE, true);
+            if (data.blackMoves) cBoard.unpackCodeType(data.blackMoves, TYPE_BLACK, TYPE_BLACK, true);
+        }
+
+        function getDataURL(codeURL) {
+            let obj = cBoard.parserCodeURL(codeURL);
+            newGame(obj);
+            return cBoard.toDataURL();
+        }
+
+        function setImgs() {
+            for (let i = 0; i < 3; i++) {
+                let img = document.getElementById(i);
+                img && (img.src = getDataURL(CODEURLS[i]))
+            }
+        }
+
+        function load() {
+            try {
+
+                cBoard.showCheckerBoard();
+                setImgs();
+
+            }
+            catch (e) {
+                alert(e.stack)
+            }
+        }
+    </script>
+    <img id="0" src="../icon(192x192).png"></img>
+    <img id="1" src="../icon(192x192).png"></img>
+    <img id="2" src="../icon(192x192).png"></img>
+
+</body>
+
+</html>

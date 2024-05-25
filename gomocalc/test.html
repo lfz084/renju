@@ -1,0 +1,156 @@
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+ 	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<title></title>
+ 	<script src = "gomocalc.js"></script>
+ 	<script type="module">
+
+ 		const init = new Promise((resolve, reject) => {
+ 			gomocalc.init(o => {
+ 				o && o.ok && resolve(o)
+ 				callback(o)
+ 			})
+ 		})
+
+ 		function callback(o) {
+ 			document.body.innerHTML += (JSON.stringify(o)) + "\n<br>"
+ 		}
+
+ 		function updateHashSize( /*{ commit, state, rootState }*/ ) {
+ 			//if (rootState.settings.hashSize == state.hashSize) return
+ 			//commit('setHashSize', rootState.settings.hashSize)
+
+ 			gomocalc.sendCommand('INFO HASH_SIZE ' + 256 * 1024)
+ 			//commit('addMessage', `Hash size reset to ${state.hashSize} MB.`)
+ 		}
+
+ 		function sendInfo( /*{ rootState, rootGetters }*/ ) {
+ 			gomocalc.sendCommand('INFO RULE ' + 2)
+ 			gomocalc.sendCommand('INFO THREAD_NUM ' + 0)
+ 			gomocalc.sendCommand('INFO CAUTION_FACTOR ' + 3)
+ 			gomocalc.sendCommand('INFO STRENGTH ' + 100)
+ 			gomocalc.sendCommand('INFO TIMEOUT_TURN ' + 50000)
+ 			gomocalc.sendCommand('INFO TIMEOUT_MATCH ' + 999900)
+ 			gomocalc.sendCommand('INFO MAX_DEPTH ' + 200)
+ 			gomocalc.sendCommand('INFO MAX_NODE ' + 9999)
+ 			//gomocalc.sendCommand('INFO SHOW_DETAIL ' + 2)
+ 			//gomocalc.sendCommand('INFO PONDERING ' + 0)
+ 			//gomocalc.sendCommand('INFO SWAPABLE ' + 0)
+ 		}
+
+ 		function sendBoard( /*{ rootState }, immediateThink*/ ) {
+ 			let position = [[0, 0], [1, 1]];
+
+ 			let command = true ? 'BOARD' : 'YXBOARD'
+ 			let side = position.length % 2 == 0 ? 1 : 2
+ 			for (let pos of position) {
+ 				command += ' ' + pos[0] + ',' + pos[1] + ',' + side
+ 				side = 3 - side
+ 			}
+ 			command += ' DONE'
+ 			callback(command)
+ 			gomocalc.sendCommand(command)
+ 		}
+
+ 		function think( /*{ commit, dispatch, state, rootState, rootGetters } = {}, args*/ ) {
+ 			gomocalc.sendCommand('RELOADCONFIG config-220723.toml');
+ 			gomocalc.sendCommand('INFO HASH_SIZE 262144');
+ 			gomocalc.sendCommand('INFO RULE 0');
+ 			gomocalc.sendCommand('INFO THREAD_NUM 1');
+ 			gomocalc.sendCommand('INFO CAUTION_FACTOR 3');
+ 			gomocalc.sendCommand('INFO STRENGTH 100');
+ 			gomocalc.sendCommand('INFO TIMEOUT_TURN 7000');
+ 			gomocalc.sendCommand('INFO TIMEOUT_MATCH 180000');
+ 			gomocalc.sendCommand('INFO MAX_DEPTH 100');
+ 			gomocalc.sendCommand('INFO MAX_NODE 0');
+ 			gomocalc.sendCommand('INFO SHOW_DETAIL 3');
+ 			gomocalc.sendCommand('INFO PONDERING 0');
+ 			gomocalc.sendCommand('INFO SWAPABLE 1');
+ 			gomocalc.sendCommand('START 15');
+ 			gomocalc.sendCommand('INFO TIME_LEFT 180000');
+ 			gomocalc.sendCommand('YXBOARD 7,7,2 7,8,2 7,9,2 7.9,1 DONE');
+ 			gomocalc.sendCommand('YXNBEST 1');
+
+ 			return;
+ 			/*if (!state.ready) {
+ 				commit('addMessage', 'Engine is not ready!')
+ 				return
+ 			}
+ 			// if (!state.callbackSet) dispatch("initEngine")
+ 			commit('setThinkingState', true)
+ 			commit('setOutput', { key: 'swap', value: false })
+ 			commit('clearMessage')
+
+ 			dispatch('reloadConfig')*/
+
+ 			updateHashSize()
+ 			sendInfo()
+
+ 			gomocalc.sendCommand('START ' + 15)
+ 			/*if (state.restart || state.startSize != rootState.position.size) {
+ 				gomocalc.sendCommand('START ' + rootState.position.size)
+ 				commit('setRestart', false)
+ 				commit('setStartSize', rootState.position.size)
+ 				commit('clearUsedTime')
+ 			}*/
+
+ 			//let timeLeft = Math.max(rootGetters['settings/matchTime'] - state.timeUsed, 1)
+ 			gomocalc.sendCommand('INFO TIME_LEFT ' + 99990)
+
+ 			sendBoard()
+ 			/*dispatch('sendBoard', false)
+ 			commit('setThinkStartTime')
+ 			commit('setLastThinkPosition', rootState.position.position)
+ 			commit('clearOutput')*/
+
+ 			gomocalc.sendCommand('YXNBEST ' + 1)
+
+ 			/*return new Promise((resolve) => {
+ 				commit('setPosCallback', resolve)
+ 			})*/
+ 		}
+
+ 		function stop( /*{ commit, state }*/ ) {
+ 			if (!state.thinking) return
+
+ 			if (gomocalc.stopThinking()) {
+ 				commit('setReady', false)
+ 				commit('clearRealtime', 'best')
+ 				commit('clearRealtime', 'lost')
+ 				commit('clearRealtime', 'thinking')
+ 				commit('clearRealtime', 'thought')
+ 				commit('addUsedTime')
+ 				commit('sortPV')
+ 				commit('setThinkingState', false)
+ 				let pos = state.outputs.pv[0].bestline[0]
+ 				if (pos) {
+ 					pos = [pos[0], state.startSize - 1 - pos[1]] // 显示的坐标与输出的坐标在y轴翻转
+ 					commit('setOutput', { key: 'pos', value: pos })
+ 					if (state.posCallback) state.posCallback(pos)
+ 				}
+ 				commit('setRestart')
+ 				// Reset to initial state
+ 				commit('setCurrentConfig', null)
+ 				commit('setHashSize', null)
+ 				return true
+ 			}
+ 			return false;
+ 		}
+
+ 		init
+ 			.then(() => {
+ 				think()
+ 			})
+ 			.catch(e => alert(e.stack || e))
+ 	</script>
+
+ </head>
+
+ <body>
+
+ </body>
+
+ </html>

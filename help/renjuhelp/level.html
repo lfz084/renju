@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>进攻，防守，必胜</title>
+    <link rel="preload" href="../help.css" as="style" />
+    <link rel="preload" href="../help.js" as="script" />
+    <link href="../help.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="loading">
+    <script src="../help.js"></script>
+    <h4 id="attack">五子棋的进攻
+        <ul>...
+            <text>进攻就是，对局中迫使对手不能自由落子，必须对你的棋<a href="#block">防守</a>的一种手段。如果对方的应对不正确，下一手棋就可以确定取胜。下面是常见的进攻手段</text>
+            <li>冲四</li>
+            <ul>...
+                <text>黑棋冲四，如果白棋pass，黑棋下一手就可以五连胜。</text>
+                <img width=80% style="position: relative;left:0" src="level/four.svg" />
+            </ul>
+            <li>活三</li>
+            <ul>...
+                <text>黑棋活三，如果白棋pass，黑棋下一手就可以活四胜。</text>
+                <img width=80% style="position: relative;left:0" src="level/freeThree.svg" />
+            </ul>
+            <li>做<a href="#vcf">VCF</a></li>
+            <ul>...
+                <text>黑1做了<a href="#vcf">VCF</a>,如果白2 pass，黑棋下一手就可以<a href="#vcf">VCF</a>胜。</text>
+                <img width=80% style="position: relative;left:0" src="level/createVCF.svg" />
+            </ul>
+            <li>做<a href="#vct">VCT</a></li>
+            <ul>...
+                <text>黑1做了<a href="#vct">VCT</a>,如果白2 pass，黑棋下一手就可以<a href="#vct">VCT</a>胜。</text>
+                <img width=80% style="position: relative;left:0" src="level/createVCT.svg" />
+            </ul>
+            <li>组合进攻</li>
+            <ul>...
+                <text>有时，一手棋的进攻不是单一的，一手棋可以包含几个进攻。同时包含两个以上进攻。组合的进攻一般都能<a href="#win">必胜</a>。</text>
+                <img width=80% style="position: relative;left:0" src="level/combination.svg" />
+            </ul>
+            <li>连续进攻</li>
+            <ul>...
+                <text>进攻也可以连续不断的。连续使用进攻手段，逼着对方不断<a href="#block">防守</a>。</text>
+                <img width=80% style="position: relative;left:0" src="level/continue.svg" />
+            </ul>
+            <li>进攻和必胜的区别</li>
+            <ul>...
+                <li>进攻包含一套以上的杀</li>
+                <li><a href="#win">必胜</a>包含好几套杀</li>
+                <li>进攻可以被对手<a href="#block">防守</a>住</li>
+                <li><a href="#win">必胜</a>不管对手怎么<a href="#block">防守</a>，都防不住</li>
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="block">五子棋的防守
+        <ul>...
+            <text>五子棋的<a href="#block">防守</a>，是针对具体的<a href="#attack">进攻</a>来进行<a href="#block">防守</a>的。<a href="#block">防守</a>的目的，是让对手原来的<a href="#attack">进攻</a>不再成立。能够让对方原来的<a href="#attack">进攻</a>，不再成立的落子点，是这个<a href="#attack">进攻</a>的防点。</text>
+            <li>冲四的防点</li>
+            <ul>...
+                <text>冲四的防点唯一，就是冲四的五连点</text>
+            </ul>
+            <li>活三的防点</li>
+            <ul>...
+                <li>连活三的防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockThree1.svg" />
+                </ul>
+                <li>跳活三的防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockThree2.svg" />
+                </ul>
+                <li>利用禁手增加的防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockThree3.svg" />
+                </ul>
+            </ul>
+            <li><a href="#vcf">VCF</a>的防点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="level/blockVCF0.svg" />
+                <li>直接防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockVCF1.svg" />
+                </ul>
+                <li>反防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockVCF2.svg" />
+                </ul>
+                <li>利用禁手增加的防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockVCF3.svg" />
+                </ul>
+            </ul>
+            <li><a href="#vct">VCT</a>的防点</li>
+            <ul>...
+                <img width=80% style="position: relative;left:0" src="level/blockVCT0.svg" />
+                <li>直接防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockVCT1.svg" />
+                </ul>
+                <li>反防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockVCT2.svg" />
+                </ul>
+                <li>利用禁手增加的防点</li>
+                <ul>...
+                    <img width=80% style="position: relative;left:0" src="level/blockVCT3.svg" />
+                </ul>
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="win">五子棋的必胜
+        <ul>...
+            <text>必胜就是，在棋局结束前确定的胜利。不管对手怎么应对，都有办法最终取得胜利。</text>
+            <li>五连</li>
+            <ul id="five">...
+                <text>白棋挡了活四的一头，但是黑棋还可以五连。这是最简单的必胜。</text>
+                <img width=80% style="position: relative;left:0" src="level/five.svg" />
+            </ul>
+            <li>VCF</li>
+            <ul id="vcf">...
+                <text>连续使用冲四（最少一次），或者活四，直到最后一手五连。<mark>在这里，活四，白棋四四，白棋冲四抓禁手也是VCF。</mark></text>
+                <img width=80% style="position: relative;left:0" src="level/vcf.svg" />
+            </ul>
+            <li>VCT</li>
+            <ul id="vct">...
+                <text>连续使用<a href="#levelThree">活三级别</a>（最少一次），或者<a href="#levelFour">冲四级别</a> <a href="#attack">进攻</a>，发展成<a href="#vcf">VCF</a>，再到五连。</text>
+                <img width=80% style="position: relative;left:0" src="level/VCT0.svg" />
+                <p></p>
+                <img width=80% style="position: relative;left:0" src="level/VCT1.svg" />
+                <p></p>
+                <img width=80% style="position: relative;left:0" src="level/VCT2.svg" />
+                <p></p>
+                <img width=80% style="position: relative;left:0" src="level/VCT3.svg" />
+            </ul>
+            <li>VC2</li>
+            <ul id="vc2">...
+                <text>连续使用<a href="#levelTwo">活二级别</a>（最少一次），<a href="#levelThree">活三级别</a>或者<a href="#levelFour">冲四级别</a>的<a href="#attack">进攻</a>，发展成<a href="#vct">VCT</a>，再到<a href="#vcf">VCF</a>，最后五连。</text>
+            </ul>
+            <li>VC1</li>
+            <ul id="vc1">...
+                <text>连续使用<a href="#levelOne">活一级别</a>（最少一次），<a href="#levelTwo">活二级别</a>或者<a href="#levelThree">活三级别</a>或者<a href="#levelFour">冲四级别</a>的<a href="#attack">进攻</a>，发展成<a href="#vc2">VC2</a>，再到<a href="#vct">VCT</a>,<a href="#vcf">VCF</a>，最后五连。</text>
+            </ul>
+        </ul>
+    </h4>
+    <h4 id="level">五子棋的进攻级别
+        <ul>...
+            <text>不同的<a href="#attack">进攻</a>手段，都有自己的进攻级别。<mark>五连胜最大，可以无视一切进攻级别。</mark></text>
+            <li>冲四级别</li>
+            <ul id="levelFour">...
+                <text>黑棋有冲四，黑棋进攻级别为冲四级别。白棋同理。</text>
+                <img width=80% style="position: relative;left:0" src="level/levelFour.svg" />
+            </ul>
+            <li>活三级别</li>
+            <ul id="levelThree">...
+                <text>黑棋进攻级别没有达到<a href="#levelFour">冲四级别</a>，并且有活三或者<a href="#vcf">VCF</a>时，黑棋进攻级别为活三级别。白棋同理。</text>
+                <img width=80% style="position: relative;left:0" src="level/levelThree0.svg" />
+                <p></p>
+                <img width=80% style="position: relative;left:0" src="level/levelThree1.svg" />
+            </ul>
+            <li>活二级别</li>
+            <ul id="levelTwo">...
+                <text>黑棋进攻级别没有达到<a href="#levelThree">活三级别</a>，并且有<a href="#vct">VCT</a>时，黑棋进攻级别为活二级别。白棋同理。</text>
+                <img width=80% style="position: relative;left:0" src="level/levelTwo.svg" />
+            </ul>
+            <li>活一级别</li>
+            <ul id="levelOne">...
+                <text>黑棋进攻级别没有达到<a href="#levelTwo">活二级别</a>，并且有<a href="#vc2">VC2</a>时，黑棋进攻级别为活一级别。白棋同理。</text>
+                <img width=80% style="position: relative;left:0" src="level/levelOne.svg" />
+            </ul>
+            <li><a href="#attack">进攻</a>方和<a href="#block">防守</a>方</li>
+            <ul>...
+                <text><mark>五连 > <a href="#levelFour">冲四级别</a> > <a href="#levelThree">活三级别</a> > <a href="#levelTwo">活二级别</a> > <a href="#levelOne">活一级别</a>。</mark>越接近五连的进攻级别，优先级越高。在对局中，优先级高的一方属于进攻方，对手必须<a href="#block">防守</a>。如果双方同一级别，先落子的一方为<a href="#attack">进攻</a>方。</text>
+                <ul>...
+                    <text>白1活三<a href="#attack">进攻</a>，黑2冲四，因为冲四 > 活三，<a href="#attack">进攻</a>方变成了黑棋。</text>
+                    <img width=80% style="position: relative;left:0" src="level/level0.svg" />
+                    <text>白1双活三，黑棋也有四三，双方进攻级别相等。现在黑棋先行，黑棋为<a href="#attack">进攻</a>方，可以无视白棋双活三，直接四三杀。</text>
+                    <img width=80% style="position: relative;left:0" src="level/level1.svg" />
+                    <p></p>
+                    <img width=80% style="position: relative;left:0" src="level/level2.svg" />
+                </ul>
+            </ul>
+        </ul>
+    </h4>
+</body>
+
+</html>

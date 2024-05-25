@@ -1,0 +1,167 @@
+{"link": "https://lfz084.gitee.io/renju/puzzle.html",
+  "defaultSettings": {
+  	"title": "每日练习"
+  },
+  "puzzles": [
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "stones": "H10I11J10K11G9H9I9F8K9J8H8I7",
+      "mode": 67,
+      "level": 1,
+      "//第001题模式": "三手胜"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "stones": "F11F12I11H12G10F10I10H10G9H9I9I8G8G7H8",
+      "mode": 67,
+      "level": 1,
+      "//第002题模式": "三手胜"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 64,
+      "level": 3,
+      "stones": "K11F10G9J10H9E9H8G8F7I8H7G6H5H6J5I5",
+      "//第003题模式": "VCT"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 64,
+      "level": 3,
+      "stones": "G10H11H10I11F9G9I9H9E8D8H8G8F7G7H6",
+      "//第004题模式": "VCT"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "level": 3,
+      "stones": "F8H9H8F6J8I6H7J6F5J5H4E4I4F4J4G4I3J3",
+      "//第005题模式": "VCF"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "level": 3,
+      "stones": "F10I9G8F8H8D7E6E7F6H7B5G6C5H6E5D5F5G5I5C4E4D4D3H4H3C3D2",
+      "//第006题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 164,
+      "level": 3,
+      "stones": "E13D13E12D12D11D10E11E10D9F9E9G9H9J9I9D8K9E8F8I8G8J8H8E7K8F7D7G7E6D6G6H5H6D4D5E4E5D3I5E3",
+      "//第007题模式": "四子五连模式"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 164,
+      "level": 3,
+      "stones": "I12G10E11H10H9L9J9E7H8H5F6",
+      "//第8题模式": "四子五连模式"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "level": 3,
+      "stones": "F10F11G10E10H10J10E9G9F9H9D8E8F8I8G8C7H8F7G7H6F6E5",
+      "//第09题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "comment": "白棋抓X，黑棋找出所有防点",
+      "randomRotate": true,
+      "mode": 203,
+      "labels": ["F12,X"],
+      "blackStones": "C13D9E12E11F14F13G12H14I13I11",
+      "whiteStones": "C15D14E13I12J12",
+      "//第10题模式": "X"
+    },
+    {
+      "side": 1,      
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 204,
+      "blackStones": "C15C12D12F11G13G11H11",
+      "whiteStones": "E14E12G12G9I11",
+      "//第11题模式": "43"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 205,
+      "options": "C14D14D13D9G8H10I9",
+      "blackStones": "B15C15C12D12E12G13G11H13I14",
+      "whiteStones": "B12D15E11G15",
+      "//第12题模式": "自由对弈"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "comment": "找全黑一子三通点",
+      "randomRotate": true,
+      "mode": 193,
+      "options": "E13C12E12F12",
+      "blackStones": "D14D13D12",
+      "whiteStones": "D15",
+      "//第13题模式": "自由对弈"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "comment": "找出能跟黑1形成活二的点",
+      "randomRotate": true,
+      "mode": 193,
+      "labels": ["C13,1"],
+      "options": "B13D13E13",
+      "blackStones": "C13C9H13",
+      "whiteStones": "F10",
+      "//第14题模式": "自由对弈"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "comment": "找全黑所有活三点包括复活三",
+      "randomRotate": true,
+      "mode": 193,
+      "options": "E14A13G13",
+      "blackStones": "B13C14C12C11E13E11F13G14",
+      "whiteStones": "D12F14F11H13",
+      "//第15题模式": "VCT"
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+//test findVCF
+//game code: {B1D10D1F10F8F1H10H8J8J3L5L3M2}{}
+findVCF(cBoard.getArray(), 1, 1, 180, 1500);
+cBoard.printMoves(vcfWinMoves[0], 1);
+
+cBoard.addTree(new RenjuTree());
+cBoard.firstColor = "black";
+control.setPlayMode(9);
+control.getPlayMode();
+
+let sTime,
+arr = new Array(0xffffff),
+arr1 = new Array(0xffffff);
+
+sTime = new Date().getTime();
+for(let i=0; i<0xffffff; i++) {
+    arr1[i] = i;
+}
+alert(new Date().getTime()-sTime);
+
+
+
+arr = new Array(0xffff
+
+ff);
+arr1 = new Array(0xffffff);
+
+sTime = new Date().getTime();
+arr1 = arr.map(a=>a);
+alert(new Date().getTime()-sTime);
+
+window.t = new Thread("eval/worker.js");
+let sTime = new Date().getTime();
+engine.findVCF({arr:cBoard.getArray(), color:1, maxVCF:1, maxDepth:180, maxNode: 1000000})
+.then(moves => console.warn(`VCF: ${movesToName(moves)}\n\ntime: ${new Date().getTime()-sTime}`))
+
+-------------------------------------------------------
+
+async function f(thread) {
+    setTimeout(() => {
+        thread.unlock();
+        console.log(666);
+    }, 3000);
+}
+
+async function p() {
+    try {
+        for(let i=0; i<30; i++){
+            let thread = await engine.waitFreeThread();
+            f(thread);
+            console.log(i);
+        }
+    }
+    catch(err) {
+        console.error(err);
+    }
+}
+p()
+
+-------------------------------------------------------
+
+async function test() {
+    let vcfMoves = await engine._findVCF({arr: cBoard.getArray(), color:1, maxVCF:1, maxDepth:180, maxNode:1000000}),
+        points = await engine.getBlockVCF({arr: cBoard.getArray(), color:1, vcfMoves: vcfMoves, includeFour: true});
+    console.log(`[${movesToName(vcfMoves)}]`);
+    console.log(`[${movesToName(points)}]`);
+    cBoard.cleLb("all");
+    points.map(idx => cBoard.wLb(idx, EMOJI_ROUND, "blue"));
+}
+test();
+
+engine._findVCF({arr: cBoard.getArray(), color:1, maxVCF:1, maxDepth:180, maxNode:1000000})
+engine.getBlockVCF({arr: cBoard.getArray(), color:1, vcfMoves: [1,2,3], includeFour: true});
+
+
+engine.createTreeVCF({arr: cBoard.getArray(), color: 1, maxVCF: 1}).then(tree=>console.log(tree))
+
+
+let ps = [],
+    p = () => new Promise(resolve => {setTimeout(resolve,3000)})
+
+for(let i=0; i<5; i++) {
+    ps.push(p())
+}
+Promise.all(ps).then(()=>{console.log(5)})
+
+
+selectPoint(cBoard.getArray(), 1, 2, 1, 180, 100000).map((v, idx) => v > 0 && cBoard.wLb(idx, "a", "black"))
+
+{arr: cBoard.getArray(), color: 1, radius: 2, maxVCF: 1, maxDepth: 225, maxNode: 10000, ftype: 0}
+
+let ps = [new Promise((resolve,reject)=>{setTimeout(resolve, 1000)}),
+new Promise((resolve,reject)=>{setTimeout(resolve, 2000)}),
+new Promise((resolve,reject)=>{setTimeout(reject, 1500)}),
+];
+
+
+window.printChilds = function(node){
+    let cur = node.down;
+    while(cur){
+        console.log(`idx: ${cur.idx}, score: ${cur.score}`)
+        cur = cur.right;
+    }
+}
+
+printChilds(cBoard.tree.seek([144,225,114,225,112,225]))
+
+
+let url = "https://lfz084.gitee.io/renju/renju.html";
+async function getText(url) {
+    let rsp = undefined,
+        count = 0;
+    while(!rsp) {
+        console.log(count++);
+        let response = await fetch(url)
+        if (response.ok) rsp = response
+    }
+    console.log(`<<<`)
+    rsp.text().then(console.info)
+}
+getText(url)
+
+
+console.log(`
+${(65536*256-1).toString(2)}\n
+${(~(65536*256-1)).toString(2)}\n
+${(~~(65536*256-1)).toString(2)}\n
+
+${(65536*65536-1).toString(2)}\n
+${(~(65536*65536-1)).toString(2)}\n
+${(~~(65536*65536-1)).toString(2)}\n
+
+${(65536*65536/2-1).toString(2)}\n
+${(~(65536*65536/2-1)).toString(2)}\n
+${(~~(65536*65536/2-1)).toString(2)}\n
+
+${(65536*65536/2).toString(2)}\n
+${(~(65536*65536/2)).toString(2)}\n
+${(~~(65536*65536/2)).toString(2)}\n
+`)
+
+try{
+let count = 0,
+    t = new Date().getTime(),
+    tree = new RenjuTree(1, 3600),
+    cur = tree.root;
+while(count++ < 10000) {
+    let n = tree.newNode();
+    n.level = 666;
+    n.boardText = "a";
+    cur.down = n;
+    cur.right = n;
+    cur = n;
+}
+new Date().getTime() - t;
+}
+catch(err){
+console.error("err")
+}
+
+
+let count = 0;
+try{
+    let t = new RenjuTree(1,500);
+    while(count++ < 80000000) {
+        t.newNode()
+    }
+}
+catch(err){
+    console.error(`count: ${count}\n${err.message}`)
+}
+
+let st = new Date().getTime(),
+    tree = new RenjuTree(1,500),
+    count = 0
+    while(count++<10000000) {
+        let n = tree.newNode();
+        n.idx = 0;
+        n.level = 1;
+        n.boardText = "a";
+    }
+console.log(new Date().getTime()-st)
+
+try{
+let st = new Date().getTime(),
+    tree = new RenjuTree(1,501),
+    count = 0,
+    point = 0;
+    tree.nodeBuf.addPages(500);
+    while(count++<10000000) {
+        point += 20;
+        tree.nodeBuf.setUint8(point,0)
+        tree.nodeBuf.setUint16(point+2,1)
+        tree.nodeBuf.setUint8(point+8,65)
+    }
+console.log(new Date().getTime()-st)
+}
+catch(err){
+console.error(err.stack)
+}
+
+JFile.js
+JPoint.js
+LibraryFile.js
+LibraryTree.js
+
+try{
+let tree = cBoard.tree,
+    current = tree.createPath(cBoard.MS.slice(0, cBoard.MSindex + 2));
+    engine.addBranchIsFoul(112, cBoard.getArray(), tree, current);
+}
+catch(err){
+    console.log(err.stack)
+}
+
+
+
+
+//------
+
+self.cBoard = fullscreenUI.contentWindow.cBoard;
+self.testLine = fullscreenUI.contentWindow.testLine;
+self.testLineFoul = fullscreenUI.contentWindow.testLineFoul;
+self.testLineFour = fullscreenUI.contentWindow.testLineFour;
+self.testLineThree = fullscreenUI.contentWindow.testLineThree;
+try{
+["testLine","testLineFoul","testLineFour","testLineThree"].map(key => {
+	console.log(`key:\n${self[key]}`)
+	console.log( cBoard.getArray().map((v,i) => v>0 && `[${v},${i}]`).filter(v=>v).toString() )
+	for(let direction = 0; direction < 4; direction++) {
+		const info = self[key](142, direction, 1, cBoard.getArray());
+		console.log(("0000000000000000" + info.toString(2)).slice(-16));
+	}
+})
+}catch(e){alert(e.stack)}
+
+loadScript("debug/debugModule.js")
+
+self.cBoard = fullscreenUI.contentWindow.cBoard
+self.findVCF = fullscreenUI.contentWindow.findVCF
+self.engine = fullscreenUI.contentWindow.engine
+engine.board = cBoard;
+
+try{findVCF(cBoard.getArray(),1,1,180,2560000)}catch(e){console.error(e.stack)}
+
+try{
+(async ()=>{
+	console.log(1)
+	console.log(await engine.findVCF({
+	arr: cBoard.getArray(),
+	color: 1,
+	maxVCF: 256,
+	maxDepth: 225,
+	maxNode: 7680000
+	}))
+	console.log(2)
+})()
+}catch(e){console.error(e.stack)}
+try{
+	findVCF(cBoard.getArray(),1,1,180,1000000)
+}catch(e){console.error(e.stack)}
+
+let s = 1;
+for(let i = 1; i < 226; i++) {
+	s *= i;
+}
+console.log(s)
+
+
+
+  
+ [...document.styleSheets].map(sheet => {
+	console.log(`constructor:${sheet.constructor.name}\n${sheet.title}\n${sheet.title}`);
+	sheet.cssRules && [...sheet.cssRules].map(cssRule => {
+		console.log(cssRule.cssText)
+	})
+ })
+ 
+ [...fullscreenUI.contentWindow.document.styleSheets].map(sheet => {
+ 	console.log(`constructor:${sheet.constructor.name}\n${sheet.title}\n${sheet.href}`);
+ 	"CSSStyleSheet" == sheet.constructor.name && sheet.href.indexOf("main.css") + 1 && sheet.cssRules && [...sheet.cssRules].map((cssRule, index) => {
+		let cssText = cssRule.cssText;
+		if ((/^(a \{)|(a:link \{)|(a:visited \{)|(a:hover \{)|(a:active \{)/).test(cssText)) {
+			sheet.deleteRule(index);
+			sheet.insertRule(cssText.replace(/(?<=color:[\s]*)rgb[\s]*\([\s]*[0-9]+[\s]*\,[\s]*[0-9]+[\s]*\,[\s]*[0-9]+[\s]*\)/,"#fff"), index);
+			console.log(`index: ${index} \n${cssText}`);
+		}
+ 	})
+  })
+  
+  
+    if (navigator.userAgent.indexOf("iPhone") + 1) {
+    
+    const links = document.getElementsByTagName("link");
+    for(let i = 0; i < links.length; i++){
+  	const link = links[i];
+      const url = link.href.replace(/^https\:\/\/[\.\:0-9a-z ]*\/|^http\:\/\/[\.\:0-9a-z ]*\//, "http://192.168.1.225:8000/");
+  	console.log(url)
+      if (/\.png$|\.ico$/.test(url)) {
+  		link.href = url;
+      }
+      console.info(link.href)
+    }
+    
+    }
+    
+        var myInit = {
+                cache: "no-store", //不使用缓存
+                mode: 'cors' //支持跨域访问
+        };
+        fetch("https://lfz084.gitee.io/renju/sw.js", myInit)
+        .then(r => {
+        	console.log(r.ok);
+        	r.text();
+        })
+        .then(console.log);
+        
+        
+        
+            const scriptURL = 'sw.js';
+            async function checkScriptURL() {
+                	return new Promise((resolve => {
+                		fetch(scriptURL + "?cache=onlyNet", {
+                			cache: "no-store", //不使用缓存
+                			mode: 'cors' //支持跨域访问
+                		})
+                		.then(response => {
+                			resolve(response.ok);
+                		})
+                		setTimeout(()=>resolve(false), 15 * 1000);
+                	}))
+                }
+            checkScriptURL().then(console.log);
+            
+     localStorage.setItem("delayCheckVersion", 0)
+     
+     
+     /^https\:\/\/[\.\:0-9a-z ]*\/renju\-beta\/|^https\:\/\/[\.\:0-9a-z ]*\/renju\/|^https\:\/\/[\.\:0-9a-z ]*\/|^http\:\/\/[\.\:0-9a-z ]*\//i
+     
+     /^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\-beta\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/|^http\\:\\/\\/[\\.\\:0-9a-z ]*\\//i
+        
+     new RegExp("^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\-beta\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/|^http\\:\\/\\/[\\.\\:0-9a-z ]*\\/", "i")
+     
+     
+     const HOME = new RegExp("^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\-beta\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/|^http\\:\\/\\/[\\.\\:0-9a-z ]*\\/", "i").exec(location.href8);
+        
+     var response_err = `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>404 error</title><style>body{padding:0;margin:0}#mainview{position:fixed;top:0px;left:0px;width:500px;height:500px;border-radius:50px;background:#ddd;text-align:center}#info{position:absolute;top:10px;width:500px;height:250px;text-align:center}#link{position:absolute;top:260px;width:500px;height:250px;text-align:center}#refresh{font-size:70px;border-radius:50%;border:0px}#refresh:hover{color:#885588;opacity:0.38}h1{font-size:25px;font-weight:blod;line-height:1.5}a{color:#663366;font-size:26px;font-weight:blod;text-decoration:underline;line-height:1.8;cursor:pointer}a:link{color:#663366;text-decoration:underline}a:visited{color:#552255;text-decoration:underline}a:hover{color:#885588;text-decoration:underline}a:active{color:blue;text-decoration:underline}</style></head><body><script>const HOME=new RegExp("^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\-beta\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/renju\\/|^https\\:\\/\\/[\\.\\:0-9a-z ]*\\/|^http\\:\\/\\/[\\.\\:0-9a-z ]*\\/","i").exec(location.href8);async function postVersion(){return new Promise(resolve=>{if(navigator.serviceWorker&&navigator.serviceWorker.controller){let timer;const currentVersion=localStorage.getItem("RENJU_APP_VERSION");function onmessage(event){const MSG=event.data;if(typeof MSG=="object"&&MSG.cmd=="NEW_VERSION"){rm(MSG.versionChange)}}function rm(rt){navigator.serviceWorker.removeEventListener("message",onmessage);clearTimeout(timer);resolve(rt)}!currentVersion&&resolve(false);navigator.serviceWorker.addEventListener("message",onmessage,true);navigator.serviceWorker.controller.postMessage({cmd:"NEW_VERSION",version:currentVersion});timer=setTimeout(()=>{rm(false)},1500)}else{resolve(false)}})}async function ping(url){return new Promise(resolve=>{const time=new Date().getTime();setTimeout(()=>resolve(-1),15*1000);fetch(url.split("?=")[0].split("#")[0]+"?cache=onlyNet").then(response=>response.ok?resolve(new Date().getTime()-time):resolve(-1))})}async function checkLink(){document.getElementById("log").innerHTML="正在测试网络链接......";return ping(HOME+"index.html").then(time=>{if(time+1){document.getElementById("log").innerHTML="没有找到你要打开的页面"}else{document.getElementById("log").innerHTML="❌网络链接异常"}})}function clk(url){window.top.open(url,"_self")}postVersion(n=>n&&window.location.reload());document.body.onload=()=>{const gw=Math.min(document.documentElement.clientWidth,document.documentElement.clientHeight);Object.assign(document.getElementById("mainview").style,{left:(document.documentElement.clientWidth-500)\/2+"px",top:(document.documentElement.clientHeight-500)\/2+"px",transform:"scale("+gw\/600+")"})checkLink();document.getElementById("refresh").onclick=async()=>{window.location.reload()};document.getElementById("home").onclick=()=>{clk(HOME+"index.html")};document.getElementById("gitee").onclick=()=>{clk("https://lfz084.gitee.io/renju/")};document.getElementById("github").onclick=()=>{clk("https://lfz084.github.io/")};document.getElementById("renjumap").onclick=()=>{clk("https://renjumap.com/renjutool/index.html")};document.getElementById("url").innerHTML=window.location.href}</script><div id="mainview"><div id="info"><h1 id="url"></h1><h1 id="log"></h1></br><button id="refresh">🔄</button></div><div id="link"><br><a id="home">网站首页</a></br><a id="gitee">国内网站gitee</a></br><a id="github">国外网站github</a></br><a id="renjumap">镜像站renjumap</a></br></div></div></body></html>`;
+	const myHeaders = { "Content-Type": 'text/html; charset=utf-8' };
+	    	const init = {
+	    		status: 200,
+	    		statusText: "OK",
+	    		headers: myHeaders
+	    	}
+	  new Response(response_err, init).text(console.log)
+	  
+	  localStorage.setItem("fullscreenCancel",true)
+	  fetch("404.html").then(r=>r.text()).then(text=>msg({title: text}))
+	  
+	  
+	  
+	async function setItem(key, value) {
+		return new Promise(resolve => {
+			try {
+			key = key.toString();
+			value = value.toString();
+	    	const myHeaders = { "Content-Type": 'text/html; charset=utf-8' };
+			const init = { status: 200, statusText: "OK", headers: myHeaders };
+    		caches.open("settings").then(cache => cache.put(new Request(key), new Response(value, init))).then(() => resolve(value)).catch(() => resolve());
+    		}catch(e){resolve()}
+    	});
+    }
+    
+	async function getItem(key) {
+		return new Promise(resolve => {
+			try {
+			key = key.toString();
+			caches.open("settings").then(cache => cache.match(new Request(key))).then(response => response.text()).then(value => resolve(value)).catch(() => resolve());
+		    }catch(e){resolve()}
+		 });
+	}
+	
+	async function removeItem(key) {
+		return new Promise(resolve => {
+			try {
+				key = key.toString();
+				caches.open("settings").then(cache => cache.delete(new Request(key))).then(() => resolve(true)).catch(() => resolve(false));
+			}catch(e){resolve(false)}
+		});
+	}
+    
+    const key = "version";
+    const value = window;
+    setItem(key, value).then(() => getItem(key)).then(console.log).then(() => removeItem(key)).then(console.log).catch(console.error);
+    
+    const url = "sw.js?=onlyNet";
+    const rt = /\?cache\=onlyNet$|\?cache\=onlyCache$|\?cache\=netFirst$|\?cache\=cacheFirst$/.exec(url);
+    const key = null == rt ? "default" : rt[0];
+    const getResponse = {
+    	"?cache=onlyNet": "myFetch",
+    	"?cache=onlyCache": "loadCache",
+    	"?cache=netFirst": "netFirst",
+    	"?cache=cacheFirst": "cacheFirst",
+    	"default": "cacheFirst"
+    }[key];
+    getResponse
+    
+    const htmlScript = '<script>\n  var _hmt=_hmt||[];\n  (function(){\n    var hm=document.createElement("script");\n    hm.src="https://hm.baidu.com/hm.js?c17b8a02edb4aff101e8b42ed01aca1b";\n    var s=document.getElementsByTagName("script")[0];\n    s.parentNode.insertBefore(hm,s)\n  })();\n</script>'
+    upData.fetchTXT("index.html").then(html => html.replace(new RegExp("\<head\>", "i"),"<head>\n" + htmlScript + "\n")).then(console.log)
+    
+    fetch("index.html").then(response => console.log(response.type))
+    
+    
+    
+        		
+    async function a(b) {
+    	return Promise.resolve()
+    		.then(() => b ? Promise.resolve() : Promise.reject())
+    		.then(() => console.log(b))
+    		.catch(() => console.error(1))
+    		.catch(() => console.error(2))
+    		.then(() => console.log(3))
+    		.then(() => console.log(4))
+    		.catch(() => console.error(5))
+    		.catch(() => console.error(6))
+    }
+    
+    a(true).then(()=>console.log(7)).catch(()=>console.error(8))
+    
+    fetch("upData.html").then(r=>(console.log(r.ok),r)).then(r=>r.text()).then(console.log)
+    
+    
+    caches.open("currentCache").then(cache=>cache.match("Version/SOURCE_FILES.json")).then(r=>r.json()).then(console.log).catch(console.error)
+    
+    serviceWorker.postMessage({cmd:"getVersionInfos",args:"io"}).then(console.log)
+    
+    caches.open("currentCache").then(cache=>cache.matchAll()).then(responses =>responses.map(response => response.url)).then(console.log)
+        			})
+        			
+    ("<br><br>as<br>\nas<bR>\n<br>").replace(/^(\<br\>|\n)+|(\<br\>|\n)+$/ig, 556)
+    
+    caches.open("currentCache")
+        	.then(cache=>cache.matchAll())
+        	.then(responses => responses.map(response=>console.log(decodeURIComponent(response.url))))
+   
+   caches.open("localCache")
+          	.then(cache=>Promise.all([cache, cache.keys()]))
+          	.then(([cache, keys])=>keys.map(key=>cache.match(key).then(r=>console.log([key, r.url]))))
+          	
+    
+    async function copyCache(targetCacheKey, sourceCacheKey) {
+    	return Promise.all([caches.open(targetCacheKey), caches.open(sourceCacheKey)])
+		.then(([targetCache, sourceCache]) => {
+			return sourceCache.keys().then(requests => {
+				const ps = requests.map(request => sourceCache.match(request).then(response => targetCache.put(request, response)));
+				return Promise.all(ps);
+			})
+		})
+		.then(() => true)
+		.catch(()=> false)
+	}
+	
+	
+			copyCache("temp", "currentCache")
+			.then(console.log)
+			.then(() => upData.logCaches())
+			.then(console.log)
+			.catch(console.error)
+			
+
+try{
+async function queue(fun, paramQueue = []) {
+    	return new Promise((resolve, reject) => {
+    		function next() {
+    			const args = Array.isArray(paramQueue[index++]) ? paramQueue[index++] : [paramQueue[index++]];
+    			if (index <= paramQueue.length) {
+    				Promise.resolve().then(() => fun(...args)).then(next).catch(reject)
+    			}
+    			else resolve()
+    		}
+    		let index = 0;
+    		next()
+    	})
+    }
+
+async function copyCache(targetCacheKey, sourceCacheKey) {
+    	return Promise.all([caches.open(targetCacheKey), caches.open(sourceCacheKey)])
+    		.then(([targetCache, sourceCache]) => {
+    			return sourceCache.keys().then(requests => {
+    				return queue(request => {
+    					console.log(request && request.url)
+    					return sourceCache.match(request).then(response => targetCache.put(request, response))
+    				}, requests)
+    			})
+    		})
+    		.then(() => true)
+    		.catch(e => console.error(e&&e.stack||e))
+    }
+    
+    
+copyCache("log","currentCache").then(console.log).catch(console.error)
+}catch(e){alert(e&&e.stack||e)}

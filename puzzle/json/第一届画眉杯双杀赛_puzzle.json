@@ -1,0 +1,109 @@
+{"link": "https://lfz084.gitee.io/renju/puzzle.html",
+  "defaultSettings": {
+    "title": "第一届画眉杯双杀赛"
+  },
+  "puzzles": [
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["H7,1"],
+      "stones": "E11C13F10G10H10K8I10H7G8H6I6I5J6K5G5E4H5F4J5F3I4H3J4J3M4I2G3J2M2G1",
+      "//第01题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["H4,1"],
+      "stones": "D9G11F9G9G8H9H8E8E7I8F7J8H7D7I7G7F6I6G6F5H6H4G5H2",
+      "//第02题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["F10,1"],
+      "stones": "J15C15F14G13F13H13J11I13F10H12G10G11H10I11I9I10K9H9D8I8G8H7H8",
+      "//第03题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["F5,1"],
+      "stones": "G11K12I10N12J10H10E9G9F9I9H9J9M9K9F8L9G8E8H8F7F5H7L5I4F3I2G3F1J3",
+      "//第04题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["D4,1"],
+      "stones": "G13G12F11D11F10G11C9B10D9G10F9G9G8L9H8E8C7F8E7I8H7B7G6D7H6G7K6I6F4H5C3D4D3E1",
+      "//第05题模式": "找狭义双杀点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["G9,1"],
+      "stones": "J11K11K9L10H8O10J8G9K8M9M8I8N8L8I7J7L7K7J6I6K6L6M6N6K5J5G4L5K4N5J3L4",
+      "//第06题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["G8,1"],
+      "stones": "H11A15I11B14B10D12D10E10F10G10F9H10J9C9G8G9H8I9I7J8J7L7K7E6K6I3I5",
+      "//第07题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 209,
+      "labels": ["G2,1"],
+      "stones": "C12E10E11E9G10F9D9E7I9G5F8G4F7E3H6G3F5E1G2",
+      "//第08题模式": "找狭义双杀点"
+    },
+    {
+      "side": 2,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 210,
+      "labels": ["H3,1"],
+      "options": "B6F4F3K3",
+      "stones": "G11F10D9E9I9G9F8B8K8D8E7J8H7F7I7G7D6K7G6F6J6I6L6F5H5K5I5J4J5D3H3K1J3",
+      "//第09题模式": "找狭义双防点"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 210,
+      "labels": ["G11,1"],
+      "options": "E14H13H11L7",
+      "stones": "I15K14F11D11I11G11E10F10I10G10F9H10J9E9D8G9G8H9H8K9J8E8I7I8I6L8L6H7I5J4K5I3H4H2I4G1",
+      "//第10题模式": "找狭义双防点"
+    }
+  ]
+}

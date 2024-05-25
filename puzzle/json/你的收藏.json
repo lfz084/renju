@@ -1,0 +1,14 @@
+{"link": "https://lfz084.gitee.io/renju/puzzle.html",
+  "defaultSettings": {
+  	"title": "你的收藏"
+  },
+  "puzzles": [
+  	{
+  		"size": 15,
+  		"mode": 0,
+  		"title": "你的收藏",
+  		"blackStones": "F8G9G7H10H8H6I9I7J8",
+  		"comment": "你收藏的习题会添加到这个题集。\r\n1 .点击解题界面中 ✩ 标签收藏、删除习题。\r\n2 .通过图片输入的习题，会自动添加到收藏。\r\n3 .通过分享链接打开的习题，会自动添加到收藏。"
+  	}
+  ]
+}

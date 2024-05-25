@@ -1,0 +1,4543 @@
+{"link": "https://lfz084.gitee.io/renju/puzzle.html",
+  "defaultSettings": {
+    "title": "黑先VCF"
+  },
+  "puzzles": [
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12H12G11H10I11I10F10E9J10J9G9G8I9J8K9K8L9M8F8F7H8G7I6I7",
+      "//第001题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H10H8E7D7E6G6I6H6C4D5G4H5H4F3I4G3J3I3H2",
+      "//第002题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L13I13I12K11K12H10J11I10I9J10J9H9M9M8H8H7K8K7L8H6",
+      "//第003题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14K13J13J12G12L12H12G11I12L10I10G9K10H9J9I9K9M9N9H8N8K8N7",
+      "//第004题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8F6J8I6H7J6F5J5H4E4I4F4J4G4I3J3",
+      "//第005题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13K14J12I13M12J13I11K12K11L12M11H10K10J10G9N10J9I9H8I8K7J8",
+      "//第006题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14D12C13H12D13D11H13G11C12H10E11F9D10I9F10B8C9H8C8H7G7F6",
+      "//第007题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14J13H13K13I12G12J12H12L12I10G11K10G9L10I9H9J9K9M9N9H8N8K8N7",
+      "//第008题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13G14I13K13I12F12J12G11I11L11F10I10G10J10K10H9I9H8E8I8",
+      "//第009题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9F8G8H8G7J8H6H7K6I7N6K7L5H5J4N5K4I4G3M4J3H3J2",
+      "//第010题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9F8G8K7H8H6J8N6G7H5H7L5I7J4K6K4N5G3I4H3M4J2J3",
+      "//第011题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12J12G11H11J10J11K10K11H9G10I9H10F8I10J8K9H7L9G6H8",
+      "//第012题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N13K12I10L12J10M12H9L11J9M11H8M10I8F8L7K8M7N8O7H7",
+      "//第013题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14D12C13H12D13D11H13E11C12G11D10F9F10I9H10B8C9H8C8H7G7F6",
+      "//第014题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11G10I11H10I10J10K9I9F8K8H8M7J8F6I7G6E6H6",
+      "//第015题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9F7G8G7K6K7L5J6F4H5H4L4J4I3E3J3L3",
+      "//第016题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11H9F10J9D9K9J8H8G7I8I7J7F6G6E5I6G5J6I5J4I4L4",
+      "//第017题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12I11F10H10I10J10E9I9G9J9K9F8L9K8G8F7H8G7J8I7M8I6",
+      "//第018题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I11K10G10I9H10G8I10H8G9K8H9I7J9G6H7I6F6G4H6",
+      "//第019题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14K13J13I12G12J12H12L12I10G11K10L10I9G9J9H9N9K9H8M9N8K8N7",
+      "//第020题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H10D7H8E7E6H6G6I6C4D5G4H5I4H4I3F3J3G3H2",
+      "//第021题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10H9I8J9K8H8N8J8J7I6K7J6N7J5M6K5M5L5N4J4L3M4",
+      "//第022题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I11H10G10I9I10H8K10K8G9I7H9G6J9H6G8I6H7G4F6",
+      "//第023题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F13F14H13G14D12G13G11F12H11G12D10H12E10G10F10H9H10I9E9H8",
+      "//第024题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13K13J13G12I12H12L12J12G11K10I10L10G9H9J9I9K9M9K8N9N8H8N7",
+      "//第025题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9F8G8H8G7J8H6H7H5I7L5K7N5K6J4N6K4I4G3M4H3J3J2",
+      "//第026题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N13K12L12M12M11L11J10I10M10H9H8J9I8F8L7K8M7N8O7H7",
+      "//第027题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10J12I10H11K10K11L10L11N10M11H9J10M9K9H8L9I8N8M8N7",
+      "//第028题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8H7J8F6I6J6F5J5E4F4G4H4I4I3J4J3",
+      "//第029题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13L14N12M14K11L13L11N13M11L12I10M12K9J11H8L10J8M10L8H9",
+      "//第030题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12K12K11E11I10I11G9F10I9H10J9J10H8F9I8K9J8K8H6H7",
+      "//第031题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11I10G10J10H10H8I9J8K9I7F8M7K8F6E6G6H6",
+      "//第032题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13K13J13G12I12H12G11J12I10L12K10L10G9H9K9I9M9J9N9H8K8N7N8",
+      "//第033题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12I12L12J12N12G11J11H11M11K11H10L11J10I10I9L10J9K9L9M7H8N7L7J5",
+      "//第034题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I12L12K12G11N12J11H11H10K11I10L11L10M11J9J10L9I9H8K9L7M7N7J5",
+      "//第035题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H10H8D7H6E7I6E6H5G6G4D5G3C4I3H4J3I4H2F3",
+      "//第036题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12G12I11G11H10F10J10I10E9G9I9J9L9K9F8M8G8F7H8G7J8I7K8I6",
+      "//第037题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12J12L12K12G11N12H11J11M11K11I10L11J10H10L10I9K9J9L9M7H8N7L7J5",
+      "//第038题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H10H11H9K9I9H8K8D7F7E7G7I7H7F6J7H6G5J6K5",
+      "//第039题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K14K13I13J12K12M12L12I11H10K11J10M11K10N10G9I9I8J9J8H8K7",
+      "//第040题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12I11H12F10G11I10H10I9J10J9E9L9G9F8K9G8H8J8K8M8F7G7I7I6",
+      "//第041题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K13H12F12F10G12H10G10H9K10I9H8K8J6J7K6G6F5G4J5",
+      "//第042题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L12M11I11I10K11J10K10L10G9N10J9H9K9N9L9H8L8K8L7N7",
+      "//第043题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13F12K13H12G12F10H10G10K10H9I9H8J7K8G6F5J6J5K6G4",
+      "//第044题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12I12L12J12N12H11G11J11K11L11M11H10I10J10I9L10J9K9L9H8L7N7M7J5",
+      "//第045题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12G12G11I11F10J10H10E9I10G9J9I9K9F8L9J8G8K8H8M8F7G7I6I7",
+      "//第046题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14I13J13K13L12J12I11K12K11M12M11H10K10J10N10G9J9I9H8I8K7J8",
+      "//第047题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13G12K13H12F12H10F10K10G10H9H8I9K8K6J7F5G6J5J6G4",
+      "//第048题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13I10K12J10L12K10J11N10M11J8I9M8J9N8M9H7G8I7H8J7K8N6N7L5M5N5",
+      "//第049题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H11K9I10G8F8J8H8G7H7H6I7H5K7L5K6N5N6J4I4K4H3M4J3G3J2",
+      "//第050题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N11J10M10K10N10L10H9J9K9L9J8O9M8H8J7I8N7K6J6K4",
+      "//第051题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11G11H10H9I9H8K9E7K8F7D7G7H7J7I7F6J6H6K5G5",
+      "//第052题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I12G11K12H11L12J11N12I10K11L10L11I9M11K9H10L9J10H8J9L7M7N7J5",
+      "//第053题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K13G12F12H12G10F10I9H10H8K10K8H9J6J7F5G6J5K6G4",
+      "//第054题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G8H9G6H8E5I8F5J7H5E6G4I6I4H4J4E3F3J3",
+      "//第055题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13J13I12K13L12G12G11H12I10J12G9K10H9L10I9J9K9M9N9K8H8N7N8",
+      "//第056题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14H12J13I12K11J12K10L10M10N10H9J9M9K9H8I8L7J8K6H7M6J5",
+      "//第057题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14H13F14C12I14H12C13D11D13E11D12G11D10F9F10I9H10C8C9H8B8H7G7F6",
+      "//第058题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14H13F14C12I14D12C13H12D13D11E11D10G11H10F10F9C9I9H8B8G7C8F6H7",
+      "//第059题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12J13G10K13H10F12K10G12H9F10K8I9J7H8G6J6F5K6J5G4",
+      "//第060题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11J9F10K9D9H8H9I8I7J8F6G7G6J7J6I6G5E5I5I4L4J4",
+      "//第061题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11D9F10H9J8J9G7K9I7H8F6I8J6J7E5G6G5I6I5I4J4L4",
+      "//第062题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14D13F14D12I14H12C13D11H13E11C12G11D10F9F10I9H10C8C9H8B8H7G7F6",
+      "//第063题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10F8K9J8G8G7H8I7H7K7K6H6N6H5J4L5K4N5M4I4H3G3J2J3",
+      "//第064题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9H8E7D7I6E6C4G6G4H6H4D5G3H5I3I4J3F3H2",
+      "//第065题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13J14H12I12K11J12L10K10M10N10H9J9M9K9H7H8L7I8K6J8M6J5",
+      "//第066题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11H10I11I10G10J10I9K9H8F8K8J8I7M7G6E6H6F6",
+      "//第067题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H11K9I10F8H8G8J8G7I7H7K7K6H6N6I4H5J4L5M4N5H3K4J3G3J2",
+      "//第068题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12I13J11L13K11I12H10I10I9J10H8H9K8J9M8M9H7L8H6K7",
+      "//第069题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13M11K12I10L12K10J11N10J10I9M9J9G8H8J8K8M8N8N7H7N6I7M5J7N5L5",
+      "//第070题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14K13H13G12J13H12I12J12L12G11I10K10L10G9I9H9J9M9K9K8N9N8H8N7",
+      "//第071题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H10H11H9K9I9H8D7K8E7F7H7G7J7I7H6F6J6K5G5",
+      "//第072题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9H8F8G7G8I7J8K7H7H6N5K6K4N6M4H5G3L5H3I4J3J4J2",
+      "//第073题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14C13I14D13H13H12C12D11D12E11G11D10F10I9H10B8C9C8F9H8H7G7F6",
+      "//第074题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F13F14D12G14F12G13G12H13G11H12D10H11F10E10G10E9H10H9H8I9",
+      "//第075题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J10N11K10L10M10J9N10K9H9H8L9M8O9N7I8J6J8K6J7K4",
+      "//第076题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9G8F8H8G7J8H7I7K7N6H6L5K6J4H5K4N5M4I4G3J3H3J2",
+      "//第077题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13J14K11H12K10I12M10J12N10L10H9J9M9K9H8I8L7J8K6H7M6J5",
+      "//第078题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13J13K13G12I12H12L12J12K10G11G9I10H9L10I9J9K9M9H8N9K8N7N8",
+      "//第079题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14I13H13K13F12I11I12L11J12F10G11G10I10J10E8K10H8H9I8I9",
+      "//第080题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10E11F8I11H8G10J8H10K8J10I7I9M7K9F6E6H6G6",
+      "//第081题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N9H9H8J9I8I7L8K7N6G6J5K6L5L6N5L4J4G2",
+      "//第082题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13G13D12C12G11F11E10C10C9F10E9B9F9D8H8F8",
+      "//第083题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12J12E11I11K11F10I10H10G9J10I9F9K9J9H8K8I8H7J8H6",
+      "//第084题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14K13H13F12I13G11I12L11J12F10I11I10G10J10E8K10H8H9I8I9",
+      "//第085题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L13I13I12J11K12H10K11J10I10H9I9K8J9M8M9H7H8K7L8H6",
+      "//第086题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11J12K11K12F10E11H10I10G9J10J9F9K9I9H8I8J8H7K8H6",
+      "//第087题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9E7G8G7I8E6J8G6H7F4E5G4H5H4E4E3D3I2G3",
+      "//第088题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12I12N12J12G11L12H11J11K11L11I10M11J10H10L10J9I9H8K9M7L9N7L7J5",
+      "//第089题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9G8F8H8J8H7G7I7K7K6H6H5N6N5L5J4I4K4G3M4H3J2J3",
+      "//第090题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H8G8J8I8G7E7E6H7G6H5E5H4E4E3F4G3G4I2D3",
+      "//第091题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12H11J12J11G11K11G10H10I10H9J10K9K10F8I9J8L9H7H8G6",
+      "//第092题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H9G8H8I8J7E5E6H5G6G4I6H4F5E3I4F3J4J3",
+      "//第093题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K11L12M11I11J10I10H9K10K9L10L9N10N9G9H8J9L8K8L7N7",
+      "//第094题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12J12K12N12L12G11H11J11M11K11I10L11J10H10L10I9K9J9L9H8L7N7M7J5",
+      "//第095题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14G14H13F13G12G13H12D12G11F12H11D10E10H10F10E9G10I9H9H8",
+      "//第096题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H8G8I8J8E7G7G6H7H5E6H4E5D3E4E3F4G3G4I2",
+      "//第097题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13K14J13K13J12M12K12I11L12K11H10M11I9J10J9K10H8N10I8G9K7J8",
+      "//第098题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10H11H8I9J8K9H7F8I7G8K7G7H6K6N5N6J4H5K4L5M4I4G3H3J3J2",
+      "//第099题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9F8K9G8H8G7J8H7I7K7N6H6H5K6J4L5K4N5M4I4G3H3J3J2",
+      "//第100题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12H12G11I10I11J10F10E9H10I9G9J9K9F8L9G8H8K8J8M8G7F7I6I7",
+      "//第101题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10F8K9H8G8G7J8K7H7H6I7K6N6L5H5N5J4I4K4G3M4H3J2J3",
+      "//第102题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10H11G8I9H8K9J8F8G7H7K7I7H6K6N6H5J4L5K4N5G3I4H3M4J2J3",
+      "//第103题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10H9J8J9K8H8I6I8J6N8M6J7K5K7L5N7J4J5N4M5L3M4",
+      "//第104题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N13L12K12L11M12M11I10H9J10H8M10I8J9N8F8L7K8M7H7O7",
+      "//第105题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11G10I10H10J10K9I9H8F8K8J8I7E6M7F6G6H6",
+      "//第106题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H9J9N9H8I8K7L8G6I7L6K6L5N6N5J5J4L4G2",
+      "//第107题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12I11H10F10G9I10I9J10K9E9L9J9H8F8M8G8G7J8I7K8I6F7",
+      "//第108题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12I11H12H10G11E9F10I9I10J9J10K9G9F8L9G8H8M8J8G7K8I7F7I6",
+      "//第109题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12G12G11H10I11J10F10E9I10I9G9J9K9F8L9K8G8M8H8F7J8G7I6I7",
+      "//第110题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H10H11I9H9H8K9D7K8E7G7F7J7H7H6I7J6F6K5G5",
+      "//第111题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13K13J13J12G12L12H12G11I12L10I10G9K10H9I9K9J9M9N9H8N8K8N7",
+      "//第112题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12I11H10F10E9I10G9J10I9J9H8K9K8L9M8F8G7G8I7J8I6F7",
+      "//第113题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K11J12H10H11I10L11K10M11L10J10N10H9L9K9H8M9I8N8M8N7",
+      "//第114题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12I11J10F10G9H10I9I10J9E9L9K9F8G8H8J8F7K8I7M8I6G7",
+      "//第115题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11G12I11H12F10H10I10E9J10I9G9F8J9J8K9K8L9M8G8F7H8G7I6I7",
+      "//第116题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10H9J9H8K8I8K7J8N7N8I6J7L5J6M5M6J4J5M4K5N4L3",
+      "//第117题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11D9H9I7J9J7K9F6H8G6I8J6J8E5G7G5I6I5I4J4L4",
+      "//第118题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10J11H9G9K9I9G8J8H8H7I8K7G7H6H5I6F4I5G4H4G2I4",
+      "//第119题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8H7J8J6F6F5I6F4J5I4E4J4G4I3H4J3",
+      "//第120题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10H11I9K9G8F8H8G7J8H7I7K7K6H6H5N6J4L5K4N5M4I4G3H3J2J3",
+      "//第121题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H8G8I8J8G7E7E6H7G6H5E5H4E4E3F4G3G4I2D3",
+      "//第122题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14C13I14D12D13H12H13D10C12F10D11H10E11B8G11H8C9G7F9H7I9F6C8",
+      "//第123题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11F11J11K11G10F10F9H10K9I9L9J9F8E8J8G8G7H8I7H6G6",
+      "//第124题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H8G8J8I8G7E7H7E6G6E5H5G4E4H4F4D3E3I2G3",
+      "//第125题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9H8F8H7G8I7J8K7G7H6K6N5N6J4H5K4L5M4I4G3H3J2J3",
+      "//第126题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D12E13F11G13E10C12F10G11C9C10F9B9D8E9H8F8",
+      "//第127题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12F12J11G11K11H11G10I10H10J10K10H9I9K9F8L9H8H7J8G6",
+      "//第128题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11D9K9H9I8J9J8H8J7G7F6I7J6G6E5I6G5I4I5J4L4",
+      "//第129题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14I14F14C13D13D12H13H12C12E11D11G11D10F9F10I9H10B8C9C8H7H8F6G7",
+      "//第130题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9K9F8G8H8G7J8H7I7K7H6K6H5N6I4L5J4N5K4M4H3G3J2J3",
+      "//第131题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14J13J12H12K11I12M10K10N10L10H9H8J9J8K9H7M9L7I8K6M6J5",
+      "//第132题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L12I12G11J12J11K12K11N12M11H11H10L11I10J10L10I9K9J9L9M7H8N7L7J5",
+      "//第133题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13C12G13F11D12E10G11F10C10B9C9D8E9F8F9H8",
+      "//第134题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12K12J12L12G11N12H11K11J11L11I10M11L10H10I9J10K9J9L9H8L7M7N7J5",
+      "//第135题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11G10H10I9I10K9J10H8F8K8J8I7E6M7G6F6H6",
+      "//第136题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11J9D9H8H9J8K9G7I8I7J7F6J6G6E5I6G5J4I5L4I4",
+      "//第137题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11H10G10I10I9J10F8K9K8H8M7J8E6I7F6G6H6",
+      "//第138题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13K14J12I13M12J13I11K12K11L12M11H10N10J10I9K10J9G9H8I8J8K7",
+      "//第139题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12L12J12N12K12G11H11J11M11K11L10L11I9H10K9I10L9J10H8J9L7M7N7J5",
+      "//第140题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11L10J10J9H9H8J8I8N8K8J7I6K7J6N7M6K5J5L5M5M4J4N4L3",
+      "//第141题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14C13I14H13D13C12D12E11H12G11D11D10F9F10I9H10B8C9H8C8H7G7F6",
+      "//第142题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12J12K12G11L12H11N12J11K11L11I10M11J10H10L10I9K9J9L9M7H8N7L7J5",
+      "//第143题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J11H9I10I9G9K9H8G8G7I8H7J8H5K7I5H6F4I6G4I4H4G2",
+      "//第144题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9G8F8H8J8G7H7K7I7H6K6N6N5H5I4L5M4J4H3K4J3G3J2",
+      "//第145题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9K9G8F8H8G7J8H7I7K7H6K6H5N6L5K4N5M4I4G3J4H3J2J3",
+      "//第146题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K11J12H10H11I10L11K10M11L10J10N10H9L9K9M9H8I8N8M8N7",
+      "//第147题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12G12H10G11I10I11G9F10I9J10J9E9L9K9H8F8J8G8M8K8G7F7I7I6",
+      "//第148题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14K13J13J12G12L12H12G11I12L10I10G9K10H9J9I9K9N9M9H8N8K8N7",
+      "//第149题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13C12G13F11D12G11F10C10C9E10E9B9F9F8D8H8",
+      "//第150题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11H9D9J9K9H8I8I7J8J7G7F6G6E5I6G5J6I5I4L4J4",
+      "//第151题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11J11F11F10I11H10K11F9G10J9I9K9L9E8G8F8H8G7J8G6I7H6",
+      "//第152题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L12I12G11J12H11K12M11N12I10J11J10K11L10L11K9H10L9I9H8J9L7M7N7J5",
+      "//第153题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9K9G8F8H7H8I7J8K7G7H6H5K6N5N6I4L5K4J4M4G3H3J2J3",
+      "//第154题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14J13K11H12K10I12L10J12M10N10H9K9J9I8M9H7H8L7J8K6M6J5",
+      "//第155题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J8H9J7D8E6H8F6E7C5I6H4E5I4H5L4I5I3J3",
+      "//第156题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10H9J9H8J8I8K8K7N8I6J7J6N7M6K5J5L5M5M4J4L3N4",
+      "//第157题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13J13H12K13J12G12G11I12K10L12L10I10G9H9I9K9J9M9H8N9K8N7N8",
+      "//第158题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G8I9H8F7J6G7H5K7H4K6L4L5E3F4I3J4L3J3",
+      "//第159题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9F7G8J6G7H5K7H4K6J4L5L4F4E3I3L3J3",
+      "//第160题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14H13F14C12I14D12C13E11D13G11H12C9D11F9D10I9F10B8H10C8H8G7H7F6",
+      "//第161题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8F6J8I6H7J6F5J5F4E4G4I4H4I3J4J3",
+      "//第162题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11F11J11K11G10F10F9H10K9I9E8J9F8L9J8G8G7H8I7H6G6",
+      "//第163题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D9H11H9F10J8J9G7K9I7H8F6I8E5J7G5G6I5I6I4J6L4J4",
+      "//第164题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I8I9J8G8G7H8H7E7E5E6E4G6G4H5H4F4E3D3G3I2",
+      "//第165题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13I10K12J10L12K10J11N10M11I9J9G8M9H8J8N8K8H7M8I7J7N7N6L5M5N5",
+      "//第166题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8J8H7F6F5I6F4J6H4J5I4E4J4G4I3J3",
+      "//第167题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12J12J11G11G10H11H10K11K10I10H9J10I9L9K9F8J8H8G6H7",
+      "//第168题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14J13H13K13J12G12L12H12G11I12L10I10G9K10I9H9J9M9K9N9H8N8K8N7",
+      "//第169题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13J13H12K13J12G12G11I12K10L12L10I10G9H9I9K9J9M9K8N9N8H8N7",
+      "//第170题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12I11H12H10G11J10F10E9I10J9G9F8I9G8K9K8L9F7H8G7J8I7M8I6",
+      "//第171题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10J11H9G9I9I8K9J8G8G7H8H7H6K7I6H5H4I5I4F4G2G4",
+      "//第172题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G8I9H8G7F7K7J6K6H5F4L5J4H4L4E3J3I3L3",
+      "//第173题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K14K13I13J12K12M12L12I11H10K11J10M11K10N10G9I9H8J9I8J8K7",
+      "//第174题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14D13I14H13C13C12D12D11H12G11E11D10C9F10I9H10B8F9H8C8H7G7F6",
+      "//第175题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10G8I9H8K9J8F8G7H7I7H5K7L5H6N5K6I4N6K4J4H3M4J3G3J2",
+      "//第176题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13G13D12C12F11G11F10C10B9E10C9F9E9D8H8F8",
+      "//第177题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J9H9H8N9I8L8K7I7K6G6J5L6L5N6J4N5G2L4",
+      "//第178题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14I14H13C13C12D13D12G11H12D10D11F10E11H10C9F9I9B8H8C8H7G7F6",
+      "//第179题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H10H11H9K9I9H8G7K8H7D7J7E7F6F7H6I7J6K5G5",
+      "//第180题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F13F14H13G14D12G13F12H12G12H11G11D10E10G10F10H10I9E9H8H9",
+      "//第181题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11D9F10H9J9K9J8H8G7I8I7J7F6G6I6J6E5I4G5J4I5L4",
+      "//第182题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13K13J13J12G12G11H12L10I12I9L12J9I10K9K10M9G9N9H9H8N8K8N7",
+      "//第183题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G13E13D12C12F11G11F10C10B9E10C9F9E9D8H8F8",
+      "//第184题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14D13I14H13C13D12C12H12E11D11G11F10D10F9H10I9C9B8H8C8G7F6H7",
+      "//第185题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H9G8H8I8J7E6G6I6F5E5H5H4G4J4I4E3F3J3",
+      "//第186题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14I14D12C13H12D13D11H13E11C12F9G11I9D10B8F10C8H10H8C9H7G7F6",
+      "//第187题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13K14K13J13J12K12L12K11M12H10I11J10M11N10K10G9I9J9I8H8J8K7",
+      "//第188题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11H10I11I10G10J10I9F8K9J8H8K8E6I7F6M7G6H6",
+      "//第189题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11H9F10J9D9K9J8H8G7I8I7J7F6G6J6I6G5E5I5I4L4J4",
+      "//第190题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13G14K13H13F12J12I12G11F10I11G10L11I10J10H9K10I9H8E8I8",
+      "//第191题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12K12J12L12G11N12K11H11M11J11I10L11J10H10J9L10K9I9L9H8L7M7N7J5",
+      "//第192题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H11I9H10K9H9H8K8D7F7E7H7G7F6I7H6J7G5J6K5",
+      "//第193题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14C14D13F14D12C13H12H13D11C12G11E11H10D10F9F10B8C9C8I9H8G7H7F6",
+      "//第194题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9I8G8J8E7G7H7G6E6E5E4H5F4G4D3H4E3I2G3",
+      "//第195题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F11E11I11J11F10K11I9G10K9H10L9F9E8J9G8F8H8G7J8G6I7H6",
+      "//第196题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14K13J13G12J12H12G11I12K10L12L10I10I9G9J9H9H8K9K8M9N8N9N7",
+      "//第197题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K10N11N10J10H9L10K9M10L9J9O9H8I8J8J7M8N7K6J6K4",
+      "//第198题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9F8K9H8G8J8G7H7H6I7K6K7H5N6L5K4N5M4I4H3J4J3G3J2",
+      "//第199题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10G8I9H8K9J8F8K7G7K6H7N6I7I4H6J4H5M4L5H3N5J3K4J2G3",
+      "//第200题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N11K10J10L9L10H8M10I8N10J8H9M8J9J7K9J6O9K6N7K4",
+      "//第201题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9I8G8J8G7E7E6H7G6H5E5E4H4F4D3G4E3G3I2",
+      "//第202题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14C13I14D13D12H13H12C12D11G11E11D10F9F10I9H10B8C9C8H8H7G7F6",
+      "//第203题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13I14G12H13I12K13J12H12L12G11K10I10G9L10H9J9I9K9N9M9H8N8K8N7",
+      "//第204题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H8G8I8H7J8G6E7E5G7H5E6E4F4H4G4E3D3I2G3",
+      "//第205题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13J14H12I12K11J12K10M10L10H9N10K9J9M9H8J8I8H7L7M6K6J5",
+      "//第206题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11D9J8H9I7J9J7K9G6H8J6I8E5G7G5F6I5I6I4J4L4",
+      "//第207题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11F11I11J11G10K11H10F10J9F9K9I9F8L9G8E8H8J8G7G6I7H6",
+      "//第208题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J9H9N9H8I8I7L8K7K6G6N6L6J5N5L5J4G2L4",
+      "//第209题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9H8F8J8G8H7G7I7K6K7N6H6H5I4L5J4N5M4K4H3G3J3J2",
+      "//第210题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K10N11N10J10K9L10L9M10O9H9I8J9J8H8J7M8N7K6J6K4",
+      "//第211题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I11H10G10I9I10J9K10G8G9K8H9I7H8H6H7I6F6G4G6",
+      "//第212题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13G12K13H12F12H10F10K10G10H9H8I9K8J7G6K6J6F5J5G4",
+      "//第213题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13C12G13F11D12G11E10C10F10B9C9E9D8F9H8F8",
+      "//第214题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13G14F12I13I12K13I11J12F10G11G10L11K10I10H9J10I9H8E8I8",
+      "//第215题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F11E11I11J11K11G10F10H10F9J9I9K9L9F8E8J8G8G7H8G6I7H6",
+      "//第216题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14I13K13J13J12K12M12L12I11H10K11J10M11N10K10I9G9J9I8H8K7J8",
+      "//第217题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9G7G8J6F7K6K7H5L5H4F4J4I3L4J3E3L3",
+      "//第218题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9G8I8H8E7J8E5G7E4H7G4E6H4G6E3H5G3F4I2D3",
+      "//第219题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10G8I9H8K9J8F8G7H7K7I7H6K6H5N6L5N5J4I4K4H3M4J3G3J2",
+      "//第220题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9H8F8G7G8K7J8H6H7H5I7L5K6N5N6J4I4K4H3M4J3G3J2",
+      "//第221题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13M11K12I10L12J10J11K10I9N10J9G8M9J8H8M8K8N8J7H7N7I7N6M5L5N5",
+      "//第222题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13J13J12K13G11G12K10H12L10I12I9L12J9I10K9G9H8H9K8M9N8N9N7",
+      "//第223题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14J12J13L12K13G11G12L10H12G9I12I9I10K9K10N9H9H8J9K8M9N8N7",
+      "//第224题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14I14H13C13C12D13D12H12G11D11H10E11I9D10B8F10C8C9G7F9H7H8F6",
+      "//第225题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13G14I13K13I12F12J12G11I11L11G10F10K10I10E8J10H8H9I8I9",
+      "//第226题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8H7J8F6I6J6F5F4J5G4E4J4H4I3I4J3",
+      "//第227题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8F6J8J6H7F5I6J5E4G4F4I4H4I3J4J3",
+      "//第228题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13K14J13K13K12J12I11L12M11M12J10K11N10H10I9K10H8G9I8J9K7J8",
+      "//第229题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11F10J9D9H8H9J8K9G7I8I7J7F6G6I6E5J6I4G5J4I5L4",
+      "//第230题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E12F12E11G10C10E9H9K9H8D8F7M7I7K6G6L6E4E5",
+      "//第231题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10F8I9H7K9I7G8K7H8H6J8N6G7H5K6J4L5K4N5M4I4G3H3J2J3",
+      "//第232题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11F11J11F9K11I9F10J9G10F8H10G8K9H8L9I7E8G6J8H6G7",
+      "//第233题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9F7G8K7G7J6K6H5H4L5E3F4I3J4J3L4L3",
+      "//第234题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11D9F10H9J9I8K9I7H8J7J8J6G7E5F6G5G6I4I6J4I5L4",
+      "//第235题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9D7H8E6E7H6G6D5I6H5C4I4G4F3H4G3J3I3H2",
+      "//第236题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10H11F8I9G8K9J8H8H7G7K7I7H6K6N6N5H5J4L5M4I4H3K4J3G3J2",
+      "//第237题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J11I10H9G9I9G8K9G7H8K7I8H6J8I6H7H5F4I5G4I4H4G2",
+      "//第238题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9K9G8F8G7H8I7J8K7H7H6K6N6H5N5L5I4K4J4H3M4J3G3J2",
+      "//第239题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8H9E7D8E6J8I6J7C5F6H5E5I5L4H4I3I4J3",
+      "//第240题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9H8E6D7I6E7D5G6H5H6C4F3G4G3H4I3I4H2J3",
+      "//第241题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13K14J13K13K12J12L12M11M12K10I11G9K11I9H10H8J10I8N10J8J9K7",
+      "//第242题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11L10J10J9H9H8K8I8N8J8J7I6K7J6N7M6L5J5M5K5J4M4L3N4",
+      "//第243题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K14K12I13L12K13M12J12I11M11K11K10H10G9J10I9N10I8J9J8H8K7",
+      "//第244题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14H12J11K12K11G10N11F9J10K9L10L9I9M9J9H8L8J8",
+      "//第245题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13H12K13G10F12H9G12I9F10K8H10G6K10K6H8F5J7J5J6G4",
+      "//第246题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11H10I11I10G10J10I9F8K9K8H8M7J8E6I7F6G6H6",
+      "//第247题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11G12I11H12H10F10J10I10E9I9G9J9K9L9H8F8K8G8M8J8I7F7I6G7",
+      "//第248题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9G8F8J8H8G7H7I7K6K7N6H6H5N5L5J4I4K4H3M4J3G3J2",
+      "//第249题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10J9H9H8I8J8N8K8K7J7N7I6J6M6K5J5M5L5M4J4N4L3",
+      "//第250题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12N13L12M12L11M11J10I10H9M10F8J9H8N8I8H7K8M7L7O7",
+      "//第251题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K11L12J10I11K10M11G9I10K9L10L9N10N9H9H8J9L8K8L7N7",
+      "//第252题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10H11G8I9G7K9H7F8K7H8H6J8H5I7L5K6N5N6J4I4K4H3M4J3G3J2",
+      "//第253题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G10E11H10I11I10J10I9F8K9J8H8K8I7E6M7G6F6H6",
+      "//第254题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14H13I13F12K13J12I12G11I11L11G10F10J10I10K10H9I9H8E8I8",
+      "//第255题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J11E11K11F11F10I11H10G10K9F9E8I9F8J9H8L9J8G8G7G6I7H6",
+      "//第256题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9H8F8H7G8I7J8K6G7N6K7H5H6J4L5K4N5M4I4G3H3J3J2",
+      "//第257题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10J9H9H8I8J8N8K8K7J7N7I6J6M6K5J5M5L5N4J4L3M4",
+      "//第258题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14I12J13J12H12K11K10L10M10N10K9H9M9J9I8H8H7J8L7M6K6J5",
+      "//第259题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12I11F10H10I10E9J10J9G9G8I9J8K9K8L9F7F8G7H8I7M8I6",
+      "//第260题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12G11J12K11H11G10J11I10H10J10I9K10K9H9F8L9H8H7J8G6",
+      "//第261题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10H9H8J9N8I8J7J8K7K8N7I6K5J6L5M6M5J5J4N4M4L3",
+      "//第262题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11G10I11I10H10J10K9I9H8F8K8J8I7E6M7F6G6H6",
+      "//第263题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13J14H12J12I12K11K10L10M10H9N10J9K9H8M9I8L7J8K6H7M6J5",
+      "//第264题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L14M14K13N13L13M12L12J11N12L11K11M11I10L10M10H9K9J8H8L8",
+      "//第265题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14D13I14H13C13E11C12G11D12D10H12F10D11F9H10C8C9H8I9H7B8F6G7",
+      "//第266题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14J13K13J12G12L12H12G11I12L10I10G9K10H9J9I9M9K9N9H8N8K8N7",
+      "//第267题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N9H9I8J9I7H8G6L8K6K7N6L6N5J5J4L5L4G2",
+      "//第268题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H11H8I10J8K9H7F8I7G8H6G7K6K7N6H5L5K4N5M4I4G3J4H3J2J3",
+      "//第269题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13G14F12I13I12K13J12G11I11I10L11J10F10K10G10E8H9H8I9I8",
+      "//第270题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14J13I13K12K13L12J12K11M12H10I11K10M11N10J10G9I9J9I8H8K7J8",
+      "//第271题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12J13H12K13G10F12H10F10K10H9H8I9K8G6J7J6J5K6G4F5",
+      "//第272题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13K14J12I13M12J13I11K12K11L12M11H10J10N10K10J9G9H8I9I8K7J8",
+      "//第273题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D9H11H9F10J9K9J8H8G7I8I7J7F6G6J6I6G5E5I5I4L4J4",
+      "//第274题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11G10H10I10J10K9I9H8F8K8J8I7M7F6E6G6H6",
+      "//第275题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12H11J12J11G11K11I10G10H9H10I9J10K9K10F8L9J8H8G6H7",
+      "//第276题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9G8H8G7F7K7J6K6H5F4L5E3H4I3J4J3L4L3",
+      "//第277题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14F14H13F13D12G13F12G12G11H12D10H11F10E10H10G10H9E9H8I9",
+      "//第278题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J9H9N9I7H8K7I8G6L8L6K6L5N6J4J5L4N5G2",
+      "//第279题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H11K9I10G8F8J8H8G7I7H7K7H6N5K6I4N6J4H5M4L5H3K4J3G3J2",
+      "//第280题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11J10I11I9G10K9H10F8I10J8H8K8I7M7E6F6G6H6",
+      "//第281题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11K11F11G10I11F9J11I9F10K9H10L9J9F8E8G8H8J8G7I7H6G6",
+      "//第282题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11H9D9I8J9J8K9G7H8F6I7G6J7I6J6I5E5J4G5L4I4",
+      "//第283题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13J13G12F12H12F10G10H10K10I9H9H8K8K6J7F5G6J5J6G4",
+      "//第284题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13K14J13K13J12M12K12I11L12K11M11J10H10N10K10J9G9I8I9J8H8K7",
+      "//第285题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13J11K12I10L12J10M11N10K10I9J9G8M9H8J8M8K8H7N8J7I7N7L5N6N5M5",
+      "//第286题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10G8I9J8K9G7F8I7H8K7H7H6K6N6H5J4L5K4N5M4I4G3J3H3J2",
+      "//第287题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K14K13I13J12K12L12H10M12J10I11N10K11J9M11H8K10I8G9J8I9K7",
+      "//第288题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12J14J12J13K10H12L10K11H9M10J9N10K9H8M9I8H7J8L7M6K6J5",
+      "//第289题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9E6H8H6D7I6E7D5G6H5C4G4H4G3I4I3F3J3H2",
+      "//第290题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L13I13I12K12J11H10K11I10J10H9H8I9K8J9M8M9H7L8H6K7",
+      "//第291题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11F11J11I11G10K11H10F10J9F9K9I9F8L9G8E8H8J8G7G6I7H6",
+      "//第292题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13M11K12I10L12J10J11N10K10J9I9H8M9M8G8N8J8I7K8J7H7N7N6L5M5N5",
+      "//第293题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G8I9H8F7J6G7H5K7L5K6H4F4E3J4I3L4J3L3",
+      "//第294题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J11I10G9H9H8I9I8K9J8G8H7G7K7I6H6H5G4I5H4F4I4G2",
+      "//第295题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14J13I13L12K13K11J12H10K12N10M12G9I11I9M11J9J10H8K10I8K7J8",
+      "//第296题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I11K12K11E11I10F10G9H10J9J10K9F9I8I9J8H8K8H7H6",
+      "//第297题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K9H11G8I10H8I9J8F8G7H7K7I7H6N5K6I4N6J4H5M4L5H3K4J3G3J2",
+      "//第298题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J9H9N9H8L8I8K6I7L6K7J5G6L5N6N5J4G2L4",
+      "//第299题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14C13D13C12H13D12E11H12G11D11D10H10F10C9F9I9H8B8H7C8F6G7",
+      "//第300题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13J13K13J12G12L12H12G11I12L10I10G9K10I9H9K9J9M9N9H8N8K8N7",
+      "//第301题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14I13K13J13J12K12M12L12I11H10K11J10M11J9K10H8N10I8G9J8I9K7",
+      "//第302题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14C13I14H13D13C12D12D11H12G11E11D10F9F10I9H10B8C9C8H8H7G7F6",
+      "//第303题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J9H11J8F10G7D9I7H9F6K9J6H8E5I8G5J7I5G6I4I6J4L4",
+      "//第304题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9I8G8J8E7G7H7E6E5G6E4H5F4G4H4D3E3I2G3",
+      "//第305题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10F8I9H8K9J8G8H7G7K7I7H6K6N6H5J4L5K4N5M4I4G3H3J2J3",
+      "//第306题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "M10N11N10J10H9K10K9L10L9J9O9H8J8I8J7M8N7J6K6K4",
+      "//第307题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12E12E11C10G10H9E9D8K9F7H8G6I7L6M7E5K6E4",
+      "//第308题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12I11F10I10H10J10I9E9J9G9F8K9G8L9H8M8J8F7K8G7I7I6",
+      "//第309题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H11G8I10H8K9J8F8I7G7H6H7K6K7L5N6I4H5J4N5H3K4J3M4J2G3",
+      "//第310题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13G14I13K13I12F12I11J12F10G11G10L11K10I10H9J10E8I9H8I8",
+      "//第311题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14J13I13K12K13K11J12M11L12H10M12G9I11I9J10J9K10H8N10I8K7J8",
+      "//第312题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8H10E6I9G6D7H6E7H5I6C4D5G4H4I4F3I3G3H2J3",
+      "//第313题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10F8K9G8J8H8K7G7H6H7H5I7L5K6J4N6K4N5G3I4H3M4J2J3",
+      "//第314题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N11J10K10L10N10M10K9H9L9J9O9H8J7I8N7J8J6M8K4K6",
+      "//第315题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H10D7H8E7E6H6G6D5I6H5G4C4I4H4I3F3J3G3H2",
+      "//第316题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12H11J12G10G11I10J11J10K11I9H10K9K10L9H9H8F8J8H7G6",
+      "//第317题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14I14F14C13D11D13E11H13D10C12F10D12H10H12C9G11F9B8I9H8C8G7H7F6",
+      "//第318题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14K13H13G12J13H12J12I12L12I10G11K10L10H9G9J9I9M9K9N9H8N8K8N7",
+      "//第319题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13G13D12C12F11G11F10C10C9E10F9B9D8E9H8F8",
+      "//第320题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12G11J12H11J11K11I10G10K10H10K9J10F8H9H8I9J8L9H7G6",
+      "//第321题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10G8I9H8K9J8F8I7G7K7H7H6K6N6H5J4L5K4N5M4I4G3J3H3J2",
+      "//第322题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12K14K12I13I11J13K11K13M11L12K10M12N10H10I9J10J9G9H8I8K7J8",
+      "//第323题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10J11H9G9I9K9G8I8H8G7J8H7H6K7I6G4H5H4I5I4F4G2",
+      "//第324题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10G8I9H8K9J8F8I7G7K7H7N6H6J4K6K4H5M4L5G3N5H3I4J2J3",
+      "//第325题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12K12J12L12N12H11G11J11K11I10L11J10M11L10H10I9J9H8K9L7L9M7N7J5",
+      "//第326题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12J12L12K12J11N12K11G11H10H11I10L11L10M11J9J10L9I9H8K9L7M7N7J5",
+      "//第327题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12H10I11I10F10J10G9E9I9K9J9L9F8G8H8M8J8F7K8G7I6I7",
+      "//第328题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12I11H10F10I10J10G9E9I9K9J9F8L9G8H8K8J8M8G7F7I7I6",
+      "//第329题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11F11K11I11F10J11H10G10K9F9L9I9F8J9H8E8J8G8G6G7H6I7",
+      "//第330题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9J8F8G7G8I7H8H6H7L5K7N5K6I4N6J4H5M4K4G3J3H3J2",
+      "//第331题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9K9J8F8G7G8I7H8H6H7L5K7N5K6I4N6J4H5M4K4G3J3H3J2",
+      "//第332题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12H11J12J11G11K11G10H10K10I10I9J10F8H9H8K9J8L9G6H7",
+      "//第333题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14D13C13D12H13H12C12D11D10E11F10G11H10F9C9I9B8C8G7H8H7F6",
+      "//第334题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12J12K12H11L12J11N12L11G11M11K11H10I10J10L10I9J9K9L9M7H8N7L7J5",
+      "//第335题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N9H9I8J9L8H8G6I7K6K7N6L6J5N5L5J4G2L4",
+      "//第336题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H9N9J9H8I8L8K6I7N6K7J5G6N5L6L4L5G2J4",
+      "//第337题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9D7H8E7E6H6G6H5I6H4D5I4C4G3G4I3F3J3H2",
+      "//第338题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12H10I11I10F10J10E9J9G9K9I9L9H8F8J8G8K8M8G7F7I6I7",
+      "//第339题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11E11K11F11F10J11H10G10J9F9K9I9E8L9G8F8H8J8G7G6I7H6",
+      "//第340题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13J13G12F12H12F10G10H9H10I9K10G6H8J6K8K6J7F5G4J5",
+      "//第341题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13G14F12H13I12I13J12I11G11L11F10G10J10I10E8K10H8H9I8I9",
+      "//第342题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14K13I13J12J13M12K12K11L12M11I11H10J10K10I9N10H8G9I8J9K7J8",
+      "//第343题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8H9J8D8E7J7F6E6C5I6H5E5H4I5I4I3L4J3",
+      "//第344题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12J14K10J13L10H12N10J12H9K11J9M10K9H8M9I8H7J8L7M6K6J5",
+      "//第345题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9G8F8H8G7J8H6H7K6I7N6K7H5J4L5K4N5M4I4J3G3J2H3",
+      "//第346题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J9H9N9I7H8K7I8G6L8N6K6J5L6L5N5L4J4G2",
+      "//第347题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14I13J13K13J12K12L12M12I11K10K11G9M11I9H10J9J10H8N10J8I8K7",
+      "//第348题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13G13D12C12F11G11C10E10F10F9B9D8C9F8E9H8",
+      "//第349题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12J13G10K13H10F12K10H12H9F10K8I9J7H8G6J6F5K6G4J5",
+      "//第350题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F11E11J11I11K11H10F10K9G10L9F9E8I9F8J9G8H8J8G6G7H6I7",
+      "//第351题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8I9I8G8J8E7E6G7G6H7E5E4H5F4G4H4D3G3E3I2",
+      "//第352题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12F12G11H11G10J11J10K11K10H10I9I10K9H9H8L9J8F8H7G6",
+      "//第353题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L12I12N12J12J11K12M11G11H10H11I10K11L10L11J9J10L9I9H8K9L7M7N7J5",
+      "//第354题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I12G11K12H11L12J11N12I10K11J10L11L10M11I9H10L9J9H8K9L7M7J5N7",
+      "//第355题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14F14F13G13D12H13F12G12H12H11G11E10D10G10F10H10H9E9H8I9",
+      "//第356题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12I11H12H10G11J10F10E9I10J9G9K9I9F8L9G8H8M8J8G7K8I7F7I6",
+      "//第357题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14F14F13G13F12H13G12D12G11H12D10H11E10G10F10E9H10H9H8I9",
+      "//第358题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10H9I8J9N8H8K7J8N7K8J6J7K5I6L5M6M5J5J4N4M4L3",
+      "//第359题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9H8F8J8G8H7G7I7K7K6H6N6L5H5N5J4I4K4H3M4J3G3J2",
+      "//第360题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13L13K12I12J10J11I9K11J9H10M9I10H8H9M8K8H7L8K7H6",
+      "//第361题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11H10G10J10I10K9I9H8F8K8J8I7E6M7F6G6H6",
+      "//第362题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9K9G8F8H8G7J8H7I7K7K6H6H5N6J4L5K4N5M4I4H3G3J2J3",
+      "//第363题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14C14C13F14D13H13E11C12G11D12D10H12F10D11C9H10I9F9C8B8H8H7G7F6",
+      "//第364题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F11E11I11J11F10K11I9G10J9H10K9F9E8L9G8F8H8J8I7G7H6G6",
+      "//第365题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11G12I11H12J10F10I9H10J9I10K9E9F8G9K8L9M8G8G7H8I7J8I6F7",
+      "//第366题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9H8D7E6E7G6I6H6D5H5C4I4G4F3H4G3I3H2J3",
+      "//第367题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13K12L13K11I12H10J11H9I10I9J10J9K8M9M8H8H7L8K7H6",
+      "//第368题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H10H11I9H9E7K9F7H8H7K8J7D7F6G7H6I7J6K5G5",
+      "//第369题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J10N11K10L10N10M10J9H9K9H8L9I8O9J8M8J7K6N7K4J6",
+      "//第370题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9H8D7E6E7G6H6D5I6H5C4H4G4F3I4I3G3H2J3",
+      "//第371题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9F8G8K7H8H6J8H5G7L5H7N5I7J4K6K4N6G3I4H3M4J2J3",
+      "//第372题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9H8F8J8G8G7H7I7K6K7N6H6N5H5I4L5G3J4H3K4J3M4J2",
+      "//第373题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12J12K11G11I10H11K10J11H9G10L9H10F8J10H8I9J8K9H7G6",
+      "//第374题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10H8I9J8K9G7F8I7G8K7H7H6K6N6L5H5N5J4I4K4G3M4H3J2J3",
+      "//第375题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13J13F12H12G12F10G10H9H10I9K10H8K8J6J7K6G6F5J5G4",
+      "//第376题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9G8F8G7H8I7J8K7H7H6K6L5N6N5H5J4I4K4H3M4J3G3J2",
+      "//第377题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9F8G8H8J8G7H7I7H6K7K6H5N6L5N5J4I4K4H3M4J3G3J2",
+      "//第378题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11E11K11F11F10J11H10G10J9F9K9I9F8L9G8E8H8J8G7G6I7H6",
+      "//第379题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14C13F14H13I14C12D13H12D12D11D10E11F10G11H10F9C9I9B8C8G7H8H7F6",
+      "//第380题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L14M14L13K13M12N13J11L12K11N12L11M11I10M10L10H9H8K9L8J8",
+      "//第381题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14H13C13D12D13H12C12D11G11E11D10F9F10I9H10B8C9C8H8H7G7F6",
+      "//第382题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11K9I10F8I9H8G8J8G7H7K7I7H6K6L5N6N5H5J4I4K4H3M4J3G3J2",
+      "//第383题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12J12H11G11G10J11I10K11H9H10I9J10F8K10H8K9J8L9H7G6",
+      "//第384题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14I12J13J12H12M10K11N10K10H9L10K9J9M9H8J8I8H7L7K6J5M6",
+      "//第385题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14H12J13I12K10J12M10K11K9L10M9N10H8H9I8J9H7J8L7M6K6J5",
+      "//第386题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12I12N12J12H11L12K11G11I10J11J10L11L10M11I9H10K9J9L9H8L7M7N7J5",
+      "//第387题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "M10N11N10J10K9K10L9L10O9H9H8J9I8J8J7M8N7J6K6K4",
+      "//第388题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I12K12L12H11N12J11G11M11K11H10L11L10I10I9J10K9J9L9H8M7L7N7J5",
+      "//第389题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11F12J11J12G10G11H10K11J10I10I9K10K9H9H8L9J8F8G6H7",
+      "//第390题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11E11K11F11F10J11H10G10J9F9K9I9E8L9F8G8H8J8G7G6I7H6",
+      "//第391题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14K13H13G12J13H12I12J12G11L12L10I10G9K10H9J9I9K9M9N9K8H8N8N7",
+      "//第392题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12F10H12J10G11E9I11G9H10I9I10J9K9F8L9J8G8K8H8M8G7F7I7I6",
+      "//第393题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L13I13I12J11K12K11I10H10I9J10M9H9H8J9K8L8M8H7K7H6",
+      "//第394题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H11K9I10G8F8H8J8H7G7I7K7H5H6N5K6J4N6K4L5M4I4G3J3H3J2",
+      "//第395题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11H10G10J10I10K9I9H8F8I7J8M7K8G6E6H6F6",
+      "//第396题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K11J12H10H11I10L11K10M11L10J10N10H9L9K9I8M9M8H8N8N7",
+      "//第397题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9H8D7E6E7G6I6H6H5D5C4H4G4F3I4G3I3H2J3",
+      "//第398题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11D9H9K9J9H8J8I8I7G7J6J7E5F6G5G6I4I6J4I5L4",
+      "//第399题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I13K14K13J13J12K12L12M12I11K11J10M11K10H10N10G9I9J9I8H8K7J8",
+      "//第400题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9G8F8J8H8G7I7H7K6K7N6H6H5L5N5J4I4K4H3M4J3G3J2",
+      "//第401题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H10I9E7H8E6D7G6H6D5I6H5C4G4I4H4G3F3I3H2J3",
+      "//第402题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13I14K13H13G12I12H12L12J12G11I10K10L10H9G9I9J9M9K9H8N9K8N8N7",
+      "//第403题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14D13I14H13C13E11C12G11D12F10H12F9D11I9D10B8H10C8C9H7H8F6G7",
+      "//第404题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F8H9H8F6J8I6H7F5J6J5G4E4H4F4I3I4J3J4",
+      "//第405题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13F12K13G12F10H12G10H10H8K10G6H9J6I9F5K8J5J7G4K6",
+      "//第406题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13J11K12M11L12I10J10K10M9N10H8I9J8J9K8G8M8N8J7H7N7I7N6L5M5N5",
+      "//第407题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D8G9H8I9J8F7I7D6J6F6H4I6I4K6",
+      "//第408题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D8H9H8J8E7J7E6F6I6E5C5H5I5H4I4I3L4J3",
+      "//第409题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H10H11I9H9K8K9D7H8F7E7G7I7H7F6J7H6G5J6K5",
+      "//第410题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G11H9H11I9H10F7K9H7H8I7K8J7D7F6E7H6G7J6K5G5",
+      "//第411题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13J13H12F12G10G12H10F10K10H9K8I9J7H8G6K6J6F5G4J5",
+      "//第412题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12G12I11G11F10I10H10E9J10K9G9F8I9H8J9J8L9M8G8F7K8G7I7I6",
+      "//第413题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12I13K12L13J11J10K11H9H10K8I10L8I9M8J9H7M9K7H8H6",
+      "//第414题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14C14C12F14D12C13E11D13D10H13F10H12H10D11C9G11F9B8I9H8C8G7H7F6",
+      "//第415题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F13F14H13G14D12G13F12H12G12G11D10H11F10E10H10G10H9E9H8I9",
+      "//第416题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K10K11H9L11K9H10E8L10H8E9J8G9E7I9I7G8",
+      "//第417题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14J13K13G12H12J12I12L12G11I10K10L10I9G9J9H9N9K9K8M9N8H8N7",
+      "//第418题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10F8I9H8K9J8G8I7G7K7H7H6K6N6H5J4L5K4N5M4I4G3H3J3J2",
+      "//第419题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J11F14K11H12N11K12G10F9J10I9L10M9J9H8K9J8L9L8",
+      "//第420题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K10N11N10J10H9L10K9M10L9J9O9H8J8I8J7M8N7K6J6K4",
+      "//第421题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K11L12M11I11I10K10J10L10K9N10L9G9N9H9H8J9L8K8L7N7",
+      "//第422题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8H10D7I9E7E6H6G6D5I6H5C4G4H4F3I4G3I3J3H2",
+      "//第423题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12J12G11H11J11K11G10H10K10I10I9J10F8H9H8K9J8L9G6H7",
+      "//第424题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I11H10G10K10I10H9G9G8I9H8J9K8H7I7F6G6H6I6G4",
+      "//第425题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14D13F14H13I14C12C13H12D12D11D10E11F10G11H10C9B8F9H8I9G7C8F6H7",
+      "//第426题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14D12C13H12D13D11H13E11C12F9G11I9D10B8F10C8H10H8C9H7G7F6",
+      "//第427题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14J13H13K13J12G12G11H12L10I12I9L12J9I10K9K10M9G9N9H9H8N8K8N7",
+      "//第428题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12N13L12M12L11M11J10I10F8M10H8H9I8J9K8N8H7L7O7M7",
+      "//第429题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14H12J13J12I12L10K11N10K10H9M10J9M9K9J8H8K6I8M6H7J5L7",
+      "//第430题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L12I10I11J10K11L10M11N10K10J9G9L9H9N9K9H8L7K8N7L8",
+      "//第431题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14H13I13J12K13G11F12L11I12F10I11I10G10K10J10I9H9H8E8I8",
+      "//第432题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12K12E11K11I11I10F10G9H10J9J10K9F9I8I9J8H8H7K8H6",
+      "//第433题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H8H10E7I9E6D7G6H6D5I6H5C4G4I4H4G3F3I3H2J3",
+      "//第434题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14C13F14D13I14H13D12C12H12E11D11G11D10C9F10F9H10I9H8B8H7C8F6G7",
+      "//第435题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10I9F8K9G8H8G7J8H7I7K7H5H6N5K6J4N6K4L5M4I4G3H3J3J2",
+      "//第436题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11F10J9D9J8H9I7K9F6H8J6I8E5G7G5J7I5G6I4I6J4L4",
+      "//第437题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12J12K11E11F10I11I10H10J10F9G9I9K9J9H8K8I8H7J8H6",
+      "//第438题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14F13G14G13F12H13G11D12D10G12F10H12H10H11E9E10H9G10H8I9",
+      "//第439题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12G12G11H10I11E9F10I9I10J9J10K9G9F8L9K8G8M8H8F7J8G7I6I7",
+      "//第440题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14I14F14C13D13H13H12C12D11D12D10E11F10G11H10F9C9I9H8B8G7C8F6H7",
+      "//第441题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H11K9I10G8F8J8H8G7H7H6I7H5K7L5K6J4N6K4N5M4I4G3H3J2J3",
+      "//第442题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10H11G8I9H8K9J8F8G7H7I7H5K7L5H6N5K6I4N6K4J4M4G3J3H3J2",
+      "//第443题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13J13F12G12F10H12H10G10H8K10J7H9G6I9J6K8K6F5G4J5",
+      "//第444题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K9H11G8I10H8I9J8F8G7H7K7I7H6N6K6N5H5J4L5M4I4H3K4J3G3J2",
+      "//第445题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I10K9I9G8F8G7H8K7J8H6H7H5I7L5K6N5N6J4I4K4H3M4J3G3J2",
+      "//第446题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10K9G8F8J8H8H7G7I7K7H6K6N6N5H5I4L5M4J4G3K4H3J2J3",
+      "//第447题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12I12K12L12G11N12H11J11M11K11J10L11L10H10I9I10K9J9L9M7H8N7L7J5",
+      "//第448题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "M10N11N10J10J9K10L9L10O9H9J8K9M8H8J7I8N7J6K6K4",
+      "//第449题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H10D7H8E7E6G6I6H6C4D5G4H5I4H4F3G3I3J3H2",
+      "//第450题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12J13G10K13H10G12K10H12K8F10J7H9G6I9J6H8F5K6G4J5",
+      "//第451题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12G11H12H10I11I10F10J10G9E9I9K9J9L9H8F8J8G8K8M8F7G7I6I7",
+      "//第452题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14C13F14C12I14D12D13H12H13D10D11H10E11I9G11B8F10C8C9G7F9H7H8F6",
+      "//第453题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "L12I12G11J12H11K12J11N12I10K11J10L11L10M11I9H10K9J9L9H8L7N7M7J5",
+      "//第454题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I14H13J13K13G12H12I12J12L12K10G11G9I10H9L10J9I9M9K9K8N9N8H8N7",
+      "//第455题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D13C14H13F14D12I14G11C13D10C12F10H12F9D11I9E11B8H10C8C9H7H8F6G7",
+      "//第456题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11L10J10J9H9H8J8I8N8K8J7J6K7J5N7L5I6M5M6J4K5M4N4L3",
+      "//第457题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10H8H9I8J9K8J8I6N8J6J7M6K7J5N7K5L5M5M4J4N4L3",
+      "//第458题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H9D8E7H8F6J8I6J7E5E6H5C5I5H4I4I3L4J3",
+      "//第459题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11E12C10F12G10E9H8H9F7K9I7D8M7K6G6L6E5E4",
+      "//第460题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J12K12E11K11I11H10F10I10J10G9F9J9I9K9H8I8K8J8H7H6",
+      "//第461题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11F10D9J9H9K9J8H8G7I8I7J7F6G6G5I6I5J6I4E5L4J4",
+      "//第462题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11D9H9I8J9I7K9J7H8F6J8G6G7J6I6G5E5I5I4L4J4",
+      "//第463题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K9H11G8I10H8I9J8F8I7G7K7H7K6H6H5N6N5L5J4I4K4G3M4H3J2J3",
+      "//第464题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F14C14I14C13D13H13D12C12H12E11D11G11F10D10F9H10B8C9C8I9G7H8F6H7",
+      "//第465题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F11E11K11I11G10J11I9F10J9H10L9F9H8K9J8E8I7F8G6G8H6G7",
+      "//第466题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11L10J10H9J9H8K8I8N8J8J7I6K7J6N7M6K5J5L5M5M4J4N4L3",
+      "//第467题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "N13L12K12M12M11L11I10H9J10H8M10I8J9N8F8L7K8M7H7O7",
+      "//第468题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D8G9H8I9I7J8F6F7J6D6H4I6I4K6",
+      "//第469题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C12E13D12G13F11G11C10E10F10B9E9C9D8F9H8F8",
+      "//第470题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14C13D13D12H13H12C12D11G11E11D10F9F10I9H10B8C9H8C8H7G7F6",
+      "//第471题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13M12K13J11K12J10L12N10M11J9I10M9K10H8I9M8G8I7J8J7K8N7N8N6H7L5M5N5",
+      "//第472题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11H10G10I10I9J10K9H8F8J8K8I7M7E6F6G6H6",
+      "//第473题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "D13C14H13F14C12I14E11C13G11D12F10H12F9D11I9D10B8H10C8C9H7H8F6G7",
+      "//第474题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11L10J10H9H8J9J8I8N8K8J7N7K7I6K5J6L5M6M5J5J4N4M4L3",
+      "//第475题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13G13D12C12F11G11C10E10F10C9B9E9F9F8D8H8",
+      "//第476题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K14J13I13J12K13K12L12M12I11K11M11H10J10K10I9N10H8G9I8J9K7J8",
+      "//第477题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I12K12J12N12L12G11H11J11M11K11I10L11J10H10L10I9K9J9L9M7H8N7L7J5",
+      "//第478题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G14I13H13K13I12F12J12I11G11L11F10I10G10J10H9K10I9E8H8I8",
+      "//第479题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G12I14J12H13L12J13G11K13I10H12L10I12I9K10J9G9K9H9M9K8N9N8H8N7",
+      "//第480题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H11I9I10F8K9H8G8J8G7H7I7K6K7N6H6N5H5I4L5M4J4H3K4J3G3J2",
+      "//第481题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F11E11J11I11K11H10F10L9G10E8F9F8I9G8J9J8K9G7H8G6I7H6",
+      "//第482题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "G10F11G8G11H8K10I8I9G7F8I6H7H4K4",
+      "//第483题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K13H12F12F10G12H10G10K10H9I9H8J7K8G6F5J6J5K6G4",
+      "//第484题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12H11J12J11G11K11J10G10H9H10L9I10F8K10H8I9J8K9H7G6",
+      "//第485题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F12J13G12K13G10H12K10F10H9H10H8I9J7K8G6K6J6F5G4J5",
+      "//第486题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11G10I11H10I10J10F8I9H8K9J8K8I7M7E6F6H6G6",
+      "//第487题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E13F11G13C10C12E10D12C9G11E9F10F9B9D8H8F8",
+      "//第488题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I9H8G8J8I8E7E6G7G6H7H5E5E4F4G4H4G3D3I2E3",
+      "//第489题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11K11J11J10L10J9H9H8I8J8N8K8K7J7N7I6J6M6K5J5L5M4M5N4J4L3",
+      "//第490题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I10H11K9I9G8F8H8H7J8I7G7K6K7N6H6H5L5N5J4I4M4K4G3H3J2J3",
+      "//第491题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12J12I10E11F9I11G9K11I9F10J9H10K9J10H8K8I8H7J8H6",
+      "//第492题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "I11J12K10G10I9H10G8I10H8G9K8H9I7J9G6H7I6F6G4H6",
+      "//第493题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H12J14I12J13K10J12M10K11H9L10K9N10M9J9J8H8H7I8K6L7M6J5",
+      "//第494题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J14I12J13J12H12K11K10M10L10K9N10M9H9J8J9H7H8K6I8M6L7J5",
+      "//第495题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K13J13G12F12H12F10H10G10K10H9I9H8J7K8G6F5J6J5K6G4",
+      "//第496题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "H13I14K13J13I12G12J12H12L12I10G11K10L10H9G9I9J9K9M9H8N9N8K8N7",
+      "//第497题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13I14K13H13G12H12I12J12L10L12G9G11H9I10I9K10K9J9M9H8N9K8N8N7",
+      "//第498题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J11I10H9G9K9I9G8J8H8H7I8I6G7I5K7F4H6H4H5I4G4G2",
+      "//第499题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "E11I11G10H10J10I10I9K9F8H8J8K8F6I7G6M7H6E6",
+      "//第500题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "C14F14I14C13D13C12H13E11D12G11H12D10D11H10F10C9F9I9B8H8C8G7F6H7",
+      "//第501题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "F10H11D9J9H9K9H8I8J8J7G7G6I7J6F6E5I6G5I4I5J4L4",
+      "//第502题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "J13K14K13I13J12K12M12L12I11H10K11K10M11J9J10H8N10I8G9J8I9K7",
+      "//第503题模式": "VCF"
+    },
+    {
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "randomRotate": true,
+      "mode": 32,
+      "stones": "K12J12I11E11K11I10F10J10H10F9G9I9J9I8K9K8H8H7J8H6",
+      "//第504题模式": "VCF"
+    }
+  ]
+}

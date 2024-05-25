@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <script src = "../script/TextCoder.js"></script>
+    <script src = "mylz4.js"></script>
+    <script>
+    try{
+        let str = "计算器虐我虐多了，自信爆满，和棋大定显示90胜率，完全不把我放眼里ĕ";
+        let buf = TextCoder.encode(str);
+        let cBuf = window.lz4.compress(buf);
+        let dBuf = window.lz4.decompress(cBuf);
+        let str1 = TextCoder.decode(dBuf);
+        //alert(`[${buf}]\n[${cBuf}]\n[${dBuf}]`)
+        alert(`[${str}]\n[${str1}]`)
+    }
+    catch(e){alert(e.stack)}
+    </script>
+
+</body>
+
+</html>

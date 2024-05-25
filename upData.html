@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale =1, user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="摆棋小工具" />
+    <meta name="x5-page-mode" content="app" />
+    <link rel="shortcut icon" sizes="192x192" href="icon(192x192).png" type="image/png" />
+    <link rel="icon" href="icon(128x128).ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="57x57" href="icon(57x57).png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="icon(72x72).png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="icon(114x114).png" type="image/png" />
+    <title>开始重置数据</title>
+</head>
+
+<body>
+	<script>
+		async function removeServiceWorker() {
+			const ps = [];
+			return "serviceWorker" in navigator &&
+				"getRegistrations" in navigator.serviceWorker &&
+				navigator.serviceWorker.getRegistrations()
+				.then(registrations => {
+					registrations.map(registration => {
+						if (window.location.href.indexOf(registration.scope) + 1) {
+							ps.push(registration.unregister());
+						}
+					})
+				})
+                .then(() => Promise.all(ps))
+                .catch(() => alert("删除serviceWorker失败"))
+		}
+		
+		async function removeCaches() {
+			return "caches" in window &&
+				caches.keys()
+				.then(keys => {
+					const ps = [];
+					keys.map(key => {
+						ps.push(caches.delete(key));
+					})
+					return Promise.all(ps);
+				})
+		}
+		
+		async function removeLocalStorage() {
+			"localStorage" in window &&
+				Object.keys(localStorage).map(key => {
+					localStorage.removeItem(key);
+				})
+		}
+		
+		async function ping(url) {
+			return new Promise(resolve => {
+				const time = new Date().getTime();
+				setTimeout(() => resolve(-1), 15 * 1000);
+				fetch(url.split("?=")[0].split("#")[0] + "?cache=onlyNet")
+				.then(response => response.ok && resolve(new Date().getTime() - time))
+			})
+		}
+		
+		async function upData() {
+			const div = document.createElement("div");
+			div.innerHTML = "准备重置......<br>正在测试网络链接......<br>";
+			Object.assign(div.style,{
+				position: "fixed",
+				width: "100%",
+				top: "50%",
+				textAlign: "center"
+			})
+			document.body.appendChild(div);
+			if ((await ping("index.html")) >= 0) {
+				div.innerHTML += "开始重置数据......<br>";
+				await removeServiceWorker();
+				await removeLocalStorage();
+				await removeCaches();
+				window.top.location.href = "index.html";
+			}
+			else {
+				div.innerHTML += "❌未能连上服务器，取消重置数据<br>";
+				div.innerHTML += "<a href='index.html'>点击返回首页</a><br>";
+			}
+		}
+		upData();
+	</script>
+
+</body>
+
+</html>
