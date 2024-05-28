@@ -1,5 +1,5 @@
 {
-	"version": "v2024.26",
+	"version": "v2024.27",
 	"files": {
 		"CheckerBoard": "CheckerBoard/CheckerBoard.js",
 		"image2board": "CheckerBoard/image2board.js",
@@ -47,8 +47,6 @@
 		"jspdf": "pdf/jspdf.umd.min.js",
 		"pdfjs": "pdf/pdf.js",
 		"pdfworker": "pdf/pdf.worker.js",
-		"PFSCMedium_js": "pdf/SourceHanSansCN-Medium_jsPdf.subset-normal.js",
-		"PFSCHeavy_js": "pdf/SourceHanSansCN-Heavy_jsPdf.subset-normal.js",
 
 		"close_svg": "pic/close.svg",
 		"chevron-left_svg": "pic/chevron-left.svg",
@@ -179,21 +177,13 @@
 		"setThemeMain": "setTheme/main.js",
 		"preloadTheme": "setTheme/preloadTheme.js",
 		"setThemeSources": "setTheme/sources.js",
+		"仿五林主题": "setTheme/json/仿五林主题.json",
+		"仿弈客主题": "setTheme/json/仿弈客主题.json",
 
 		"loaders": "style/loaders.css",
 		"main": "style/main.css",
 		"fullscreen": "style/fullscreen.css",
-		"cnMedium_ttf": "style/font/NotoSansSC-Medium.subset.ttf",
-		"cnBold_ttf": "style/font/NotoSansSC-SemiBold.subset.ttf",
-		"cnHeavy_ttf": "style/font/NotoSansSC-Bold.subset.ttf",
-		"enMedium_ttf": "style/font/NotoSans-Medium.subset.ttf",
-		"enBold_ttf": "style/font/NotoSans-SemiBold.subset.ttf",
-		"enHeavy_ttf": "style/font/NotoSans-Bold.subset.ttf",
-		"emjMedium_ttf": "style/font/SourceHanSansCN-Medium.subset.ttf",
-		"emjBold_ttf": "style/font/SourceHanSansCN-Bold.subset.ttf",
-		"emjHeavy_ttf": "style/font/SourceHanSansCN-Heavy.subset.ttf",
-		"Symbola_ttf": "style/font/Symbola.subset.ttf",
-
+		
 		"tuyaMain": "tuya/main.js",
 		"tuyaSources": "tuya/sources.js",
 		"start_png": "tuya/start.png",
@@ -318,6 +308,20 @@
 		"reset_html": "reset.html",
 		"setTheme_html": "setTheme.html",
 		"tuya_html": "tuya.html",
-		"upData_html": "upData.html"
+		"upData_html": "upData.html",
+		
+		"enMedium_ttf": "style/font/NotoSans-Medium.subset.ttf",
+		"enBold_ttf": "style/font/NotoSans-SemiBold.subset.ttf",
+		"enHeavy_ttf": "style/font/NotoSans-Bold.subset.ttf",
+		"cnMedium_ttf": "style/font/NotoSansSC-Medium.subset.ttf",
+		"cnBold_ttf": "style/font/NotoSansSC-SemiBold.subset.ttf",
+		"cnHeavy_ttf": "style/font/NotoSansSC-Bold.subset.ttf",
+		"emjMedium_ttf": "style/font/SourceHanSansCN-Medium.subset.ttf",
+		"emjBold_ttf": "style/font/SourceHanSansCN-Bold.subset.ttf",
+		"emjHeavy_ttf": "style/font/SourceHanSansCN-Heavy.subset.ttf",
+		"Symbola_ttf": "style/font/Symbola.subset.ttf",
+		
+		"PFSCMedium_js": "pdf/SourceHanSansCN-Medium_jsPdf.subset-normal.js",
+		"PFSCHeavy_js": "pdf/SourceHanSansCN-Heavy_jsPdf.subset-normal.js"
 	}
 }

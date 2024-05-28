@@ -37,14 +37,22 @@
                 .catch(() => alert("删除serviceWorker失败"))
 		}
 		
+		async function deleteCache(cacheKey) {
+			return caches.open(cacheKey)
+				.then(cache => cache.keys().then(requests => {
+					const ps = [];
+					requests.map(request => ps.push(cache.delete(request)));
+					return Promise.all(ps);
+				}))
+				.then(() => caches.delete(cacheKey))
+		}
+		
 		async function removeCaches() {
 			return "caches" in window &&
 				caches.keys()
 				.then(keys => {
 					const ps = [];
-					keys.map(key => {
-						ps.push(caches.delete(key));
-					})
+					keys.map(key => ps.push(deleteCache(key)))
 					return Promise.all(ps);
 				})
 		}

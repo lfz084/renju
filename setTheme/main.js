@@ -6,6 +6,31 @@
     
     //-----------------------------------------------------------------------
     const fontSize = mainUI.cmdWidth / 28;
+    const menuSettings = [{
+				varName: "btnFile",
+				type: "file",
+				change: function() {
+					this.files[0].text().then(loadTheme)
+				}
+    		},{
+				varName: "btnLoadJSON",
+				type: "select",
+				text: "导入主题",
+				options: [
+					0, "仿五林主题", 
+					1, "仿弈客主题",
+					2, "打开JSON"
+				],
+				change: function() {
+					const FUN = {
+						0: () => fetch("setTheme/json/仿五林主题.json").then(response => response.ok && response.text() || Promise.reject()),
+						1: () => fetch("setTheme/json/仿弈客主题.json").then(response => response.ok && response.text() || Promise.reject()),
+						2: () => btnFile.defaultontouchend()
+					}
+					const p = FUN[this.input.value]();
+					p && p.then && p.then(loadTheme)
+				}
+			}];
     const buttonSettings = [
         mainUI.newComment({
         	varName: "commentBox",
@@ -119,42 +144,24 @@
         {
             type: "button",
             text: "默认设置",
-            touchend: async function() {
-            	Object.assign(themesData.themes[themeKey], JSON.parse(JSON.stringify(({ light, grey, green, dark })[themeKey])) );
-				refreshTheme();
-            }
+            touchend: defaultTheme
         },
         {
             type: "button",
             text: "保存设置",
-            touchend: async function() {
-            	if (settingData) {
-            		const newData = { key: "themes", themes: copyDefaultThemes() };
-            		const oldData = await settingData.getDataByKey("themes");
-            		oldData && coverObject(newData.themes, oldData.themes);
-            		coverObject(newData.themes[themeKey], themesData.themes[themeKey]);
-        			(await settingData.putData(newData)) && msg(`已经保存"${({ "light": btnLight.text, "grey": btnGrey.text, "green": btnGreen.text, "dark": btnDark.text })[themeKey]}"`);
-            	}
-            }
+            touchend: saveTheme
         },
         {
-            type: "file",
+            type: "button",
             text: "导入主题",
-            change: async function() {
-            	try{
-            	const jsonStr = await this.files[0].text();
-            	const theme = JSON.parse(jsonStr);
-            	theme["body"] && theme["Board"] && theme["Button"] && (themes[themeKey] = theme, refreshTheme());
-            	}catch(e){console.error(e.stack)}
+            touchend: async function() {
+            	btnLoadJSON.defaultontouchend();
             }
         },
         {
             type: "button",
             text: "导出主题",
-            touchend: function() {
-            	const jsonStr = JSON.stringify(themes[themeKey], null, 2);
-            	saveFile.save(jsonStr, "theme.json");
-            }
+            touchend: downloadTheme
         }
     ];
     
@@ -169,8 +176,11 @@
     buttonSettings.splice(30, 0, null, null);
     buttonSettings.splice(34, 0, null, null);
     
-    const cmdDiv = mainUI.createCmdDiv();
+    const hideCmdDiv = mainUI.createCmdDiv();
+	const cmdDiv = mainUI.createCmdDiv();
     const cBoard = mainUI.createCBoard();
+	hideCmdDiv.hide();
+	mainUI.addButtons(mainUI.createButtons(menuSettings), hideCmdDiv, 0);
     mainUI.addButtons(mainUI.createButtons(buttonSettings), cmdDiv, 0);
     const { 
     	btnLight,
@@ -179,7 +189,9 @@
     	btnDark,
     	btnIndex,
     	inputBoard,
-    	commentBox
+    	commentBox,
+    	btnFile,
+    	btnLoadJSON
     } = mainUI.getChildsForVarname();
     
     const indexBoard = mainUI.newIndexBoard({
@@ -454,6 +466,33 @@
 				j++;
 			}
 		}
+	}
+	
+	async function defaultTheme() {
+    	Object.assign(themesData.themes[themeKey], JSON.parse(JSON.stringify(({ light, grey, green, dark })[themeKey])) );
+		refreshTheme();
+    }
+	
+	async function saveTheme() {
+		if (settingData) {
+			const newData = { key: "themes", themes: copyDefaultThemes() };
+			const oldData = await settingData.getDataByKey("themes");
+			oldData && coverObject(newData.themes, oldData.themes);
+			coverObject(newData.themes[themeKey], themesData.themes[themeKey]);
+			(await settingData.putData(newData)) && msg(`已经保存设置到"${({ "light": btnLight.text, "grey": btnGrey.text, "green": btnGreen.text, "dark": btnDark.text })[themeKey]}"`);
+		}
+	}
+	
+	async function loadTheme(jsonStr) {
+    	try{
+    		const theme = JSON.parse(jsonStr);
+        	theme["body"] && theme["Board"] && theme["Button"] && (themes[themeKey] = theme, refreshTheme(), saveTheme());
+        }catch(e){console.error(e.stack)}
+	}
+	
+	function downloadTheme() {
+		const jsonStr = JSON.stringify(themes[themeKey], null, 2);
+		saveFile.save(jsonStr, "theme.json");
 	}
     
 	//------------------ load -----------------------------

@@ -966,6 +966,21 @@ window.mainUI = (function() {
 	const themes = {"light":"light", "grey":"grey", "green":"green", "dark":"dark"};
 	const defaultTheme = "light";
 	
+	async function waitCondition(condition = () => true, timeout = 30000, interval = 500) {
+		return new Promise((resolve) => {
+			let timer = setInterval(() => {
+				if (condition()) {
+					clearInterval(timer);
+					resolve();
+				}
+			}, interval)
+			setTimeout(() => {
+				clearInterval(timer);
+				resolve();
+			}, timeout)
+		})
+	}
+	
 	async function refreshTheme(theme, themeKey, cancel) {
 		Object.assign(document.body.style, theme["body"]);
 		if (theme["a"] && document.styleSheets) for (let i = 0; i < document.styleSheets.length; i++) {
@@ -1020,6 +1035,7 @@ window.mainUI = (function() {
 	async function setTheme(themeKey = defaultTheme, cancel) {
 		themeKey = themes[themeKey] || defaultTheme;
 		localStorage.setItem("theme", themeKey);
+		!window.settingData && await waitCondition(() => window.settingData, 5000, 10);
 		const data = window.settingData && ( await settingData.getDataByKey("themes"));
 		const theme = data && data.themes[themeKey] || ( await loadJSON(`UI/theme/${themeKey}/theme.json`));
 		await refreshTheme.call(this, theme, themeKey, cancel);

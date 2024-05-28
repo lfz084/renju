@@ -1,5 +1,5 @@
     const DEBUG_SERVER_WORKER = false;
-    const scriptVersion = "v2024.26";
+    const scriptVersion = "v2024.27";
     const home = new Request("./").url;
     const beta = /renju\-beta$|renju\-beta\/$/.test(home) && "Beta" || "";
     const VERSION_JSON = new Request("./Version/SOURCE_FILES.json").url;
@@ -66,10 +66,12 @@
     
     Cache.prototype.putJSON = async function (key, value) {
 		return this.put(new Request(key), new Response(JSON.stringify(value)))
+			.catch(e => postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js putJSON: Unknown error") }))
     }
     
     Cache.prototype.getJSON = async function(key) {
     	return this.match(new Request(key)).then(response => response && response.text()).then(text => text && JSON.parse(text))
+			.catch(e => postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js getJSON: Unknown error") }))
     }
     
     self.localCache = function() {
@@ -102,6 +104,16 @@
     	}
     }()
     
+    async function deleteCache(cacheKey) {
+    	return caches.open(cacheKey)
+    		.then(cache => cache.keys().then(requests => {
+    			const ps = [];
+    			requests.map(request => ps.push(cache.delete(request)));
+    			return Promise.all(ps);
+    		}))
+    		.then(() => caches.delete(cacheKey))
+    }
+    
     //----------------------------------------------------------------------------------------------
     
     function getUrlVersion(version) {
@@ -125,7 +137,7 @@
     		function next() {
     			const args = Array.isArray(paramQueue[index]) ? paramQueue[index] : [paramQueue[index]];
     			if (index++ < paramQueue.length) {
-    				Promise.resolve().then(() => fun(...args)).then(next).catch(e=>reject(e && e.stack || e))
+    				Promise.resolve().then(() => fun(...args)).then(next).catch(e=>reject(e && e.stack || e && e.message || JSON.stringify(e || "sw.js queue: Unknown error")))
     			}
     			else resolve()
     		}
@@ -137,7 +149,7 @@
      /**
      * 从 currentCache 读取版本信息，如果没有就尝试联网更新，更新成功就初始化 currentCache
      */
-	var waitingCacheReady = undefined;
+	var waitingCacheReady;
 	async function waitCacheReady(client) {
 		const url = formatURL(VERSION_JSON);
 		waitingCacheReady = waitingCacheReady || Promise.resolve()
@@ -194,9 +206,9 @@
 	 * 初始化缓存
  	*/
     async function resetCache(cacheKey, cacheInfo) {
-    	const url = formatURL(VERSION_JSON, cacheKey);
+    	const url = formatURL(VERSION_JSON);
     	postMsg({cmd:"log", msg: `reset ${cacheKey} version: ${cacheInfo && cacheInfo.version}`})
-    	return caches.delete(cacheKey)
+    	return deleteCache(cacheKey)
     		.then(() => caches.open(cacheKey))
     		.then(cache => {
     			cacheInfo["status"] = undefined;
@@ -218,7 +230,7 @@
     	const paramQueue = urls.map(url => [url, cacheKey, client]) || [];
     	return queue((url, cacheKey, client) => loadCache(url, cacheKey, client).then(response => response.ok && count++), paramQueue)
     		.then(() => count == urls.length)
-    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e}, client), false))
+    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js checkCache: Unknown error")}, client), false))
     }
     
     /**
@@ -234,7 +246,7 @@
     			}, requests))
     		})
     		.then(() => true)
-    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e}), false))
+    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js copyCache: Unknown error")}), false))
     		.then(done => (waitingCopyCache = undefined,done))
     	return waitingCopyCache;
     }
@@ -246,13 +258,16 @@
     async function copyToCurrentCache(client) {
     	waitingCopyToCurrentCache = waitingCopyToCurrentCache || Promise.resolve()
     		.then(() => postMsg({cmd: "log", msg: "copyToCurrentCache start"}, client))
-    		.then(() => resetCache(currentCacheKey, updateVersionInfo))
-    		.then(info => currentVersionInfo = info)
+    		.then(() => currentVersionInfo.version != updateVersionInfo.version && resetCache(currentCacheKey, updateVersionInfo).then(info => currentVersionInfo = info))
     		.then(() => copyCache(currentCacheKey, updataCacheKey))
     		.then(done => done && checkCache(client, currentCacheKey))
     		.then(done => {
-    			done && caches.delete(updataCacheKey);
+    			done && deleteCache(updataCacheKey);
     			postMsg({cmd: "log", msg: `copyToCurrentCache ${done?"done":"error"}`}, client);
+    			return done;
+    		})
+    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js copyToCurrentCache: Unknown error")}), false))
+    		.then(done => {
     			waitingCopyToCurrentCache = undefined;
     			return done;
     		})
@@ -307,6 +322,7 @@
     		}, files).then(() => countCacheFiles == numAllFiles)
     	})
     	.then(updated => updated && checkCache(client, cacheKey))
+    	.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js updateFiles: Unknown error")}), false))
     	.then(updated => {
     		versionInfo["status"] = (updated ? CacheStatus.UPDATED : CacheStatus.UPDATE);
     		postMsg({cmd: "log", msg: `files ${updated ? "updated" : "fout"}`}, client);
@@ -333,6 +349,7 @@
     				updateCache(client)
     			}
     		})
+    		.catch(e => postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js tryUpdate: Unknown error")}))
     		.then(() => setTimeout(() => { waitingTryUpdate = undefined }, Math.min(180 * 1000, refreshVersionInterval, firstUpdateCacheDelay)))
     	return waitingTryUpdate;
     }
@@ -340,9 +357,10 @@
     /**
      * 联网刷新版本信息，成功后缓存离线资源，新版本缓存完成后通知用户
      */
-    var waitingUpdateCache = undefined;
+    var waitingUpdateCache;
     async function updateCache(client, progress) {
     	const url = formatURL(VERSION_JSON);
+    	updateFilesProgress = updateFilesProgress || progress;
     	waitingUpdateCache = waitingUpdateCache || Promise.resolve()
     		.then(() => (postMsg({cmd: "log", msg: "updating......"}, client), updateStatus = CacheStatus.UPDATING))
     		.then(() => onlyNet(url, undefined, client))
@@ -366,7 +384,7 @@
     			lastRefreshTime = new Date().getTime() + refreshVersionInterval;
 				return localCache.setItem("lastRefreshTime", lastRefreshTime).then(()=>updated)
 			})
-    		.catch(e => postMsg({cmd: "error", msg: e && e.stack || e && e.message || e }, client))
+    		.catch(e => postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js updateCache: Unknown error") }, client))
     		.then(updated => (updateStatus = CacheStatus.UPDATE, waitingUpdateCache = undefined, updated))
     	return waitingUpdateCache;
     }
@@ -426,6 +444,7 @@
     function putCache(version, request, response) {
     	return caches.open(version)
     		.then(cache => cache.put(request, response.clone()))
+    		.catch(e => postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js putCache: Unknown error") }))
     		.then(()=>response)
     }
     
@@ -437,7 +456,7 @@
     	
     	if (["htm", "html"].indexOf(type) + 1) {
     		const request = new Request("./404.html");
-    		const _URL = formatURL(request.url, version);
+    		const _URL = formatURL(request.url);
     		postMsg({cmd: "error", msg: `loadCache response: 404.html`}, client)
     		return loadCache(_URL, version, client)
     			.then(response => {
@@ -538,7 +557,7 @@
     		const responsePromise = waitCacheReady(event.clientId)
     			.then(() => tryUpdate(event.clientId))
     			.then(() => {
-    				const _URL = formatURL(event.request.url, currentCacheKey);
+    				const _URL = formatURL(event.request.url);
     				const execStore = /\?cache\=onlyNet|\?cache\=onlyCache|\?cache\=netFirst|\?cache\=cacheFirst/.exec(event.request.url);
     				const storeKey = null == execStore ? "default" : execStore[0];
     				const waitResponse = {
@@ -563,8 +582,8 @@
     				return waitResponse(_URL, version, event.clientId)
     					.then(response => addHTMLCode(response));
     			})
-    			.catch(err => {
-    				return new Response(err ? JSON.stringify(err && err.stack || err, null, 2) : response_err_data, response_404_init_data)
+    			.catch(e => {
+    				return new Response(e ? JSON.stringify(e && e.stack || e && e.message || e || "sw.js fetch Event: Unknown error", null, 2) : response_err_data, response_404_init_data)
     			})
     			
     		event.respondWith(responsePromise);

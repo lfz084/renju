@@ -34,7 +34,8 @@
     		label.innerHTML = title;
     
     		Object.assign(div.style, {
-    			position: "relative",
+    			cursor: "pointer",
+				position: "relative",
     			height: height + "px"
     		})
     
@@ -55,7 +56,9 @@
     			fontSize: fontSize + "px",
     			lientHeight: fontSize + "px"
     		})
-    		div.addEventListener("click", callback, true);
+    		div.addEventListener("mousedown", () => div.style.border = `5px ${document.body.style.color} dashed`, true);
+			div.addEventListener("mouseup", () => setTimeout(()=>div.style.border="", 500), true);
+			div.addEventListener("click", callback, true);
     	}
     }
     
@@ -69,8 +72,8 @@
     	upData.resetUpdataVersion()
     	await removeCaches()
     	await serviceWorker.postMessage({cmd: "waitCacheReady"}, 60 * 1000)
-    	await saveCacheFiles()
-    	toIndex()
+    	const ok = await saveCacheFiles();
+    	ok && toIndex()
     }
     
     async function saveCacheFiles() {
@@ -80,6 +83,7 @@
     	const { currentCacheKey } = await serviceWorker.postMessage({cmd: "getCacheKeys"}, 5000);
     	const errCount = await upData.saveCacheFiles(urls, currentCacheKey);
     	log(`缓存结束,${errCount}个文件错误<br>`)
+    	return !errCount;
     }
     
     async function updateCache() {
@@ -93,8 +97,8 @@
     	log("<br>");
     	await updateServiceWorker();
     	upData.resetUpdataVersion();
-    	await serviceWorker.postMessage({cmd: "copyToCurrentCache"}, 60 * 1000).then(ok => log(`${ok && "更新完成<br>" || "更新失败<br>"}`))
-    	toIndex()
+    	const ok = await serviceWorker.postMessage({cmd: "copyToCurrentCache"}, 60 * 1000).then(ok => (log(`${ok && "更新完成<br>" || "更新失败<br>"}`), ok));
+    	ok && toIndex()
     }
     
     async function logNewVersion() {
@@ -225,7 +229,9 @@
 	const logDiv = mainUI.newComment({
 		id: "log",
 		type: "div",
-		width: mainUI.cmdWidth - mainUI.cmdPadding * 2,
+		left: mainUI.cmdPadding * 2.5,
+		top: 0,
+		width: mainUI.cmdWidth - mainUI.cmdPadding * 5,
 		height: mainUI.cmdWidth - mainUI.cmdPadding * 2,
 		style: {
 			fontSize: `${mainUI.buttonHeight / 1.8}px`,
@@ -233,7 +239,7 @@
 		},
 		reset: function() { this.viewElem.setAttribute("class", "textarea") }
 	})
-	logDiv.move(mainUI.cmdPadding, mainUI.cmdPadding, undefined, undefined, upDiv);
+	logDiv.move(undefined, undefined, undefined, undefined, upDiv);
     
 	//------------------ load -----------------------------
 	checkLink().then(online => online && logNewVersion())

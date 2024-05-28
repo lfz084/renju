@@ -35,13 +35,7 @@
                 [SOURCE_FILES["engine"]],
                 [SOURCE_FILES["NoSleep"]],
                 [SOURCE_FILES["jspdf"]]]
-        }, /*{
-			progress: "50%",
-			type: "scriptAll",
-			isAsync: true,
-			sources: [[SOURCE_FILES["PFSCMedium_js"]],
-                [SOURCE_FILES["PFSCHeavy_js"]]]
-        }, */{
+        }, {
 			progress: "63%",
 			type: "scriptAll",
 			isAsync: true,

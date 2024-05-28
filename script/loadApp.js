@@ -117,7 +117,7 @@ try{
     		}, 6000)
     	}
     	else {
-    		const numTryReload = 5;
+    		const numTryReload = 2;
     		let reloadCount = localStorage.getItem("reloadCount") * 1 || 0;
     		localStorage.setItem("reloadCount", ++reloadCount);
     		reloadCount > numTryReload && localStorage.removeItem("reloadCount");

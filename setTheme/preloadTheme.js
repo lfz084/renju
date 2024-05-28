@@ -30,9 +30,10 @@ try {
 		let themes;
 		try{
 			themes = JSON.parse(localStorage.getItem("themes"));
-			if (!themes[themeKey]) throw new Error("themes error");
+			if (!themes[themeKey]) throw new Error("preloadTheme.js: themes error");
 		}
 		catch(e){
+			console.error(e && e.stack || e && e.message || e)
 			themes = defaultThemes;
 		}
 		themes && themes[themeKey] && themes[themeKey]["body"] && Object.assign(document.body.style, themes[themeKey]["body"]);

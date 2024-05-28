@@ -522,11 +522,12 @@
         let current = this,
             right,
             down,
-            stack = [];
+            stack = [],
+            path = [];
         typeof callback != "function" && (callback = () => {});
         while (current) {
             
-            callback(current);
+            callback(current, path.slice(0));
             right = current.right;
             down = current.down;
 
@@ -534,12 +535,45 @@
 
             if (down) {
                 current = down;
+                path.push(down.idx)
             }
             else {
-                if (stack.length) current = stack.pop();
+                if (stack.length) {
+                	current = stack.pop();
+                	path.pop()
+                }
                 else current = undefined;
             }
         }
+    }
+    
+    Node.prototype.mapAsync = async function(callback) {
+    	let current = this,
+    		right,
+    		down,
+    		stack = [],
+    		path = [];
+    	typeof callback != "function" && (callback = () => {});
+    	while (current) {
+    
+    		await callback(current, path.slice(0));
+    		right = current.right;
+    		down = current.down;
+    
+    		if (right) stack.push(right);
+    
+    		if (down) {
+    			current = down;
+    			path.push(down.idx)
+    		}
+    		else {
+    			if (stack.length) {
+    				current = stack.pop();
+    				path.pop()
+    			}
+    			else current = undefined;
+    		}
+    	}
     }
 
     Node.prototype.sortIdx = function(order = 1) {
@@ -1086,29 +1120,42 @@
         return iHtml;
     }
 
-    Tree.prototype.createPath = function(path, nodeInfo) {
-        //console.log(`createPath: [${path}]`);
+    Tree.prototype.getPathNode = function(path) {
         let preNode = this.root,
             downNode = this.root,
             i = 0;
         while (i < path.length) {
             downNode = this.findNode(preNode, path[i]);
-            if (!downNode) {
-                downNode = this.newNode();
-                downNode.idx = path[i];
-                if (typeof nodeInfo === "object") {
-                    downNode.level = nodeInfo.level;
-                    downNode.boardText = nodeInfo.boardText;
-                    downNode.comment = nodeInfo.comment;
-                }
-                else
-                    downNode.boardText = DEFAULT_BOARD_TXT[(i & 1) + 1];
-                preNode.addChild(downNode);
-            }
+            if (!downNode) return;
             preNode = downNode;
             i++;
         }
         return downNode;
+    }
+    
+    Tree.prototype.createPath = function(path, nodeInfo) {
+    	//console.log(`createPath: [${path}]`);
+    	let preNode = this.root,
+    		downNode = this.root,
+    		i = 0;
+    	while (i < path.length) {
+    		downNode = this.findNode(preNode, path[i]);
+    		if (!downNode) {
+    			downNode = this.newNode();
+    			downNode.idx = path[i];
+    			if (typeof nodeInfo === "object") {
+    				downNode.level = nodeInfo.level;
+    				downNode.boardText = nodeInfo.boardText;
+    				downNode.comment = nodeInfo.comment;
+    			}
+    			else
+    				downNode.boardText = DEFAULT_BOARD_TXT[(i & 1) + 1];
+    			preNode.addChild(downNode);
+    		}
+    		preNode = downNode;
+    		i++;
+    	}
+    	return downNode;
     }
 
     Tree.prototype.createPathVCF = function(preNode, path) {
@@ -1146,6 +1193,10 @@
 
     Tree.prototype.map = function(callback) {
         this.root.map(callback);
+    }
+    
+    Tree.prototype.mapAsync = async function(callback) {
+    	await this.root.mapAsync(callback);
     }
     
     Tree.prototype.sortIdx = function(order = 1) {

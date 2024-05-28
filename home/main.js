@@ -21,6 +21,7 @@
 			label.innerHTML = title;
 			
 			Object.assign(div.style, {
+				cursor: "pointer",
 				position: "relative",
 				height: height + "px"
 			})
@@ -42,6 +43,8 @@
 				fontSize: fontSize + "px",
 				lientHeight: fontSize + "px"
 			})
+			div.addEventListener("mousedown", () => div.style.border = `5px ${document.body.style.color} dashed`, true);
+			div.addEventListener("mouseup", () => setTimeout(()=>div.style.border="", 500), true);
 			div.addEventListener("click", () => window.open(link, target), true);
 		}
 	}

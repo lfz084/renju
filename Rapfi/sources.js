@@ -11,6 +11,7 @@
 			sources: [[SOURCE_FILES["share"]],
 				[SOURCE_FILES["CheckerBoard"]],
                 [SOURCE_FILES["markLine"]],
+                [SOURCE_FILES["svg"]],
 				[SOURCE_FILES["saveFile"]]]
          },{
 			progress: "60%",

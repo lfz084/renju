@@ -67,6 +67,7 @@
             change: async function() {
                 try {
                 	await game.openFile(this);
+                	game.tree = undefined;
 					window.setBlockUnload(true)
                 } catch (e) { console.error(e.stack) }
                 this.value = "";
@@ -77,6 +78,8 @@
             text: "清空标记",
             touchend: async function() {
                 game.cleLabel();
+                game.tree = undefined;
+                btnMark.checked && btnMark.defaultontouchend();
             }
         },
         {
@@ -180,11 +183,41 @@
             }
         },
         {
-            type: "button",
-            text: "输出sgf",
+            varName:"btnMark",
+            type: "checkbox",
+            text: "标记局面",
             touchend: async function() {
                 try {
-                	downloadsgf();
+            		const path = cBoard.MS.slice(0, cBoard.MSindex+1);
+                	const node = this.checked ? (game.tree = game.tree || new RenjuTree(), game.tree.createPath(path)) : (game.tree && game.tree.getPathNode(path));
+                	node && (node.score = this.checked ? 1 : 0);
+                } catch (e) { console.error(e.stack) }
+            }
+        },
+        {
+            type: "button",
+            text: "批量JPG",
+            touchend: async function() {
+                try {
+                	downloadZIP("jpg")
+                } catch (e) { console.error(e.stack) }
+            }
+        },
+        {
+            type: "button",
+            text: "批量SVG",
+            touchend: async function() {
+                try {
+                	downloadZIP("svg")
+                } catch (e) { console.error(e.stack) }
+            }
+        },
+        {
+            type: "button",
+            text: "批量SGF",
+            touchend: async function() {
+                try {
+                	downloadZIP("sgf")
                 } catch (e) { console.error(e.stack) }
             }
         },
@@ -198,7 +231,6 @@
     buttonSettings.splice(24, 0, null, null);
     buttonSettings.splice(28, 0, null, null);
     buttonSettings.splice(32, 0, null, null);
-    buttonSettings.splice(36, 0, null, null);
     //dw > dh && buttonSettings.splice(0, 0, null, null, null, null);
 
     function $(id) { return document.getElementById(id) };
@@ -261,6 +293,7 @@
     	btnRotateY180,
     	btnRule, 
     	btnEncoding,
+    	btnMark,
     	btnAIPlay,
     	btnPlay,
     	btnRandomPlay,
@@ -387,9 +420,10 @@
     const game = {
     	filename: "",
         rule: Rule.RENJU,
+        tree: undefined,
         cBoard: cBoard,
         searching: false,
-
+        
         toStart: function(isShowNum) {
         	this.stopThinking();
             cBoard.toStart(isShowNum);
@@ -678,13 +712,18 @@
 
     //------------------------ Events ---------------------------
 
-    game.cBoard.stonechange = function() { 
+    game.cBoard.stonechange = async function() { 
     	if (game.searching) return;
     	if (btnPlay.checked) {
     		cBoard.cleLb("all");
     	}
     	else {
-    		game.showBranchNodes();
+    		await game.showBranchNodes();
+    		const path = cBoard.MS.slice(0, cBoard.MSindex+1);
+            const node = game.tree && game.tree.getPathNode(path);
+            const slt = !!(node && node.score);
+            btnMark.checked = !slt;
+            btnMark.defaultontouchend();
     	}
     };
 
@@ -866,24 +905,48 @@
 		return sgf
 	}
 	
-	async function downloadsgf() {
+	async function downloadZIP(type) {
 		const MS = cBoard.MS.slice(0, cBoard.MSindex + 1);
 		const oldText = btnPlay.text;
         btnPlay.checked = false;
         btnPlay.touchend();
         btnPlay.setText("停止搜索");
+        
         try{
-		let count = 0;
+		type = {jpg: "jpg", svg: "svg", sgf: "sgf"}[type] || "svg";
+        let count = 0;
 		const zip = new JSZip();
-		await game.forEveryPosition({
+		const addFile = {
+			jpg: async() => {
+				const blob = await new Promise(resolve => cBoard.canvas.toBlob(blob => resolve(blob), "image/jpeg", 0.1))
+				await zip.file(`${++count}.${type}`, blob);
+			},
+			svg: async() => {
+				await zip.file(`${++count}.${type}`, cBoard.getSVG());
+			},
+			sgf: async() => {
+				await zip.file(`${++count}.${type}`, createSGFStrinc(cBoard));
+			}
+		}[type]
+		
+		!game.tree && await msg("你没有手动标记局面\n默认输出所有分支最后一手的局面")
+		
+		game.tree ?
+		(await game.tree.mapAsync(async(node, path) => {
+			if (node.score) {
+				cBoard.toStart(true);
+				cBoard.MS = path;
+				cBoard.MSindex = -1;
+				cBoard.toEnd(true);
+				await addFile();
+			}
+		})) :
+		(await game.forEveryPosition({
 			filterNodes: async(nodes) => nodes.filter(node => !node.color || node.color == "black"),
 			callback: () => {},
-			callback2: async () => {
-				count++;
-				await zip.file(`${count}.sgf`, createSGFStrinc(cBoard));
-			},
+			callback2: addFile,
 			condition: () => btnPlay.checked
-		});
+		}))
 			
 		let data = await zip.generateAsync({ type: "blob" }, function updateCallback(metadata) {
 			log("progression: " + metadata.percent.toFixed(2) + " %");
@@ -892,13 +955,14 @@
 			}
 		});
 		log("downloading...")
-		const _filename = (game.filename ? game.filename + "." : "") + "sgf.zip";
+		const _filename = (game.filename ? game.filename + "." : "") + type + ".zip";
 		msg({
-			title: `${count}个局面转成sgf文件\n打包在“${_filename}”\n是否下载文件`,
+			title: `${count}个局面转成${type}文件\n打包在“${_filename}”\n是否下载文件`,
 			butNum: 2
 		})
 		.then(({butCode}) => butCode==1 && saveFile.save(data, _filename))
         }catch(e){console.error(e.stack)}
+        
         btnPlay.checked && btnPlay.touchend();
         btnPlay.setText(oldText);
         cBoard.toStart(true);

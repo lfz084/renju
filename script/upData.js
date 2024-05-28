@@ -8,7 +8,7 @@ window.upData = window.parent.upData || (function() {
     }
     
     const keyRenjuVersion = "RENJU_APP_VERSION";
-    const scriptVersion = "v2024.26";
+    const scriptVersion = "v2024.27";
 	let currentVersion = localStorage.getItem(keyRenjuVersion) || scriptVersion;
 	
     let updateVersion;
@@ -211,7 +211,7 @@ window.upData = window.parent.upData || (function() {
     
     async function refreshVersionInfos() {
     	const updataScriptVersion = scriptVersion;
-    	return serviceWorker.postMessage({ cmd: "refreshVersionInfos" }, 60 * 1000)
+    	return serviceWorker.postMessage({ cmd: "refreshVersionInfos" }, 30 * 1000)
     		.then(({ scriptVersion, currentCacheKey, updataCacheKey, currentVersionInfo, updateVersionInfo }) => {
     			currentVersion = currentVersionInfo && currentVersionInfo.version;
     			updateVersion = updateVersionInfo && updateVersionInfo.version;
@@ -301,12 +301,22 @@ window.upData = window.parent.upData || (function() {
     		})
     }
     
+    async function deleteCache(cacheKey) {
+    	return caches.open(cacheKey)
+    		.then(cache => cache.keys().then(requests => {
+    			const ps = [];
+    			requests.map(request => ps.push(cache.delete(request)));
+    			return Promise.all(ps);
+    		}))
+    		.then(() => caches.delete(cacheKey))
+    }
+    
     async function removeAppCache(callback = () => {}, filter = () => true) {
     	if ("caches" in window) {
     		const cacheNames = await caches.keys();
     		cacheNames && cacheNames.map(cacheName => {
     			if (filter(cacheName)) {
-    				caches.delete(cacheName)
+    				deleteCache(cacheName);
     				log(`delete cache: ${cacheName}`, "info");
     				callback(cacheName)
     			}
@@ -353,42 +363,8 @@ window.upData = window.parent.upData || (function() {
     			else rt.title = "没有发现新版本\n"
     		}
     		return rt;
-    	} catch (e) { alert(e.stack) }
+    	} catch (e) { console.error(e.stack) }
     }
-    /*
-    async function searchUpdate() {
-    	try {
-    		if (isCheckVersion()) {
-    			const version = await getUpDataVersion();
-    			if (version.isNewVersion) {
-    				async function fetchInfo(url) {
-    					try { return JSON.parse(await fetchTXT(url)) } catch (e) {}
-    				}
-    				const info = await fetchInfo("Version/UPDATA_INFO.json");
-    				const ASK = `发现新版本 ${version.version}\n` + logVersionInfo(version.version, info) + "\n";
-    				const PS = `是否更新？\n\n${strLen("",15)}[取消] = 不更新${strLen("",10)}[确定] = 更新`;
-    				const title = ASK + PS;
-    				const msg = window.msg || window["fullscreenUI"] && fullscreenUI.contentWindow.msg;
-    				if (msg) {
-    					msg({
-    						title,
-    						butNum: 2,
-    						lineNum: title.split("\n").length + 2,
-    						textAlign: "left",
-    						enterTXT: "取消",
-    						cancelTXT: "更新",
-    						callEnter: () => { delayCheckVersion() },
-    						callCancel: () => { resetAndUpData() }
-    					})
-    				}
-    				else {
-    					(checkVersion && confirm(ASK + PS)) ? resetAndUpData(): delayCheckVersion()
-    				}
-    			}
-    		}
-    	} catch (e) { alert(e.stack) }
-    }
-    */
 
     //------------------------ cache -----------------------------------------
     
@@ -512,6 +488,7 @@ window.upData = window.parent.upData || (function() {
         get checkAppVersion() { return checkAppVersion },
         get checkScriptVersion() { return checkScriptVersion },
     	
+        get deleteCache() { return deleteCache },
         get removeAppCache() { return removeAppCache },
         get removeOldAppCache() { return removeOldAppCache },
         get resetAndUpData() { return resetAndUpData },
