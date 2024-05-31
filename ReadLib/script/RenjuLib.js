@@ -7,6 +7,64 @@ window.RenjuLib = (() => {
         const  print = console[type] || console.log;
         DEBUG_RENLIB && window.DEBUG && (window.vConsole || window.parent.vConsole) && print(`[RenjuLib.js] ${ param}`);
     }
+    
+    //-------------- Rapfi ------------------------------
+    
+    // Integer value that representing the result of a search
+	const Value = {
+    	VALUE_ZERO: 0,
+    	VALUE_DRAW: 0,
+    	VALUE_MATE: 30000,
+    	VALUE_INFINITE: 30001,
+    	VALUE_NONE: -30002,
+    	VALUE_BLOCKED: -30003,
+
+    	VALUE_MATE_IN_MAX_PLY: 30000 - 500,
+    	VALUE_MATED_IN_MAX_PLY: -30000 + 500,
+    	VALUE_MATE_FROM_DATABASE: 30000 - 500,
+    	VALUE_MATED_FROM_DATABASE: -30000 + 500,
+
+    	VALUE_EVAL_MAX: 20000,
+    	VALUE_EVAL_MIN: -20000
+	};
+
+    function clamp(min, v, max) {
+    	return v < min ? min : v > max ? max : v;
+    }
+    
+    function valueToWinRate(v) {
+    	if (v >= Value.VALUE_MATE_IN_MAX_PLY)
+    		return 1;
+    	if (v <= Value.VALUE_MATED_IN_MAX_PLY)
+    		return 0;
+    	return 1 / (1 + Math.exp(-v * (1 / 200)));
+    }
+    
+    function mate_step(text, ply) {
+    	const step = (parseInt(text.slice(1)) - ply);
+    	text = text[0] + (step > 0 ? step : "");
+    	text.length < 3 && (text = "  ".slice(0,3 - text.length) + text);
+    	return text;
+    }
+    
+    function winRate(value) {
+    	const winRate = valueToWinRate(-value);
+    	const winRateLabel = parseInt(clamp(0, winRate * 100, 99)).toString();
+    	return `${"  ".slice(0,2 - winRateLabel.length)}${winRateLabel}%`;
+    }
+    
+    function readLabel(text, ply) {
+    	if (text[0] == 'W' || text[0] == 'L') {
+    		return mate_step(text, ply);
+    	}
+    	else if ((text[0] == 'v' || text[0] == 'm') && text.length > 1) {
+    		const value = parseInt(text.slice(1));
+    		return winRate(text[0] == 'v' ? -value : value);
+    	}
+    	else return text
+    }
+    
+    //-----------------------------------------------------
 
     let url = "./ReadLib/script/RenjuLib_worker.js",
         enable = false,
@@ -207,7 +265,7 @@ window.RenjuLib = (() => {
         cBoard.cleLb("all");
         for (let i = 0; i < nodes.length; i++) {
             if (cBoard.nextColor() === 2 || !isFoul(nodes[i].idx, data.position)) {
-                cBoard.wLb(nodes[i].idx, nodes[i].txt, colour ? nodes[i].color : "black");
+                cBoard.wLb(nodes[i].idx, readLabel(nodes[i].txt, cBoard.MSindex + 1), colour ? nodes[i].color : "black");
                 if (nextMove.level < level.indexOf(nodes[i].txt)) {
                     nextMove.level = level.indexOf(nodes[i].txt);
                     nextMove.idx = nodes[i].idx;

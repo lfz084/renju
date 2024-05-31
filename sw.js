@@ -1,5 +1,5 @@
     const DEBUG_SERVER_WORKER = false;
-    const scriptVersion = "v2024.27";
+    const scriptVersion = "v2024.28";
     const home = new Request("./").url;
     const beta = /renju\-beta$|renju\-beta\/$/.test(home) && "Beta" || "";
     const VERSION_JSON = new Request("./Version/SOURCE_FILES.json").url;
@@ -115,6 +115,10 @@
     }
     
     //----------------------------------------------------------------------------------------------
+   
+    function absoluteURL(url) {
+    	return new Request(url).url;
+    }
     
     function getUrlVersion(version) {
     	return "?v=" + version;
@@ -252,26 +256,71 @@
     }
     
     /**
+     * 复制 cache，成功返回 true，失败返回 false
+     */
+    var waitingMoveCache;
+    async function moveCache(targetCacheKey, sourceCacheKey) {
+    	waitingMoveCache = waitingMoveCache || Promise.all([caches.open(targetCacheKey), caches.open(sourceCacheKey)])
+    		.then(([targetCache, sourceCache]) => {
+    			return sourceCache.keys()
+    				.then(requests => queue(request => {
+						return targetCache.match(request).then(response => response && targetCache.delete(request))
+    				}, requests).then(()=>requests))
+    				.then(requests => queue(request => {
+    					postMsg(`moveCache ${sourceCacheKey} to ${targetCacheKey} url: ${decodeURIComponent(request && request.url)}`);
+    					return sourceCache.match(request).then(response => targetCache.put(request, response)).then(() => sourceCache.delete(request))
+    				}, requests))
+    		})
+    		.then(() => true)
+    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js moveCache: Unknown error")}), false))
+    		.then(done => (waitingMoveCache = undefined,done))
+    	return waitingMoveCache;
+    }
+    
+    /**
      * 把已经缓存的新版本复制到当前版本缓存中
      */
-    var waitingCopyToCurrentCache
+    var waitingCopyToCurrentCache;
     async function copyToCurrentCache(client) {
     	waitingCopyToCurrentCache = waitingCopyToCurrentCache || Promise.resolve()
-    		.then(() => postMsg({cmd: "log", msg: "copyToCurrentCache start"}, client))
+    		.then(() => postMsg({ cmd: "log", msg: "copyToCurrentCache start" }, client))
     		.then(() => currentVersionInfo.version != updateVersionInfo.version && resetCache(currentCacheKey, updateVersionInfo).then(info => currentVersionInfo = info))
     		.then(() => copyCache(currentCacheKey, updataCacheKey))
     		.then(done => done && checkCache(client, currentCacheKey))
     		.then(done => {
     			done && deleteCache(updataCacheKey);
-    			postMsg({cmd: "log", msg: `copyToCurrentCache ${done?"done":"error"}`}, client);
+    			postMsg({ cmd: "log", msg: `copyToCurrentCache ${done?"done":"error"}` }, client);
     			return done;
     		})
-    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js copyToCurrentCache: Unknown error")}), false))
+    		.catch(e => (postMsg({ cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js copyToCurrentCache: Unknown error") }), false))
     		.then(done => {
     			waitingCopyToCurrentCache = undefined;
     			return done;
     		})
     	return waitingCopyToCurrentCache;
+    }
+    
+    /**
+     * 把已经缓存的新版本移动到当前版本缓存中
+     */
+    var waitingMoveToCurrentCache;
+    async function moveToCurrentCache(client) {
+    	waitingMoveToCurrentCache = waitingMoveToCurrentCache || Promise.resolve()
+    		.then(() => postMsg({cmd: "log", msg: "moveToCurrentCache start"}, client))
+    		.then(() => moveCache(currentCacheKey, updataCacheKey))
+    		.then(done => done && (waitingCacheReady = currentVersionInfo = undefined, waitCacheReady(client).then(()=>done)))
+    		.then(done => done && checkCache(client, currentCacheKey))
+    		.then(done => {
+    			done && deleteCache(updataCacheKey);
+    			postMsg({cmd: "log", msg: `moveToCurrentCache ${done?"done":"error"}`}, client);
+    			return done;
+    		})
+    		.catch(e => (postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || "sw.js moveToCurrentCache: Unknown error")}), false))
+    		.then(done => {
+    			waitingMoveToCurrentCache = undefined;
+    			return done;
+    		})
+    	return waitingMoveToCurrentCache;
     }
     
     /**
@@ -296,7 +345,7 @@
     					.then(response => {
     						const tempCacheKey =  cacheKey == updataCacheKey ? currentCacheKey : updataCacheKey;
     						const tempVersionInfo = cacheKey == updataCacheKey ? currentVersionInfo : updateVersionInfo;
-    						if (!response.ok && tempVersionInfo && tempVersionInfo["files"] && tempVersionInfo["md5"] && versionInfo["files"][key] == tempVersionInfo["files"][key] && versionInfo["md5"][key] == tempVersionInfo["md5"][key]) {
+    						if (!response.ok && tempVersionInfo && tempVersionInfo["files"] && tempVersionInfo["md5"] && absoluteURL(versionInfo["files"][key]) == absoluteURL(tempVersionInfo["files"][key]) && versionInfo["md5"][key] == tempVersionInfo["md5"][key]) {
     							return loadCache(url, tempCacheKey)
     								.then(response => {
     									if (response.ok) {
@@ -326,7 +375,7 @@
     	.then(updated => {
     		versionInfo["status"] = (updated ? CacheStatus.UPDATED : CacheStatus.UPDATE);
     		postMsg({cmd: "log", msg: `files ${updated ? "updated" : "fout"}`}, client);
-    		updated && cacheKey == updataCacheKey && !updateFilesProgress && postMsg({cmd: "copyToCurrentCache"}, client);
+    		updated && cacheKey == updataCacheKey && !updateFilesProgress && postMsg({cmd: "moveToCurrentCache"}, client);
     		waitingUpdateFiles = undefined;
     		updateFilesProgress = undefined;
     		return updated;
@@ -379,6 +428,7 @@
     			}
     		})
     		.then(({cacheKey, versionInfo}) => versionInfo["status"] == CacheStatus.UPDATED ? Promise.reject(`${cacheKey} 已经缓存完成，跳过后续更新`) : {cacheKey, versionInfo})
+    		.then(({cacheKey, versionInfo}) => (cacheKey == updataCacheKey && currentVersionInfo["md5"] && Object.keys(versionInfo["files"]).map(key => absoluteURL(currentVersionInfo["files"][key])==absoluteURL(versionInfo["files"][key]) && currentVersionInfo["md5"][key]==versionInfo["md5"][key] && (delete versionInfo["files"][key])), {cacheKey, versionInfo}))
     		.then(({cacheKey, versionInfo}) => updateFiles(cacheKey, versionInfo, client, progress))
     		.then(updated => {
     			lastRefreshTime = new Date().getTime() + refreshVersionInterval;
@@ -677,20 +727,43 @@
 		 },
 		checkCache: async (data, client) => {
 		 	return checkCache(client, ...getArgs(data)).then(rt => data["resolve"] = rt)
-		 },
+		},
 		copyCache: async (data, client) => {
-			if (waitingCopyCache) {
+			if (waitingCopyCache || waitingMoveCache || waitingCopyToCurrentCache || waitingMoveToCurrentCache) {
 				data["resolve"] = false;
 				postMsg({cmd: "error", msg: "copyCache is in progress......"}, client)
 			}
 			else return copyCache(...getArgs(data)).then(rt => data["resolve"] = rt)
-		 },
+		},
+		moveCache: async (data, client) => {
+			if (waitingCopyCache || waitingMoveCache || waitingCopyToCurrentCache || waitingMoveToCurrentCache) {
+				data["resolve"] = false;
+				postMsg({cmd: "error", msg: "moveCache is in progress......"}, client)
+			}
+			else return moveCache(...getArgs(data)).then(rt => data["resolve"] = rt)
+		},
+		/*
 		copyToCurrentCache: async (data, client) => {
-			if (waitingCopyToCurrentCache) {
+			if (waitingCopyCache || waitingMoveCache || waitingCopyToCurrentCache || waitingMoveToCurrentCache) {
 				data["resolve"] = false;
 				postMsg({cmd: "error", msg: "copyToCurrentCache is in progress......"}, client)
 			}
-			else return copyToCurrentCache(client).then(rt => data["resolve"] = rt).catch(() => data["resolve"] = false)
+			else return copyToCurrentCache(client).then(rt => data["resolve"] = rt)
+		},
+		*/
+		copyToCurrentCache: async (data, client) => {
+			if (waitingCopyCache || waitingMoveCache || waitingCopyToCurrentCache || waitingMoveToCurrentCache) {
+				data["resolve"] = false;
+				postMsg({cmd: "error", msg: "moveToCurrentCache is in progress......"}, client)
+			}
+			else return moveToCurrentCache(client).then(rt => data["resolve"] = rt)
+		},
+		moveToCurrentCache: async (data, client) => {
+			if (waitingCopyCache || waitingMoveCache || waitingCopyToCurrentCache || waitingMoveToCurrentCache) {
+				data["resolve"] = false;
+				postMsg({cmd: "error", msg: "moveToCurrentCache is in progress......"}, client)
+			}
+			else return moveToCurrentCache(client).then(rt => data["resolve"] = rt)
 		},
 	}
     
@@ -703,6 +776,7 @@
     			.then(() => {
     				syncMsg(data, client)
     			})
+    			.catch(e => postMsg({cmd: "error", msg: e && e.stack || e && e.message || JSON.stringify(e || `sw.js message event cmd "${data.cmd}" : Unknown error`) }))
     	}
     	else {
     		syncMsg(data, client)

@@ -93,11 +93,11 @@
     	return done;
     }
     
-    async function copyToCurrentCache() {
+    async function moveToCurrentCache() {
     	log("<br>");
     	await updateServiceWorker();
     	upData.resetUpdataVersion();
-    	const ok = await serviceWorker.postMessage({cmd: "copyToCurrentCache"}, 60 * 1000).then(ok => (log(`${ok && "更新完成<br>" || "更新失败<br>"}`), ok));
+    	const ok = await serviceWorker.postMessage({cmd: "moveToCurrentCache"}, 60 * 1000).then(ok => (log(`${ok && "更新完成<br>" || "更新失败<br>"}`), ok));
     	ok && toIndex()
     }
     
@@ -109,7 +109,7 @@
 			if (up.action) {
 				async function onclick() {
 					btn.removeEventListener("click", onclick, true);
-					up.action == "copyToCurrentCache" ? (await checkLink() && copyToCurrentCache()) : up.action == "updateCache" ? (await checkLink() && updateCache()) : (await checkLink() && updateCache().then(done=>done&&copyToCurrentCache()));
+					up.action == "moveToCurrentCache" ? (await checkLink() && moveToCurrentCache()) : up.action == "updateCache" ? (await checkLink() && updateCache()) : (await checkLink() && updateCache().then(done=>done&&moveToCurrentCache()));
 				}
 				const logDiv = $("log");
 				const btn = document.createElement("a");

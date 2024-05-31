@@ -499,3 +499,32 @@ async function copyCache(targetCacheKey, sourceCacheKey) {
     
 copyCache("log","currentCache").then(console.log).catch(console.error)
 }catch(e){alert(e&&e.stack||e)}
+
+
+fetch("Version/SOURCE_FILES_EDIT.json?cache=onlyNet").then(r=>r.json()).then(info=>{
+	try{
+	console.log(info)
+	const URLS = Object.keys(info.files).map(key=>info.files[key])
+	return caches.open("currentCache")
+	.then(cache=>cache.keys())
+	.then(rs=>rs.map(r=>decodeURIComponent(r.url).slice(22)))
+	.then(urls=>{
+	try{
+		console.log([URLS.length,urls.length])
+		URLS.map(url => {
+			const index = urls.indexOf(url);
+			index+1 && urls.splice(index, 1)
+		})
+		const out = {};
+		console.log(urls)
+		urls.map((url,i) => out["help"+ ("000" + (i + 1)).slice(-3)] = url)
+		console.log(out)
+		Object.assign(info.files, out)
+		console.log(info)
+		msg(JSON.stringify(info,null,2))
+	}catch(e){console.error(e.stack)}
+	})
+	
+	}catch(e){console.error(e.stack)}
+})
+.catch(e=>console.error(e.stack))

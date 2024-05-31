@@ -21,9 +21,9 @@ window.serviceWorker = window.parent.serviceWorker || (() => {
     	error: (data) => {
     		console.error(data.msg)
     	},
-    	copyToCurrentCache: async (data) => {
+    	moveToCurrentCache: async (data) => {
     		const up = upData.isCheckVersion() && (await upData.searchUpdate());
-    		if (up && up.action == "copyToCurrentCache") {
+    		if (up && up.action == "moveToCurrentCache") {
     			const msg = window.msg || window["fullscreenUI"] && fullscreenUI.contentWindow.msg;
     			const title = up.title + up.warn;
     			msg && msg({
@@ -34,7 +34,7 @@ window.serviceWorker = window.parent.serviceWorker || (() => {
     				enterTXT: "取消",
     				cancelTXT: "更新",
     				callEnter: () => { upData.delayCheckVersion() },
-    				callCancel: () => { upData.copyToCurrentCache() }
+    				callCancel: () => { upData.moveToCurrentCache() }
     			})
     		}
     	},

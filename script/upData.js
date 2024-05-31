@@ -8,7 +8,7 @@ window.upData = window.parent.upData || (function() {
     }
     
     const keyRenjuVersion = "RENJU_APP_VERSION";
-    const scriptVersion = "v2024.27";
+    const scriptVersion = "v2024.28";
 	let currentVersion = localStorage.getItem(keyRenjuVersion) || scriptVersion;
 	
     let updateVersion;
@@ -288,11 +288,11 @@ window.upData = window.parent.upData || (function() {
         }
     }
     
-    async function copyToCurrentCache() {
+    async function moveToCurrentCache() {
     	await serviceWorker.updateServiceWorker();
     	resetUpdataVersion(); 
     	return checkLink()
-    		.then(online => online && serviceWorker.postMessage({cmd: "copyToCurrentCache"}, 60 * 1000))
+    		.then(online => online && serviceWorker.postMessage({cmd: "moveToCurrentCache"}, 60 * 1000))
     		.then(done => { 
     			if (!done) return;
     			/*延迟刷新，避开 Firefox serviceWorker fetch event respondWith bug*/
@@ -350,7 +350,7 @@ window.upData = window.parent.upData || (function() {
     			const Cached = updateVersionInfo && updateVersionInfo.version == version.version && await serviceWorker.postMessage({ cmd: "checkCache", arg: "updataCache" }, 30 * 1000);
     			rt.title = `${Cached && "新版本已下载完成" || "发现新版本"} ${version.version}` + upData.logVersionInfo(version.version, info) + "\n";
     			rt.warn = `是否更新？\n\n${strLen("",15)}[取消] = 不更新${strLen("",10)}[确定] = 更新`;
-    			rt.action = Cached ? "copyToCurrentCache" : "update";
+    			rt.action = Cached ? "moveToCurrentCache" : "update";
     			rt.actionLabel = Cached ? "缓存" : "更新";
     		}
     		else {
@@ -497,7 +497,7 @@ window.upData = window.parent.upData || (function() {
         get fetchTXT() { return fetchTXT },
         get updateCache() { return updateCache },
         get saveCacheFiles() { return saveCacheFiles },
-        get copyToCurrentCache() { return copyToCurrentCache },
+        get moveToCurrentCache() { return moveToCurrentCache },
         
         get logCache() { return logCache },
         get logCaches() { return logCaches },
