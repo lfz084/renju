@@ -1273,7 +1273,11 @@
 
 		function processOutput(output) {
 			try {
-				if (output.realtime && output.realtime.pos) {
+				if (cBoard.startIdx == -1 && output.bestline && output.bestline[0]) {
+    				const idx = output.bestline[0][1] * 15 + output.bestline[0][0];
+    				cBoard.showStone(idx, TYPE_NUMBER);
+    			}
+    			if (output.realtime && output.realtime.pos) {
 					const idx = output.realtime.pos[1] * 15 + output.realtime.pos[0];
 					cBoard.showStone(idx, TYPE_NUMBER);
 				}

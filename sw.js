@@ -1,5 +1,5 @@
     const DEBUG_SERVER_WORKER = false;
-    const scriptVersion = "v2024.28";
+    const scriptVersion = "v2024.30";
     const home = new Request("./").url;
     const beta = /renju\-beta$|renju\-beta\/$/.test(home) && "Beta" || "";
     const VERSION_JSON = new Request("./Version/SOURCE_FILES.json").url;
@@ -576,7 +576,7 @@
     
     //-------------------- add HTML code -------------------- 
 
-    const tongjihtmlScript = '  <script>\n    var _hmt = _hmt || [];\n    (function(){\n      var hm = document.createElement("script");\n      hm.src = "https://hm.baidu.com/hm.js?c17b8a02edb4aff101e8b42ed01aca1b";\n      var s = document.getElementsByTagName("script")[0];\n      s.parentNode.insertBefore(hm,s)\n    })();\n  </script>'
+    const tongjihtmlScript = '  <script>\n    var _hmt = _hmt || [];\n    (function(){\n      var hm = document.createElement("script");\n      hm.src = "https://hm.baidu.com/hm.js?bed4a8b88511e0724ea14c479e20c9b5";\n      var s = document.getElementsByTagName("script")[0];\n      s.parentNode.insertBefore(hm,s)\n    })();\n  </script>'
     async function addHTMLCode(response) {
     	if (/^https\:\/\//.test(home) && /\.html$|\.htm$/i.test(response.url.split("?")[0].split("#")[0])) {
     		return response.text()
@@ -586,6 +586,23 @@
     			.then(html => new Response(html, response_200_init_html))
     	}
     	else return response;
+    }
+    
+    // -------------------- support SharedArrayBuffer  -------------------- 
+    
+    async function supportSharedArrayBuffer(response) {
+		if (response.status === 0) {
+            return response;
+        }
+        const newHeaders = new Headers(response.headers);
+        newHeaders.set("Cross-Origin-Opener-Policy", "same-origin");
+		newHeaders.set("Cross-Origin-Embedder-Policy", "require-corp");
+
+        return new Response(response.body, {
+    		status: response.status,
+            statusText: response.statusText,
+            headers: newHeaders,
+        })
     }
     
     //-------------------- addEventListener -------------------- 
@@ -630,7 +647,8 @@
     				}[cacheKey];
     				postMsg(`fetch Event url: ${decodeURIComponent(_URL)}`, event.clientId);
     				return waitResponse(_URL, version, event.clientId)
-    					.then(response => addHTMLCode(response));
+    					.then(response => addHTMLCode(response))
+                		.then(response => supportSharedArrayBuffer(response))
     			})
     			.catch(e => {
     				return new Response(e ? JSON.stringify(e && e.stack || e && e.message || e || "sw.js fetch Event: Unknown error", null, 2) : response_err_data, response_404_init_data)

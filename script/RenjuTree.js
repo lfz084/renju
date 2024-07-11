@@ -523,6 +523,7 @@
             right,
             down,
             stack = [],
+    		stackDepth = [],
             path = [];
         typeof callback != "function" && (callback = () => {});
         while (current) {
@@ -531,16 +532,20 @@
             right = current.right;
             down = current.down;
 
-            if (right) stack.push(right);
+            if (right) {
+            	stack.push(right);
+    			stackDepth.push(path.length);
+            }
 
             if (down) {
                 current = down;
-                path.push(down.idx)
+    			path.push(current.idx)
             }
             else {
                 if (stack.length) {
+    				path.length = stackDepth.pop() - 1;
                 	current = stack.pop();
-                	path.pop()
+    				path.push(current.idx)
                 }
                 else current = undefined;
             }
@@ -552,6 +557,7 @@
     		right,
     		down,
     		stack = [],
+    		stackDepth = [],
     		path = [];
     	typeof callback != "function" && (callback = () => {});
     	while (current) {
@@ -560,16 +566,20 @@
     		right = current.right;
     		down = current.down;
     
-    		if (right) stack.push(right);
+    		if (right) {
+    			stack.push(right);
+    			stackDepth.push(path.length);
+    		}
     
     		if (down) {
     			current = down;
-    			path.push(down.idx)
+    			path.push(current.idx)
     		}
     		else {
     			if (stack.length) {
+    				path.length = stackDepth.pop() - 1;
     				current = stack.pop();
-    				path.pop()
+    				path.push(current.idx)
     			}
     			else current = undefined;
     		}

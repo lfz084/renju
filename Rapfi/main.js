@@ -26,7 +26,7 @@
             type: "button",
             text: "<<",
             touchend: async function() {
-                game.toPrevious(true);
+                game.toPrevious(true, 100);
             }
         },
         {
@@ -34,7 +34,7 @@
             type: "button",
             text: ">>",
             touchend: async function() {
-                game.toNext(true);
+                game.toNext(true, 100);
             }
         },
         {
@@ -128,7 +128,7 @@
                 	game.toStart(true);
         			cBoard.MS = this.MS.slice(0);
         			while(cBoard.MSindex < this.MSindex && cBoard.MSindex < cBoard.MS.length - 1) {
-        				game.toNext(true);
+        				cBoard.toNext(true, 100);
         			}
         			cBoard.MSindex < 0 && game.cBoard.stonechange();
         			btnAIPlay.enabled = true;
@@ -423,6 +423,7 @@
         tree: undefined,
         cBoard: cBoard,
         searching: false,
+        thinking: false,
         
         toStart: function(isShowNum) {
         	this.stopThinking();
@@ -505,7 +506,7 @@
                 }
                 else if (typeof v == "string") log(v);
             });
-            if (ratio < 1) (self.msgbox || alert)(`浏览器内存不足，只打开了${parseInt(ratio*10000)/100}%棋谱\n建议使用最新版chrome浏览器，获得更大内存`);
+            if (ratio < 1) (self.msgbox || alert)(`浏览器内存不足，只打开了${parseInt(ratio*10000)/100}%棋谱\n手机请用Edeg浏览器，获得更大内存`);
             return ratio;
         },
         showBranchNodes: async function() {
@@ -543,6 +544,7 @@
         think: async function() {
         	cBoard.cleLb("all");
         	await waitAIReady();
+        	this.thinking = true;
         	puzzleAI.aiHelp(createGame());
         },
         checkWin: async function (position, idx) {
@@ -664,7 +666,9 @@
     		this.mode == 0 && msg("请先打开一个棋谱，再随机出题");
         },
 		stopThinking: async function() {
+			if (!this.thinking) return;
     		cBoard.hideStone();
+    		this.thinking = false;
 			await puzzleAI.stopThinking();
 		},
         get boardWidth() {
@@ -732,7 +736,7 @@
         bindEvent.addEventListener(game.cBoard.viewBox, "click", (x, y, type) => {
             const idx = game.cBoard.getIndex(x, y);
             if (game.cBoard.P[idx].type == TYPE_NUMBER) {
-                game.toPrevious(true); //点击棋子，触发悔棋
+                game.toPrevious(true, 100); //点击棋子，触发悔棋
             }
             else if (game.cBoard.P[idx].type == TYPE_EMPTY || game.cBoard.P[idx].type == TYPE_MARK) {
                 game.cBoard.wNb(idx, "auto", true); // 添加棋子
@@ -852,7 +856,11 @@
     
     function processOutput(output) {
     	try {
-    		console.log(output)
+    		(window.vConsole || window.parent.vConsole) && console.log(output);
+    		if (cBoard.startIdx == -1 && output.bestline && output.bestline[0]) {
+    			const idx = output.bestline[0][1] * 15 + output.bestline[0][0];
+    			cBoard.showStone(idx, TYPE_NUMBER);
+    		}
     		if (output.realtime && output.realtime.pos) {
     			const idx = output.realtime.pos[1] * 15 + output.realtime.pos[0];
     			cBoard.showStone(idx, TYPE_NUMBER);
@@ -861,6 +869,7 @@
     			const idx = output.pos[1] * 15 + output.pos[0];
     			cBoard.hideStone();
     			cBoard.wNb(idx, "auto", true);
+        		game.thinking = false;
     			game.checkWin(cBoard.getArray(), idx).then(gameOver => !gameOver && btnPlay.checked && ($("comment").innerHTML = "请落子..."));
     		}
     		if (output.sideLabel) {
@@ -932,15 +941,20 @@
 		!game.tree && await msg("你没有手动标记局面\n默认输出所有分支最后一手的局面")
 		
 		game.tree ?
-		(await game.tree.mapAsync(async(node, path) => {
-			if (node.score) {
-				cBoard.toStart(true);
-				cBoard.MS = path;
-				cBoard.MSindex = -1;
-				cBoard.toEnd(true);
-				await addFile();
-			}
-		})) :
+		(await Promise.resolve()
+			.then(() => (game.searching = true,game.lockBoard()))
+			.then(() => game.tree.mapAsync(async(node, path) => {
+				if (node.score) {
+					cBoard.toStart(true);
+					cBoard.MS = path.slice(0);
+					cBoard.MSindex = -1;
+					cBoard.toEnd(true);
+					await addFile();
+				}
+			}))
+			.catch(e => console.error(e && e.stack || e))
+			.then(() => (game.searching = false,game.unlockBoard()))
+		) :
 		(await game.forEveryPosition({
 			filterNodes: async(nodes) => nodes.filter(node => !node.color || node.color == "black"),
 			callback: () => {},
@@ -955,6 +969,7 @@
 			}
 		});
 		log("downloading...")
+		setTimeout(() => log(game.filename), 30*1000)
 		const _filename = (game.filename ? game.filename + "." : "") + type + ".zip";
 		msg({
 			title: `${count}个局面转成${type}文件\n打包在“${_filename}”\n是否下载文件`,

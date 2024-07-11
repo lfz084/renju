@@ -89,7 +89,7 @@
     async function updateCache() {
     	log("<br>");
     	const done = await upData.updateCache();
-    	log(`${done?"缓存结束":"缓存失败"}<br>`)
+    	log(`${done?"缓存结束":"缓存失败！<br>请刷新页面,查看版本信息"}<br>`)
     	return done;
     }
     
@@ -97,7 +97,7 @@
     	log("<br>");
     	await updateServiceWorker();
     	upData.resetUpdataVersion();
-    	const ok = await serviceWorker.postMessage({cmd: "moveToCurrentCache"}, 60 * 1000).then(ok => (log(`${ok && "更新完成<br>" || "更新失败<br>"}`), ok));
+    	const ok = await serviceWorker.postMessage({cmd: "moveToCurrentCache"}, 60 * 1000).then(ok => (log(`${ok && "更新完成<br>" || "更新失败！<br>请刷新页面,查看版本信息<br>"}`), ok));
     	ok && toIndex()
     }
     
@@ -154,7 +154,7 @@
     		if(s <= 0) {
     			clearInterval(timer);
     			timer = null;
-				const timestamp = "navigator" in self && navigator.serviceWorker && navigator.serviceWorker.controller && ("?v=" + parseInt(new Date().getTime()/1000)) || "";
+				const timestamp = ("navigator" in self && navigator.serviceWorker && navigator.serviceWorker.controller) ? "" : ("?v=" + new Date().getTime());
     			window.top.location.href = "index.html" + timestamp;
     		}
     	}, 1000);

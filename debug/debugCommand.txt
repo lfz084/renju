@@ -528,3 +528,43 @@ fetch("Version/SOURCE_FILES_EDIT.json?cache=onlyNet").then(r=>r.json()).then(inf
 	}catch(e){console.error(e.stack)}
 })
 .catch(e=>console.error(e.stack))
+
+var cBoard = fullscreenUI.contentWindow.cBoard;
+var findVCF = fullscreenUI.contentWindow.findVCF;
+var vcfInfo = fullscreenUI.contentWindow.vcfInfo;
+
+findVCF(cBoard.getArray(), 2, 1, 180, 1000000)
+
+let m = -1;
+vcfInfo.h4.map(v=>v>m&&(m=v))
+m
+
+console.time()
+const len = 1 << 24;
+let arr = new Uint8Array(len);
+let buf = {
+	u8: arr,
+	get uint8() {return this.u8}
+};
+let buf2 = {
+	buf: buf,
+};
+for(let i=0; i < len; i++){
+	arr[i] = i & 0xFF
+}
+console.timeEnd()
+
+
+
+function refreshDOM(parentNode) {
+	const children = parentNode.children;
+	for (let i = children.length - 1; i >= 0; i--) {
+		parentNode.insertBefore(children[i], children[i]);
+	}
+	for (let i = children.length - 1; i >= 0; i--) {
+		refreshDOM(children[i])
+	}
+}
+
+
+refreshDOM(fullscreenUI.contentWindow.document.body)

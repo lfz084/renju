@@ -318,7 +318,7 @@
                 scl -= 0.1;
                 if(pages) resolve(pages);
                 else if(scl>0)setTimeout(()=>max(bufSize, scl),0);
-                else reject(`浏览器申请内存失败,请关闭后台应用、刷新网页，再试一下`);
+                else reject(`浏览器申请内存失败,请关闭后台应用、刷新网页，再试一下\n手机请用Edeg浏览器，获得更大内存`);
             }
             const FOUR_GB = 4095*1024*1024;
             if (FOUR_GB < bufSize * scl) scl = parseInt(FOUR_GB / bufSize);
@@ -366,7 +366,7 @@
                     post("loading", { current: current, end: end });
                 },
                 _Z11memoryBoundv: () => {
-                    post("alert", `请使用64位浏览器获得更大的内存\n当前浏览器内存只能打开 ${parseInt((jFile.m_current / jFile.m_end)*10000)/100}% 棋谱`);
+                    post("alert", `当前浏览器内存只能打开 ${parseInt((jFile.m_current / jFile.m_end)*10000)/100}% 棋谱\n手机请用Edeg浏览器，获得更大内存`);
                 },
                 _Z14outputSGFCachePcj: outputSGFCache,
                 _Z4growj: () => 0,

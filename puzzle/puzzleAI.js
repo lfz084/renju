@@ -642,7 +642,7 @@ window.puzzleAI = (() => {
 		function gomocalcThink(game, side, min = game.strength || 30, max = 150) {
 			aiState = aiState | STATE_GOMOCALC_THINKING;
 			gomocalc.sendCommand(`RELOADCONFIG config-220723.toml`);
-			gomocalc.sendCommand(`INFO HASH_SIZE 262144`);
+			gomocalc.sendCommand(`INFO HASH_SIZE 65536`);
 			gomocalc.sendCommand(`INFO RULE ${game.puzzle.rule}`);
 			gomocalc.sendCommand(`INFO THREAD_NUM 1`);
 			gomocalc.sendCommand(`INFO CAUTION_FACTOR 3`);

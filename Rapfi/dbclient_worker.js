@@ -23,7 +23,11 @@ function post(cmd, param, transfer) {
 }
 
 async function getArrBuf(file, start = 0, byteLength = file.size) {
-    return await file.slice(start, start + byteLength).arrayBuffer();
+	try {
+    	return await file.slice(start, start + byteLength).arrayBuffer();
+	}catch(e) { 
+		return Promise.reject("❌打开文件出错\n手机请用Edeg浏览器，获得更大内存\n" + (e && e.message || ""));
+	}
 }
 
 var recordDB = {

@@ -525,6 +525,9 @@ window.mainUI = (function() {
 	let btnBoard;
 	let themeNames;
 	if (window.top && !window.top.fullscreenUI) {
+		const svgFullscreen = "./UI/theme/light/lock-open-svgrepo-com.svg";
+		const svgExitFullscreen = "./UI/theme/light/lock-svgrepo-com.svg";
+		
 		const svgRefresh = "./UI/theme/light/arrow-cw-svgrepo-com.svg";
 		const svgTuya = "./UI/theme/light/pen-tool-svgrepo-com.svg";
 		
@@ -575,9 +578,9 @@ window.mainUI = (function() {
 		btnHome.setontouchend(() => toURL("puzzle.html"))
 		btnHome.setIcons(svgPuzzle)
 		
-		btnFullscreen.setClickFunctions(() => toURL("tuya.html"))
-		btnFullscreen.setIcons(svgTuya)
-		
+		btnFullscreen.setClickFunctions([()=>window.wakeLock.lock(), ()=>window.wakeLock.unlock()]);
+		btnFullscreen.setIcons([svgFullscreen, svgExitFullscreen])
+
 		btnRefresh.setontouchend(() => window.location.reload());
 		btnRefresh.setIcons([svgRefresh])
 		
@@ -1026,7 +1029,7 @@ window.mainUI = (function() {
 		
 		if (!btnBoard) return;
 		const btnTheme = theme["Button"];
-		const btnBoardTheme = JSON.parse(JSON.stringify(theme["fullscreenUI"]["btnBoard"]).replace("fullscreen-alt-svgrepo-com.svg", "pen-tool-svgrepo-com.svg"))
+		const btnBoardTheme = JSON.parse(JSON.stringify(theme["fullscreenUI"]["btnBoard"]).replace("fullscreen-alt-svgrepo-com.svg", "lock-open-svgrepo-com.svg").replace("fullscreen-exit-alt-svgrepo-com.svg","lock-svgrepo-com.svg"));
 		btnBoard.loadTheme({ ButtonBoard: theme["ButtonBoard"], btnBoard: btnBoardTheme, Button: btnTheme });
 		btnBoard.leftButtons[2].clickFunctionIndex = (themeNames.indexOf(themeKey) + 1) % themeNames.length;
 		btnBoard.leftButtons[2].show();

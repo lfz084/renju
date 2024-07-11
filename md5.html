@@ -32,7 +32,7 @@
 					.catch(() => Promise.reject(`fetch error: ${url}`))
 			}
 			
-			fetch("Version/SOURCE_FILES.json?cache=onlyNet")
+			fetch("Version/SOURCE_FILES_EDIT.json?cache=onlyNet")
 				.then(response => response.ok ? response.json() : Promise.reject("fetch SOURCE_FILES.json error"))
 				.then(info => {
 					const ps = [];

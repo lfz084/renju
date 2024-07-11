@@ -35,13 +35,13 @@ function post(cmd, param, transfer) {
 let renLibDoc = new RenLibDoc();
 
 function getArrBuf(file) {
-    return new Promise(function(resolve, reject) {
-        let fr = new FileReader();
+	return new Promise(function(resolve, reject) {
+    	let fr = new FileReader();
         fr.onload = function() {
             resolve(fr.result)
         };
-        fr.onerror = function() {
-            reject(fr.error)
+        fr.onerror = function(e) {
+            reject("❌打开文件出错\n手机请用Edeg浏览器，获得更大内存\n" + (fr.error.message || ""))
         };
         fr.readAsArrayBuffer(file)
     });
@@ -61,7 +61,6 @@ function openLib(file) {
                 return Promise.rejecte(err.message);
             }
         })
-        .then(function() {})
         .catch(function(err) {
             post("onerror", err.stack || err);
         })

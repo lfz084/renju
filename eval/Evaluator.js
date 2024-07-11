@@ -347,7 +347,7 @@ function movesToName(moves, maxLength) {
 
 //----------------------- xxh32 -----------------------------
 
-const { xxh4, xxh32 } = (() => {
+var { xxh4, xxh32 } = (() => {
 	// Simple hash function, from: http://burtleburtle.net/bob/hash/integer.html.
     // Chosen because it doesn't use multiply and achieves full avalanche.
 
@@ -530,55 +530,109 @@ function pushWinMoves(winMoves, move) {
 }
 
 function resetHashTable(hashTable) {
-	let mapCount = 0,
-		hashcollision = 0,
-		hashcollision1 = 0,
-		hashcollision2 = 0;
-	for (let i = 0; i < 225; i++) { 
-		if(hashTable[i]) {
-			hashTable[i].forEach(map => {
-				map.forEach(arr => {
-					hashcollision2 = Math.max(hashcollision2, arr.length);
-					arr.length = 0;
-				});
-				hashcollision1 = Math.max(hashcollision1, map.size);
-				map.clear();
-				mapCount++;
-			} )
-			hashcollision = Math.max(hashcollision, hashTable[i].size);
-			hashTable[i].clear();
-			mapCount++;
-		}
-		else hashTable[i] = new Map();
-	}
-	Object.assign(vcfInfo, { mapCount, hashcollision, hashcollision1, hashcollision2 })
+	let hashcollision = 0;
+	//hashTable.map(v => v.length > hashcollision && (hashcollision = v.length))
+	hashTable.length = 0;
+	Object.assign(vcfInfo, { hashcollision })
 }
-function movesPush(hashTable, keyLen, keySum, keySum1, moves) {
-	const mv = moves.slice(0);
-	let vKeySum = hashTable[keyLen].get(keySum);
-	if (!vKeySum) {
-		vKeySum = new Map();
-		hashTable[keyLen].set(keySum, vKeySum);
+
+const sortMoves = function (moves, position) {
+	let d = 0,
+		s = 1;
+	for(let i = 0; i < 225; i++) {
+		const v = position[i];
+		if (v == 1) {
+			moves[d] = i;
+			d += 2
+		}
+		else if(v == 2) {
+			moves[s] = i;
+			s += 2
+		}
+		if(d >= moves.length && s >= moves.length) break;
 	}
-	let vkeySum1 = vKeySum.get(keySum1)
-	if (!vkeySum1) {
-		vkeySum1 = [];
-		vKeySum.set(keySum1, vkeySum1);
+	return moves;
+}
+
+const sortList = function(list) {
+	for (let i = 0; i < list.length; i++) {
+		const position = new Array(225);
+		const moves = list[i];
+		for (let j = 0; j < moves.length; j++) {
+			position[moves[j]] = (j & 1) + 1;
+		}
+		sortMoves(moves, position);
 	}
-	vkeySum1.push(mv); // 保存已搜索分支
+	list.sort((lMoves, rMoves) => compareMoves(lMoves, rMoves))
+}
+
+const compareMoves = function(lMoves, rMoves) {
+	for (let i = 0; i < lMoves.length; i++) {
+		const v = lMoves[i] - rMoves[i];
+		if (v) return v
+	}
+	return 0;
+}
+
+const push = function(list, moves, position) {
+	if (64 > list.length + 1) {
+		list.push(moves.slice(0))
+	}
+	else {
+		if (64 === list.length + 1) sortList(list)
+		let index = 0,
+			st = 0,
+			ed = list.length - 1;
+		moves = sortMoves(new Array(moves.length), position);
+		while (st <= ed) {
+			const cur = ~~((ed - st) / 2) + st;
+			const v = compareMoves(list[cur], moves);
+			if (v === 0) return
+			else if (v < 0) (st = cur + 1, index = cur + 1)
+			else (ed = cur - 1, index = cur)
+		}
+		list.splice(index, 0, moves)
+	}
+}
+
+const has = function(list, moves, position) {
+	if (64 > list.length) {
+		let i;
+		for (i = list.length - 1; i >= 0; i--) {
+			if (isRepeatMove(list[i], moves, position)) break;
+		}
+		return i >= 0;
+	}
+	else {
+		let st = 0,
+			ed = list.length - 1;
+		moves = sortMoves(new Array(moves.length), position);
+		while (st <= ed) {
+			const cur = ~~((ed - st)/2) + st;
+			const v = compareMoves(list[cur], moves);
+			if (v === 0) return true
+			else if(v < 0) st = cur + 1
+			else ed = cur - 1
+		}
+		return false
+	}
+}
+
+function xxhashKey(keyLen, keySum, keySum1) {
+	return xxh4(0, [keyLen >>> 4 | keySum >>> 8, keySum & 0xFF, keyLen & 0xF | keySum1 >>> 8, keySum1 & 0xFF], 0) & 0xFFFFF
+}
+
+function movesPush(hashTable, keyLen, keySum, keySum1, moves, position) {
+	const key = xxhashKey(keyLen, keySum, keySum1);
+	!hashTable[key] && (hashTable[key] = []);
+	push(hashTable[key], moves, position); // 保存已搜索分支
+	vcfInfo.size += (moves.length + 8);
 }
 
 function movesHas(hashTable, keyLen, keySum, keySum1, moves, position) {
-	let i;
-	const vKeySum = hashTable[keyLen].get(keySum);
-	if (!vKeySum) return;
-	const vkeySum1 = vKeySum.get(keySum1);
-	if (!vkeySum1) return;
-	const FAILMOVES_MOVES_LEN = vkeySum1.length;
-	for (i = FAILMOVES_MOVES_LEN - 1; i >= 0; i--) {
-		if (isRepeatMove(vkeySum1[i], moves, position)) break;
-	}
-	return i >= 0;
+	const key = xxhashKey(keyLen, keySum, keySum1);
+	if (!hashTable[key]) return false;
+	return has(hashTable[key], moves, position);
 }
 
 function transTablePush(hashTable, keyLen, keySum, keySum1, moves, position) {
@@ -589,11 +643,44 @@ function transTableHas(hashTable, keyLen, keySum, keySum1, moves, position) {
 	return movesHas(hashTable, keyLen, keySum, keySum1, moves, position);
 }
 
+var hashTable = {
+	table: {
+		head: new Uint32Array(0x200000),
+		pages: [new Uint8Array(0x400000)],
+		idxPage: 0,
+		idxBuffer: 1
+	},
+	clear() {
+		this.table.head = new Uint32Array(0x200000);
+		this.table.pages = [new Uint8Array(0x400000)];
+		this.table.idxPage = 0;
+		this.table.idxBuffer = 1;
+	},
+	addPage() {
+		this.table.pages.push(new Uint8Array(0x400000));
+		this.table.idxPage = this.table.pages.length - 1;
+		this.table.idxBuffer = 1;
+	},
+	getBuffer(bytes) {
+		(this.table.idxBuffer + bytes >= 0x400000) && this.addPage();
+		const rt = this.table.idxPage << 24 | this.table.idxBuffer;
+		this.table.idxBuffer += bytes;
+		return rt;
+	},
+	has(keyLen, keySum, keySum1, moves, position) {
+		
+	},
+	set(keyLen, keySum, keySum1, moves, position) {
+		
+	}
+};
+Object.freeze(hashTable);
+
 //--------------------- VCF ------------------------
 
 let vcfHashTable = [],
 	vcfWinMoves = [];
-let vcfInfo = {
+var vcfInfo = {
 		initArr: new Array(226),
 		color: 0,
 		maxVCF: 0,
@@ -623,6 +710,7 @@ function resetVCF(arr, color, maxVCF, maxDepth, maxNode) {
 	vcfInfo.pushPositionCount = 0;
 	vcfInfo.hasCount = 0;
 	vcfInfo.nodeCount = 0;
+	vcfInfo.size = 0;
 	vcfWinMoves.length = 0;
 	vcfInfo.continueInfo = [new Array(225), new Array(225), new Array(225), new Array(225)];
 	resetHashTable(vcfHashTable);

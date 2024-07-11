@@ -44,6 +44,7 @@ try{
         Msg += `caches: ${"caches" in window}\n`;
         Msg += `Worker: ${"Worker" in window}\n`;
         Msg += `serviceWorker: ${"serviceWorker" in navigator}\n`;
+        Msg += `SharedArrayBuffer: ${"SharedArrayBuffer" in window}\n`;
         Msg += `indexedDB: ${"indexedDB" in window}\n`;
         Msg += `msSaveOrOpenBlob in navigator: ${"msSaveOrOpenBlob" in navigator}\n`;
         Msg += `download in HTMLAnchorElement.prototype: ${"download"  in HTMLAnchorElement.prototype}\n`;
@@ -102,6 +103,30 @@ try{
 		}
 		vConsole = null;
     }
+    
+    window.wakeLock = {
+    	wakeLock: null,
+    	lock: async function() {
+    		if ("wakeLock" in navigator && !this.wakeLock) {
+    			return navigator.wakeLock.request("screen")
+    				.then(wakeLock => {
+    					this.wakeLock = wakeLock;
+    					(window.warn || fullscreenUI.contentWindow.warn)("🔒锁定屏幕唤醒", 1800)
+    				})
+    				.catch(() => (window.warn || fullscreenUI.contentWindow.warn)("❌屏幕唤醒失败",1500))
+    				.then(()=>{})
+    		}
+    	},
+    	unlock: async function() {
+    		if ("wakeLock" in navigator && this.wakeLock) {
+    			return this.wakeLock.release()
+    				.then(() => {
+    					this.wakeLock = null;
+    					(window.warn || fullscreenUI.contentWindow.warn)("🔑解除屏幕唤醒",1500)
+    				})
+    		}
+    	}
+    };
 
     window.addEventListener("error", function(event) {
     	log(event.message || event, "error");
@@ -160,7 +185,7 @@ try{
     })()
 
     window.reloadApp = async function(codeURL) {
-    	const timestamp = "navigator" in self && navigator.serviceWorker && navigator.serviceWorker.controller && ("?v=" + parseInt(new Date().getTime()/1000)) || "";
+    	const timestamp = ("navigator" in self && navigator.serviceWorker && navigator.serviceWorker.controller) ? "" : ("?v=" + new Date().getTime());
     	const url = window.location.href.split("?")[0].split("#")[0] + `${timestamp}${codeURL ? "#" + codeURL : ""}`
         window.top.location.href = url;
         return new Promise(resolve => setTimeout(resolve, 30 * 1000));
@@ -168,32 +193,7 @@ try{
 
     window.codeURL = window.location.href.split("#").pop().split("?")[0] || "";
 
-    function initNoSleep() { //设置防休眠
-        let noSleep;
-        let isNoSleep = false; // bodyTouchStart 防止锁屏
-        let noSleepTime = 0;
-        if (self["NoSleep"] && typeof NoSleep == "function") {
-            noSleep = new NoSleep();
-            setInterval(function() {
-                if (isNoSleep) {
-                    noSleep.enable();
-                    //log("noSleep.enable()")
-                }
-                else {
-                    noSleep.disable();
-                    //log("noSleep.disable()")
-                }
-            }, 15 * 1000);
-        }
-        window.openNoSleep = function() {
-            if (noSleep) {
-                isNoSleep = true;
-            }
-        };
-        window.closeNoSleep = function() {
-            isNoSleep = false;
-        };
-    }
+    
 
 	document.body.onload = async function load() {
     try {
@@ -202,8 +202,6 @@ try{
     	vconsoleSwitch == openVconsoleSwitch.FAST_SMALL && isTopWindow && (await openVconsole());
     	vconsoleSwitch == openVconsoleSwitch.DELAY_LARGE && !fullscreenEnabled && (await window.parent.openVconsole());
 		
-		const cacheKeys = "caches" in self && [...(await caches.keys())] || [];
-		"caches" in self && console.info(`caches: [${cacheKeys}]`);
 		!fullscreenEnabled && console.info(logTestBrowser());
     	
     	window.SOURCE_FILES = window.SOURCE_FILES || (await loadJSON("Version/SOURCE_FILES.json")).files;
@@ -289,7 +287,6 @@ try{
         loadAnimation.lock(false);
         loadAnimation.close();
         
-        !fullscreenEnabled && initNoSleep();
         window.jsPDF = window.jspdf && window.jspdf.jsPDF;
          
         const str = upData.logUpDataCompleted();
