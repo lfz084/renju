@@ -197,7 +197,7 @@ try{
         return new Promise(resolve => setTimeout(resolve, 30 * 1000));
     }
 
-    window.codeURL = window.location.href.split("#").pop().split("?")[0] || "";
+    window.codeURL = (window.location.href.split("#")[1] || "").split("?")[0] || "";
 
     
 
