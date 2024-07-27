@@ -137,7 +137,17 @@
 				}
 			}
 		]
+	},
+	{
+		"title": "黑先胜100题",
+		"puzzles": [
+				{
+					"index": 34,
+					"puzzle": {
+						"blackStones": "E8F10G10G9G7H11H8I8J6"
+					}
+				}
+			]
 	}
-	
 ]
       

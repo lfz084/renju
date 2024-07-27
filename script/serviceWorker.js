@@ -137,7 +137,7 @@ window.serviceWorker = window.parent.serviceWorker || (() => {
             				}
             			})
             		})
-            	if (navigator.serviceWorker.controller) {
+            	if (navigator.serviceWorker.controller && navigator.serviceWorker.controller.scriptURL == new Request(scriptURL).url) {
             		console.log(`"${scriptURL}" ......`);
             		navigator.serviceWorker.ready.then(registration => resolve(registration))
             		return;

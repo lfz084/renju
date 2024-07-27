@@ -1,5 +1,5 @@
     const DEBUG_SERVER_WORKER = false;
-    const scriptVersion = "v2024.30";
+    const scriptVersion = "v2024.31";
     const home = new Request("./").url;
     const beta = /renju\-beta$|renju\-beta\/$/.test(home) && "Beta" || "";
     const VERSION_JSON = new Request("./Version/SOURCE_FILES.json").url;
@@ -226,10 +226,10 @@
     /**
      * 测试缓存是否完整
      */
-    async function checkCache(client, cacheKey) {
+    async function checkCache(client, cacheKey, files) {
     	let count = 0;
     	const info = cacheKey.indexOf("currentCache")===0 ? currentVersionInfo : updateVersionInfo;
-    	const urls = Object.keys(info.files).map(key => info.files[key]).map(url => formatURL(url)) || [];
+    	const urls = Object.keys(files || info.files).map(key => info.files[key]).map(url => formatURL(url)) || [];
     	cacheKey = cacheKey.indexOf("currentCache")===0 ? currentCacheKey : updataCacheKey;
     	const paramQueue = urls.map(url => [url, cacheKey, client]) || [];
     	return queue((url, cacheKey, client) => loadCache(url, cacheKey, client).then(response => response.ok && count++), paramQueue)
@@ -286,7 +286,7 @@
     		.then(() => postMsg({ cmd: "log", msg: "copyToCurrentCache start" }, client))
     		.then(() => currentVersionInfo.version != updateVersionInfo.version && resetCache(currentCacheKey, updateVersionInfo).then(info => currentVersionInfo = info))
     		.then(() => copyCache(currentCacheKey, updataCacheKey))
-    		.then(done => done && checkCache(client, currentCacheKey))
+    		.then(done => done && checkCache(client, currentCacheKey, updateVersionInfo.files))
     		.then(done => {
     			done && deleteCache(updataCacheKey);
     			postMsg({ cmd: "log", msg: `copyToCurrentCache ${done?"done":"error"}` }, client);
@@ -309,7 +309,7 @@
     		.then(() => postMsg({cmd: "log", msg: "moveToCurrentCache start"}, client))
     		.then(() => moveCache(currentCacheKey, updataCacheKey))
     		.then(done => done && (waitingCacheReady = currentVersionInfo = undefined, waitCacheReady(client).then(()=>done)))
-    		.then(done => done && checkCache(client, currentCacheKey))
+    		.then(done => done && checkCache(client, currentCacheKey, updateVersionInfo.files))
     		.then(done => {
     			done && deleteCache(updataCacheKey);
     			postMsg({cmd: "log", msg: `moveToCurrentCache ${done?"done":"error"}`}, client);
@@ -624,6 +624,11 @@
     		const responsePromise = waitCacheReady(event.clientId)
     			.then(() => tryUpdate(event.clientId))
     			.then(() => {
+    				const url = event.request.url.split("?")[0].split("#")[0];
+					if (url.split("/").pop().indexOf(".") == -1 && url.slice(-1) != "/") {
+						const html = `<html><head></head><body><script>location.href="${formatURL(event.request.url)}"</script></body></html>`;
+						return new Response(html, response_200_init_html)
+					}
     				const _URL = formatURL(event.request.url);
     				const execStore = /\?cache\=onlyNet|\?cache\=onlyCache|\?cache\=netFirst|\?cache\=cacheFirst/.exec(event.request.url);
     				const storeKey = null == execStore ? "default" : execStore[0];

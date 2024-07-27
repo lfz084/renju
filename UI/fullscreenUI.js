@@ -191,6 +191,13 @@ window.fullscreenUI = (() => {
 						showRotateButtons();
 						rotate = 0;
 					})
+					.then(() => {
+						setTimeout(() => {
+							if (dw < dh && screen && screen.orientation.angle == 90) {
+								rotateIframeRight();
+							}
+						},1000)
+					})
 					.then(() => refreshDOM(fullscreenUI.contentWindow.document.body))
 					.then(() => window.wakeLock.lock())
 				}
