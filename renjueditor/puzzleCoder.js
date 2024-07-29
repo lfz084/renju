@@ -774,7 +774,7 @@ window.puzzleCoder = (() => {
 		}
 		
 		const json = JSON.stringify(newPuzzles, null, 2);
-		const link = `"link": "https://lfz084.gitee.io/renju/puzzle.html",`;
+		const link = `"link": "https://lfz084.github.io/renju/puzzle.html",`;
 		const index = json.indexOf("{") + 1;
 		return json.slice(0, index) + link + json.slice(index);
 	}
