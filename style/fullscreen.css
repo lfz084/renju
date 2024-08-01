@@ -69,6 +69,13 @@ h1 {
     word-wrap: break-word;
 }
 
+.refresh {
+    font-size: 38px;
+    opacity: 0.96;
+    position: absolute;
+    top: 100px;
+}
+
 .hideBoard {
 	-webkit-animation: hideBoard 500ms ease-in;
 	-moz-animation: hideBoard 500ms ease-in;

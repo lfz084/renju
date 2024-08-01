@@ -159,6 +159,7 @@ try{
 
     const BUT = document.createElement("div");
     BUT.setAttribute("id", "mlog");
+    BUT.style.zIndex = "999999";
     document.body.appendChild(BUT);
 
     function removeMlog() {
