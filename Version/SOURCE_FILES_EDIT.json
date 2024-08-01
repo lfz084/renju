@@ -1,5 +1,5 @@
 {
-  "version": "v2024.35",
+  "version": "v2024.36",
   "files": {
     "CheckerBoard": "CheckerBoard/CheckerBoard.js",
     "image2board": "CheckerBoard/image2board.js",
@@ -281,6 +281,7 @@
     "index_html": "index.html",
     "lib2sgf_html": "lib2sgf.html",
     "makevcf_html": "makevcf.html",
+    "offlineUpdate_html": "offlineUpdate.html",
     "puzzle_html": "puzzle.html",
     "renju_html": "renju.html",
     "renjueditor_html": "renjueditor.html",

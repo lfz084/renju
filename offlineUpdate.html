@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>五子棋小工具</title>
+	<style>
+		div {
+			font-size: 30px;
+		}
+		button {
+			font-size: 30px;
+			width: 150px;
+			height: 48px;
+		}
+		input {
+			opacity: 0;
+		}
+		#log {
+		    width: 100%;
+		}
+	</style>
+	<script src="zip/jszip.min.js"></script>
+	<script src="script/serviceWorker.js"></script>
+</head>
+<body>
+	<div>
+		第一步：打开网盘下载更新包 <a href="https://pan.baidu.com/s/1okeYf_6v6jnrGm3vsKkY-g?pwd=5668" target="_blank">百度网盘</a>
+	</div>
+	<div>
+		第二步：打开zip文件开始更新<button id="btn">打开文件</button>
+	</div>
+	<div id="log"></div>
+	<input type="file" id="input"/>
+	<script>
+		const version = "1";
+        const versionFileName = "version";
+        const contentTypeFileName = "CONTENT_TYPE.json";
+        const sourceFileJSON = "updata/Version/SOURCE_FILES.json";
+        
+        window.reloadApp = async function(codeURL) {
+            const timestamp = ("navigator" in self && navigator.serviceWorker && navigator.serviceWorker.controller) ? "" : ("?v=" + new Date().getTime());
+            const url = window.location.href.split("?")[0].split("#")[0] + `${timestamp}${codeURL ? "#" + codeURL : ""}`
+            window.top.location.href = url;
+            return new Promise(resolve => setTimeout(resolve, 30 * 1000));
+        }
+        
+		function log(msg) {
+			document.getElementById("log").innerText = msg;	
+		}
+		
+		function toZipPath(path) {
+		    const home = new Request("./").url;
+		    return decodeURIComponent("updata/" + new Request(path).url.slice(home.length));
+		}
+		
+		function toURL(zipPath) {
+			return new Request(zipPath.slice("updata/".length)).url;
+		}
+		
+		function checkUpdata(zip) {
+		    return Promise.resolve()
+		        .then(() => {
+		            return (!zip.file(versionFileName) || !zip.file(contentTypeFileName) || !zip.file(sourceFileJSON)) && Promise.reject(new Error("更新包缺少文件"))
+		        })
+		        .then(() => {
+		            return new Promise((resolve, reject) => {
+		                zip.file(versionFileName).async("string")
+		                    .then(v => v == version ? resolve() : reject(new Error("更新包版本错误")))
+		            })
+		        })
+		        .then(() => {
+		            return new Promise((resolve, reject) => {
+		                zip.file(sourceFileJSON).async("string")
+		                    .then(str => JSON.parse(str).files)
+		                    .then(files => Object.keys(files).map(key => files[key]))
+		                    .then(resolve)
+		                    .catch(reject)
+		            })
+		        })
+		        .then(files => {
+		            for (let i = 0; i < files.length; i++) {
+		                if (!zip.file(toZipPath(files[i]))) return Promise.reject(new Error("更新包缺少文件"))
+		            }
+		        })
+		        .catch(e => Promise.reject(e && e.message || "更新包验证失败"))
+		}
+		
+		async function getArrBuf(file) {
+			return new Promise(function(resolve, reject) {
+				let fr = new FileReader();
+				fr.onload = function() {
+					resolve(fr.result)
+				};
+				fr.onerror = function() {
+					reject(fr.error)
+				};
+				fr.readAsArrayBuffer(file)
+			});
+		}
+		
+		async function deleteCache(cacheKey) {
+			return caches.open(cacheKey)
+				.then(cache => cache.keys().then(requests => {
+					const ps = [];
+					requests.map(request => ps.push(cache.delete(request)));
+					return Promise.all(ps);
+				}))
+				.then(() => caches.delete(cacheKey))
+		}
+		
+		function getFilePaths(zip) {
+			const paths = [];
+			zip.forEach((path, file) => {
+				if (!file.dir && path.indexOf("updata/") == 0) paths.push(path)
+			})
+			return paths;
+		}
+		
+		const btn = document.getElementById("btn");
+		const input = document.getElementById("input");
+		serviceWorker.registerServiceWorker();
+		btn.addEventListener("click", () => {
+		    if (!('serviceWorker' in navigator)) {
+		        log("你的浏览器不支持离线缓存");
+		        return;
+		    }
+		    else if (!navigator.serviceWorker.controller) {
+		        alert("serviceWorker 没有工作，需要刷新页面");
+		        window.location.reload();
+		        return;
+		    }
+		    input.click()
+		});
+		input.addEventListener("change", () => {
+			const file = input.files[0];
+			const zip = new JSZip();
+			input.value = "";
+			let cacheKey;
+			let paths = [];
+			let CONTENT_TYPE;
+			
+            log("开始更新");
+			getArrBuf(file)
+			.then(buf => zip.loadAsync(buf, {checkCRC32: true}))
+			.catch(e => Promise.reject(new Error("打开zip出错：" + String.fromCharCode(10,13) + e.message)))
+			.then(() => checkUpdata(zip))
+			.then(() => {
+			    return new Promise((resolve, reject) => {
+			        zip.file(contentTypeFileName).async("string")
+		            .then(str => CONTENT_TYPE = JSON.parse(str))
+		            .then(resolve)
+		            .catch(reject)
+			    })
+			})
+			.then(() => serviceWorker.postMessage({ cmd: "getCacheKeys"},  3000))
+			.then(({currentCacheKey}) => {
+				cacheKey = currentCacheKey;
+				return currentCacheKey ? deleteCache(currentCacheKey).then(() => currentCacheKey) : Promise.reject("更新缓存失败");
+			})
+			.then(() => {
+			    paths = getFilePaths(zip);
+			    return new Promise((resolve, reject) => {
+			        async function file2cache() {
+			            const path = paths.shift();
+			            return zip.file(path).async("blob")
+			                .then(b => {
+			                    const request = new Request(toURL(path));
+			                    const key = path.split(".").pop();
+			                    const headers = new Headers();
+			                    headers.append("Content-Type", CONTENT_TYPE[key]);
+			                    const response = new Response(b,  {
+			                        status: 200,
+			                        statusText: "OK",
+			                        headers
+			                    });
+			                    log( ~~((numFiles-paths.length) / numFiles * 100) + "%" + String.fromCharCode(10,13) + path);
+			                    return caches.open(cacheKey).then(cache => cache.put(request, response.clone()))
+			                })
+			                .then(() => paths.length == 0 ? resolve() : setTimeout(() => file2cache(), 100) )
+			                .catch(reject)
+			        }
+			        const numFiles = paths.length;
+			        file2cache()
+			    })
+			})
+			.then(() => {log("更新结束");setTimeout(()=>window.top.location.href="./", 3000)})
+			.catch(e => log(e && e.message || typeof e!="undefined" && e || "更新失败"))
+		})
+	</script>
+</body>

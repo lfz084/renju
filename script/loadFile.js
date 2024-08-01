@@ -5,11 +5,9 @@
     const DEBUG_LOADFILE = false;
     
     function log(param, type = "log") {
-        const print = (msg) => {
-        	(console[type] || console.log)(msg);
-            "mlog" in window && typeof mlog == "function" && mlog(msg);
-        }
+        const print = console[type] || console.log;
         DEBUG_LOADFILE && window.DEBUG && (true || window.vConsole || window.parent.vConsole) && print(`[loadFile.js]  ${ param}`);
+        "mlog" in window && typeof mlog == "function" && mlog("");
     }
 
     //------------------------ loadFont ------------------

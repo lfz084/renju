@@ -55,6 +55,8 @@ window.exWindow = (() => {
         s.borderStyle = "solid";
         s.borderWidth = `${fontSize / 7}px`;
         s.fontWeight = "normal";
+        s.wordBreak = "break-all";
+        s.overflowY = "auto";
         s.padding = `${fontSize/2}px ${fontSize/2}px ${fontSize/2}px ${fontSize/2}px`;
 
         s = butClose.style;

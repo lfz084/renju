@@ -568,3 +568,57 @@ function refreshDOM(parentNode) {
 
 
 refreshDOM(fullscreenUI.contentWindow.document.body)
+
+
+        
+var JSZip = fullscreenUI.contentWindow.JSZip;
+var saveFile = fullscreenUI.contentWindow.saveFile;
+
+function toZipPath(path) {
+	const home = new Request("./").url;
+	return decodeURIComponent("updata/" + new Request(path).url.slice(home.length));
+}
+
+function toURL(zipPath) {
+	return new Request(zipPath.slice("updata/".length)).url;
+}
+
+function createUpdata() {
+	const newLine = String.fromCharCode(10, 13);
+	const zip = new JSZip();
+	zip.file("使用说明",`这是五子棋小工具的离线升级包。${newLine}用浏览器打开下面任意一个链接，在网页中打开这个zip文件。${newLine}https://lfz084.github.io/renju/offlineUpdate.html${newLine}https://renju.pages.dev/offlineUpdate.html`);
+	zip.file("version","1");
+	return zip;
+}
+
+async function addFile(path, zip) {
+	const zipPath = toZipPath(path);
+	console.log(zipPath)
+	console.log(toURL(zipPath))
+	return fetch(path)
+		.then(response => response.ok ? response.blob() : Promise.reject())
+		.then(blob => zip.file(zipPath, blob))
+		.catch(() => console.error(`add "${path}" error`))
+}
+
+async function addFiles(files, zip) {
+	for (let i = 0; i < files.length; i++) {
+		await addFile(files[i], zip)
+	}
+}
+
+async function download(zip, name) {
+	return zip.generateAsync({ type: "blob" }, function updateCallback(metadata) {
+		console.log("progression: " + metadata.percent.toFixed(2) + " %");
+	})
+	.then(blob => saveFile.save(blob, name))
+}
+
+
+
+const files = Object.keys(window.SOURCE_FILES).map(key => window.SOURCE_FILES[key])
+var zip = createUpdata();
+addFiles(files, zip)//.then(() => download(zip, "updata.zip"))
+
+const url = "eval/Evaluator.wasm"
+fetch(url).then(r=>r.headers).then(hd =>{for(const p of hd.entries()) console.log(p)})

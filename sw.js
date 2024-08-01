@@ -1,5 +1,5 @@
     const DEBUG_SERVER_WORKER = false;
-    const scriptVersion = "v2024.35";
+    const scriptVersion = "v2024.36";
     const home = new Request("./").url;
     const beta = /renju\-beta$|renju\-beta\/$/.test(home) && "Beta" || "";
     const VERSION_JSON = new Request("./Version/SOURCE_FILES.json").url;
@@ -577,8 +577,8 @@
     //-------------------- add HTML code -------------------- 
 
     const tongjihtmlScript = '  <script>\n    var _hmt = _hmt || [];\n    (function(){\n      var hm = document.createElement("script");\n      hm.src = "https://hm.baidu.com/hm.js?bed4a8b88511e0724ea14c479e20c9b5";\n      var s = document.getElementsByTagName("script")[0];\n      s.parentNode.insertBefore(hm,s)\n    })();\n  </script>'
-    async function addHTMLCode(response) {
-    	if (/^https\:\/\//.test(home) && /\.html$|\.htm$/i.test(response.url.split("?")[0].split("#")[0])) {
+    async function addHTMLCode(response, url = response.url) {
+    	if (/^https\:\/\//i.test(url) && /\.html$|\.htm$/i.test(url.split("?")[0].split("#")[0])) {
     		return response.text()
     			.then(html => {
     				return html.indexOf(tongjihtmlScript) + 1 ? html : html.replace(new RegExp("\<body\>", "i"), `<body>\n` + tongjihtmlScript)
@@ -652,7 +652,7 @@
     				}[cacheKey];
     				postMsg(`fetch Event url: ${decodeURIComponent(_URL)}`, event.clientId);
     				return waitResponse(_URL, version, event.clientId)
-    					.then(response => addHTMLCode(response))
+    					.then(response => addHTMLCode(response, _URL))
                 		.then(response => supportSharedArrayBuffer(response))
     			})
     			.catch(e => {

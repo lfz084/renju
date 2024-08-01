@@ -165,6 +165,13 @@
 	const btnSettkng = [
 		{
 			src: "settings.png",
+			title: "从本地更新版本",
+			callback: async function() {
+				window.top.location.href="offlineUpdate.html";
+			}
+		},
+		{
+			src: "settings.png",
 			title: "删除数据后更新",
 			callback: async function() {
 				await checkLink() && msg({
