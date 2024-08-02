@@ -24,17 +24,20 @@
 	<script src="script/serviceWorker.js"></script>
 </head>
 <body>
-	<div>
-		第一步：打开网盘下载更新包 <a href="https://pan.baidu.com/s/1okeYf_6v6jnrGm3vsKkY-g?pwd=5668" target="_blank">百度网盘</a>
+	<div id="step1">
+		第一步：点击网盘链接下载“updataFileName” <br><a href="https://cloud.wujiyan.cc/s/1mxH9" target="_blank">基岩网盘</a> <a href="https://g-paor8879.coding.net/s/fe40b303-989c-4f57-b124-e714c56d5bc9" target="_blank">文件网盘</a>
 	</div>
-	<div>
-		第二步：打开zip文件开始更新<button id="btn">打开文件</button>
+	<br>
+	<div id="step2">
+		第二步：打开“updataFileName”开始更新 <br><button id="btn">选择文件</button>
 	</div>
+	<br>
 	<div id="log"></div>
 	<input type="file" id="input"/>
 	<script>
 		const version = "1";
         const versionFileName = "version";
+        const updataFileName = "updata.zip";
         const contentTypeFileName = "CONTENT_TYPE.json";
         const sourceFileJSON = "updata/Version/SOURCE_FILES.json";
         
@@ -116,6 +119,12 @@
 			})
 			return paths;
 		}
+		
+		const step1 = document.getElementById("step1");
+		const step2 = document.getElementById("step2");
+		
+		step1.innerHTML = step1.innerHTML.replace("updataFileName", updataFileName);
+		step2.innerHTML = step2.innerHTML.replace("updataFileName", updataFileName);
 		
 		const btn = document.getElementById("btn");
 		const input = document.getElementById("input");
