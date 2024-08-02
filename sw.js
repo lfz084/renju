@@ -125,10 +125,10 @@
     }
 
     function formatURL(url) {
-    	url = url.split("?")[0].split("#")[0];
-    	const indexHtml = url.split("/").pop().indexOf(".") == -1 ? (url.slice(-1) == "/" ? "" : "/") + "index.html" : "";
-    	url = url + indexHtml;
-    	return url;
+    	url = new Request(url).url.split("?")[0].split("#")[0];
+    	const indexHtml = url.split("/").pop().indexOf(".") == -1 ? (url.slice(-1) == "/" ? "index.html" : ".html") : "";
+        url = url + indexHtml;
+        return url;
     }
     
     //-------------------------- update Cache -----------------------------------
@@ -476,14 +476,14 @@
 	 * 从缓存读取 response，如果没有找到，返回标记为404 错误的response
  	*/
     function loadCache(url, version, client) {
-    	return caches.open(version)
-    		.then(cache => {
-    			return cache.match(new Request(url, requestInit))
-    		})
-    		.then(response => {
-    			return (response && response.ok) ? response : Promise.reject();
-    		})
-    		.catch(err => {
+        return caches.open(version)
+            .then(cache => {
+                return cache.match(new Request(url, requestInit))
+            })
+            .then(response => {
+                return (response && response.ok) ? response : Promise.reject();
+            })
+            .catch(err => {
     			return new Response(response_err_cache, response_404_init_data)
     		})
     }
@@ -581,7 +581,7 @@
     	if (/^https\:\/\//i.test(url) && /\.html$|\.htm$/i.test(url.split("?")[0].split("#")[0])) {
     		return response.text()
     			.then(html => {
-    				return html.indexOf(tongjihtmlScript) + 1 ? html : html.replace(new RegExp("\<body\>", "i"), `<body>\n` + tongjihtmlScript)
+    				return html.indexOf("https://hm.baidu.com/hm.js") + 1 ? html : html.replace(new RegExp("\<body\>", "i"), `<body>\n` + tongjihtmlScript)
     			})
     			.then(html => new Response(html, response_200_init_html))
     	}
@@ -624,11 +624,13 @@
     		const responsePromise = waitCacheReady(event.clientId)
     			.then(() => tryUpdate(event.clientId))
     			.then(() => {
+    			    /*
     				const url = event.request.url.split("?")[0].split("#")[0];
 					if (url.split("/").pop().indexOf(".") == -1 && url.slice(-1) != "/") {
 						const html = `<html><head></head><body><script>location.href="${formatURL(event.request.url)}"</script></body></html>`;
 						return new Response(html, response_200_init_html)
 					}
+					*/
     				const _URL = formatURL(event.request.url);
     				const execStore = /\?cache\=onlyNet|\?cache\=onlyCache|\?cache\=netFirst|\?cache\=cacheFirst/.exec(event.request.url);
     				const storeKey = null == execStore ? "default" : execStore[0];
