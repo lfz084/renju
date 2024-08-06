@@ -169,7 +169,7 @@ window.serviceWorker = window.parent.serviceWorker || (() => {
 			/** 首次使用 ServiceWorker 没有正常工作就刷新 */
         	if (!navigator.serviceWorker.controller) {
             	console.warn(`ServiceWorker 没有正常工作,刷新网页...`)
-            	await window.reloadApp();
+            	await window.reloadApp(window.codeURL);
         	}
         }
     }

@@ -609,9 +609,10 @@
 	}
 	
 	function loadURL2JSON(url) {
+	    try{
 		const hash = replaceAll(url.split(/#/)[1] || "", "%", "&");
 		const arr = hash.split("&");
-		if (arr.length < 11) return "";
+		if (arr.length < 11) throw new Error("parameters error");
 		const labels = [];
 		const tempArr = (arr[11] || "").split(",");
 		tempArr.length > 1 && tempArr.length % 2 == 0 && tempArr.map((v,i) => {
@@ -634,6 +635,7 @@
 			labels: labels.length ? labels : undefined
 		}
 		return JSON.stringify({puzzles: [puzzle]});
+	    }catch { return "" }
 	}
 	
 	function puzzle2URL(puzzle) {

@@ -1708,11 +1708,13 @@ window.control = (() => {
 			let { firstColor, resetNum, moves, whiteMoves, blackMoves, cBoardSize, coordinateType, renjuCmdSettings } = appData.loadData();
 			if (window.codeURL) {
 				let obj = cBoard.parserCodeURL(window.codeURL);
+				if(obj) {
 				resetNum = obj.resetNum;
 				cBoardSize = obj.cBoardSize;
 				moves = obj.moves;
 				whiteMoves = obj.whiteMoves;
 				blackMoves = obj.blackMoves;
+				}
 			}
 			//alert(`${window.codeURL}\n${moves}\n${blackMoves}\n${whiteMoves}\n${cBoardSize}`)
 			appData.renjuLoad({

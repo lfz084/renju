@@ -1,3 +1,71 @@
-gitee pages 已经关闭
-五子棋小工具链接改为github
-https://lfz084.github.io
+### 五子棋小工具 最新访问网址:
+
+下面三个链接都使用同一个GitHub仓库，你可以根据自己的网络选择最快的链接
+
+<https://renjutool.asia/>
+
+<https://renju.pages.dev/>
+
+<https://lfz084.github.io/renju/>
+
+###  五子棋小工具简介
+
+这是一个五子棋实用工具网站。提供摆棋复盘、棋谱阅读、残局练习等非常实用的功能。
+网站利用 Service worker 实现了离线运行的功能。你可以在浏览器中选择“添加到主屏幕”把网站添加到你的桌面。
+**小工具的对弈功能是用[五子棋计算器(gomocalc)](https://github.com/dhbloo/gomoku-calculator/tree/87edc92a07ef3007fe57116d8c4d83cf20e7b2c7)引擎实现的**
+    
++ #### 摆棋小工具
+    
+非常方便的复盘摆棋工具，支持从图片读取棋局。你可以在棋盘上面做各种标记，再导出图片。可以进行简单的计算，搜索VCF、做三手胜、四手五连...
+    
++ #### DB阅读器
+    
+支持打开 db 和 lib 两种棋谱，可以显示棋谱注释。
+
+利用[五子棋计算器(gomocalc)](https://github.com/dhbloo/gomoku-calculator/tree/87edc92a07ef3007fe57116d8c4d83cf20e7b2c7)引擎实现了对弈功能。
+    
++ #### 连珠答题器
+    
+功能非常丰富的五子棋陪练。题库丰富，自带几十个题库，还支持添加自己的题库。支持多种答题模式，对弈模式、VCF模式、三手胜模式、四手五连模式...
+
+对弈功能是用[五子棋计算器(gomocalc)](https://github.com/dhbloo/gomoku-calculator/tree/87edc92a07ef3007fe57116d8c4d83cf20e7b2c7)引擎实现的
+    
++ #### 习题编辑器
+    
+编辑你自己的JSON题库。支持导出 开宝五子棋JSON 和 小工具JSON
+    
++ #### 制作VCF
+    
+在棋盘上摆出你的棋型，小工具会根据你的棋型制作VCF题集。支持导出 开宝五子棋JSON 和 小工具JSON
+    
++ #### 棋盘图片标记
+    
+打开一张棋盘图片，你可以在图片上面添加一些标记。
+    
++ #### LIB转SGF
+    
+打开一个 lib 棋谱，自动转成 sgf 棋谱。sgf 可以在 智子，卡塔狗上面打开
+
+### 摆棋小工具网址变更
+
+因为gitee官方关闭了网站功能，摆棋小工具网址改为
+
+<https://lfz084.github.io>
+
+后续更新会同步到这个最新网址。
+
+原网站已经关闭
+
+<https://lfz084.gitee.io/renju/>
+
+如果你还能打开原网站，是你的浏览器还有离线缓存，你可以尝试导出解题进度，同步到新网站。
+如果你还想保留原网站，切记不要重置数据。
+GitHub是国外网站，第一次打开会比较慢。
+如果无法打开，可以换个网络，换个时间段尝试。
+
+> 如果一直卡在下载离线缓存界面不动，可以用下面链接重置网站缓存
+<https://lfz084.github.io/upData.html>
+
+如果你不想等待这么长时间，这还有一个摆棋小工具旧版的镜像网站
+<https://renjumap.com/renjutool/index.html>
+连珠答题器在这个镜像网站是打不开的

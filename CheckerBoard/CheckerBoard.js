@@ -1086,6 +1086,7 @@
 
 
     Board.prototype.parserCodeURL = function(codeURL) {
+    	try {
     	codeURL = replaceAll(codeURL,"%","&"); //兼容旧版本
         let code = codeURL.split("&"),
             moves = checkerCode(code[0]),
@@ -1100,6 +1101,7 @@
             cBoardSize: cBoardSize,
             resetNum: resetNum
         }
+    	}catch { return null }
     }
     
     Board.prototype.putStone = async function(idx, type = TYPE_NUMBER) {
