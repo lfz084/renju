@@ -651,11 +651,9 @@
                 		.then(response => supportSharedArrayBuffer(response))
                 		.then(response => {
                 		    /*------------- 统一小工具链接格式 -----------------------*/
-                		    if (response.ok && /\.html$/.test(_URL) && (/\?v\=[\d]+/i.test(event.request.url) || /\.html$/.test(event.request.url.split("?")[0].split("#")[0]))) {
+                		    if (response.ok && /\.html$/.test(_URL) && (/\?v\=[\d]+/i.test(event.request.url) || _URL != event.request.url.split("?")[0].split("#")[0])) {
                 		        const codeURL = (event.request.url.split("#")[1] || "").split("?")[0] || "";
-                		        return Response.redirect(_URL.replace(/index\.html$|\.html$/, "") + (codeURL ? "#" + codeURL : ""))
-                		        //const html = `<html><head></head><body><script>location.href="${_URL.replace(/\.html$/, "") + (codeURL ? "#" + codeURL : "")}"</script></body></html>`;
-                		        //return new Response(html, response_200_init_html)
+                		        return Response.redirect(_URL + (codeURL ? "#" + codeURL : ""))
                 		    }
                 		    return response;
                 		})
