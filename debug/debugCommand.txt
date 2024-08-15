@@ -622,3 +622,4 @@ addFiles(files, zip)//.then(() => download(zip, "updata.zip"))
 
 const url = "eval/Evaluator.wasm"
 fetch(url).then(r=>r.headers).then(hd =>{for(const p of hd.entries()) console.log(p)})
+

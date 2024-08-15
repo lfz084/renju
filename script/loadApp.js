@@ -182,12 +182,12 @@ try{
             timer = setTimeout(() => {
             	BUT.innerHTML = `<div>下载离线资源中......</div>`;
             	BUT.setAttribute("class", "refresh")
-            }, 3 * 1000)
+            }, 1 * 1000)
             
             timer2 = setTimeout(() => {
             	BUT.innerHTML = `<div>你的网络好像不太稳定<br>请点击下面任一链接切换站点<br><br><a href="${window.location.href}" target="_top">点击刷新</a><br><br><a href="https://renjutool.asia/" target="_top">站点1</a><br><br><a href="https://renju.pages.dev/" target="_top">站点2</a><br><br><a href="https://lfz084.github.io/renju/" target="_top">站点3</a><br><br><a href="./offlineUpdate.html" target="_top">从本地安装</a><br><br></div>`;
             	BUT.setAttribute("class", "refresh")
-            }, 12 * 1000)
+            }, 10 * 1000)
         }
     })()
 
@@ -212,9 +212,23 @@ try{
     	window.SOURCE_FILES = window.SOURCE_FILES || (await loadJSON("Version/SOURCE_FILES.json")).files;
         window.UPDATA_INFO = await loadJSON("Version/UPDATA_INFO.json");
 		
-		if (!localStorage.getItem("checkInPrivate")) {
-		    localStorage.setItem("checkInPrivate", true);
-		    loadScript("script/detectIncognito.min.js");
+		if (localStorage.getItem("IsPrivate") === null) {
+		    loadScript("script/detectIncognito.min.js")
+		        .then(() => {
+		            detectIncognito()
+		                .then(function(result) {
+		                    localStorage.setItem("IsPrivate", !!result.isPrivate);
+		                    if (result.isPrivate) alert(`检测到你在用无痕模式访问网站。\n关闭浏览器后"离线缓存"和"网站设置"等数据会丢失。`)
+		                })
+		                .catch(() => {localStorage.setItem("IsPrivate", false)})
+		                .then(() => {
+		                    if ("document" in self) {
+		                        for (const st of document.scripts) {
+		                            /detectIncognito\.min\.js/.test(st.src) && st.remove()
+		                        }
+		                    }
+		                })
+		        })
 		}
 		
 		const sources = window.appSources;
@@ -322,7 +336,20 @@ try{
         
         removeMlog();
         localStorage.removeItem("reloadCount");
-    }catch(err) { onerror(err)}
+    }catch(err) { 
+        async function ping(url) {
+            return new Promise(resolve => {
+                const time = new Date().getTime();
+                setTimeout(() => resolve(-1), 15 * 1000);
+                fetch(url.split("?=")[0].split("#")[0] + "?cache=onlyNet")
+                    .then(response => response.ok ? resolve(new Date().getTime() - time) : resolve(-1))
+            })
+        }
+        ping("index.html").then(time => {
+    		if (time < 0) confirm("❌网站的链接断开了，是否刷新页面？") && onerror(err);
+    		else onerror(err);
+    	})
+    }
     }
 }catch(err) { location.href = "upData.html" }
 })()

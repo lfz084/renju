@@ -1,5 +1,5 @@
     const DEBUG_SERVER_WORKER = false;
-    const scriptVersion = "v2024.37";
+    const scriptVersion = "v2024.38";
     const home = new Request("./").url;
     const beta = /renju\-beta$|renju\-beta\/$/.test(home) && "Beta" || "";
     const VERSION_JSON = new Request("./Version/SOURCE_FILES.json").url;
@@ -455,13 +455,47 @@
     
     //-------------------------- Request Response -----------------------------------
 	
+	const renjuWebsites = [
+		    "https://renjutool.asia/",
+		    "https://www.renjutool.asia/",
+		    "https://renju.pages.dev/",
+		    "https://lfz084.github.io/renju/"
+		];
+	const renjubetaWebsites = [
+		    "https://renju-beta.renjutool.asia/",
+		    "https://renju-beta.pages.dev/",
+		    "https://lfz084.github.io/renju-beta/"
+		];
+	const renjuRegExp = /^https\:\/\/renjutool\.asia\/|^https\:\/\/www\.renjutool\.asia\/|^https\:\/\/renju\.pages\.dev\/|^https\:\/\/lfz084\.github\.io\/renju\//;
+	const renjubetaRegExp = /^https\:\/\/renju\-beta\.renjutool\.asia\/|^https\:\/\/renju\-beta\.pages\.dev\/|^https\:\/\/lfz084\.github\.io\/renju\-beta\//;
+	
+	/**
+	 * 从第一个站点开始fetch，成功返回response，失败切换到下一个站点
+	 */
+	function myFetch(request) {
+	    let websites;
+	    let exp;
+	    renjuRegExp.test(request.url) ? (websites = renjuWebsites, exp = renjuRegExp) : renjubetaRegExp.test(request.url) ? (websites = renjubetaWebsites, exp = renjubetaRegExp) : 1;
+	    if (websites) return new Promise((resolve, reject) => {
+	        function getRespones() {
+	            const nRequest = new Request(request.url.replace(exp, websites[index++]), requestInit);
+    	        fetch(nRequest)
+    	            .then(response => response.ok ? resolve(response) : Promise.reject(response))
+    	            .catch(response => index < websites.length ? setTimeout(()=>getRespones(), 0): reject(response))
+	        }
+	        let index = 0;
+	        getRespones();
+	    })
+	    else return fetch(request)
+	}
+	
     /**
      * 从网络加载 response，如果没有找到，返回标记为404 错误的response
      */
     function onlyNet(url, version, client) {
     	const nRequest = new Request(url.split("?")[0].split("#")[0] + "?v=" + parseInt(new Date().getTime()/1000), requestInit);
     	client && load.loading(url, client);
-    	return fetch(nRequest)
+    	return myFetch(nRequest)
     		.then(response => {
     			client && load.finish(url, client);
     			return response;
