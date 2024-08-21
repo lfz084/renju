@@ -41,7 +41,7 @@
     	status: 404
     };
     
-	const response_err_html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>404 error</title><style>body{padding:0;margin:0;opacity:0}#mainview{position:fixed;top:0px;left:0px;width:500px;height:500px;border-radius:50px;background:#ddd;text-align:center}#info{position:absolute;top:10px;width:500px;height:250px;text-align:center}#link{position:absolute;top:260px;width:500px;height:250px;text-align:center}#refresh{font-size:70px;border-radius:50%;border:0px}#refresh:hover{color:#885588;opacity:0.38}h1{font-size:25px;font-weight:blod;line-height:1.5}div{font-size:26px;font-weight:blod;line-height:1.8}a{color:#663366;font-size:26px;font-weight:blod;text-decoration:underline;line-height:1.8;cursor:pointer}a:link{color:#663366;text-decoration:underline}a:visited{color:#552255;text-decoration:underline}a:hover{color:#885588;text-decoration:underline}a:active{color:blue;text-decoration:underline}</style></head><body><script>try{const HOME=new RegExp("^https\:\/\/[\.\:0-9a-z ]*\/renju\-beta\/|^https\:\/\/[\.\:0-9a-z ]*\/renju\/|^https\:\/\/[\.\:0-9a-z ]*\/|^http\:\/\/[\.\:0-9a-z ]*\/","i").exec(location.href);async function postVersion(){return new Promise(resolve=>{if(navigator.serviceWorker&&navigator.serviceWorker.controller){let timer;const currentVersion=localStorage.getItem("RENJU_APP_VERSION");function onmessage(event){const MSG=event.data;if(typeof MSG=="object"&&MSG.cmd=="NEW_VERSION"){rm(MSG.versionChange)}}function rm(rt){navigator.serviceWorker.removeEventListener("message",onmessage);clearTimeout(timer);resolve(rt)}!currentVersion&&resolve(false);navigator.serviceWorker.addEventListener("message",onmessage,true);navigator.serviceWorker.controller.postMessage({cmd:"NEW_VERSION",version:currentVersion});timer=setTimeout(()=>{rm(false)},1500)}else{resolve(false)}})}async function ping(url){return new Promise(resolve=>{const time=new Date().getTime();setTimeout(()=>resolve(-1),15*1000);fetch(url.split("?=")[0].split("#")[0]+"?cache=onlyNet").then(response=>response.ok?resolve(new Date().getTime()-time):resolve(-1))})}async function checkLink(){document.getElementById("log").innerHTML="正在测试网络链接......";return ping(HOME+"index.html").then(time=>{if(time>=0){document.getElementById("log").innerHTML="没有找到你要打开的页面"}else{document.getElementById("log").innerHTML="❌网络链接异常"}})}function clk(url){window.top.open(url,"_self")}postVersion().then(n=>n&&window.location.reload()).then(()=>{}).catch(()=>{}).then(()=>{document.body.style.opacity=1});document.body.onload=()=>{const gw=Math.min(document.documentElement.clientWidth,document.documentElement.clientHeight);const style=document.getElementById("mainview").style;style.left=(document.documentElement.clientWidth-500)/2+"px";style.top=(document.documentElement.clientHeight-500)/2+"px";style.transform="scale("+gw/600+")";checkLink();document.getElementById("refresh").onclick=async()=>{window.location.reload()};document.getElementById("mainsite").onclick=()=>{clk("https://renjutool.asia/")};document.getElementById("mirror1").onclick=()=>{clk("https://renju.pages.dev/")};document.getElementById("mirror2").onclick=()=>{clk("https://lfz084.github.io/renju/")};document.getElementById("url").innerHTML=window.location.href}}catch(e){alert(e.stack)}</script><div id="mainview"><div id="info"><h1 id="url"></h1><h1 id="log"></h1></br><button id="refresh">🔄</button></div><div id="link"><br><div>点击下面链接跳转</div><a id="mainsite">主站</a></br><a id="mirror1">镜像站1</a></br><a id="mirror2">镜像站2</a></br></div></div></body></html>`;
+	const response_err_html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><title>404 error</title><style>body{padding:0;margin:0;opacity:0}#mainview{position:fixed;top:0px;left:0px;width:500px;height:500px;border-radius:50px;background:#ddd;text-align:center}#info{position:absolute;top:10px;width:500px;height:250px;text-align:center}#link{position:absolute;top:260px;width:500px;height:250px;text-align:center}#refresh{font-size:70px;border-radius:50%;border:0px}#refresh:hover{color:#885588;opacity:0.38}h1{font-size:25px;font-weight:blod;line-height:1.5}div{font-size:26px;font-weight:blod;line-height:1.8}a{color:#663366;font-size:26px;font-weight:blod;text-decoration:underline;line-height:1.8;cursor:pointer}a:link{color:#663366;text-decoration:underline}a:visited{color:#552255;text-decoration:underline}a:hover{color:#885588;text-decoration:underline}a:active{color:blue;text-decoration:underline}</style></head><body><script>try{const HOME=new RegExp("^https\:\/\/[\.\:0-9a-z ]*\/renju\-beta\/|^https\:\/\/[\.\:0-9a-z ]*\/renju\/|^https\:\/\/[\.\:0-9a-z ]*\/|^http\:\/\/[\.\:0-9a-z ]*\/","i").exec(location.href);async function postVersion(){return new Promise(resolve=>{if(navigator.serviceWorker&&navigator.serviceWorker.controller){let timer;const currentVersion=localStorage.getItem("RENJU_APP_VERSION");function onmessage(event){const MSG=event.data;if(typeof MSG=="object"&&MSG.cmd=="NEW_VERSION"){rm(MSG.versionChange)}}function rm(rt){navigator.serviceWorker.removeEventListener("message",onmessage);clearTimeout(timer);resolve(rt)}!currentVersion&&resolve(false);navigator.serviceWorker.addEventListener("message",onmessage,true);navigator.serviceWorker.controller.postMessage({cmd:"NEW_VERSION",version:currentVersion});timer=setTimeout(()=>{rm(false)},1500)}else{resolve(false)}})}async function ping(url){return new Promise(resolve=>{const time=new Date().getTime();setTimeout(()=>resolve(-1),15*1000);fetch(url.split("?=")[0].split("#")[0]+"?cache=onlyNet").then(response=>response.ok?resolve(new Date().getTime()-time):resolve(-1))})}async function checkLink(){document.getElementById("log").innerHTML="正在测试网络链接......";return ping(HOME+"index.html").then(time=>{if(time>=0){document.getElementById("log").innerHTML="没有找到你要打开的页面"}else{document.getElementById("log").innerHTML="❌网络链接异常"}})}function clk(url){window.top.open(url,"_self")}postVersion().then(n=>n&&window.location.reload()).then(()=>{}).catch(()=>{}).then(()=>{document.body.style.opacity=1});document.body.onload=()=>{const gw=Math.min(document.documentElement.clientWidth,document.documentElement.clientHeight);const style=document.getElementById("mainview").style;style.left=(document.documentElement.clientWidth-500)/2+"px";style.top=(document.documentElement.clientHeight-500)/2+"px";style.transform="scale("+gw/600+")";checkLink();document.getElementById("refresh").onclick=async()=>{window.location.reload()};document.getElementById("mainsite").onclick=()=>{clk("https://www.renjutool.asia/")};document.getElementById("mirror1").onclick=()=>{clk("https://renju.pages.dev/")};document.getElementById("mirror2").onclick=()=>{clk("https://lfz084.github.io/renju/")};document.getElementById("url").innerHTML=window.location.href}}catch(e){alert(e.stack)}</script><div id="mainview"><div id="info"><h1 id="url"></h1><h1 id="log"></h1></br><button id="refresh">🔄</button></div><div id="link"><br><div>点击下面链接跳转</div><a id="mainsite">主站</a></br><a id="mirror1">镜像站1</a></br><a id="mirror2">镜像站2</a></br></div></div></body></html>`;
 	const response_err_data = "Error 404, file not found.";
     const response_err_cache = "Error 404, file not found in cache";
     const request_reject = "Failed to fetch. request rejected";
@@ -456,8 +456,8 @@
     //-------------------------- Request Response -----------------------------------
 	
 	const renjuWebsites = [
-		    "https://renjutool.asia/",
 		    "https://www.renjutool.asia/",
+		    "https://renju.renjutool.asia/",
 		    "https://renju.pages.dev/",
 		    "https://lfz084.github.io/renju/"
 		];
@@ -466,7 +466,7 @@
 		    "https://renju-beta.pages.dev/",
 		    "https://lfz084.github.io/renju-beta/"
 		];
-	const renjuRegExp = /^https\:\/\/renjutool\.asia\/|^https\:\/\/www\.renjutool\.asia\/|^https\:\/\/renju\.pages\.dev\/|^https\:\/\/lfz084\.github\.io\/renju\//;
+	const renjuRegExp = /^https\:\/\/www\.renjutool\.asia\/|^https\:\/\/renju\.renjutool\.asia\/|^https\:\/\/renju\.pages\.dev\/|^https\:\/\/lfz084\.github\.io\/renju\//;
 	const renjubetaRegExp = /^https\:\/\/renju\-beta\.renjutool\.asia\/|^https\:\/\/renju\-beta\.pages\.dev\/|^https\:\/\/lfz084\.github\.io\/renju\-beta\//;
 	
 	/**
@@ -474,16 +474,21 @@
 	 */
 	function myFetch(request) {
 	    let websites;
+	    let site;
 	    let exp;
 	    renjuRegExp.test(request.url) ? (websites = renjuWebsites, exp = renjuRegExp) : renjubetaRegExp.test(request.url) ? (websites = renjubetaWebsites, exp = renjubetaRegExp) : 1;
 	    if (websites) return new Promise((resolve, reject) => {
 	        function getRespones() {
-	            const nRequest = new Request(request.url.replace(exp, websites[index++]), requestInit);
+	            site = websites[0];
+	            const nRequest = new Request(request.url.replace(exp, site), requestInit);
     	        fetch(nRequest)
-    	            .then(response => response.ok ? resolve(response) : Promise.reject(response))
-    	            .catch(response => index < websites.length ? setTimeout(()=>getRespones(), 0): reject(response))
+    	            .then(response => resolve(response))
+    	            .catch(e => {
+    	                site == websites[0] && websites.push(websites.shift());
+    	                count++ < 3 ? setTimeout(()=>getRespones(), 0): reject(e);
+    	            })
 	        }
-	        let index = 0;
+	        let count = 0;
 	        getRespones();
 	    })
 	    else return fetch(request)
