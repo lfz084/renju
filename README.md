@@ -2,7 +2,7 @@
 
 下面三个链接都使用同一个GitHub仓库，你可以根据自己的网络选择最快的链接
 
-<https://renjutool.asia/>
+<https://www.renjutool.asia/>
 
 <https://renju.pages.dev/>
 
@@ -68,4 +68,4 @@ GitHub是国外网站，第一次打开会比较慢。
 
 如果你不想等待这么长时间，这还有一个摆棋小工具旧版的镜像网站
 <https://renjumap.com/renjutool/index.html>
-连珠答题器在这个镜像网站是打不开的
+> 连珠答题器在这个镜像网站是打不开的

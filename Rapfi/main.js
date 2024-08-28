@@ -92,10 +92,10 @@
         },
         {
             type: "button",
-            text: "下手为❶",
-            touchend: async function() {
-                game.resetNum(1);
-            }
+        	text: "隐藏手顺",
+        	touchend:  function() {
+        	    cBoard.setResetNum(256);
+        	}
         },
         {
             varName: "btnRandomPlay",
@@ -107,9 +107,9 @@
         },
         {
             type: "button",
-            text: "重置手数",
+            text: "下手为❶",
             touchend: async function() {
-                game.resetNum(0);
+                game.resetNum(1);
             }
         },
         {
@@ -122,7 +122,7 @@
         			this.MSindex = cBoard.MSindex;
         			btnAIPlay.enabled = false;
         			btnRandomPlay.enabled = false;
-        			setTimeout(() => $("comment").innerHTML = "开始对弈...", 380);
+        			setTimeout(() => (cBoard.cleLb("all") ,$("comment").innerHTML = "开始对弈..."), 380);
         		}
         		else {
                 	game.toStart(true);
@@ -137,49 +137,10 @@
         	}
         },
         {
-            type: "select",
-            text: "15 路",
-            options: [15, "15 路", 14, "14 路", 13, "13 路", 12, "12 路", 11, "11 路", 10, "10 路", 9, "9 路", 8, "8 路", 7, "7 路", 6, "6 路"],
-            change: function() {
-                game.boardSize = this.input.value;
-                game.showBranchNodes();
-            }
-        },
-        {
             type: "button",
-            text: "分享图片",
+            text: "重置手数",
             touchend: async function() {
-                share(cBoard);
-            }
-        },
-        {
-            varName: "btnRule",
-            type: "select",
-            text: "renju",
-            options: [2, "renju", 1, "standard", 0, "freestyle"],
-            change: function() {
-                game.rule = this.input.value;
-                game.showBranchNodes();
-            }
-        },
-        {
-            type: "button",
-            text: "输出代码",
-            touchend: async function() {
-                try {
-                    game.outputCode();
-                } catch (e) { console.error(e.stack) }
-            }
-        },
-        {
-            varName: "btnEncoding",
-            type: "select",
-            text: "gbk",
-            options: [0, "gbk", 1, "big5", 2, "utf-8"],
-            change: function() {
-                const encoding = ["gbk", "big5", "utf-8"];
-                textDecoder = new TextDecoder(encoding[this.input.value]);
-                game.showBranchNodes();
+                game.resetNum(0);
             }
         },
         {
@@ -195,32 +156,81 @@
             }
         },
         {
-            type: "button",
-            text: "批量JPG",
-            touchend: async function() {
-                try {
-                	downloadZIP("jpg")
-                } catch (e) { console.error(e.stack) }
+            type: "select",
+            text: "15 路",
+            options: [15, "15 路", 14, "14 路", 13, "13 路", 12, "12 路", 11, "11 路", 10, "10 路", 9, "9 路", 8, "8 路", 7, "7 路", 6, "6 路"],
+            change: function() {
+                game.boardSize = this.input.value;
+                game.showBranchNodes();
+            }
+        },
+        {
+            varName: "btnEncoding",
+            type: "select",
+            text: "gbk",
+            options: [0, "gbk", 1, "big5", 2, "utf-8"],
+            change: function() {
+                const encoding = ["gbk", "big5", "utf-8"];
+                textDecoder = new TextDecoder(encoding[this.input.value]);
+                game.showBranchNodes();
+            }
+        },
+        {
+            varName: "btnRule",
+            type: "select",
+            text: "renju",
+            options: [2, "renju", 1, "standard", 0, "freestyle"],
+            change: function() {
+                game.rule = this.input.value;
+                game.showBranchNodes();
             }
         },
         {
             type: "button",
-            text: "批量SVG",
+            text: "分享图片",
             touchend: async function() {
-                try {
-                	downloadZIP("svg")
-                } catch (e) { console.error(e.stack) }
+                share(cBoard);
             }
         },
         {
             type: "button",
-            text: "批量SGF",
+            text: "输出代码",
             touchend: async function() {
                 try {
-                	downloadZIP("sgf")
+                    game.outputCode();
                 } catch (e) { console.error(e.stack) }
             }
         },
+        {
+            type: "select",
+            text: "批量输出",
+            options: [0,"批量输出JPG",1,"批量输出SVG",2,"批量输出SGF"],
+            change: function() {
+                try {
+                    const types = ["jpg","svg","sgf"];
+                	downloadZIP(types[this.input.value]);
+                } catch (e) { console.error(e.stack) }
+                
+            },
+			reset: function() {this.setText(`批量输出`, `批量输出`) }
+        },
+        {
+            type: "select",
+            text: "设置坐标",
+            options: [0, "棋盘坐标:无坐标",
+                1, "棋盘坐标:上下左右",
+            	2, "棋盘坐标:上左",
+            	3, "棋盘坐标:上右",
+            	4, "棋盘坐标:下右",
+            	5, "棋盘坐标:下左"],
+            change: function() {
+                cBoard.setCoordinate(this.input.value * 1);
+            },
+            onshowmenu: function() {
+            	[...this.input].map((op, i) => op.checked = i === cBoard.coordinateType);
+            },
+			reset: function() {this.setText(`设置坐标`, `设置坐标`) }
+        }
     ];
 
     buttonSettings.splice(0, 0, createLogDiv(), null, null, null);
@@ -822,6 +832,7 @@
     				})
     			})
     		}
+    		else $("comment").innerHTML = DBREAD_HELP;
     	}
     })
     
