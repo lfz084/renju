@@ -477,8 +477,9 @@
 	    let websites;
 	    let site;
 	    let exp;
+	    const switchSide = false;
 	    renjuRegExp.test(request.url) ? (websites = renjuWebsites, exp = renjuRegExp) : renjubetaRegExp.test(request.url) ? (websites = renjubetaWebsites, exp = renjubetaRegExp) : 1;
-	    if (websites) return new Promise((resolve, reject) => {
+	    if (switchSide && websites) return new Promise((resolve, reject) => {
 	        function getRespones() {
 	            site = websites[0];
 	            const nRequest = new Request(request.url.replace(exp, site), requestInit);
