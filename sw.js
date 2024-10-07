@@ -618,7 +618,7 @@
 
     const tongjihtmlScript = '  <script>\n    var _hmt = _hmt || [];\n    (function(){\n      var hm = document.createElement("script");\n      hm.src = "https://hm.baidu.com/hm.js?bed4a8b88511e0724ea14c479e20c9b5";\n      var s = document.getElementsByTagName("script")[0];\n      s.parentNode.insertBefore(hm,s)\n    })();\n  </script>'
     async function addHTMLCode(response, url = response.url) {
-    	if (response.ok && (true || /^https\:\/\//i.test(url)) && /\.html$|\.htm$/i.test(url.split("?")[0].split("#")[0])) {
+    	if (response.ok && (true || (/^https\:\/\//i).test(url)) && (/\.html$|\.htm$/i).test(url.split("?")[0].split("#")[0])) {
     		return response.text()
     			.then(html => {
     				return html.indexOf("https://hm.baidu.com/hm.js") + 1 ? html : html.replace(new RegExp("\<body\>", "i"), `<body>\n` + tongjihtmlScript)
