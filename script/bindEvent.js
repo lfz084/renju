@@ -63,7 +63,7 @@ window.bindEvent = (function() {
 
 			//初始化长按事件
 			if (!timerContextMenu) {
-				timerContextMenu = setTimeout(bodyContextMenu, CONTEXTMENU_COUNTDOWN);
+		        timerContextMenu = setTimeout(bodyContextMenu, CONTEXTMENU_COUNTDOWN);
 			}
 			//保存当前触摸点
 			bodyStartTouches.push(copyTouch(touches[0], 1));
@@ -197,6 +197,7 @@ window.bindEvent = (function() {
 	let cancelContextmenu = false;
 
 	function bodyContextMenu() {
+	    self["event"] && event.preventDefault();
 		if (!enabled) return;
 		if (cancelContextmenu) return;
 		if (timerContextMenu) {

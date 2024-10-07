@@ -56,6 +56,7 @@
     			countRequests == 1 && syncMsg(`loading......`, client);
     		},
     		finish: (url, client) => {
+    			!url && (countRequests=0);
     			countRequests && countRequests--;
     			countRequests == 0 && syncMsg(`load finish`, client);
     		}
@@ -617,7 +618,7 @@
 
     const tongjihtmlScript = '  <script>\n    var _hmt = _hmt || [];\n    (function(){\n      var hm = document.createElement("script");\n      hm.src = "https://hm.baidu.com/hm.js?bed4a8b88511e0724ea14c479e20c9b5";\n      var s = document.getElementsByTagName("script")[0];\n      s.parentNode.insertBefore(hm,s)\n    })();\n  </script>'
     async function addHTMLCode(response, url = response.url) {
-    	if (response.ok && /^https\:\/\//i.test(url) && /\.html$|\.htm$/i.test(url.split("?")[0].split("#")[0])) {
+    	if (response.ok && (true || /^https\:\/\//i.test(url)) && /\.html$|\.htm$/i.test(url.split("?")[0].split("#")[0])) {
     		return response.text()
     			.then(html => {
     				return html.indexOf("https://hm.baidu.com/hm.js") + 1 ? html : html.replace(new RegExp("\<body\>", "i"), `<body>\n` + tongjihtmlScript)
@@ -687,7 +688,7 @@
     				postMsg(`fetch Event url: ${decodeURIComponent(_URL)}`, event.clientId);
     				return waitResponse(_URL, version, event.clientId)
     					.then(response => addHTMLCode(response, _URL))
-                		.then(response => supportSharedArrayBuffer(response))
+                		//.then(response => supportSharedArrayBuffer(response))
                 		.then(response => {
                 		    /*------------- 统一小工具链接格式 -----------------------*/
                 		    if (response.ok && /\.html$/.test(_URL) && (/\?v\=[\d]+/i.test(event.request.url) || _URL != event.request.url.split("?")[0].split("#")[0])) {
@@ -714,7 +715,7 @@
 	let log2cacheTimer = setInterval(() => {
 		if (5000 < new Date().getTime() - lastDelayMessages) {
 			/*预防 serviceWorker 意外重启，关闭加载动画*/
-			load.finish(url, currentClient);
+			load.finish(null, currentClient);
 			tryUpdate(currentClient);
 			/*------------------------------------*/
 			clearInterval(log2cacheTimer);
