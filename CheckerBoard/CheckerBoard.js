@@ -19,6 +19,8 @@
     const COORDINATE_RIGHT_UP = 3;
     const COORDINATE_RIGHT_DOWN = 4;
     const COORDINATE_LEFT_DOWN = 5;
+    const COORDINATE_NUM_CW = 6;
+    const COORDINATE_NUM_CCW = 7;
     
     const MODE_BOARD = 0;
     const MODE_IMG = 1;
@@ -1347,6 +1349,40 @@
         }
         return circles;
     }
+    
+    Board.prototype.getNumberCoordinate = function() {
+        let x = 0,
+            y = 0,
+            w = this.size;
+        let arr = [];
+        const turn = this.coordinateType - COORDINATE_LEFT_DOWN;
+        
+        turn == 1 ? x-- : y--;
+        while (w > 0) {
+            for (let i = 0; i < w; i++) {
+                turn == 1 ? x++ : y++;
+                arr.splice(0,0,y * 15 + x);
+            }
+            w--;
+            if (w == 0) break;
+            for (let i = 0; i < w; i++) {
+                turn == 1 ? y++ : x++;
+                arr.splice(0,0,y * 15 + x);
+            }
+            for (let i = 0; i < w; i++) {
+                turn == 1 ? x-- : y--;
+                arr.splice(0,0,y * 15 + x);
+            }
+            w--;
+            if (w == 0) break;
+            for (let i = 0; i < w; i++) {
+                turn == 1 ? y-- : x--;
+                arr.splice(0,0,y * 15 + x);
+            }
+        }
+        
+        return arr;
+    }
 
     Board.prototype.getCoordinateInfo = function() {
         let textArr = [],
@@ -1475,15 +1511,42 @@
         ctx.fillStyle = this.backgroundColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         this.viewBox.style.backgroundColor = document.body.style.backgroundColor;
+        
+        if (this.coordinateType < 6) {
+            let boardLinesInfo = this.getBoardLinesInfo();
+            boardLinesInfo.map(lineInfo => this.printLine(lineInfo, ctx))
 
-        let boardLinesInfo = this.getBoardLinesInfo();
-        boardLinesInfo.map(lineInfo => this.printLine(lineInfo, ctx))
+            let starPointsInfo = this.getStarPointsInfo();
+            starPointsInfo.map(starPointInfo => this.printCircle(starPointInfo, ctx))
 
-        let starPointsInfo = this.getStarPointsInfo();
-        starPointsInfo.map(starPointInfo => this.printCircle(starPointInfo, ctx))
-
-        let coordinateTypeInfo = this.getCoordinateInfo();
-        coordinateTypeInfo.map(textInfo => this.printText(textInfo, ctx))
+            let coordinateTypeInfo = this.getCoordinateInfo();
+            coordinateTypeInfo.map(textInfo => this.printText(textInfo, ctx))
+        }
+        else {
+            let numCoordinate = this.getNumberCoordinate();
+            numCoordinate.map((idx,i) => {
+                const num = `${i+1}`;
+                let circle = {
+                    x: this.P[idx].x,
+                    y: this.P[idx].y,
+                    radius: Math.min(this.gW, this.gH) / 2 * 0.8,
+                    color: this.LbBackgroundColor,
+                    lineWidth: 0,
+                    fill: this.LbBackgroundColor
+                },
+                text = {
+                    txt: num,
+                    x: this.P[idx].x,
+                    y: this.P[idx].y,
+                    color: this.coordinateColor,
+                    weight: "bold",
+                    family: "mHeiTi, Roboto, emjFont, Symbola",
+                    size: ~~(this.gW * (0.7 - 0.08 * num.length))
+                };
+                this.printCircle(circle, ctx);
+                this.printText(text, ctx);
+            })
+        }
 
         let canvas2 = this.canvas;
         ctx = canvas2.getContext("2d");
@@ -1500,12 +1563,14 @@
     Board.prototype.resetCBoardCoordinate = function() {
         this.SLTX = this.size;
         this.SLTY = this.SLTX;
-        let padding = this.coordinateType == 0 ? ~~(this.width / this.SLTX / 2) :
+        let padding = (this.coordinateType == 0 || this.coordinateType > 5) ? ~~(this.width / this.SLTX / 2) :
             this.coordinateType == 1 ? ~~(this.width / (this.SLTX + 2) * 1.5) :
             ~~(this.width / (this.SLTX + 1) * 1.5);
 
         switch (this.coordinateType) {
             case COORDINATE_ALL:
+            case COORDINATE_NUM_CW:
+            case COORDINATE_NUM_CCW:
             case COORDINATE_NONE:
                 this.XL = padding;
                 this.XR = this.width - padding;
@@ -1736,7 +1801,7 @@
     }
 
     Board.prototype.setCoordinate = function(coordinateType) {
-        if (coordinateType < 0 || coordinateType > 5) return;
+        if (coordinateType < 0 || coordinateType > 7) return;
         this.coordinateType = coordinateType;
         this.resetCBoardCoordinate();
         this.refreshCheckerBoard();

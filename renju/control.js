@@ -934,7 +934,9 @@ window.control = (() => {
 	                2, "棋盘坐标:上左",
 	                3, "棋盘坐标:上右",
 	                4, "棋盘坐标:下右",
-	                5, "棋盘坐标:下左"],
+	                5, "棋盘坐标:下左",
+	                6, "棋盘坐标:数字正",
+	                7, "棋盘坐标:数字反"],
 			function(but) {
 				if (isBusy()) return;
 				cBoard.setCoordinate(but.input.value * 1);

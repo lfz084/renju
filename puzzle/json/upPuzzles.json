@@ -141,11 +141,17 @@
 	{
 		"title": "黑先胜100题",
 		"puzzles": [
+		        {
+		            "index": 2,
+		            "puzzle": {
+		                "stones": "H10F10F9G10H9I9J9E8H8G8I8J8F7G7I7H7G6H6I6J6"
+		            }
+		        },
 				{
-					"index": 34,
-					"puzzle": {
-						"blackStones": "E8F10G10G9G7H11H8I8J6"
-					}
+				    "index": 34,
+				    "puzzle": {
+				        "blackStones": "E8F10G10G9G7H11H8I8J6"
+				    }
 				}
 			]
 	}
