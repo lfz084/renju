@@ -1,5 +1,5 @@
 {
-  "version": "v2025.00",
+  "version": "v2025.01",
   "files": {
     "CheckerBoard": "CheckerBoard/CheckerBoard.js",
     "image2board": "CheckerBoard/image2board.js",
@@ -341,7 +341,7 @@
     "help038": "help/renjuhelp/renjuhelp.html"
   },
   "md5": {
-    "CheckerBoard": "be7cd86e5c40521763609e7ddaf3273e",
+    "CheckerBoard": "2025be7cd86e5c40521763609e7ddaf3273e",
     "MoveNode": "e5b50b9b30e7d559c82562f5398d2556",
     "image2board": "9a3aed07f00a3b5205b334e5bb48edbc",
     "markLine": "297a328738120bbb86e8f0f124a5959f",
@@ -471,7 +471,7 @@
     "RenLibDoc_wasm": "e97621a74413c8c01fe5b9fab0d83210",
     "Stack": "74335dcc6c6aea73184a7dd7aa93424f",
     "work_ReadLib": "2436abf365246002ff37825c7532b95c",
-    "control": "6cdfb0096fc519a84fd1c97d06cfc4a4",
+    "control": "20256cdfb0096fc519a84fd1c97d06cfc4a4",
     "renjuSources": "853633ebf38d80f181e1861b1dd7436c",
     "renjuConvertMain": "9755deb93a4044ca0ca9fb33ad61d93b",
     "renjuConvertSources": "3629540fb137aefbbe15019a22ad373e",
