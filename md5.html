@@ -7,16 +7,24 @@
 	<title></title>
 	<style>
 		textarea {
-			width: 980px;
-			height: 980px;
+			width: 800px;
+			height: 680px;
 			border: "5px solid black";
+		}
+		log {
+		    width: 800px;
+		    height: 580px;
+		    border: "5px solid black";
 		}
 	</style>
 	<script src="md5/md5.min.js"></script>
 </head>
 
 <body>
+    <h3>copy to cover "SOURCE_FILES.json"</h3>
 	<textarea id="textarea"></textarea>
+    <h3>files is change</h3>
+	<textarea id="log"></textarea>
 	<script>
 		document.body.onload = function() {
 		try{
@@ -33,7 +41,7 @@
 			}
 			
 			fetch("Version/SOURCE_FILES_EDIT.json?cache=onlyNet")
-				.then(response => response.ok ? response.json() : Promise.reject("fetch SOURCE_FILES.json error"))
+				.then(response => response.ok ? response.json() : Promise.reject("fetch SOURCE_FILES_EDIT.json error"))
 				.then(info => {
 					const ps = [];
 					versionInfo = info;
@@ -43,6 +51,15 @@
 					return Promise.all(ps);
 				})
 				.then(() => document.getElementById("textarea").value = JSON.stringify(versionInfo, null, 2))
+				.then(() => fetch("Version/SOURCE_FILES.json?cache=onlyNet")
+				    .then(response => response.ok ? response.json() : Promise.reject("fetch SOURCE_FILES.json error"))
+				    .then(info => {
+				        let logstr = "";
+				        const keys = Object.keys(versionInfo.md5);
+				        keys.map(key => versionInfo["md5"][key] != info["md5"][key] && (logstr += `${key}: ${info["files"][key]}\n`));
+				        document.getElementById("log").value = logstr;
+				    })
+				)
 				.catch(e => {
 					alert(e && e.stack || e)
 				})

@@ -70,6 +70,27 @@
 				}
 			},
 			{
+				varName: "btnCoordinate",
+				type: "select",
+				text: "坐标",
+				options: [
+					0, "棋盘坐标:无坐标", "radio",
+					1, "棋盘坐标:上下左右", "radio",
+					2, "棋盘坐标:上左", "radio",
+					3, "棋盘坐标:上右", "radio",
+					4, "棋盘坐标:下右", "radio",
+					5, "棋盘坐标:下左", "radio",
+					6, "棋盘坐标:数字正", "radio",
+					7, "棋盘坐标:数字反", "radio"
+				],
+				onshowmenu: function() {
+					[...this.input].map((op, i) => op.checked = i === cBoard.coordinateType);
+				},
+				change: function() {
+				    game.coordinateType = this.input.value * 1;
+				}
+			},  
+			{
 				varName: "btnStrength",
 				type: "select",
 				text: "随机",
@@ -148,7 +169,7 @@
 		mainUI.newLabel({
 				varName: "sideLabel",
 				type: "div",
-				width: mainUI.buttonWidth * 2.33,
+				width: mainUI.buttonWidth * 1.3,
 				height: mainUI.buttonHeight,
 				style: {
 					fontSize: `${mainUI.buttonHeight / 1.8}px`,
@@ -157,6 +178,20 @@
 				},
 				click: () => {
 
+				}
+			}),
+		mainUI.newLabel({
+				varName: "coordinateLabel",
+				type: "div",
+				width: mainUI.buttonWidth,
+				height: mainUI.buttonHeight,
+				style: {
+					fontSize: `${mainUI.buttonHeight / 1.8}px`,
+					textAlign: "center",
+					lineHeight: `${mainUI.buttonHeight}px`
+				},
+				click: () => {
+					game.puzzle.mode != puzzleCoder.MODE.COVER && btnCoordinate.defaultontouchend()
 				}
 			}),
 		mainUI.newLabel({
@@ -317,7 +352,6 @@
 		
 		gameButtonSettings.splice(1,0,null,null,null);
 		gameButtonSettings.splice(5,0,null);
-		gameButtonSettings.splice(7,0,null);
 		gameButtonSettings.splice(8,0,null,null);
 		gameButtonSettings.splice(12,0,null,null);
 		gameButtonSettings.splice(16,0,null,null);
@@ -500,6 +534,7 @@
 			ruleLabel,
 			modeLabel,
 			starLabel,
+			coordinateLabel,
 			strengthLabel,
 			rotateLabel,
 			progressLabel,
@@ -510,6 +545,7 @@
 			btnRule,
 			btnMode,
 			btnRotate,
+			btnCoordinate,
 			btnStrength,
 			btnOpenPuzzles,
 			btnOpenFile,
@@ -956,6 +992,7 @@
 				READ: 2 << 4 | 8,
 			},
 			_state: 0,
+			_coordinateType: 1,
 			_strength: 30,
 			_notRotate: false,
 			options: undefined,
@@ -1001,7 +1038,8 @@
 					this.state = this.STATE.LOADING;
 					puzzleData.saveProgress(this);
 					outputInnerHTML({
-						sideLabel: "习题封面"
+						sideLabel: "习题封面",
+						coordinateLabel: "****",
 					})
 					html += `这是封面，请跳到下一题再开始解题\n\n`,
 					this.puzzle.title = this.puzzle.title + "（封面）" ;
@@ -1013,13 +1051,14 @@
 					this.state = this.STATE.PLAYING;
 					delaySaveProgress(5000);
 					outputInnerHTML({
-						sideLabel: "玩家走棋"
+						sideLabel: "玩家走棋",
+						coordinateLabel: "坐标",
 					})
 					html += `难度: ${"★★★★★".slice(0, this.puzzle.level)}\n`;
 					html += `玩家: ${[,"● 黑棋","○ 白棋"][this.playerSide]}\n`;
 					html += `规则: ${ruleStr}\n`;
 					html += `模式: ${modeStr}\n\n`;
-					this.board.setCoordinate(1);
+					this.board.setCoordinate(this.coordinateType);
 					this.board.canvas.style.opacity = 1;
 					(this.puzzle.randomRotate || rotate != undefined) && !this.notRotate ? this.randomRotate(rotate) : (this.rotate = 0);
 					this.puzzle.rotate = this.rotate;
@@ -1244,6 +1283,12 @@
 				this.board.hideStone();
 				return this._state;
 			},
+			get coordinateType() { return this._coordinateType },
+			set coordinateType(t) {
+				this.board.setCoordinate(t);
+				this._coordinateType = this.board.coordinateType;
+				outputInnerHTML({coordinateLabel: "坐标" })
+			},
 			get strength() { return this._strength },
 			set strength(s) {
 				this._strength = s; 
@@ -1322,7 +1367,7 @@
 		}
 
 		function outputInnerHTML(param) {
-			const labels = { title, starLabel, strengthLabel, rotateLabel, progressLabel, sideLabel, ruleLabel, modeLabel, comment };
+			const labels = { title, starLabel, coordinateLabel, strengthLabel, rotateLabel, progressLabel, sideLabel, ruleLabel, modeLabel, comment };
 			Object.keys(param).map(key => labels[key] && (log(param[key], "warn"), labels[key].innerHTML = replaceAll(param[key], "\n", "<br>")))
 		}
 

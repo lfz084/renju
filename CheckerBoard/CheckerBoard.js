@@ -1314,21 +1314,55 @@
         let boardLines = [],
             normalLineWidth = this.lineStyle == "heavy" ? Math.min(this.gW, this.gH) / 18 : this.lineStyle == "bold" ? Math.min(this.gW, this.gH) / 23 : this.width / 500,
             boldLineWidth = normalLineWidth * 2;
-        for (let i = 0; i < this.SLTX; i++) {
-            let lineWidth = i == 0 || i == (this.SLTX - 1) ? boldLineWidth : normalLineWidth,
-                x1 = this.P[i].x,
-                y1 = this.P[i].y,
-                x2 = this.P[i + (this.SLTY - 1) * 15].x,
-                y2 = this.P[i + (this.SLTY - 1) * 15].y;
-            boardLines.push({ x1: x1, y1: y1, x2: x2, y2: y2, color: this.lineColor, lineWidth: lineWidth })
+        if (this.coordinateType <= 5) {
+            for (let i = 0; i < this.SLTX; i++) {
+                let lineWidth = i == 0 || i == (this.SLTX - 1) ? boldLineWidth : normalLineWidth,
+                    x1 = this.P[i].x,
+                    y1 = this.P[i].y,
+                    x2 = this.P[i + (this.SLTY - 1) * 15].x,
+                    y2 = this.P[i + (this.SLTY - 1) * 15].y;
+                boardLines.push({ x1: x1, y1: y1, x2: x2, y2: y2, color: this.lineColor, lineWidth: lineWidth })
+            }
+            // 划横线
+            for (let j = 0; j < this.SLTY * 15; j += 15) {
+                let lineWidth = j == 0 || j == (this.SLTY - 1) * 15 ? boldLineWidth : normalLineWidth,
+                    x1 = this.P[j].x,
+                    y1 = this.P[j].y,
+                    x2 = this.P[j + (this.SLTX - 1)].x,
+                    y2 = this.P[j + (this.SLTX - 1)].y;
+                boardLines.push({ x1: x1, y1: y1, x2: x2, y2: y2, color: this.lineColor, lineWidth: lineWidth })
+            }
         }
-        // 划横线
-        for (let j = 0; j < this.SLTY * 15; j += 15) {
-            let lineWidth = j == 0 || j == (this.SLTY - 1) * 15 ? boldLineWidth : normalLineWidth,
-                x1 = this.P[j].x,
-                y1 = this.P[j].y,
-                x2 = this.P[j + (this.SLTX - 1)].x,
-                y2 = this.P[j + (this.SLTX - 1)].y;
+        else {
+            boldLineWidth = boldLineWidth * 2;
+            for (let i = 0; i < this.SLTX; i++) {
+                let lineWidth = i == 0 ? boldLineWidth : normalLineWidth,
+                    x1 = this.P[i].x - this.gW / 2,
+                    y1 = this.P[i].y - this.gH / 2,
+                    x2 = this.P[i + (this.SLTY - 1) * 15].x - this.gW / 2,
+                    y2 = this.P[i + (this.SLTY - 1) * 15].y + this.gH / 2;
+                boardLines.push({ x1: x1, y1: y1, x2: x2, y2: y2, color: this.lineColor, lineWidth: lineWidth })
+            }
+            let lineWidth = boldLineWidth,
+                x1 = this.P[this.SLTX - 1].x + this.gW / 2,
+                y1 = this.P[this.SLTX - 1].y - this.gH / 2,
+                x2 = this.P[this.SLTX - 1 + (this.SLTY - 1) * 15].x + this.gW / 2,
+                y2 = this.P[this.SLTX - 1 + (this.SLTY - 1) * 15].y + this.gH / 2;
+            boardLines.push({ x1: x1, y1: y1, x2: x2, y2: y2, color: this.lineColor, lineWidth: lineWidth })
+            // 划横线
+            for (let j = 0; j < this.SLTY * 15; j += 15) {
+                let lineWidth = j == 0 ? boldLineWidth : normalLineWidth,
+                    x1 = this.P[j].x - this.gW / 2,
+                    y1 = this.P[j].y - this.gH / 2,
+                    x2 = this.P[j + (this.SLTX - 1)].x + this.gW / 2,
+                    y2 = this.P[j + (this.SLTX - 1)].y - this.gH / 2;
+                boardLines.push({ x1: x1, y1: y1, x2: x2, y2: y2, color: this.lineColor, lineWidth: lineWidth })
+            }
+                lineWidth = boldLineWidth;
+                x1 = this.P[(this.SLTY -1) * 15].x - this.gW / 2;
+                y1 = this.P[(this.SLTY -1) * 15].y + this.gH / 2;
+                x2 = this.P[(this.SLTY -1) * 15 + (this.SLTX - 1)].x + this.gW / 2;
+                y2 = this.P[(this.SLTY -1) * 15 + (this.SLTX - 1)].y + this.gH / 2;
             boardLines.push({ x1: x1, y1: y1, x2: x2, y2: y2, color: this.lineColor, lineWidth: lineWidth })
         }
         return boardLines;
@@ -1336,12 +1370,13 @@
 
     Board.prototype.getStarPointsInfo = function() {
         let points = ALL_STAR_POINTS[this.size],
+            radius = this.getBoardLinesInfo()[1].lineWidth * 3,
             circles = [];
         for (let i = points.length - 1; i >= 0; i--) {
             circles.push({
                 x: this.P[points[i]].x,
                 y: this.P[points[i]].y,
-                radius: this.getBoardLinesInfo()[1].lineWidth * 3,
+                radius,
                 color: this.lineColor,
                 lineWidth: 0,
                 fill: this.lineColor
@@ -1512,13 +1547,13 @@
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         this.viewBox.style.backgroundColor = document.body.style.backgroundColor;
         
+        let boardLinesInfo = this.getBoardLinesInfo();
+        boardLinesInfo.map(lineInfo => this.printLine(lineInfo, ctx))
+
+        let starPointsInfo = this.getStarPointsInfo();
+        starPointsInfo.map(starPointInfo => this.printCircle(starPointInfo, ctx))
+
         if (this.coordinateType < 6) {
-            let boardLinesInfo = this.getBoardLinesInfo();
-            boardLinesInfo.map(lineInfo => this.printLine(lineInfo, ctx))
-
-            let starPointsInfo = this.getStarPointsInfo();
-            starPointsInfo.map(starPointInfo => this.printCircle(starPointInfo, ctx))
-
             let coordinateTypeInfo = this.getCoordinateInfo();
             coordinateTypeInfo.map(textInfo => this.printText(textInfo, ctx))
         }
@@ -1541,7 +1576,7 @@
                     color: this.coordinateColor,
                     weight: "bold",
                     family: "mHeiTi, Roboto, emjFont, Symbola",
-                    size: ~~(this.gW * (0.7 - 0.08 * num.length))
+                    size: ~~(this.gW * (0.7 - 0.08 * num.length) * 0.9)
                 };
                 this.printCircle(circle, ctx);
                 this.printText(text, ctx);
