@@ -197,6 +197,8 @@ window.codeboard = (() => {
                 type: "button",
                 text: "复制",
                 touchend: function() {
+                    // 获取焦点避免copy()时报错 Document is not focused
+                    this.input.focus(); 
                     copy()
                 }
             },
@@ -298,7 +300,6 @@ window.codeboard = (() => {
         cBoard.showCheckerBoard();
         
         async function copy() {
-            textarea.focus(); // 避免报错 Document is not focused
             return navigator.clipboard.writeText(textarea.value)
                 .then(() => warn("代码已复制到剪贴板"))
                 .catch(e => {msgbox("复制代码失败")})
