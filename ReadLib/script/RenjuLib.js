@@ -8,7 +8,7 @@ window.RenjuLib = (() => {
         DEBUG_RENLIB && window.DEBUG && (window.vConsole || window.parent.vConsole) && print(`[RenjuLib.js] ${ param}`);
     }
     
-    //-------------- Rapfi ------------------------------
+    //-------------- 参考 Rapfi 源码 兼容制谱器胜率谱显示------------------------------
     
     // Integer value that representing the result of a search
 	const Value = {
@@ -52,7 +52,7 @@ window.RenjuLib = (() => {
     	const winRateLabel = parseInt(clamp(0, winRate * 100, 99)).toString();
     	return `${"  ".slice(0,2 - winRateLabel.length)}${winRateLabel}%`;
     }
-    
+
     function readLabel(text, ply) {
     	if (text[0] == 'W' || text[0] == 'L') {
     		return mate_step(text, ply);

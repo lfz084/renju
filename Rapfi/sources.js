@@ -12,7 +12,8 @@
 				[SOURCE_FILES["CheckerBoard"]],
                 [SOURCE_FILES["markLine"]],
                 [SOURCE_FILES["svg"]],
-				[SOURCE_FILES["saveFile"]]]
+				[SOURCE_FILES["saveFile"]],
+                [SOURCE_FILES["codeboard"]]]
          },{
 			progress: "60%",
 			type: "scriptAll",

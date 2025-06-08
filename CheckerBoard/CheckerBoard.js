@@ -582,7 +582,43 @@
     }
 
     //-------------------- code --------------------
+    
+    function IWZQCodeToRenju2002Code(iwzqCode) {
+        let renju2002Code = "";
+        let pointCode;
+        const reg = /[a-o][0-9]{1,2}|\{|\}/ig;
+        iwzqCode = iwzqCode.toUpperCase();
+        while (pointCode = reg.exec(iwzqCode)) {
+            if(/\{|\}/.exec(pointCode[0])) {
+                renju2002Code += pointCode[0];
+                continue;
+            }
+            const x = pointCode[0].slice(0,1);
+            const y = pointCode[0].slice(1);
+            renju2002Code += (x.charCodeAt() - "A".charCodeAt() + 1).toString(16);
+            renju2002Code += (y * 1).toString(16);
+        }
+        return renju2002Code;
+    }
 
+    function renju2002CodeToIWZQCode(renju2002Code) {
+        let iwzqCode = "";
+        let pointCode;
+        const reg = /[1-9a-f][0-9a-f]|\{|\}/ig;
+        renju2002Code = renju2002Code.toUpperCase();
+        while (pointCode = reg.exec(renju2002Code)) {
+            if(/\{|\}/.exec(pointCode[0])) {
+                iwzqCode += pointCode[0];
+                continue;
+            }
+            const x = pointCode[0].slice(0,1);
+            const y = pointCode[0].slice(1);
+            iwzqCode += String.fromCharCode(parseInt(x, 16) -1 + "A".charCodeAt());
+            iwzqCode += parseInt(y, 16);
+        }
+        return iwzqCode;
+    }
+    
     // 对传入的棋谱代码排错;
     function checkerCode(codeStr = "") {
         let d, a, n, m = codeStr.toUpperCase();
@@ -1071,8 +1107,9 @@
 
     Board.prototype.getCode = function() {
         let code = this.getCodeType(TYPE_NUMBER);
-        code += "\n{" + this.getCodeType(TYPE_BLACK) + "}";
+        code += "{" + this.getCodeType(TYPE_BLACK) + "}";
         code += "{" + this.getCodeType(TYPE_WHITE) + "}";
+        code = code.replace(/\{\}\{\}$|\{\}$/,"");
         return code;
     }
 
@@ -1988,7 +2025,23 @@
             this.wNb(this.MS[this.MSindex + 1], "auto", isShowNum, undefined, undefined, timeout);
         }
     }
-
+    
+    Board.prototype.inputCode = function(codeStr, codeType = "iwzq", ...theArgs) {
+        if (codeType === "renju2002") {
+            codeStr = renju2002CodeToIWZQCode(codeStr);
+        }
+        this.unpackCode(codeStr, ...theArgs);
+        return codeStr;
+    }
+    
+    Board.prototype.outputCode = function(codeType = "iwzq") {
+        let codeStr = this.getCode();
+        if (codeType === "renju2002") {
+            codeStr = IWZQCodeToRenju2002Code(codeStr.slice(0));
+            
+        }
+        return codeStr;
+    }
 
     Board.prototype.unpackCode = function(codeStr, targetType, showNum = this.isShowNum, resetNum = 0, firstColor = "black") {
         let st = 0;

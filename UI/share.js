@@ -9,6 +9,7 @@ window.share = (() => {
     const scale = dw / (dw / dh > 2 ? dw / dh * gridWidth : tempWidth);
     const winWidth = dw / scale;
     const winHeight = dh / scale;
+    const ANIMATION_TIMEOUT = 300;
         
     let sharing = false;
     

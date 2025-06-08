@@ -1,5 +1,5 @@
 {
-  "version": "v2025.02",
+  "version": "v2025.26",
   "files": {
     "CheckerBoard": "CheckerBoard/CheckerBoard.js",
     "image2board": "CheckerBoard/image2board.js",
@@ -169,6 +169,7 @@
     "start_png": "tuya/start.png",
     "TypeBuffer": "TypeBuffer/TypeBuffer.js",
     "Button": "UI/Button.js",
+    "codeboard": "UI/codeboard.js",
     "editButtons": "UI/editButtons.js",
     "exWindow": "UI/exWindow.js",
     "fullscreenUI": "UI/fullscreenUI.js",

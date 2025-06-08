@@ -232,20 +232,19 @@ window.control = (() => {
 				varName: "cInputcode",
 				type: "button",
 				text: "输入代码",
-				touchend: function() {
+				touchend: async function() {
 					if (isBusy()) return;
-					inputCode(`长按下面空白区域，粘贴棋谱代码\n---------------------分割线-----------------------\n\n`);
+					inputCode()
 				}
 	        },
 			{
 				varName: "cOutputcode",
 				type: "button",
 				text: "输出代码",
-				touchend: function() {
+				touchend: async function() {
 					if (isBusy()) return;
-					let code = cBoard.getCode();
-					code = code == "\n{}{}" ? "空棋盘没有棋盘代码" : code;
-					inputCode(`${code}\n\n\n---------------------分割线-----------------------\n长按上面代码，复制棋谱代`);
+					let code = cBoard.outputCode();
+					inputCode(code)
 				}
 	        },
 			{
@@ -1476,11 +1475,11 @@ window.control = (() => {
 					return Promise.resolve(inputStr);
 				})
 		}
-
-		async function inputCode(initStr = "") {
-			const inputStr = await inputText(initStr, 10, "输入代码");
-			const type = (playMode == MODE_READLIB || playMode == MODE_EDITLIB) ? TYPE_NUMBER : undefined;
-			checkCommand(inputStr) || cBoard.unpackCode(inputStr, type, getShowNum());
+		
+		async function inputCode(codeStr = "") {
+		    const code = await codeboard.open(codeStr);
+		    const type = (playMode == MODE_READLIB || playMode == MODE_EDITLIB) ? TYPE_NUMBER : undefined;
+		    cBoard.inputCode(code, "iwzq", type, getShowNum());
 		}
 		
 		function shareURL() {

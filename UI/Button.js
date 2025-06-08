@@ -974,7 +974,5 @@
 		this.menu.show(x, y);
 	};
 
-
-	exports.ANIMATION_TIMEOUT = ANIMATION_TIMEOUT;
 	exports.Button = Button;
 })))

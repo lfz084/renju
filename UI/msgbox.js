@@ -7,6 +7,7 @@
 	const d = document;
 	const dw = d.documentElement.clientWidth;
 	const dh = d.documentElement.clientHeight;
+	const ANIMATION_TIMEOUT = 300;
 
 	let isMsgShow = false; // =true 屏蔽 bodytouch 事件;
 	exports.msgWindow = (() => {

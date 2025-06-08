@@ -21,11 +21,17 @@
 </head>
 
 <body>
-    <h3>copy to cover "SOURCE_FILES.json"</h3>
+    <h3>copy to cover "SOURCE_FILES.json"  <button onclick="copy()">copy</button></h3>
 	<textarea id="textarea"></textarea>
     <h3>files is change</h3>
 	<textarea id="log"></textarea>
 	<script>
+	    window.copy = function() {
+	        navigator.clipboard.writeText(document.getElementById("textarea").value)
+	            .then(() => document.getElementById("log").value += "\ncopied to clipboard")
+	            .catch(e => alert(e.message || e.toString()))
+	    }
+	    
 		document.body.onload = function() {
 		try{
 			let versionInfo;

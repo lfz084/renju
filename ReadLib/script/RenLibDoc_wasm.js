@@ -190,7 +190,7 @@
 
     const POINT_SIZE = 2;
     const NODE_SIZE = 12;
-    const BOARDTEXT_MAX_SIZE = 16;
+    const BOARDTEXT_MAX_SIZE = 4;//16;
     const COMMENT_MAX_SIZE = 2048;
 
     function getUINT(pBuffer) {

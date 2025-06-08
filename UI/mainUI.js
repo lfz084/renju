@@ -1024,6 +1024,10 @@ window.mainUI = (function() {
 			"msgWindow": theme["msgWindow"],
 			"Button": theme["Button"]
 		});
+		self["codeboard"] && codeboard.loadTheme({
+		    "msgWindow": theme["msgWindow"],
+		    "Button": theme["Button"]
+		});
 		self["share"] && share.loadTheme(theme["share"]);
 		if (!cancel && window.top.fullscreenUI && (typeof window.top.fullscreenUI.refreshTheme === "function")) (await window.top.fullscreenUI.refreshTheme(theme, themeKey, true));
 		

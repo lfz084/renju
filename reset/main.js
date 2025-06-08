@@ -183,6 +183,17 @@
 		},
 		{
 			src: "settings.png",
+			title: "删除 ServiceWorker",
+			callback: async function() {
+				await msg({
+					title: "请确认删除 ServiceWorker",
+					butNum: 2,
+					enterFunction: removeServiceWorker
+				})
+			}
+		},
+		{
+			src: "settings.png",
 			title: "删除 localStorage",
 			callback: async function() {
 				await checkLink() && msg({
@@ -216,7 +227,7 @@
 		}
 	];
 	
-	const divWidth = mainUI.cmdWidth / 1.5;
+	const divWidth = mainUI.cmdWidth / 3 * 2.2;
 	const divStyle = {
 		position: "absolute",
 		left: (mainUI.cmdWidth - divWidth)/ 2 + "px",

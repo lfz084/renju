@@ -5,7 +5,7 @@
     const dw = d.documentElement.clientWidth;
     const dh = d.documentElement.clientHeight;
 
-    const DBREAD_HELP = `<a href="https://docs.qq.com/sheet/DTU1OVHhiRmVIZUpo?u=ea171504572d453588a256e452c1876a" target="_blank"> 点击下载棋谱 </a><br><br>DB阅读器使用技巧<br>1.点击棋子悔棋<br>2.双击棋子悔到双击的那一手<br>3.长按棋盘放大、缩小棋盘<br>4.棋谱注解乱码可以选择gbk以外的编码<br>5.棋谱规则和棋盘大小需要设置正确才能正常显示`
+    const DBREAD_HELP = `<a onclick='window.game.downloadFile("ReadLib/lib/漱星阁开局指南.lib")'>漱星阁开局指南.lib</a><br><a href="https://docs.qq.com/sheet/DTU1OVHhiRmVIZUpo?u=ea171504572d453588a256e452c1876a" target="_blank">腾讯文档-漱星阁开局指南</a><br>DB阅读器使用技巧<br>1.点击棋子悔棋<br>2.双击棋子悔到双击的那一手<br>3.长按棋盘放大、缩小棋盘<br>4.棋谱注解乱码可以选择gbk以外的编码<br>5.棋谱规则和棋盘大小需要设置正确才能正常显示`
 	function wait(timeout) {
 		return new Promise(resolve => setTimeout(resolve, timeout));
 	}
@@ -66,7 +66,7 @@
             text: "打开文件",
             change: async function() {
                 try {
-                	await game.openFile(this);
+                	await game.openFile(this.files[0]);
                 	game.tree = undefined;
 					window.setBlockUnload(true)
                 } catch (e) { console.error(e.stack) }
@@ -309,11 +309,9 @@
     	btnRandomPlay,
     } = mainUI.getChildsForVarname();
 
-    function getFileName(path) {
-        let temp = path.split(".");
-        //temp.pop();
-        temp = temp.join(".");
-        return temp.split("\\").pop();
+    function getFileName(url) {
+        let temp = url.split("?")[0].split("#")[0].split("/");
+        return temp.pop();
     }
 
     //------------------------ 
@@ -321,33 +319,6 @@
     let textDecoder = new TextDecoder("gbk");
     let output = "";
 
-
-    /*
-    if (record.label > 0) {
-        displayLabel.push_back(record.label);
-    
-        if (record.label == LABEL_WIN || record.label == LABEL_LOSE) {
-            Value mateValue = Value(-record.value);
-            if (record.label == LABEL_WIN && mateValue > VALUE_MATE_IN_MAX_PLY ||
-                record.label == LABEL_LOSE && mateValue < VALUE_MATED_IN_MAX_PLY)
-                displayLabel += std::to_string(mate_step(mateValue, -1));
-            else
-                displayLabel.push_back('*');
-        }
-    }
-    else if (record.label == LABEL_NONE && record.bound() == BOUND_EXACT) {
-        float winRate = Config::valueToWinRate(Value(-record.value));
-        int winRateLabel = std::clamp(int(winRate * 100), 0, 99);
-    
-        displayLabel = std::to_string(winRateLabel);
-        displayLabel.push_back('%');
-    }
-    
-    
-    i
-    
-
-*/
     function Uint16ToInt16(value) {
         return value & 0x8000 ? value - 0x10000: value;
     }
@@ -473,7 +444,7 @@
         },
         outputCode: function() {
             const code = cBoard.getCode().split(/{}/).join("");
-            inputText(code);
+            codeboard.open(code).then(str => cBoard.unpackCode(str));
         },
         scaleBoard: function() {
             const scale = cBoard.scale != 1 ? 1 : 1.5;
@@ -488,11 +459,22 @@
                 }
             }
         },
-        openFile: async function(fileInput) {
+        downloadFile: async function(url) {
+            try {
+                const response = await fetch(url + "?cache=netFirst");
+                if (!response.ok) {
+                    alert("网络卡顿 文件下载失败 请重新下载");
+                    return;
+                }
+                const blob = await response.blob();
+                const file = new File([blob], getFileName(url));
+                await this.openFile(file);
+                this.tree = undefined;
+				window.setBlockUnload(true);
+            } catch (e) { console.error(e.stack) }
+        },
+        openFile: async function(file) {
         	mainUI.viewport.resize();
-            const file = fileInput.files[0];
-            const path = fileInput.value;
-            fileInput.value = "";
             const ratio = await game.openDatabass(file);
             if (ratio > 0) {
             	log(game.filename);
@@ -709,6 +691,8 @@
         },
     }
     
+    window.game = game;
+    
     function isEqual(arr1, arr2) {
         for (let i = 0; i < arr1.length; i++) {
             for (let j = 0; j < arr1[i].length; j++) {
@@ -799,16 +783,14 @@
     		RENLIB: 2
     	},
     	mode: 0,
-    	openFile: async function(fileInput) {
+    	openFile: async function(file) {
     		mainUI.viewport.resize();
-    		const file = fileInput.files[0];
-    		const path = fileInput.value;
     		const type = file.name.toLowerCase().split(".").pop();
     		await DBClient.closeDatabass();
     		RenjuLib.closeLib();
-    		game.filename = getFileName(path);
+    		game.filename = file.name;
     		if (type == "db") {
-    			(await oldOpenFile.call(this, fileInput)) > 0 && (this.mode = this.MODE.DATABASS) && (await oldshowBranchNodes.call(this));
+    			(await oldOpenFile.call(this, file)) > 0 && (this.mode = this.MODE.DATABASS) && (await oldshowBranchNodes.call(this));
     			btnEncoding.enabled = true;
     		}
     		else {
@@ -818,7 +800,6 @@
     			btnEncoding.enabled = false;
     		}
     		log(file.name);
-    		fileInput.value = "";
         	btnPlay.checked && btnPlay.touchend();
     	},
     	showBranchNodes: async function() {
