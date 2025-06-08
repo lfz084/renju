@@ -298,15 +298,16 @@ window.codeboard = (() => {
         cBoard.showCheckerBoard();
         
         async function copy() {
+            textarea.focus(); // 避免报错 Document is not focused
             return navigator.clipboard.writeText(textarea.value)
                 .then(() => warn("代码已复制到剪贴板"))
-                .catch(() => msgbox("复制代码失败"))
+                .catch(e => {msgbox("复制代码失败")})
         }
         
         async function paste() {
             return navigator.clipboard.readText()
                 .then(str => textarea.value = str)
-                .catch(() => textarea.value = "粘贴失败，请在浏览器设置里面找到权限设置，再给本网站授权访问剪贴板。如果你在用的浏览器不能访问剪贴板，请更换最新的 Chrome 浏览器。")
+                .catch(e => {textarea.value = "粘贴失败，请在浏览器设置里面找到权限设置，再给本网站授权访问剪贴板。如果你在用的浏览器不能访问剪贴板，请更换最新的 Chrome 浏览器。"})
         }
         
         function actions() {
