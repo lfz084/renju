@@ -443,8 +443,8 @@
             cBoard.saveAsImage();
         },
         outputCode: function() {
-            const code = cBoard.getCode().split(/{}/).join("");
-            codeboard.open(code).then(str => cBoard.unpackCode(str));
+            const code = cBoard.getCodeURL();
+            codeboard.open(code, cBoard.size).then(str => str && cBoard.unpackCodeURL(str));
         },
         scaleBoard: function() {
             const scale = cBoard.scale != 1 ? 1 : 1.5;

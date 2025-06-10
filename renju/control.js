@@ -243,7 +243,7 @@ window.control = (() => {
 				text: "输出代码",
 				touchend: async function() {
 					if (isBusy()) return;
-					let code = cBoard.outputCode();
+					let code = cBoard.getCodeURL();
 					inputCode(code)
 				}
 	        },
@@ -1477,9 +1477,9 @@ window.control = (() => {
 		}
 		
 		async function inputCode(codeStr = "") {
-		    const code = await codeboard.open(codeStr);
+		    const code = await codeboard.open(codeStr, cBoard.size);
 		    const type = (playMode == MODE_READLIB || playMode == MODE_EDITLIB) ? TYPE_NUMBER : undefined;
-		    cBoard.inputCode(code, "iwzq", type, getShowNum());
+		    code && cBoard.inputCode(code, "renjutool", type, getShowNum());
 		}
 		
 		function shareURL() {

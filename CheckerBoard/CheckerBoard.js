@@ -596,7 +596,7 @@
             const x = pointCode[0].slice(0,1);
             const y = pointCode[0].slice(1);
             renju2002Code += (x.charCodeAt() - "A".charCodeAt() + 1).toString(16);
-            renju2002Code += (y * 1).toString(16);
+            renju2002Code += (16 - y * 1).toString(16);
         }
         return renju2002Code;
     }
@@ -614,7 +614,7 @@
             const x = pointCode[0].slice(0,1);
             const y = pointCode[0].slice(1);
             iwzqCode += String.fromCharCode(parseInt(x, 16) -1 + "A".charCodeAt());
-            iwzqCode += parseInt(y, 16);
+            iwzqCode += 16 - parseInt(y, 16);
         }
         return iwzqCode;
     }
@@ -894,10 +894,11 @@
 
     //移动棋盘， row，col 偏移的行数，列数
     Board.prototype.translate = function(row, col) {
-        if (isBoardMoveOut.call(this, row, col)) return;
+        if (isBoardMoveOut.call(this, row, col)) return false;
         translate_MS.call(this, row, col);
         translate_P.call(this, row, col);
         this.refreshCheckerBoard();
+        return true;
     }
     
     Board.prototype.rotateMoves90 = function(moves) {
@@ -1126,13 +1127,14 @@
 
     Board.prototype.parserCodeURL = function(codeURL) {
     	try {
+    	codeURL = codeURL.split("#").pop().split("?")[0] || ""; // 去掉http开头字符和？参数
     	codeURL = replaceAll(codeURL,"%","&"); //兼容旧版本
         let code = codeURL.split("&"),
             moves = checkerCode(code[0]),
             blackMoves = checkerCode(code[1]),
             whiteMoves = checkerCode(code[2]),
-            cBoardSize = parseInt(code[3]) < 6 ? 6 : parseInt(code[3]) > 15 ? 15 : parseInt(code[3]),
-            resetNum = parseInt(code[4]);
+            cBoardSize = parseInt(code[3]) < 6 ? 6 : parseInt(code[3]) > 15 ? 15 : parseInt(code[3]) || 15,
+            resetNum = parseInt(code[4]) || 0;
         return {
             moves: moves,
             blackMoves: blackMoves,
@@ -1141,6 +1143,20 @@
             resetNum: resetNum
         }
     	}catch { return null }
+    }
+    
+    Board.prototype.unpackCodeURL = function(codeURL, targetType, showNum = this.isShowNum) {
+        try{
+        const obj = this.parserCodeURL(codeURL);
+        if (obj) {
+            this.cle();
+            this.resetNum = obj.resetNum;
+            this.setSize(obj.cBoardSize);
+            if (obj.moves) this.unpackCodeType(obj.moves, TYPE_NUMBER, targetType, showNum);
+            if (obj.blackMoves) this.unpackCodeType(obj.blackMoves, TYPE_BLACK, targetType, showNum);
+            if (obj.whiteMoves) this.unpackCodeType(obj.whiteMoves, TYPE_WHITE, targetType, showNum);
+        }
+        }catch(e){alert(e.stack)}
     }
     
     Board.prototype.putStone = async function(idx, type = TYPE_NUMBER) {
@@ -2027,18 +2043,28 @@
     }
     
     Board.prototype.inputCode = function(codeStr, codeType = "iwzq", ...theArgs) {
-        if (codeType === "renju2002") {
-            codeStr = renju2002CodeToIWZQCode(codeStr);
+        if (codeType === "renjutool") {
+            this.unpackCodeURL(codeStr, ...theArgs);
         }
-        this.unpackCode(codeStr, ...theArgs);
+        else {
+            if (codeType === "renju2002") {
+                codeStr = renju2002CodeToIWZQCode(codeStr);
+            }
+            this.unpackCode(codeStr, ...theArgs);
+        }
         return codeStr;
     }
     
     Board.prototype.outputCode = function(codeType = "iwzq") {
-        let codeStr = this.getCode();
-        if (codeType === "renju2002") {
-            codeStr = IWZQCodeToRenju2002Code(codeStr.slice(0));
-            
+        let codeStr = "";
+        if (codeType === "renjutool") {
+            codeStr = this.getCodeURL();
+        }
+        else {
+            codeStr = this.getCode();
+            if (codeType === "renju2002") {
+                codeStr = IWZQCodeToRenju2002Code(codeStr.slice(0));
+            }
         }
         return codeStr;
     }

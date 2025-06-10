@@ -71,8 +71,9 @@ window.codeboard = (() => {
                 type: "select",
                 text: "翻转 0",
                 options: [
-					0, "翻转 0",
-					1, "翻转 1"
+                    -1, "H线对称翻转次数", "disabled",
+					0, "翻转 0", "radio",
+					1, "翻转 1", "radio"
 				],
                 change: function() {
                     numFilpY = this.input.value * 1;
@@ -88,11 +89,13 @@ window.codeboard = (() => {
                 type: "select",
                 text: "iwzq",
                 options: [
-					0, "iwzq",
-					1, "renju2002"
+                    -1, "选择代码模式", "disabled",
+					0, "iwzq", "radio",
+					1, "renju2002", "radio",
+					2, "renjutool", "radio"
 				],
                 change: function() {
-                    const codeTypeArr = ["iwzq", "renju2002"];
+                    const codeTypeArr = ["iwzq", "renju2002", "renjutool"];
                     strCodeType = codeTypeArr[this.input.value];
                     setTimeout(() => this.bindButton.setText(this.text), 100);
                     code && outputCode(strCodeType)
@@ -107,10 +110,11 @@ window.codeboard = (() => {
                 type: "select",
                 text: "右旋 0",
                 options: [
-					0, "右旋 0",
-					1, "右旋 1",
-					2, "右旋 2",
-					3, "右旋 3"
+                    -1, "H8中心正转90°次数", "disabled",
+					0, "右旋 0", "radio",
+					1, "右旋 1", "radio",
+					2, "右旋 2", "radio",
+					3, "右旋 3", "radio"
 				],
                 change: function() {
                     numCW = this.input.value * 1
@@ -124,27 +128,28 @@ window.codeboard = (() => {
             {
                 varName: "menuMoveX",
                 type: "select",
-                text: "平移 0",
+                text: "横移 0",
                 options: [
-					-9, "平移-9",
-					-8, "平移-8",
-					-7, "平移-7",
-					-6, "平移-6",
-					-5, "平移-5",
-					-4, "平移-4",
-					-3, "平移-3",
-					-2, "平移-2",
-					-1, "平移-1",
-					0, "平移 0",
-					1, "平移 1",
-					2, "平移 2",
-					3, "平移 3",
-					4, "平移 4",
-					5, "平移 5",
-					6, "平移 6",
-					7, "平移 7",
-					8, "平移 8",
-					9, "平移 9"
+                    -99, "横向偏移子数", "disabled",
+					-9, "横移-9", "radio",
+					-8, "横移-8", "radio",
+					-7, "横移-7", "radio",
+					-6, "横移-6", "radio",
+					-5, "横移-5", "radio",
+					-4, "横移-4", "radio",
+					-3, "横移-3", "radio",
+					-2, "横移-2", "radio",
+					-1, "横移-1", "radio",
+					0, "横移 0", "radio",
+					1, "横移 1", "radio",
+					2, "横移 2", "radio",
+					3, "横移 3", "radio",
+					4, "横移 4", "radio",
+					5, "横移 5", "radio",
+					6, "横移 6", "radio",
+					7, "横移 7", "radio",
+					8, "横移 8", "radio",
+					9, "横移 9", "radio"
 				],
                 change: function() {
                     numMoveX = this.input.value * 1
@@ -160,25 +165,26 @@ window.codeboard = (() => {
                 type: "select",
                 text: "竖移 0",
                 options: [
-					-9, "竖移-9",
-					-8, "竖移-8",
-					-7, "竖移-7",
-					-6, "竖移-6",
-					-5, "竖移-5",
-					-4, "竖移-4",
-					-3, "竖移-3",
-					-2, "竖移-2",
-					-1, "竖移-1",
-					0, "竖移 0",
-					1, "竖移 1",
-					2, "竖移 2",
-					3, "竖移 3",
-					4, "竖移 4",
-					5, "竖移 5",
-					6, "竖移 6",
-					7, "竖移 7",
-					8, "竖移 8",
-					9, "竖移 9"
+                    -99, "竖向偏移子数", "disabled",
+					-9, "竖移-9", "radio",
+					-8, "竖移-8", "radio",
+					-7, "竖移-7", "radio",
+					-6, "竖移-6", "radio",
+					-5, "竖移-5", "radio",
+					-4, "竖移-4", "radio",
+					-3, "竖移-3", "radio",
+					-2, "竖移-2", "radio",
+					-1, "竖移-1", "radio",
+					0, "竖移 0", "radio",
+					1, "竖移 1", "radio",
+					2, "竖移 2", "radio",
+					3, "竖移 3", "radio",
+					4, "竖移 4", "radio",
+					5, "竖移 5", "radio",
+					6, "竖移 6", "radio",
+					7, "竖移 7", "radio",
+					8, "竖移 8", "radio",
+					9, "竖移 9", "radio"
 				],
                 change: function() {
                     numMoveY = this.input.value * 1;
@@ -301,7 +307,7 @@ window.codeboard = (() => {
         
         async function copy() {
             return navigator.clipboard.writeText(textarea.value)
-                .then(() => warn("代码已复制到剪贴板"))
+                .then(() => warn("代码已复制到剪贴板", 500))
                 .catch(e => {msgbox("复制代码失败")})
         }
         
@@ -312,24 +318,31 @@ window.codeboard = (() => {
         }
         
         function actions() {
+            let strWarn = "";
+            const oldSize = cBoard.size;
+            cBoard.setSize(15);
             for (let i = 0; i < numFilpY; i++) {
                 cBoard.rotateY180()
-            }
+            } 
+            numFilpY > 0 && (strWarn += `翻转 ${numFilpY} `);
             for (let i = 0; i < numCW; i++) {
                 cBoard.rotate90()
             }
-            cBoard.translate(0, numMoveX);
-            cBoard.translate(numMoveY, 0);
+            numCW > 0 && (strWarn += `右转 ${numCW} `);
+            numMoveX && cBoard.translate(0, numMoveX) && (strWarn += `横移 ${numMoveX} `);
+            numMoveY && cBoard.translate(numMoveY, 0) && (strWarn += `竖移 ${numMoveY} `);
+            cBoard.setSize(oldSize);
+            strWarn && self.warn && warn(strWarn, 500)
         }
         
         function inputCode() {
             cBoard.inputCode(textarea.value, strCodeType);
             actions();
-            code = cBoard.getCode();
+            code = cBoard.getCodeURL();
         }
         
         function outputCode() {
-            cBoard.unpackCode(code);
+            cBoard.unpackCodeURL(code);
             actions();
             textarea.value = cBoard.outputCode(strCodeType);
         }
@@ -365,11 +378,12 @@ window.codeboard = (() => {
 
         const codeboard = {
             resolve: ()=>{},
-            open: async function(codeStr = "") {
+            open: async function(codeStr = "", boardSize = 15) {
                 return new Promise(resolve => {
                     this.resolve = resolve;
                     open(codeStr);
                     code = codeStr;
+                    cBoard.setSize(boardSize);
                     code && outputCode()
                 })
             },
