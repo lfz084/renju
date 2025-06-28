@@ -133,6 +133,7 @@
     		"坂田吾郎九段连珠教室_puzzle.json",
     		"高村政则诘连珠_puzzle.json",
     		"五子棋发阳论残本1.4_puzzle.json",
+    		"五子棋标准26开局速记_puzzle.json",
     		"五子茶馆小题目大全.json",
     		"第一届画眉杯双杀赛_puzzle.json",
     		"解题大赛合集_01_(12,22,23)_puzzle.json",

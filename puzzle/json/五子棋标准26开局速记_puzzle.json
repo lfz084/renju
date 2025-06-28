@@ -1,0 +1,3903 @@
+{
+  "defaultSettings": {
+    "title": "五子棋标准26开局速记"
+  },
+  "puzzles": [
+    {
+      "stones": "H8H9",
+      "labels": [
+        "H8,1",
+        "H9,2",
+        "H10,寒",
+        "I10,溪",
+        "J10,疏",
+        "I9,花",
+        "J9,残",
+        "I8,雨",
+        "J8,金",
+        "H7,松",
+        "I7,丘",
+        "J7,新",
+        "H6,瑞",
+        "I6,山",
+        "J6,游"
+      ],
+      "size": 15,
+      "mode": 0,
+      "title": "直指开局-1/2",
+      "comment": "直指开局口决：\r\n寒星溪月疏星首\r\n花残雨月金星走\r\n松月丘月新月局\r\n瑞星山月游星丢\r\n"
+    },
+    {
+      "stones": "H8I9",
+      "labels": [
+        "H8,1",
+        "I9,2",
+        "J10,长",
+        "J9,峡",
+        "I8,云",
+        "J8,恒",
+        "G7,斜",
+        "H7,银",
+        "I7,浦",
+        "J7,水",
+        "F6,彗",
+        "G6,名",
+        "H6,明",
+        "I6,岚",
+        "J6,流"
+      ],
+      "size": 15,
+      "mode": 0,
+      "title": "斜指开局-2/2",
+      "comment": "斜指开局口决：\r\n星月长峡恒水流\r\n云月浦月岚月游\r\n银明斜名是正局\r\n只有彗星不能走\r\n"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,松月",
+        "G4,云月",
+        "I4,寒星",
+        "K4,峡月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,丘月",
+        "G4,斜月",
+        "I4,名月",
+        "K4,溪月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,松月",
+        "G4,明星",
+        "I4,水月",
+        "K4,疏星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,彗星",
+        "G4,花月",
+        "I4,长星",
+        "K4,新月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,花月",
+        "G4,雨月",
+        "I4,残月",
+        "K4,银月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,彗星",
+        "G4,雨月",
+        "I4,瑞星",
+        "K4,金星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,金星",
+        "G4,岚月",
+        "I4,新月",
+        "K4,山月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,银月",
+        "G4,雨月",
+        "I4,寒星",
+        "K4,松月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,丘月",
+        "G4,银月",
+        "I4,残月",
+        "K4,新月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,花月",
+        "G4,流星",
+        "I4,云月",
+        "K4,新月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,恒星",
+        "G4,瑞星",
+        "I4,云月",
+        "K4,花月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,浦月",
+        "G4,花月",
+        "I4,寒星",
+        "K4,山月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,丘月",
+        "G4,水月",
+        "I4,游星",
+        "K4,疏星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,恒星",
+        "G4,长星",
+        "I4,斜月",
+        "K4,疏星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,金星",
+        "G4,山月",
+        "I4,云月",
+        "K4,峡月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,长星",
+        "G4,云月",
+        "I4,恒星",
+        "K4,山月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,恒星",
+        "G4,岚月",
+        "I4,瑞星",
+        "K4,溪月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,斜月",
+        "G4,丘月",
+        "I4,游星",
+        "K4,疏星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,彗星",
+        "G4,明星",
+        "I4,银月",
+        "K4,松月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,残月",
+        "G4,山月",
+        "I4,新月",
+        "K4,浦月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,名月",
+        "G4,水月",
+        "I4,浦月",
+        "K4,岚月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,丘月",
+        "G4,彗星",
+        "I4,花月",
+        "K4,银月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,斜月",
+        "G4,名月",
+        "I4,残月",
+        "K4,金星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,花月",
+        "G4,明星",
+        "I4,恒星",
+        "K4,雨月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,山月",
+        "G4,岚月",
+        "I4,雨月",
+        "K4,斜月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,明星",
+        "G4,岚月",
+        "I4,山月",
+        "K4,流星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,岚月",
+        "G4,疏星",
+        "I4,寒星",
+        "K4,丘月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,松月",
+        "G4,岚月",
+        "I4,游星",
+        "K4,溪月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,疏星",
+        "G4,瑞星",
+        "I4,寒星",
+        "K4,浦月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,峡月",
+        "G4,疏星",
+        "I4,斜月",
+        "K4,花月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,岚月",
+        "G4,残月",
+        "I4,云月",
+        "K4,寒星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,浦月",
+        "G4,花月",
+        "I4,雨月",
+        "K4,寒星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,明星",
+        "G4,溪月",
+        "I4,金星",
+        "K4,名月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,溪月",
+        "G4,丘月",
+        "I4,松月",
+        "K4,金星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,丘月",
+        "G4,水月",
+        "I4,名月",
+        "K4,瑞星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,恒星",
+        "G4,丘月",
+        "I4,岚月",
+        "K4,新月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,金星",
+        "G4,瑞星",
+        "I4,峡月",
+        "K4,斜月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,峡月",
+        "G4,疏星",
+        "I4,松月",
+        "K4,山月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,岚月",
+        "G4,云月",
+        "I4,游星",
+        "K4,长星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,长星",
+        "G4,金星",
+        "I4,岚月",
+        "K4,溪月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,疏星",
+        "G4,花月",
+        "I4,峡月",
+        "K4,水月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,寒星",
+        "G4,云月",
+        "I4,松月",
+        "K4,名月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,彗星",
+        "G4,恒星",
+        "I4,山月",
+        "K4,云月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,恒星",
+        "G4,斜月",
+        "I4,溪月",
+        "K4,山月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,恒星",
+        "G4,银月",
+        "I4,新月",
+        "K4,流星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,长星",
+        "G4,流星",
+        "I4,浦月",
+        "K4,溪月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,疏星",
+        "G4,流星",
+        "I4,恒星",
+        "K4,水月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,新月",
+        "G4,岚月",
+        "I4,长星",
+        "K4,彗星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,彗星",
+        "G4,名月",
+        "I4,新月",
+        "K4,瑞星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,明星",
+        "G4,流星",
+        "I4,银月",
+        "K4,斜月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,岚月",
+        "G4,恒星",
+        "I4,寒星",
+        "K4,丘月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,雨月",
+        "G4,峡月",
+        "I4,流星",
+        "K4,彗星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,雨月",
+        "G4,寒星",
+        "I4,明星",
+        "K4,山月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,花月",
+        "G4,溪月",
+        "I4,长星",
+        "K4,明星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,山月",
+        "G4,疏星",
+        "I4,游星",
+        "K4,斜月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,岚月",
+        "G4,溪月",
+        "I4,花月",
+        "K4,流星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,山月",
+        "G4,残月",
+        "I4,长星",
+        "K4,斜月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,峡月",
+        "G4,雨月",
+        "I4,斜月",
+        "K4,流星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,松月",
+        "G4,恒星",
+        "I4,花月",
+        "K4,金星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,松月",
+        "G4,花月",
+        "I4,峡月",
+        "K4,浦月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,花月",
+        "G4,寒星",
+        "I4,岚月",
+        "K4,丘月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,新月",
+        "G4,银月",
+        "I4,明星",
+        "K4,疏星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,新月",
+        "G4,瑞星",
+        "I4,浦月",
+        "K4,水月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,斜月",
+        "G4,山月",
+        "I4,新月",
+        "K4,明星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,金星",
+        "G4,雨月",
+        "I4,游星",
+        "K4,明星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,长星",
+        "G4,名月",
+        "I4,雨月",
+        "K4,瑞星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,峡月",
+        "G4,溪月",
+        "I4,银月",
+        "K4,明星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,峡月",
+        "G4,云月",
+        "I4,银月",
+        "K4,丘月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,浦月",
+        "G4,丘月",
+        "I4,峡月",
+        "K4,恒星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,斜月",
+        "G4,流星",
+        "I4,银月",
+        "K4,残月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,银月",
+        "G4,长星",
+        "I4,花月",
+        "K4,岚月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,浦月",
+        "G4,疏星",
+        "I4,雨月",
+        "K4,丘月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,新月",
+        "G4,长星",
+        "I4,明星",
+        "K4,水月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,溪月",
+        "G4,游星",
+        "I4,残月",
+        "K4,彗星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,岚月",
+        "G4,云月",
+        "I4,浦月",
+        "K4,名月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,溪月",
+        "G4,峡月",
+        "I4,岚月",
+        "K4,明星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,岚月",
+        "G4,流星",
+        "I4,名月",
+        "K4,长星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,水月",
+        "G4,疏星",
+        "I4,丘月",
+        "K4,流星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,游星",
+        "G4,寒星",
+        "I4,溪月",
+        "K4,彗星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,山月",
+        "G4,溪月",
+        "I4,恒星",
+        "K4,新月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,花月",
+        "G4,疏星",
+        "I4,新月",
+        "K4,恒星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,名月",
+        "G4,花月",
+        "I4,丘月",
+        "K4,水月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,残月",
+        "G4,浦月",
+        "I4,水月",
+        "K4,新月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,雨月",
+        "G4,长星",
+        "I4,恒星",
+        "K4,云月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,残月",
+        "G4,金星",
+        "I4,游星",
+        "K4,疏星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,斜月",
+        "G4,长星",
+        "I4,水月",
+        "K4,松月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,峡月",
+        "G4,松月",
+        "I4,恒星",
+        "K4,丘月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,峡月",
+        "G4,新月",
+        "I4,水月",
+        "K4,雨月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,松月",
+        "G4,长星",
+        "I4,明星",
+        "K4,瑞星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,瑞星",
+        "G4,游星",
+        "I4,金星",
+        "K4,山月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,峡月",
+        "G4,名月",
+        "I4,浦月",
+        "K4,游星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,流星",
+        "G4,长星",
+        "I4,丘月",
+        "K4,云月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,峡月",
+        "G4,游星",
+        "I4,名月",
+        "K4,流星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,岚月",
+        "G4,游星",
+        "I4,云月",
+        "K4,瑞星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,银月",
+        "G4,新月",
+        "I4,恒星",
+        "K4,疏星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,水月",
+        "G4,浦月",
+        "I4,新月",
+        "K4,斜月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,名月",
+        "G4,雨月",
+        "I4,斜月",
+        "K4,银月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,金星",
+        "G4,游星",
+        "I4,明星",
+        "K4,浦月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,峡月",
+        "G4,银月",
+        "I4,花月",
+        "K4,水月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,流星",
+        "G4,金星",
+        "I4,彗星",
+        "K4,寒星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,恒星",
+        "G4,丘月",
+        "I4,名月",
+        "K4,松月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,明星",
+        "G4,山月",
+        "I4,新月",
+        "K4,游星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,残月",
+        "G4,岚月",
+        "I4,新月",
+        "K4,疏星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,流星",
+        "G4,新月",
+        "I4,斜月",
+        "K4,名月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "sequence": 3,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,恒星",
+        "G4,金星",
+        "I4,斜月",
+        "K4,寒星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,残月",
+        "G4,溪月",
+        "I4,金星",
+        "K4,疏星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,岚月",
+        "G4,溪月",
+        "I4,疏星",
+        "K4,流星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,松月",
+        "G4,山月",
+        "I4,游星",
+        "K4,花月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,瑞星",
+        "G4,残月",
+        "I4,金星",
+        "K4,流星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,疏星",
+        "G4,雨月",
+        "I4,溪月",
+        "K4,丘月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,银月",
+        "G4,金星",
+        "I4,瑞星",
+        "K4,峡月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,新月",
+        "G4,云月",
+        "I4,松月",
+        "K4,疏星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,丘月",
+        "G4,彗星",
+        "I4,金星",
+        "K4,疏星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,瑞星",
+        "G4,残月",
+        "I4,新月",
+        "K4,金星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,流星",
+        "G4,瑞星",
+        "I4,残月",
+        "K4,雨月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,彗星",
+        "G4,山月",
+        "I4,银月",
+        "K4,流星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,斜月",
+        "G4,瑞星",
+        "I4,游星",
+        "K4,寒星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,峡月",
+        "G4,长星",
+        "I4,彗星",
+        "K4,残月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,峡月",
+        "G4,彗星",
+        "I4,岚月",
+        "K4,长星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,流星",
+        "G4,花月",
+        "I4,云月",
+        "K4,浦月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,恒星",
+        "G4,名月",
+        "I4,斜月",
+        "K4,游星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,斜月",
+        "G4,金星",
+        "I4,峡月",
+        "K4,松月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,寒星",
+        "G4,游星",
+        "I4,银月",
+        "K4,云月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,恒星",
+        "G4,浦月",
+        "I4,花月",
+        "K4,岚月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,残月",
+        "G4,溪月",
+        "I4,水月",
+        "K4,寒星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,彗星",
+        "G4,云月",
+        "I4,恒星",
+        "K4,明星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,山月",
+        "G4,名月",
+        "I4,流星",
+        "K4,寒星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,松月",
+        "G4,残月",
+        "I4,长星",
+        "K4,明星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,游星",
+        "G4,银月",
+        "I4,岚月",
+        "K4,明星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,溪月",
+        "G4,流星",
+        "I4,长星",
+        "K4,游星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,新月",
+        "G4,名月",
+        "I4,寒星",
+        "K4,水月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,溪月",
+        "G4,流星",
+        "I4,水月",
+        "K4,瑞星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,金星",
+        "G4,云月",
+        "I4,疏星",
+        "K4,峡月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,雨月",
+        "G4,花月",
+        "I4,瑞星",
+        "K4,云月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,恒星",
+        "G4,明星",
+        "I4,残月",
+        "K4,松月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,雨月",
+        "G4,残月",
+        "I4,松月",
+        "K4,游星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,云月",
+        "G4,水月",
+        "I4,金星",
+        "K4,长星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,松月",
+        "G4,彗星",
+        "I4,瑞星",
+        "K4,残月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,丘月",
+        "G4,明星",
+        "I4,游星",
+        "K4,山月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,长星",
+        "G4,山月",
+        "I4,新月",
+        "K4,松月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,瑞星",
+        "G4,溪月",
+        "I4,游星",
+        "K4,名月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,云月",
+        "G4,名月",
+        "I4,岚月",
+        "K4,山月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,游星",
+        "G4,松月",
+        "I4,银月",
+        "K4,山月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,明星",
+        "G4,松月",
+        "I4,长星",
+        "K4,寒星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,雨月",
+        "G4,瑞星",
+        "I4,峡月",
+        "K4,新月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,新月",
+        "G4,云月",
+        "I4,溪月",
+        "K4,斜月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,水月",
+        "G4,明星",
+        "I4,恒星",
+        "K4,花月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,长星",
+        "G4,雨月",
+        "I4,斜月",
+        "K4,彗星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,银月",
+        "G4,金星",
+        "I4,峡月",
+        "K4,瑞星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,寒星",
+        "G4,银月",
+        "I4,水月",
+        "K4,浦月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,山月",
+        "G4,斜月",
+        "I4,彗星",
+        "K4,水月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,山月",
+        "G4,彗星",
+        "I4,浦月",
+        "K4,斜月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,溪月",
+        "G4,峡月",
+        "I4,银月",
+        "K4,名月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,浦月",
+        "G4,明星",
+        "I4,疏星",
+        "K4,瑞星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,云月",
+        "G4,岚月",
+        "I4,松月",
+        "K4,瑞星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,金星",
+        "G4,瑞星",
+        "I4,云月",
+        "K4,流星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,银月",
+        "G4,寒星",
+        "I4,流星",
+        "K4,残月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,银月",
+        "G4,溪月",
+        "I4,寒星",
+        "K4,彗星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,银月",
+        "G4,丘月",
+        "I4,疏星",
+        "K4,雨月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,花月",
+        "G4,金星",
+        "I4,明星",
+        "K4,银月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,游星",
+        "G4,疏星",
+        "I4,残月",
+        "K4,峡月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,银月",
+        "G4,雨月",
+        "I4,岚月",
+        "K4,新月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,金星",
+        "G4,流星",
+        "I4,斜月",
+        "K4,彗星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,岚月",
+        "G4,松月",
+        "I4,名月",
+        "K4,明星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,丘月",
+        "G4,雨月",
+        "I4,云月",
+        "K4,长星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,新月",
+        "G4,寒星",
+        "I4,斜月",
+        "K4,溪月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,山月",
+        "G4,瑞星",
+        "I4,寒星",
+        "K4,银月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,长星",
+        "G4,山月",
+        "I4,雨月",
+        "K4,溪月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,彗星",
+        "G4,残月",
+        "I4,恒星",
+        "K4,游星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,长星",
+        "G4,山月",
+        "I4,新月",
+        "K4,花月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,寒星",
+        "G4,峡月",
+        "I4,残月",
+        "K4,恒星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,金星",
+        "G4,雨月",
+        "I4,彗星",
+        "K4,云月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,恒星",
+        "G4,寒星",
+        "I4,长星",
+        "K4,松月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,岚月",
+        "G4,寒星",
+        "I4,明星",
+        "K4,斜月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,银月",
+        "G4,山月",
+        "I4,疏星",
+        "K4,浦月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,云月",
+        "G4,名月",
+        "I4,浦月",
+        "K4,彗星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,雨月",
+        "G4,水月",
+        "I4,瑞星",
+        "K4,松月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,疏星",
+        "G4,彗星",
+        "I4,雨月",
+        "K4,瑞星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,花月",
+        "G4,疏星",
+        "I4,雨月",
+        "K4,名月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,水月",
+        "G4,寒星",
+        "I4,明星",
+        "K4,云月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,溪月",
+        "G4,浦月",
+        "I4,岚月",
+        "K4,花月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,花月",
+        "G4,寒星",
+        "I4,流星",
+        "K4,浦月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H10",
+      "labels": [
+        "E4,瑞星",
+        "G4,浦月",
+        "I4,花月",
+        "K4,寒星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I10",
+      "labels": [
+        "E4,浦月",
+        "G4,云月",
+        "I4,峡月",
+        "K4,溪月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J10",
+      "labels": [
+        "E4,长星",
+        "G4,彗星",
+        "I4,名月",
+        "K4,疏星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I9",
+      "labels": [
+        "E4,残月",
+        "G4,寒星",
+        "I4,花月",
+        "K4,恒星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J9",
+      "labels": [
+        "E4,溪月",
+        "G4,丘月",
+        "I4,名月",
+        "K4,残月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I8",
+      "labels": [
+        "E4,明星",
+        "G4,山月",
+        "I4,雨月",
+        "K4,名月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J8",
+      "labels": [
+        "E4,寒星",
+        "G4,雨月",
+        "I4,丘月",
+        "K4,金星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H7",
+      "labels": [
+        "E4,松月",
+        "G4,流星",
+        "I4,山月",
+        "K4,恒星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I7",
+      "labels": [
+        "E4,丘月",
+        "G4,溪月",
+        "I4,浦月",
+        "K4,斜月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J7",
+      "labels": [
+        "E4,彗星",
+        "G4,名月",
+        "I4,新月",
+        "K4,游星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9H6",
+      "labels": [
+        "E4,岚月",
+        "G4,疏星",
+        "I4,彗星",
+        "K4,瑞星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9I6",
+      "labels": [
+        "E4,丘月",
+        "G4,恒星",
+        "I4,山月",
+        "K4,残月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8H9J6",
+      "labels": [
+        "E4,新月",
+        "G4,游星",
+        "I4,流星",
+        "K4,花月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J10",
+      "labels": [
+        "E4,水月",
+        "G4,浦月",
+        "I4,长星",
+        "K4,银月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J9",
+      "labels": [
+        "E4,丘月",
+        "G4,浦月",
+        "I4,峡月",
+        "K4,斜月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I8",
+      "labels": [
+        "E4,水月",
+        "G4,明星",
+        "I4,云月",
+        "K4,残月"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J8",
+      "labels": [
+        "E4,金星",
+        "G4,恒星",
+        "I4,残月",
+        "K4,雨月"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G7",
+      "labels": [
+        "E4,斜月",
+        "G4,花月",
+        "I4,名月",
+        "K4,瑞星"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H7",
+      "labels": [
+        "E4,银月",
+        "G4,溪月",
+        "I4,水月",
+        "K4,丘月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I7",
+      "labels": [
+        "E4,瑞星",
+        "G4,松月",
+        "I4,峡月",
+        "K4,浦月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J7",
+      "labels": [
+        "E4,云月",
+        "G4,丘月",
+        "I4,水月",
+        "K4,金星"
+      ],
+      "options": "I4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9F6",
+      "labels": [
+        "E4,名月",
+        "G4,水月",
+        "I4,松月",
+        "K4,彗星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9G6",
+      "labels": [
+        "E4,明星",
+        "G4,游星",
+        "I4,水月",
+        "K4,名月"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9H6",
+      "labels": [
+        "E4,明星",
+        "G4,金星",
+        "I4,彗星",
+        "K4,丘月"
+      ],
+      "options": "E4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9I6",
+      "labels": [
+        "E4,水月",
+        "G4,岚月",
+        "I4,彗星",
+        "K4,金星"
+      ],
+      "options": "G4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    },
+    {
+      "stones": "H8I9J6",
+      "labels": [
+        "E4,恒星",
+        "G4,松月",
+        "I4,银月",
+        "K4,流星"
+      ],
+      "options": "K4",
+      "side": 1,
+      "rule": 2,
+      "size": 15,
+      "mode": 193,
+      "level": 1,
+      "delayHelp": 0.25,
+      "title": "开局速记",
+      "comment": "请选出正确的开局名称"
+    }
+  ]
+}
