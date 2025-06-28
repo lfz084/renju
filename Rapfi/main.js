@@ -5,7 +5,7 @@
     const dw = d.documentElement.clientWidth;
     const dh = d.documentElement.clientHeight;
 
-    const DBREAD_HELP = `<a onclick='window.game.downloadFile("ReadLib/lib/漱星阁开局指南.lib")'>漱星阁开局指南.lib</a><br><a href="https://docs.qq.com/sheet/DTU1OVHhiRmVIZUpo?u=ea171504572d453588a256e452c1876a" target="_blank">腾讯文档-漱星阁开局指南</a><br>DB阅读器使用技巧<br>1.点击棋子悔棋<br>2.双击棋子悔到双击的那一手<br>3.长按棋盘放大、缩小棋盘<br>4.棋谱注解乱码可以选择gbk以外的编码<br>5.棋谱规则和棋盘大小需要设置正确才能正常显示`
+    const DBREAD_HELP = `<a onclick='window.game.downloadFile("ReadLib/lib/漱星阁开局指南.lib")'>漱星阁开局指南.lib</a><br><a href="https://docs.qq.com/sheet/DTU1OVHhiRmVIZUpo?u=ea171504572d453588a256e452c1876a" target="_blank">腾讯文档-漱星阁开局指南</a><br>棋谱阅读器使用技巧<br>1.点击棋子悔棋<br>2.双击棋子悔到双击的那一手<br>3.长按棋盘放大、缩小棋盘<br>4.棋谱注解乱码可以选择gbk以外的编码<br>5.棋谱规则和棋盘大小需要设置正确才能正常显示`
 	function wait(timeout) {
 		return new Promise(resolve => setTimeout(resolve, timeout));
 	}

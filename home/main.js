@@ -58,7 +58,7 @@
 		},
 		{
 			src: "icon(192x192).png",
-			title: "DB阅读器",
+			title: "棋谱阅读器",
 			link: "./dbread.html",
 			target: "_self"
 		},

@@ -82,6 +82,10 @@ window.codeboard = (() => {
                 reset: function() {
                     this.input.value = 0;
                     numFilpY = this.input.value * 1;
+				    this.getOption(this.input.value).li.click();
+                },
+                onshowmenu: function() {
+                    this.menu.scrollToOption(this.getOption(this.input.value));
                 }
             },
             {
@@ -103,6 +107,10 @@ window.codeboard = (() => {
                 reset: function() {
                     this.input.value = 0;
                     strCodeType = "iwzq";
+				    this.getOption(this.input.value).li.click();
+                },
+                onshowmenu: function() {
+                    this.menu.scrollToOption(this.getOption(this.input.value));
                 }
             },
             {
@@ -122,7 +130,11 @@ window.codeboard = (() => {
                 },
                 reset: function() {
                     this.input.value = 0;
-                    numCW = this.input.value * 1
+                    numCW = this.input.value * 1;
+				    this.getOption(this.input.value).li.click();
+                },
+                onshowmenu: function() {
+                    this.menu.scrollToOption(this.getOption(this.input.value));
                 }
             },
             {
@@ -157,7 +169,11 @@ window.codeboard = (() => {
                 },
                 reset: function() {
                     this.input.value = 0;
-                    numMoveX = this.input.value * 1
+                    numMoveX = this.input.value * 1;
+				    this.getOption(this.input.value).li.click();
+                },
+                onshowmenu: function() {
+                    this.menu.scrollToOption(this.getOption(this.input.value));
                 }
             },
             {
@@ -192,7 +208,11 @@ window.codeboard = (() => {
                 },
                 reset: function() {
                     this.input.value = 0;
-                    numMoveY = this.input.value * 1
+                    numMoveY = this.input.value * 1;
+				    this.getOption(this.input.value).li.click();
+                },
+                onshowmenu: function() {
+                    this.menu.scrollToOption(this.getOption(this.input.value));
                 }
             },
         ];

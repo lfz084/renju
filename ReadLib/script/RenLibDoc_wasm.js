@@ -328,7 +328,7 @@
     
     
 
-    let jFile = new JFile(),
+    let jFile,
         buffer_scale = 3,
         wasm_exports,
         memory,
@@ -415,7 +415,6 @@
         constructor() {
             this.m_MoveList = new MoveList();
             this.m_file = new JFile();
-
             this.nodeCount = 0;
         }
     }
@@ -432,28 +431,26 @@
     }
 
     RenLibDoc.prototype.addLibrary = function(buf) {
-
         return loadWASM("./RenLib.wasm")
-            .then(function() {
+            .then(() => {
                 wasm_exports._Z4initv(buf.byteLength);
             })
-            .then(function(){
+            .then(() => {
                 return maxMemory(buf.byteLength, buffer_scale);
-                /*
-                post("warn", `buffer_scale = ${buffer_scale}`);
-                if (!resetBuffer(buf.byteLength, buffer_scale))
-                    return Promise.reject("grow Error");
-                    */
             })
-            .then(function(pages) {
+            .then((pages) => {
                 post(`warn`, `申请 ${parseInt(pages/16)+1}M 内存 OK`);
                 wasm_exports._Z12setMemoryEndj(memory.buffer.byteLength - wasm_exports._Z13getDataBufferv());
-                if (jFile.open(buf)) {
+                if (this.m_file.open(buf)) {
                     return Promise.resolve();
                 }
                 else {
                     return Promise.reject("libFile Open Error");
                 }
+            })
+            .then(() => {  // 把 m_file 暴露给 wasm_exports
+                typeof jFile === "object" && jFile.constructor.name === "JFile" && jFile.close();
+                jFile = this.m_file;
             })
             .then(function() {
                 if (wasm_exports._Z12checkVersionv())
@@ -472,18 +469,16 @@
                     return Promise.reject(`loadAllMoveNode Error`);
             })
             .then(function() {
-                jFile.close();
-            })
-            .then(function() {
                 if (wasm_exports._Z15createRenjuTreev())
                     return Promise.resolve();
                 else
                     return Promise.reject(`createRenjuTree Error`);
             })
-            .then(function(){
-                return Promise.resolve(jFile.close());
+            .then(() => {
+                return Promise.resolve(this.m_file.close());
             })
-            .catch(function(err) {
+            .catch((err) => {
+                this.m_file.close();
                 return Promise.reject(err.message || err);
             })
     }

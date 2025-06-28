@@ -115,7 +115,8 @@
 				const btn = document.createElement("a");
 				btn.innerHTML = "点击" + up.actionLabel;
 				logDiv.appendChild(btn);
-				btn.addEventListener("click", onclick, true)
+				btn.addEventListener("click", onclick, true);
+				btn.scrollIntoView({behavior: "smooth"});
 			}
     	}
     }

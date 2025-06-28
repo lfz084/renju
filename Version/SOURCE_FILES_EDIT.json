@@ -1,5 +1,5 @@
 {
-  "version": "v2025.27",
+  "version": "v2025.29",
   "files": {
     "CheckerBoard": "CheckerBoard/CheckerBoard.js",
     "image2board": "CheckerBoard/image2board.js",
@@ -38,6 +38,7 @@
     "makevcfMain": "makevcf/main.js",
     "makevcf": "makevcf/makeVCF.js",
     "makevcfSources": "makevcf/sources.js",
+    "notify": "notify/notify.js",
     "jspdf": "pdf/jspdf.umd.min.js",
     "pdfjs": "pdf/pdf.js",
     "pdfworker": "pdf/pdf.worker.js",

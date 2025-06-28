@@ -303,10 +303,15 @@
 		this.tempScrollTop = this.menu.scrollTop;
 		scrollTo();
 	}
+	
+	Menu.prototype.scrollToOption = function(option) {
+	    const li = (typeof option === "object" && option || {}).li;
+	    li && setTimeout(() => li.scrollIntoView({behavior: "smooth", block: "center"}), 32)
+	}
 
 	// ---------------------------------------------- 
 
-	function touchstart() {
+    function touchstart() {
 		try {
 			if (this.disabled) return;
 			log(`default touchstart......`)

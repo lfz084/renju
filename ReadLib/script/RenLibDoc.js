@@ -464,7 +464,7 @@
     RenLibDoc.prototype.addLibrary = function(buf) {
         
         let libFile = new LibraryFile();
-        
+        l
         if (!libFile.open(buf)) {
             return Promise.reject("libFile Open Error");
         }

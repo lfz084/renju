@@ -336,6 +336,8 @@ try{
         
         removeMlog();
         localStorage.removeItem("reloadCount");
+        
+        loadScript("notify/notify.js");
     }catch(err) { 
         async function ping(url) {
             return new Promise(resolve => {
