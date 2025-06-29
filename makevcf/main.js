@@ -288,7 +288,7 @@
 			const side = numBlackStones <= numWhiteStones ? 1 : 2;
 			
 			miniBoard.unpackArray(game);
-			const codeArr = miniBoard.getCode().split(/{|}/);
+			const codeArr = (miniBoard.getCode() + "{}{}").split(/{|}/);
 			const stones = codeArr[0].split("\n").join("");
 			const blackStones = codeArr[1].split("\n").join("");
 			const whiteStones = codeArr[3].split("\n").join("");

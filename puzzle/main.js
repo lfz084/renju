@@ -364,7 +364,7 @@
         {
             varName: "btnLock",
             type: "checkbox",
-            text: "选定棋盘",
+            text: "手动摆棋",
             touchend: async function() {
             	if (btnLock.checked) await lockArea();
                 else unlockArea();
@@ -372,7 +372,7 @@
         },
         {
             type: "button",
-            text: "自动识别",
+            text: "扫描棋子",
             touchend: async function() {
                 if (!btnLock.checked) await lockArea();
                 cBoard.autoPut();

@@ -592,7 +592,7 @@ window.puzzleAI = (() => {
 				board.setSize(puzzle.size);
 				board.unpackArray(puzzle.arr);
 				const rt = await autoSetMode(puzzle, board);
-				const codeArr = board.getCode().split(/{|}/);
+				const codeArr = (board.getCode() + "{}{}").split(/{|}/);
 				if (!puzzle.stones && !puzzle.blackStones && !puzzle.whiteStones) {
 					puzzle.stones = codeArr[0].split("\n").join("");
 					puzzle.blackStones =  codeArr[1].split("\n").join("");

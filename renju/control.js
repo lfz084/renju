@@ -737,7 +737,7 @@ window.control = (() => {
 			{
 				varName: "cLockImg",
 				type: "checkbox",
-				text: "选定棋盘",
+				text: "手动摆棋",
 				touchend: function() {
 					cLockImg.checked ? lockImg() : unLockImg();
 				}
@@ -745,7 +745,7 @@ window.control = (() => {
 			{
 				varName: "cAutoPut",
 				type: "button",
-				text: "自动识别",
+				text: "扫描棋子",
 				touchend: async function() {
 					if (!cLockImg.checked) {
 						await lockImg();

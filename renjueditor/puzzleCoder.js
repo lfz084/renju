@@ -789,7 +789,7 @@ window.puzzleCoder = (() => {
 		cBoard.setSize(15);
 		const puzzles = games.map(game => {
 			cBoard.unpackArray(game);
-			const codeArr = cBoard.getCode().split(/{|}/);
+			const codeArr = (cBoard.getCode() + "{}{}").split(/{|}/);
 			const stones = codeArr[0].split("\n").join("");
 			const blackStones = codeArr[1].split("\n").join("");
 			const whiteStones = codeArr[3].split("\n").join("");

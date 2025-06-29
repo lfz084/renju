@@ -87,7 +87,7 @@
         {
             varName: "btnAutoPut",
             type: "button",
-            text: "自动识别",
+            text: "扫描棋子",
             touchend: async function() {
                 if (!btnLock.checked) await lockArea();
                 cBoard.autoPut();
@@ -129,7 +129,7 @@
         {
             varName: "btnLock",
             type: "checkbox",
-            text: "选定棋盘",
+            text: "手动摆棋",
             touchend: async function() {
             	if (btnLock.checked) await lockArea();
                 else unlockArea();
@@ -789,7 +789,7 @@
     async function autoPushGame() {
     	if (autoPushing) return autoPushing = false;
     	const { butCode } = await msgbox({
-    		title: `是否开启自动扫描模式?\n1.确保已经打开文件\n2.确保每页图片坐标大小一致\n3.选定棋盘`,
+    		title: `是否开启自动扫描模式?\n1.确保已经打开文件\n2.确保每页图片坐标大小一致\n3.手动摆棋`,
     		butNum: 2
     	})
     	if (butCode == 1 && renjuEditor.numPages) {

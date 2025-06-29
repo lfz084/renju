@@ -685,7 +685,7 @@
         }
 
 
-        // 自动识别图片中的棋子
+        // 扫描图片中的棋子
         Board.prototype.autoPut = function() {
 
             let arr = getArr2D([], 0, this.SLTX, this.SLTY);
