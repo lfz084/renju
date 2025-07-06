@@ -12,7 +12,7 @@
         },
         {
             url:    "Rapfi/db/九天指南v3-1.db",
-            title:  "九天指南v3-1.db<br>乱码把 gbk 改成 utf-8"
+            title:  "九天指南v3-1.db"
         },
         {
             href:    "https://docs.qq.com/sheet/DTU1OVHhiRmVIZUpo?u=ea171504572d453588a256e452c1876a",
@@ -23,7 +23,7 @@
     
     let linkString = "";
     for(let i = 0; i < links.length; i++) {
-    	if (links[i].url) linkString += `<a onclick='window.game.downloadFile("${links[i].url}")'>${links[i].title}</a><br>`;
+    	if (links[i].url) linkString += `<a onclick='window.game.downloadFile("${links[i].url}?cache=netFirst")'>${links[i].title}</a><br>`;
     	if (links[i].href) linkString += `<a href="${links[i].href}" target="${links[i].target}">${links[i].title}</a><br>`;
     }
 
@@ -189,11 +189,11 @@
         {
             varName: "btnEncoding",
             type: "select",
-            text: "gbk",
-            options: [0, "gbk", 1, "big5", 2, "utf-8"],
+            text: "auto",
+            options: [0, "auto", 1, "gbk", 2, "big5", 3, "utf-8"],
             change: function() {
-                const encoding = ["gbk", "big5", "utf-8"];
-                textDecoder = new TextDecoder(encoding[this.input.value]);
+                const encoding = ["auto", "gbk", "big5", "utf-8"];
+                textDecoder = ENUM_TEXT_DECODERS[encoding[this.input.value]];
                 game.showBranchNodes();
             }
         },
@@ -337,9 +337,85 @@
     }
 
     //------------------------ 
-
-    let textDecoder = new TextDecoder("gbk");
+	
+	const ENUM_TEXT_DECODERS = {
+		"gbk": new TextDecoder("gbk"),
+		"utf-8": new TextDecoder("utf-8"),
+		"big5": new TextDecoder("big5")
+	}
+    let textDecoder = undefined;
     let output = "";
+    
+    /*--------------- utf-8 编码范围 -------------------
+             char[1]	char[2]	    char[3]	  char[4]
+    1byte    0X00~0x7F
+    2byte    0x81~0xFE, 0x40~0xFE
+    3byte    0x81~0x84, 0x30~0x39, 0x81~0xFE, 0x30~0x39
+    4byte    0x95~0x9A, 0x30~0x39, 0x81~0xFE, 0x30~0x39
+    ---------------------------------------------------*/
+    function is_utf8(uint8) {
+    	let i = 0;
+    	const len = uint8.length;
+    	while (i < len) {
+    		if ( uint8[i] < 0x80) {
+    			i++;
+    		}
+    		else if ((uint8[i] & 0xE0) == 0xC0) {
+    			if ((uint8[i + 1] & 0xC0) != 0x80) return 0;
+    			i += 2;
+    		}
+    		else if ((uint8[i] & 0xF0) == 0xE0) {
+    			if ((uint8[i + 1] & 0xC0) != 0x80 || (uint8[i + 2] & 0xC0) != 0x80) return 0;
+    			i += 3;
+    		}
+    		else if (( uint8[i] & 0xF8) == 0xF0) {
+    			if ((uint8[ i + 1] & 0xC0) != 0x80 || (uint8[i + 2] & 0xC0) != 0x80 || (uint8[i + 3] & 0xC0) != 0x80) return 0;
+    			i += 4;
+    		} else {
+    			return 0;
+    		}
+    	}
+    	return 1;
+    }
+    /*------------- GB+18030 2022 编码范围 ----------------
+             char[1]	char[2]	    char[3]	  char[4]
+    1byte    0X00~0x7F
+    2byte    0x81~0xFE, 0x40~0xFE
+    4byte    0x81~0x84, 0x30~0x39, 0x81~0xFE, 0x30~0x39
+    4byte    0x95~0x9A, 0x30~0x39, 0x81~0xFE, 0x30~0x39
+    ---------------------------------------------------*/
+    function is_gbk(uint8) {
+    	let i = 0;
+    	const len = uint8.length;
+    	while ( i < len ) {
+    		if (uint8[i] < 0x80) {
+    			i++;
+    		} 
+    		else if (uint8[i] >= 0x81 && uint8[i] <= 0xFE) {
+    			if (uint8[i + 1] == undefined || uint8[i + 1] > 0xFE) return 0;
+    			else if (uint8[i + 1] < 0x40) {
+    				if (uint8[i + 1] >= 0x30 && uint8[i + 1] <= 0x39 && uint8[i + 3] >= 0x30 && uint8[i + 3] <= 0x39) {
+    					i+=4;
+    				}
+    				else return 0;
+    			}
+    			i += 2;
+    		}
+    		else {
+    			return 0;
+    		}
+    	}
+    	return 1;
+    }
+    
+    function getEncodeLabel(uint8) {
+    	return is_gbk(uint8) ? "gbk" : is_utf8(uint8) ? "utf-8" : "big5";
+    }
+    
+    function autoDecoder(uint8) {
+    	let key = getEncodeLabel(uint8);
+    	return ENUM_TEXT_DECODERS[key];
+    }
 
     function Uint16ToInt16(value) {
         return value & 0x8000 ? value - 0x10000: value;
@@ -385,10 +461,113 @@
             sLabel = `${"  ".slice(0,2 - winRateLabel.length)}${winRateLabel}%`;
         }
         else {
-            sLabel = [EMOJI_ROUND_BLACK, EMOJI_ROUND][game.sideToMove];
+        	sLabel = [EMOJI_ROUND_BLACK, EMOJI_ROUND][game.sideToMove];
         }
-        output += `${sLabel}: ${label}, ${value}, ${record.depth}, ${record.bound}\n`
+        //output += `${sLabel}: ${label}, ${value}, ${record.depth}, ${record.bound}\n`
         return sLabel.toLocaleUpperCase();
+    }
+    
+    const BOARDTEXT_HEARD = "@BTXT@";
+    function hasBoardText(uint8) {
+    	return uint8.length > BOARDTEXT_HEARD.length && uint8[0] == 64 && uint8[1] == 66 && uint8[2] == 84 && uint8[3] == 88 && uint8[4] == 84 && uint8[5] == 64
+    }
+    
+    // read boardText string, remove boardText string, create new info.comment, 
+    // create boardTextMap, add info.boardTextMap, 
+    function readBoardText(info, textDecode) {
+    	function lastIndex(uint8, char) {
+    		const charCode = char.charCodeAt(0) & 0xFF;
+    		let idx = -1;
+    		for (let i = 0; i < uint8.length; i++) uint8[i] === charCode && (idx = i)
+    		return idx;
+    	}
+    	
+    	const end = Math.min(0xFFFFFFF & lastIndex(info.comment, "\b"), info.comment.length);
+        const boardTextBuffer = new Uint8Array(info.comment.buffer, BOARDTEXT_HEARD.length, end - BOARDTEXT_HEARD.length);
+                    	
+        let cur = 0;
+        const boardTextObjArr = []
+        while(cur < boardTextBuffer.length) {
+        	// const buffer = []
+            const labelBuffer = [];
+            const x = parseInt(String.fromCharCode(boardTextBuffer[cur++]), 25);
+            // buffer.push(boardTextBuffer[cur])
+            const y = parseInt(String.fromCharCode(boardTextBuffer[cur++]), 25);
+            // buffer.push(boardTextBuffer[cur])
+                    		
+            while(cur < boardTextBuffer.length &&
+            	boardTextBuffer[cur] != 0 &&
+                boardTextBuffer[cur] != 10)
+            {
+            	labelBuffer.push(boardTextBuffer[cur++])
+                // buffer.push(boardTextBuffer[cur])
+            }
+            // skip \0 \n
+            while(cur < boardTextBuffer.length &&
+            	(boardTextBuffer[cur] == 0 ||
+                boardTextBuffer[cur] == 10))
+            {
+            	cur++;
+                // buffer.push(boardTextBuffer[cur])
+            }
+            boardTextObjArr.push({
+            	idx: y * 15 + x,
+                //labelBuffer,
+                // buffer,
+                label: textDecode.decode(new Uint8Array(labelBuffer))
+        	})
+        }
+        
+        info.comment = new Uint8Array(info.comment.buffer, end, info.comment.length - end)
+        
+        const boardTextMap = {};
+        if (boardTextObjArr.length) {
+        	// 根据 trans 翻转参数，idx 现在座标，还原翻转前的座标 并返回
+        	function undoTransPoint(boardWidth, boardHeight, idx, trans) {
+        		const centerX = (boardWidth - 1) / 2;
+        		const centerY = (boardHeight - 1) / 2;
+        		let loop;
+        		loop = (4 - (trans & 0x03)) & 0x03;
+        		while (loop--) { idx = rotate90(centerX, centerY, idx % 15, ~~(idx / 15)) }
+        		if (trans & 0x04) {
+        			idx = reflectX(centerY, idx % 15, ~~(idx / 15));
+        			idx = rotate90(centerX, centerY, idx % 15, ~~(idx / 15))
+        		}
+        		return idx;
+        	}
+        
+        	// 根据 trans 翻转参数, idx 座标，计算翻转后的座标 并返回
+        	const transPoint = undoTransPoint;
+        	// 保存 构建 tDBKey 时 返回的数据, trans 记录翻转参数
+        	const rtObject = { trans: 0 };
+        	// getArray() 要去掉数组最后一位
+        	let position = cBoard.getArray().slice(0, 225);
+        	// 获取 trans
+        	constructDBKey(game.rule, game.boardWidth, game.boardHeight, game.sideToMove, position, rtObject);
+        	const parentTrans = rtObject.trans;
+        	// 把 boardTextObjArr 里的所有座标 转到 当前局面 正确的位置
+        	boardTextObjArr.map(obj => obj.idx = undoTransPoint(game.boardWidth, game.boardHeight, obj.idx, parentTrans))
+        
+        	const strPosition = JSON.stringify(position);
+        	for (let trans = 0; trans < 8; trans++) {
+        		if (trans == 4) {
+        			position = reflectPosition(game.boardWidth, game.boardHeight, position);
+        		}
+        		else if (trans) { // 1,2,3,5,6,7
+        			position = rotatePosition(game.boardWidth, game.boardHeight, position);
+        		}
+        		// 把当前棋局（trans=0 时）和 对称棋局 的座标 加入 boardTextMap
+        		if (JSON.stringify(position) == strPosition) {
+        			boardTextObjArr.map(obj => {
+        				const idx = transPoint(game.boardWidth, game.boardHeight, obj.idx, trans)
+        				boardTextMap[idx] = obj.label;
+        			})
+        		}
+        	}
+        }
+        
+        info.boardTextMap = boardTextMap;
+                    	
     }
 
     async function inputText(initStr = "") {
@@ -419,6 +598,8 @@
         COLOR_NB: 4, // Total number of color on board
         SIDE_NB: 2 // Two side of stones (Black and White)
     };
+    
+    const regExp_EMPTY_LINE_HEARD = /^[\s\0\b\n]*(<br>)*[\s\0\b\n]*(<br>)*/i;
 
     const game = {
     	filename: "",
@@ -476,7 +657,7 @@
             if (idx + 1 && cBoard.P[idx].type == TYPE_NUMBER) {
                 if (idx != cBoard.MS[cBoard.MSindex]) {
                     while (cBoard.MS[cBoard.MSindex] != idx && cBoard.MSindex > - 1) {
-                        cBoard.cleNb(cBoard.MS[cBoard.MSindex], true);
+                        cBoard.cleNb(cBoard.MS[cBoard.MSindex], true, 100);
                     }
                 }
             }
@@ -525,33 +706,44 @@
         },
         showBranchNodes: async function() {
             if (this.mode == this.MODE.DATABASS) {
-                const info = await DBClient.getBranchNodes({
+            	const info = await DBClient.getBranchNodes({
                     rule: game.rule,
                     boardWidth: game.boardWidth,
                     boardHeight: game.boardHeight,
                     sideToMove: game.sideToMove,
                     position: cBoard.getArray()
                 });
-                //alert(info.comment)
+                
                 if (!isEqual(info.position, cBoard.getArray())) return;
+                
                 if (info.comment) {
-                    const text = textDecoder.decode(info.comment);
-                    $("comment").innerHTML = text || DBREAD_HELP;
-                }
-                else $("comment").innerHTML = DBREAD_HELP;
-                cBoard.cleLb("all");
-                output = "";
-                //alert(info.records);
-                info.records.map(record => {
-                    const label = readLabel(record.buffer);
-                    cBoard.wLb(record.idx, label, "black");
-                })
-                game.rule == Rule.RENJU && game.sideToMove == 0 && info.position.map((v,i) => {
-                    if (v == 0 && ("isFoul" in self) && isFoul(i, info.position)) {
-                        cBoard.wLb(i, EMOJI_FOUL, "red");
+                	try{
+                	const encodeLabel = getEncodeLabel(info.comment)
+                    const _textDecoder = textDecoder || ENUM_TEXT_DECODERS[encodeLabel];
+                    
+                    if (hasBoardText(info.comment)) {
+                    	readBoardText(info, _textDecoder)
                     }
+                    $("comment").innerHTML = (_textDecoder.decode(info.comment) || DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
+                    
+                	}catch(e){alert(e.stack)}
+                }
+                else $("comment").innerHTML = (DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
+                
+                //output = "";
+                cBoard.cleLb("all");
+            	const boardTextMap = info.boardTextMap || {};
+                info.records.map(record => {
+                	const label = boardTextMap[record.idx] || readLabel(record.buffer);
+                	cBoard.wLb(record.idx, label, "black");
+                })
+                game.rule == Rule.RENJU && game.sideToMove == 0 && info.position.map((v, i) => {
+                	if (v == 0 && ("isFoul" in self) && isFoul(i, info.position)) {
+                		cBoard.wLb(i, EMOJI_FOUL, "red");
+                	}
                 })
                 //inputText(output);
+                
                 return info;
             }
         },
@@ -786,7 +978,7 @@
 	addEvents();
     mainUI.loadTheme().then(() => mainUI.viewport.resize());
     log("你可以打开Rapfi保存的db棋谱") 
-    $("comment").innerHTML = DBREAD_HELP;
+    $("comment").innerHTML = (DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
     //------------------------ support Renlib  ------------------------ 
     
     log("你可以打开db棋谱、lib棋谱") 
@@ -794,7 +986,7 @@
     	newGame: () => cBoard.cle(),
     	cBoard: cBoard,
     	getShowNum: () => true,
-    	outputComment: (text) => $("comment").innerHTML = text || DBREAD_HELP
+    	outputComment: (text) => $("comment").innerHTML = (text || DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"") 
     });
     
     const oldOpenFile = game.openFile;
@@ -835,7 +1027,7 @@
     				})
     			})
     		}
-    		else $("comment").innerHTML = DBREAD_HELP;
+    		else $("comment").innerHTML = (DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
     	}
     })
     

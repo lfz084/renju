@@ -949,7 +949,7 @@
             if (idx + 1 && cbd.P[idx].type == TYPE_NUMBER) {
                 if (idx != cbd.MS[cbd.MSindex]) {
                     while (cbd.MS[cbd.MSindex] != idx) {
-                        cbd.cleNb(cbd.MS[cbd.MSindex], true);
+                        cbd.cleNb(cbd.MS[cbd.MSindex], true, 100);
                     }
                 }
             }

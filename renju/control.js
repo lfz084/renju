@@ -2148,7 +2148,7 @@ window.control = (() => {
 				if (cBoard.P[idx].type == TYPE_NUMBER) {
 					if (idx != cBoard.MS[cBoard.MSindex]) {
 						while (cBoard.MS[cBoard.MSindex] != idx) {
-							cBoard.cleNb(cBoard.MS[cBoard.MSindex], getShowNum());
+							cBoard.cleNb(cBoard.MS[cBoard.MSindex], getShowNum(), 100);
 						}
 					}
 					else { // 

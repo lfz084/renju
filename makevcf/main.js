@@ -312,7 +312,7 @@
 			if (idx + 1 && miniBoard.P[idx].type == TYPE_NUMBER) {
 				if (idx != miniBoard.MS[miniBoard.MSindex]) {
 					while (miniBoard.MS[miniBoard.MSindex] != idx) {
-						miniBoard.cleNb(miniBoard.MS[miniBoard.MSindex], true);
+						miniBoard.cleNb(miniBoard.MS[miniBoard.MSindex], true, 100);
 					}
 				}
 			}

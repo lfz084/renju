@@ -192,7 +192,8 @@ function constructAllDBKey(rule, boardWidth, boardHeight, sideToMove, position) 
 }
 
 
-function constructDBKey(rule, boardWidth, boardHeight, sideToMove, position) {
+function constructDBKey(rule, boardWidth, boardHeight, sideToMove, position, rtObject = {}) {
+    let rt;
     let small = [0xFFFF, 0xFFFF];
     for (let i = 0; i < 8; i++) {
         if (i == 4) {
@@ -203,6 +204,10 @@ function constructDBKey(rule, boardWidth, boardHeight, sideToMove, position) {
         }
         const stones = getStones(position, sideToMove);
         small = smallStones(stones, small);
+        
+        if (stones == small) {
+        	rtObject.trans = i;
+        }
     }
     const numKeyBytes = 3 + small.length;
     const keyArray = [numKeyBytes & 0xFF, numKeyBytes >>> 8, rule, boardWidth, boardHeight].concat(small);

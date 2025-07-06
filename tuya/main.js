@@ -327,7 +327,7 @@
 			continueBack: function(idx) { // 触发快速悔棋
 				if (idx + 1 && cBoard.P[idx].type == TYPE_NUMBER) {
 					while (cBoard.MS[cBoard.MSindex] != idx) {
-						this.toPrevious()
+						this.toPrevious(undefined, 100)
 					}
 				}
 			}
