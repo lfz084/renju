@@ -264,7 +264,7 @@ window.control = (() => {
 							fileInput.click()
 						},
 						2: () => {
-							fileInput.accept = "application/lib";
+							fileInput.accept = ".lib";
 							fileInput.onchange = openLib;
 							fileInput.click()
 						}
