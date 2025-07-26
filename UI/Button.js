@@ -138,7 +138,7 @@
 						if (type.indexOf("radio") + 1) {
 							[...input].map(option => { if (option.type === type) option.checked = option == input[i] });
 						}
-						else if (type.indexOf("checked") + 1) {
+						else if (type.indexOf("checkbox") + 1) {
 							input[i].checked = !input[i].checked;
 						}
 					}.bind(this)
@@ -585,7 +585,7 @@
 			if (this.disabled) return;
 			//log(`typeof event=${typeof event}, isEventMove=${this.isEventMove}`);
 			if (event) event.preventDefault();
-			//   "✔  ○●",radio,checked,前面加上特殊字符。
+			//   "✔  ○●",radio,checkbox,前面加上特殊字符。
 			let s;
 			let timeout;
 			let cancel = false; // 判断是否取消单击

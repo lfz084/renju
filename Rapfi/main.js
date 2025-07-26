@@ -5,30 +5,27 @@
     const dw = d.documentElement.clientWidth;
     const dh = d.documentElement.clientHeight;
     
-    const links = [
-        {
-            url:    "ReadLib/lib/漱星阁开局指南.lib",
-            title:  "漱星阁开局指南.lib",
-        },
-        {
-            url:    "Rapfi/db/九天指南v3-1.db",
-            title:  "九天指南v3-1.db"
-        },
-        {
-            href:    "https://docs.qq.com/sheet/DTU1OVHhiRmVIZUpo?u=ea171504572d453588a256e452c1876a",
-            title:  "腾讯文档-漱星阁开局指南",
-            target: "_black"
-        },
-    ];
-    
-    let linkString = "";
-    for(let i = 0; i < links.length; i++) {
-    	if (links[i].url) linkString += `<a onclick='window.game.downloadFile("${links[i].url}?cache=netFirst")'>${links[i].title}</a><br>`;
-    	if (links[i].href) linkString += `<a href="${links[i].href}" target="${links[i].target}">${links[i].title}</a><br>`;
+    const DBREAD_HELP = `棋谱阅读器使用技巧<br>1.点击棋子悔棋<br>2.双击棋子悔到双击的那一手<br>3.长按棋盘放大、缩小棋盘<br>4.棋谱注解乱码可以选择gbk以外的编码<br>5.棋谱规则和棋盘大小需要设置正确才能正常显示`
+	let defaultComment = DBREAD_HELP;
+    loadLinks()
+
+    function loadLinks() {
+        const url = "Version/databass.json";
+        fetch(url + "?cache=netFirst")
+            .then(response => response.ok && response.json())
+            .then(links => {
+                let linkString = "";
+                for(let i = 0; i < links.length; i++) {
+    	            if (links[i].url) linkString += `<a onclick='window.game.downloadFile("${links[i].url}")'>${links[i].title}</a><br>`;
+    	            if (links[i].href) linkString += `<a href="${links[i].href}" target="${links[i].target}">${links[i].title}</a><br>`;
+                }
+                defaultComment = linkString + DBREAD_HELP;
+                $("comment").innerHTML.indexOf("棋谱阅读器使用技巧") + 1 && ($("comment").innerHTML = defaultComment);
+            })
+            .catch(e => console.error(e))
     }
 
-    const DBREAD_HELP = linkString + `棋谱阅读器使用技巧<br>1.点击棋子悔棋<br>2.双击棋子悔到双击的那一手<br>3.长按棋盘放大、缩小棋盘<br>4.棋谱注解乱码可以选择gbk以外的编码<br>5.棋谱规则和棋盘大小需要设置正确才能正常显示`
-	function wait(timeout) {
+    function wait(timeout) {
 		return new Promise(resolve => setTimeout(resolve, timeout));
 	}
     //-----------------------------------------------------------------------
@@ -666,9 +663,10 @@
             try {
                 const response = await fetch(url + "?cache=netFirst");
                 if (!response.ok) {
-                    alert("网络卡顿 文件下载失败 请重新下载");
-                    return;
+                	(window.msg || alert)("网络不给力 请稍后点击下载");
+                	return;
                 }
+                
                 const blob = await response.blob();
                 const file = new File([blob], getFileName(url));
                 await this.openFile(file);
@@ -724,11 +722,11 @@
                     if (hasBoardText(info.comment)) {
                     	readBoardText(info, _textDecoder)
                     }
-                    $("comment").innerHTML = (_textDecoder.decode(info.comment) || DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
+                    $("comment").innerHTML = (_textDecoder.decode(info.comment) || defaultComment).replace(regExp_EMPTY_LINE_HEARD,"");
                     
                 	}catch(e){alert(e.stack)}
                 }
-                else $("comment").innerHTML = (DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
+                else $("comment").innerHTML = (defaultComment).replace(regExp_EMPTY_LINE_HEARD,"");
                 
                 //output = "";
                 cBoard.cleLb("all");
@@ -978,7 +976,7 @@
 	addEvents();
     mainUI.loadTheme().then(() => mainUI.viewport.resize());
     log("你可以打开Rapfi保存的db棋谱") 
-    $("comment").innerHTML = (DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
+    $("comment").innerHTML = (defaultComment).replace(regExp_EMPTY_LINE_HEARD,"");
     //------------------------ support Renlib  ------------------------ 
     
     log("你可以打开db棋谱、lib棋谱") 
@@ -986,7 +984,7 @@
     	newGame: () => cBoard.cle(),
     	cBoard: cBoard,
     	getShowNum: () => true,
-    	outputComment: (text) => $("comment").innerHTML = (text || DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"") 
+    	outputComment: (text) => $("comment").innerHTML = (text || defaultComment).replace(regExp_EMPTY_LINE_HEARD,"") 
     });
     
     const oldOpenFile = game.openFile;
@@ -1027,7 +1025,7 @@
     				})
     			})
     		}
-    		else $("comment").innerHTML = (DBREAD_HELP).replace(regExp_EMPTY_LINE_HEARD,"");
+    		else $("comment").innerHTML = (defaultComment).replace(regExp_EMPTY_LINE_HEARD,"");
     	}
     })
     
@@ -1192,5 +1190,6 @@
         	cBoard.toNext(true, 100);
         }
 	}
+
 }catch(e){alert(e.stack)}
 })()

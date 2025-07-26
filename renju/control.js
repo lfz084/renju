@@ -1310,6 +1310,29 @@ window.control = (() => {
 				window.parent.openVconsole(debugSwith)
 				return;
 			}
+			else if(msgStr.indexOf("eggEval") > -1) {
+				Promise.resolve()
+					.then(() => {
+						return !window.hiddenFeatures && loadScript("script/hiddenFeatures.js")
+					})
+					.then(() => {
+						const regex = /[0-9A-Z]+/ig;
+						const inputStr = window.top.prompt("", Date.now().toString(36) + " , " + 1);
+						const args = inputStr.match(regex);
+						const evalStr = hiddenFeatures.eval(...args)
+						window.top.prompt("", evalStr)
+					})
+
+			}
+			else if(msgStr.indexOf("egg") > -1) {
+				Promise.resolve()
+					.then(() => {
+						return !window.hiddenFeatures && loadScript("script/hiddenFeatures.js")
+					})
+					.then(() =>{
+						hiddenFeatures.setkey()
+					})
+			}
 			else if (msgStr.indexOf("close") > -1) {
 				window.parent.closeVconsole();
 				return;

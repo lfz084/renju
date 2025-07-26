@@ -14,6 +14,47 @@
 		}
 		
 		async function wait(timeout = 0) { return new Promise(resolve => setTimeout(resolve, timeout)) }
+		
+		const warn = (function() {
+			const titleDiv = document.createElement("div");
+			const fontSize = ~~(mainUI.gridWidth / 15);
+			const height = fontSize * 3;
+			Object.assign(titleDiv.style, {
+				position: "absolute",
+				top: `${(mainUI.gridWidth - height) >> 1}px`,
+				height: `${height}px`,
+				lineHeight: `${height}px`,
+				fontSize: `${fontSize}px`,
+				textAlign: "center",
+				zIndex: 999999
+			})
+			let timeEnd = 0;
+			let timer = 0;
+			function open(timeout) {
+				timeEnd = Date.now() + timeout;
+				!timer && (timer = setInterval(() => Date.now() > timeEnd && close(), 50));
+				!titleDiv.parentNode && mainUI.upDiv.appendChild(titleDiv);
+				titleDiv.setAttribute("class", "show")
+			}
+			function close() {
+				clearInterval(timer);
+				timer = 0;
+				titleDiv.setAttribute("class", "hide")
+			}
+			return function(title, timeout = 1500) {
+				titleDiv.innerText = title;
+				const width = fontSize * `${title}`.length + fontSize;
+				const left = (mainUI.gridWidth - width) / 2;
+				Object.assign(titleDiv.style, {
+					left: `${left}px`,
+					width: `${width}px`,
+					color: document.body.style.color,
+					backgroundColor: document.body.style.backgroundColor,
+					opacity: "0.937"
+				})
+				open(timeout)
+			}
+		})()
 	
 	//--------------------------------------------------------------------------------------
 	
@@ -42,16 +83,28 @@
 					puzzleCoder.MODE.VCT, "VCT模式", "radio",
 					puzzleCoder.MODE.VCF, "VCF模式", "radio",
 					puzzleCoder.MODE.VCT3, "三手胜模式", "radio",
-					puzzleCoder.MODE.FREE, "自由对弈模式", "radio"
+					puzzleCoder.MODE.FREE, "自由对弈模式", "radio",
+					"FOCUSMODE", "专注模式", "checkbox"
 				],
 				onshowmenu: function() {
-					[...this.input].map(op => op.checked = op.value == game.puzzle.mode);
+					[...this.input].map(op => op.type == "radio" && (op.checked = op.value == game.puzzle.mode));
 				},
 				change: function() {
-					if (game.puzzle.mode == this.input.value) return
-					game.puzzle.mode = this.input.value;
-					game.puzzle.comment = puzzleCoder.MODE_COMMENT[game.puzzle.mode];
-					game.reset(game.rotate, game.puzzle)
+					if (game.puzzle.mode == this.input.value) return;
+					
+					if (this.input.value == "FOCUSMODE") {
+						this.input[this.input.selectedIndex].checked ? focusMode() : exitFocusMode();
+						game.reset();
+					}
+					else {
+						if (game.puzzle.mode == puzzleCoder.MODE.COVER || game.puzzle.mode >= puzzleCoder.MODE.BASE) 
+						{
+							return;
+						}
+						game.puzzle.mode = this.input.value;
+						game.puzzle.comment = puzzleCoder.MODE_COMMENT[game.puzzle.mode];
+						game.reset(game.rotate, game.puzzle)
+					}
 				}
 			},
 			{
@@ -247,7 +300,7 @@
 				lineHeight: `${mainUI.buttonHeight}px`
 			},
 			click: function() {
-				game.puzzle.mode != puzzleCoder.MODE.COVER && game.puzzle.mode < puzzleCoder.MODE.BASE && btnMode.defaultontouchend()
+				btnMode.defaultontouchend()
 			}
 		}),
 		mainUI.newLabel({
@@ -323,7 +376,10 @@
 				varName: "btnAIHelp",
 				type: "button",
 				text: "求助 AI",
-				touchend: function() { this.enabled = false; game.state == game.STATE.PLAYING && game.board.MSindex % 2 && puzzleAI.aiHelp(game); }
+				touchend: function() {
+					this.enabled = false;
+					game.aiHelp();
+				}
 		},
 			{
 				varName: "btnOpenPuzzles",
@@ -346,8 +402,72 @@
 				touchend: function() {
 					this.hide();
 					puzzleAI.checkWinBASE(game);
+				},
+				reset: function() {
+					setTimeout(() => {
+						this.move(btnReset.left, btnReset.top);
+					}, 100)
+				}
+			},
+			{
+				varName: "btnAIDefance",
+				type: "button",
+				text: "AI 思考",
+				touchend: function() {
+					this.enabled = false;
+					(game.state & game.STATE.GAMEOVER) == game.STATE.GAMEOVER
+					&& game.think();
+				},
+				reset: function() {
+					setTimeout(() => {
+						this.move(btnAIHelp.left, btnAIHelp.top);
+					}, 100)
+				}
+			},
+			{
+				varName: "btnCode",
+				type: "button",
+				text: "输出代码",
+				touchend: function() {
+					const blackStones = [];
+					const whiteStones = [];
+					cBoard.getArray().map((v, i) => {
+						v == 1 && blackStones.push(i);
+						v == 2 && whiteStones.push(i);
+					})
+					if (blackStones.length != whiteStones.length) {
+						const stonesShort = blackStones.length < whiteStones.length ? blackStones : whiteStones;
+						const stonesLong = blackStones.length > whiteStones.length ? blackStones : whiteStones;
+						for (let i = stonesLong.length - stonesShort.length; i > 0; i--) {
+							stonesShort.push(225)
+						}
+						stonesShort === whiteStones && stonesShort.length--
+					}
+					const stones = new Array(blackStones.length + whiteStones.length).fill(-1);
+					stones.map((v, i) => {
+						if (i & 1) {
+							stones[i] = whiteStones[i >> 1];
+						}
+						else {
+							stones[i] = blackStones[i >> 1];
+						}
+					})
+					const codeURL = `${cBoard.points2MoveCode(stones)}&&&${cBoard.size}&`;
+					codeboard.open(codeURL, cBoard.size)
+				},
+				reset: function() {
+					setTimeout(() => {
+						this.move(btnShareURL.left, btnShareURL.top);
+						this.hide();
+						if (1 & localStorage.getItem("egg")) {
+							loadScript("UI/codeboard.js")
+								.then(() => this.show())
+								.then(() => mainUI.loadTheme())
+						}
+					}, 100)
 				}
 			}
+
 		];
 		
 		gameButtonSettings.splice(1,0,null,null,null);
@@ -517,31 +637,140 @@
         	}
         },
 		];
-    
+		
+		const focusButtonSettings = [
+			mainUI.newLabel({
+				varName: "sideLabel_01",
+				type: "div",
+				width: mainUI.buttonWidth,
+				height: mainUI.buttonHeight,
+				style: {
+					fontSize: `${mainUI.buttonHeight / 1.8}px`,
+					textAlign: "center",
+					lineHeight: `${mainUI.buttonHeight}px`
+				},
+				click: function() {
+					
+				}
+			}),
+			mainUI.newLabel({
+				varName: "ruleLabel_01",
+				type: "div",
+				width: mainUI.buttonWidth,
+				height: mainUI.buttonHeight,
+				style: {
+					fontSize: `${mainUI.buttonHeight / 1.8}px`,
+					textAlign: "center",
+					lineHeight: `${mainUI.buttonHeight}px`
+				},
+				click: function() {
+					bindEvent.onEvent(ruleLabel.viewElem, "click");
+				}
+			}),
+			mainUI.newLabel({
+				varName: "modeLabel_01",
+				type: "div",
+				width: mainUI.buttonWidth,
+				height: mainUI.buttonHeight,
+				style: {
+					fontSize: `${mainUI.buttonHeight / 1.8}px`,
+					textAlign: "center",
+					lineHeight: `${mainUI.buttonHeight}px`
+				},
+				click: function() {
+					bindEvent.onEvent(modeLabel.viewElem, "click");
+				}
+			}),
+			mainUI.newLabel({
+				varName: "progressLabel_01",
+				type: "div",
+				width: mainUI.buttonWidth,
+				height: mainUI.buttonHeight,
+				style: {
+					fontSize: `${mainUI.buttonHeight / 1.8}px`,
+					textAlign: "center",
+					lineHeight: `${mainUI.buttonHeight}px`
+				},
+				click: function() {
+					bindEvent.onEvent(progressLabel.viewElem, "click");
+				}
+			}),
+			{
+				type: "button",
+				text: "上一题",
+				touchend: function() {
+					btnPrevious.touchend()
+				}
+			},
+			{
+				type: "button",
+				text: "下一题",
+				touchend: function() {
+					btnNext.touchend()
+				}
+			},
+			{
+				type: "button",
+				text: "重新开始",
+				touchend: function() {
+					btnReset.touchend()
+				}
+			},	
+			{
+				type: "button",
+				text: "选择题集",
+				touchend: function() {
+					btnOpenPuzzles.touchend()
+				}
+			},
+		];
+		
+		if (mainUI.bodyWidth > mainUI.bodyHeight) {
+			focusButtonSettings.splice(0, 0, null, null);
+			focusButtonSettings.splice(3, 0, null, null, null);
+			focusButtonSettings.splice(7, 0, null, null, null);
+			focusButtonSettings.splice(11, 0, null, null, null);
+			focusButtonSettings.splice(15, 0, null, null, null);
+			focusButtonSettings.splice(19, 0, null, null, null);
+			focusButtonSettings.splice(23, 0, null, null, null);
+			focusButtonSettings.splice(27, 0, null, null, null);
+			focusButtonSettings.splice(0, 0, null, null, null, null);
+		}
 		
 		const hideCmdDiv = mainUI.createCmdDiv();
 		const renjuCmdDiv = mainUI.createCmdDiv();
 		const imgCmdDiv = mainUI.createCmdDiv();
+		const focusCmdDiv = mainUI.createCmdDiv();
 		const cBoard = mainUI.createCBoard();
 		hideCmdDiv.hide();
 		imgCmdDiv.hide();
+		focusCmdDiv.hide();
 		mainUI.addButtons(mainUI.createButtons(menuSettings), hideCmdDiv, 0);
 		mainUI.addButtons(mainUI.createButtons(gameButtonSettings), renjuCmdDiv, 1);
 		mainUI.addButtons(mainUI.createButtons(imgButtonSettings), imgCmdDiv, 0);
+		mainUI.addButtons(mainUI.createButtons(focusButtonSettings), focusCmdDiv, 0);
 		const {
 			title,
 			sideLabel,
+			sideLabel_01,
 			ruleLabel,
+			ruleLabel_01,
 			modeLabel,
+			modeLabel_01,
 			starLabel,
 			coordinateLabel,
 			strengthLabel,
 			rotateLabel,
 			progressLabel,
+			progressLabel_01,
 			comment,
+			btnShareURL,
 			btnAIHelp,
+			btnPrevious,
+			btnNext,
 			btnReset,
 			btnCommit,
+			btnAIDefance,
 			btnRule,
 			btnMode,
 			btnRotate,
@@ -560,7 +789,7 @@
 			btnSize,
 			miniBoard
 		} = mainUI.getChildsForVarname();
-		btnCommit.move(btnReset.left, btnReset.top);
+		
 		const boardWidth = 5;
 		const fontSize = mainUI.buttonHeight * 0.6;
 		const liHeight = mainUI.buttonHeight * 1.2;
@@ -725,6 +954,34 @@
 			game.data && game.data.time == data.time && (li.style.borderWidth = "5px");
 		}
 		
+		const loadItems = (function() {
+			let time = 0;
+			let busy = false;
+			return async function(cmd) {
+				if (busy) return;
+				busy = true;
+				time = Date.now();
+				setTimeout(() => {if(t==time) busy = false}, 3000);
+				
+				removeItemAll();
+				if (cmd == "defaultPuzzles") {
+					await loadDeafultItems(data => -1 == data.title.indexOf("每日") && -1 == data.title.indexOf("错题"));
+				}
+				else if (cmd == "daysPuzzles") {
+					await loadDeafultItems(data => data.title.indexOf("每日") + 1 || data.title.indexOf("错题") + 1);
+				}
+				else if (cmd == "userPuzzles") {
+					await loadUserAddedItems();
+				}
+				else {
+					await loadDeafultItems();
+					await loadUserAddedItems();
+				}
+				createIOBtns();
+				busy = false;
+			}
+		})()
+		
 		async function loadDeafultItems(filter = () => true) {
 			for (let i = 0; i < game.defaultPuzzleTimes.length; i++) {
 				const data = await puzzleData.getDataByIndex("time", game.defaultPuzzleTimes[i]);
@@ -743,9 +1000,7 @@
 			if (!itemBoard.viewElem.parentNode) {
 				itemBoard.show();
 				mainUI.viewport.resize();
-				await loadDeafultItems();
-				await loadUserAddedItems();
-				createIOBtns();
+				await loadItems("allPuzzles");
 			}
 		}
 		
@@ -790,7 +1045,6 @@
 			const hash = `${puzzleData.puzzle2URL(puzzle)}`;
 			const url = window.location.href.split(/[?#]/)[0] + `#${hash}`;
 			window.location.hash = hash;
-			//log(`share URL: ${url}`);
 			if (navigator.canShare) {
 				navigator.share({
 					title: "连珠答题器",
@@ -824,19 +1078,28 @@
 		const btnDailyPuzzles = document.createElement("div");
 		btnDailyPuzzles.innerHTML = "每日题集";
 		Object.assign(btnDailyPuzzles.style, itemButStyle);
-		btnDailyPuzzles.onclick = async () => { event.cancelBubble = true; removeItemAll(); await loadDeafultItems(data => data.title.indexOf("每日") + 1 || data.title.indexOf("错题") + 1); createIOBtns()}
+		btnDailyPuzzles.onclick = async () => { 
+			event.cancelBubble = true;
+			loadItems("daysPuzzles")
+		}
 		
 		const btnDefault = document.createElement("div");
 		btnDefault.innerHTML = "默认题集";
 		itemButStyle.left = itemButWidth * 1 + "px";
 		Object.assign(btnDefault.style, itemButStyle);
-		btnDefault.onclick = async () => { event.cancelBubble = true; removeItemAll(); await loadDeafultItems(data => -1 == data.title.indexOf("每日") && -1 == data.title.indexOf("错题")); createIOBtns()}
+		btnDefault.onclick = async () => { 
+			event.cancelBubble = true;
+			loadItems("defaultPuzzles")
+		}
 		
 		const btnUserAdded = document.createElement("div");
 		btnUserAdded.innerHTML = "你的题集";
 		itemButStyle.left = itemButWidth * 2 + "px";
 		Object.assign(btnUserAdded.style, itemButStyle);
-		btnUserAdded.onclick = async () => { event.cancelBubble = true; removeItemAll(); await loadUserAddedItems(); createIOBtns()}
+		btnUserAdded.onclick = async () => { 
+			event.cancelBubble = true;
+			loadItems("userPuzzles")
+		}
 		
 		const buttons = document.createElement("div");
 		buttons.appendChild(btnDailyPuzzles)
@@ -862,6 +1125,7 @@
 				borderWidth: `${boardWidth}px`
 			}
 		})
+
 		itemBoard.viewElem.appendChild(buttons)
 		itemBoard.hide();
 		mainUI.addChild({
@@ -882,6 +1146,7 @@
 				borderStyle: "solid",
 				borderWidth: `${boardWidth}px`
 			}
+
 		})
 		indexBoard.hide();
 		indexBoard.callback = function(index) { 
@@ -967,10 +1232,6 @@
 			lbTimer.stop();
 		}
 		
-		const delayAIHelp = createDelayCallback(() => showAIHelp());
-		
-		const delayCheckWinBASE = createDelayCallback(() => puzzleAI.checkWinBASE(game));
-		
 		const delaySaveProgress = createDelayCallback(() => {
 			game.timer = lbTimer.getTimer();
 			puzzleData.saveProgress(game);
@@ -1008,13 +1269,12 @@
 				this.puzzle = typeof puzzle === "object" ? puzzle : this.puzzles.currentPuzzle;
 				rotate == undefined && (rotate = this.puzzle.rotate)
 				
-				const isLocation = 0 && window.location.href.indexOf("http://") > -1;
-				const completed = this.completed;
-				const delay = this.puzzle.delayHelp * 60 * 1000;
-				const isTimeout = (this.data && this.data[puzzleData.INDEX.TIMERS] && this.data[puzzleData.INDEX.TIMERS][this.puzzles.index] || 0) > delay;
-				if(puzzle == undefined) {
-					(isLocation || completed || isTimeout) ? showAIHelp() : hideAIHelp();
+				if (this.focusMode && rotate == undefined && puzzle == undefined) {
+					((this.puzzle.mode & 0xE0) == puzzleCoder.MODE.VCT
+					|| (this.puzzle.mode & 0xE0) == puzzleCoder.MODE.VCF)
+					&& (this.puzzle.mode = puzzleCoder.MODE.FREE)
 				}
+
 				await this.stopThinking();
 				this.strength = this._strength;
 				this.notRotate = this._notRotate;
@@ -1030,7 +1290,7 @@
 				this.playerSide = this.puzzle.side;
 				this.residueStones = this.puzzle.mode & 0x1F;
 				this.options = !this.puzzle.options ? undefined : this.board.moveCode2Points(this.puzzle.options);
-
+				
 				let html = "";
 				const ruleStr = ["无禁",,"有禁"][this.puzzle.rule];
 				const modeStr = puzzleCoder.MODE_NAME[this.puzzle.mode];
@@ -1039,43 +1299,56 @@
 					puzzleData.saveProgress(this);
 					outputInnerHTML({
 						sideLabel: "习题封面",
+						sideLabel_01: "习题封面",
 						coordinateLabel: "****",
 					})
 					html += `这是封面，请跳到下一题再开始解题\n\n`,
-					this.puzzle.title = this.puzzle.title + "（封面）" ;
 					btnAIHelp.enabled = false;
 					this.board.setCoordinate(0);
+					this.board.canvas.style.opacity = 1;
 					this.puzzle.image && (this.board.loadImgURL(this.puzzle.image).then(() => this.board.putImg()), this.board.canvas.style.opacity = 0.5);
+					this.puzzle.title = this.puzzle.title + "（封面）" ;
 				}
 				else {
 					this.state = this.STATE.PLAYING;
 					delaySaveProgress(5000);
 					outputInnerHTML({
 						sideLabel: "玩家走棋",
+						sideLabel_01: [,"黑先","白先"][this.playerSide],
 						coordinateLabel: "坐标",
 					})
 					html += `难度: ${"★★★★★".slice(0, this.puzzle.level)}\n`;
 					html += `玩家: ${[,"● 黑棋","○ 白棋"][this.playerSide]}\n`;
 					html += `规则: ${ruleStr}\n`;
 					html += `模式: ${modeStr}\n\n`;
+					btnAIHelp.enabled = true;
 					this.board.setCoordinate(this.coordinateType);
 					this.board.canvas.style.opacity = 1;
 					(this.puzzle.randomRotate || rotate != undefined) && !this.notRotate ? this.randomRotate(rotate) : (this.rotate = 0);
 					this.puzzle.rotate = this.rotate;
-					btnAIHelp.enabled = true;
-					//this.board.printSide(this.playerSide);
-					//!isLocation && (this.puzzle.mode & puzzleCoder.MODE.BASE) == puzzleCoder.MODE.BASE &&  delayCheckWinBASE(1800);
+					warn(`${sideLabel_01.innerHTML} ${modeStr.replace("模式","").replace("自由对弈","胜")}`)
 				}
-				(this.puzzle.mode & puzzleCoder.MODE.BASE) == puzzleCoder.MODE.BASE ? btnCommit.show() : btnCommit.hide();
+
+				const isLocation = 0 && window.location.href.indexOf("http://") > -1;
+				const completed = this.completed;
+				const delay = this.puzzle.delayHelp * 60 * 1000;
+				const isTimeout = (this.data && this.data[puzzleData.INDEX.TIMERS] && this.data[puzzleData.INDEX.TIMERS][this.puzzles.index] || 0) > delay;
+				(isLocation || completed || isTimeout) ? showAIHelp() : hideAIHelp();
+				
+				(this.puzzle.mode & 0xE0) == puzzleCoder.MODE.BASE ? btnCommit.show() : btnCommit.hide();
+				
 				html += this.puzzle.comment || "";
-				html += this.state == this.STATE.PLAYING ? (this.puzzle.mode & puzzleCoder.MODE.BASE) == puzzleCoder.MODE.BASE ? "\n\n开始答题......\n点击空格：标记选点\n点击标记：删除选点\n答题结束后提交答案" : "\n\n开始解题......\n单击：两次确认落子\n双击：直接落子" : "";
+				html += this.state == this.STATE.PLAYING ? (this.puzzle.mode & 0xE0) == puzzleCoder.MODE.BASE ? "\n\n开始答题......\n点击空格：标记选点\n点击标记：删除选点\n答题结束后提交答案" : "\n\n开始解题......\n单击：两次确认落子\n双击：直接落子" : "";
 				html += this.state == this.STATE.PLAYING && lbTimer.viewElem.parentNode ? `\n\n坚持答题${this.puzzle.delayHelp}分钟后......\n解锁"求助AI"按钮` : "";
 				outputInnerHTML({
 					title: this.puzzle.title,
 					ruleLabel: ruleStr,
+					ruleLabel_01: ruleStr,
 					modeLabel: modeStr.replace("模式",""),
+					modeLabel_01: modeStr.replace("模式",""),
 					starLabel: `${this.puzzle.mode == puzzleCoder.MODE.COVER?"封面" : this.star ? "★" : "✩"}`,
 					progressLabel: `${completed && "✔" || ""}&nbsp;${(this.index + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}(&nbsp;${this.data && this.data.progress ? (this.data.progress.filter(v => v).length + "bbb").slice(0, 3).replace(/b/g, "&nbsp;") + "/&nbsp;" : ""}${(this.puzzles.length + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}&nbsp;)`,
+					progressLabel_01: `${completed && "✔" || ""}&nbsp;${(this.index + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}`,
 					comment: html.split("\n").join("<br>")
 				})
 				closeBoards();
@@ -1136,9 +1409,14 @@
 					this.reset();
 				}
 			},
+			aiHelp() {
+				this.state == this.STATE.PLAYING 
+				&& this.board.MSindex % 2 
+				&& puzzleAI.aiHelp(this);
+			},
 			think() {
-				const isBase = (this.puzzle.mode & puzzleCoder.MODE.BASE) == puzzleCoder.MODE.BASE;
-				this.state == this.STATE.PLAYING && (!isBase || !this.options) && puzzleAI.think(this);
+				const isBase = (this.puzzle.mode & 0xE0) == puzzleCoder.MODE.BASE;
+				!isBase && puzzleAI.think(this);
 			},
 			async stopThinking() {
 				await puzzleAI.stopThinking(this);
@@ -1164,13 +1442,13 @@
 				this.state == this.STATE.PLAYING && await puzzleAI.checkMove(this, idx);
 			},
 			async aiPutStone(idx) {
-				if ((this.state & this.STATE.GAMEOVER) == this.STATE.GAMEOVER) return;
+				//if ((this.state & this.STATE.GAMEOVER) == this.STATE.GAMEOVER) return;
 				await this.putStone(idx);
 				await this.checkWin(idx);
 				btnAIHelp.enabled = true;
 			},
 			async playerPutStone(idx) {
-				if ((this.state & this.STATE.GAMEOVER) == this.STATE.GAMEOVER) return;
+				//if ((this.state & this.STATE.GAMEOVER) == this.STATE.GAMEOVER) return;
 				await this.putStone(idx);
 				await this.checkWin(idx);
 				this.state == this.STATE.PLAYING && this.think()
@@ -1239,6 +1517,7 @@
 				}
 			},
 			get completed() { return this.data && this.data.progress && this.data.progress[this.puzzles.index] },
+			get focusMode() { return !!focusCmdDiv.viewElem.parentNode },
 			get star() { return this.data && this.data[puzzleData.INDEX.STARS] && this.data[puzzleData.INDEX.STARS][this.puzzles.index] },
 			get state() { return this._state },
 			set state(st) {
@@ -1258,7 +1537,7 @@
 								let i=0;
 								while(i++ < game.puzzles.length) {
 									game.puzzles.next();
-									if (game.puzzles.currentPuzzle.mode) {
+									if (game.puzzles.currentPuzzle.mode != puzzleCoder.MODE.COVER) {
 										game.reset();
 										return;
 									}
@@ -1273,12 +1552,19 @@
 					canvasDblClick = canvasDblClick_playing;
 					canvasDblTouchStart = canvasDblTouchStart_playing;
 					canvasContextMenu = canvasContextMenu_playing;
+					lbTimer.show();
+					btnAIHelp.hide();
+					btnAIDefance.hide()
 				}
 				else if ((this._state & 0xF0) == this.STATE.GAMEOVER) {
 					canvasClick = canvasClick_gameover;
 					canvasDblClick = canvasDblClick_gameover;
 					canvasDblTouchStart = canvasDblTouchStart_gameover;
 					canvasContextMenu = canvasContextMenu_gameover;
+					lbTimer.hide();
+					btnAIHelp.hide();
+					btnAIDefance.show();
+					btnAIDefance.enabled = false
 				}
 				this.board.hideStone();
 				return this._state;
@@ -1316,6 +1602,26 @@
 			get length() { return this.puzzles.length }
 		}
 
+		function focusMode() {
+			if (mainUI.bodyWidth > mainUI.bodyHeight) {
+				const left  = mainUI.upDivLeft + (mainUI.gridWidth >> 1);
+				mainUI.upDiv.style.left = left - mainUI.buttonWidth + "px";
+				mainUI.downDiv.style.left = mainUI.downDivLeft - mainUI.buttonWidth + "px";
+				mainUI.upDiv.style.zIndex = 1;
+			}
+			renjuCmdDiv.hide();
+			focusCmdDiv.show();
+		}
+
+		function exitFocusMode() {
+			if (mainUI.bodyWidth > mainUI.bodyHeight) {
+				mainUI.upDiv.style.left = mainUI.upDivLeft + "px";
+				mainUI.downDiv.style.left = mainUI.downDivLeft + "px";
+			}
+			renjuCmdDiv.show();
+			focusCmdDiv.hide();
+		}
+
 		function processOutput(output) {
 			try {
 				if (cBoard.startIdx == -1 && output.bestline && output.bestline[0]) {
@@ -1331,8 +1637,8 @@
 					cBoard.hideStone();
 					cBoard.MSindex % 2 ? game.playerPutStone(idx) : game.aiPutStone(idx);
 					if (game.puzzle.mode == puzzleCoder.MODE.VCT3 || ((game.puzzle.mode & puzzleCoder.MODE.STONES) == puzzleCoder.MODE.STONES))
-						outputInnerHTML({ sideLabel: `还剩${game.residueStones}手` })
-					else outputInnerHTML({ sideLabel: "玩家走棋" })
+						outputInnerHTML({ sideLabel: `还剩${game.residueStones}手`, sideLabel_01: `还剩${game.residueStones}手` })
+					else outputInnerHTML({ sideLabel: "玩家走棋", sideLabel_01: "玩家走棋" })
 				}
 				if (output.state) {
 					game.state = output.state;
@@ -1342,23 +1648,25 @@
 							!(game.data && game.data.title == "错题复习") && puzzleData.addErrorPuzzle(game);
 						}
 						if (game.state == game.STATE.WIN) {
-							showAIHelp();
 							puzzleData.saveProgress(game);
+							game.focusMode && setTimeout(() => game.next(), 1000)
 						}
 						output.tree && game.board.addTree(output.tree);
 						output.options && (game.board.cleLb("all"), game.continuePutStone(output.options))
-						output.warn && window.warn(output.warn, 1500);
+						output.warn && warn(output.warn, 1500);
 						output.comment && (output.comment += `\n\n\n解题结束\n开始复盘......\n1.点击空格落子\n2.点击棋子悔棋`)
 						output.errorPoints && game.continuePutStone(output.errorPoints, "✕", game.board.bNumColor)
 						outputInnerHTML({
-							progressLabel: `${game.completed && "✔" || ""}&nbsp;${(game.index + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}(&nbsp;${game.data && game.data.progress ? (game.data.progress.filter(v => v).length + "bbb").slice(0, 3).replace(/b/g, "&nbsp;") + "/&nbsp;" : ""}${(game.puzzles.length + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}&nbsp;)`
+							progressLabel: `${game.completed && "✔" || ""}&nbsp;${(game.index + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}(&nbsp;${game.data && game.data.progress ? (game.data.progress.filter(v => v).length + "bbb").slice(0, 3).replace(/b/g, "&nbsp;") + "/&nbsp;" : ""}${(game.puzzles.length + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}&nbsp;)`,
+							progressLabel_01: `${game.completed && "✔" || ""}&nbsp;${(game.index + "bbb").slice(0, 3).replace(/b/g, "&nbsp;")}`
 						})
 					}
+					output.sideLabel_01 = output.sideLabel;
 					outputInnerHTML(output);
 					return;
 				}
 				if (output.sideLabel) {
-					outputInnerHTML({ sideLabel: output.sideLabel })
+					outputInnerHTML({ sideLabel: output.sideLabel, sideLabel_01: output.sideLabel })
 				}
 				if (output.comment) {
 					outputInnerHTML({ comment: output.comment })
@@ -1367,8 +1675,8 @@
 		}
 
 		function outputInnerHTML(param) {
-			const labels = { title, starLabel, coordinateLabel, strengthLabel, rotateLabel, progressLabel, sideLabel, ruleLabel, modeLabel, comment };
-			Object.keys(param).map(key => labels[key] && (log(param[key], "warn"), labels[key].innerHTML = replaceAll(param[key], "\n", "<br>")))
+			const labels = { title, starLabel, coordinateLabel, strengthLabel, rotateLabel, progressLabel, progressLabel_01, sideLabel, sideLabel_01, ruleLabel, ruleLabel_01, modeLabel, modeLabel_01, comment };
+			Object.keys(param).map(key => labels[key] && (labels[key].innerHTML = replaceAll(param[key], "\n", "<br>")));
 		}
 
 		function playerTryPutStone(idx) {
@@ -1678,8 +1986,6 @@
 			if (idx < 0 || (cBoard.MSindex + 1 + (cBoard.firstColor == "black" ? 0 : 1)) % 2 + 1 == game.aiSide || game.state != game.STATE.PLAYING) return;
 			if (game.puzzle.mode < puzzleCoder.MODE.BASE) {
 				playerTryPutStone(idx);
-				//cBoard.hideStone();
-				//cBoard.P[idx].type == TYPE_EMPTY && game.playerPutStone(idx);
 			}
 			else {
 			}
@@ -1781,7 +2087,11 @@
 					})
 				}
 			}
-			//game.board.printSide(game.side);
+			if ((game.state & game.STATE.GAMEOVER) == game.STATE.GAMEOVER) {
+				if (game.puzzle.mode < puzzleCoder.MODE.BASE) {
+					btnAIDefance.enabled = (this.MSindex + 1) & 1;
+				}
+			}
 		}
 
 		addEvents();

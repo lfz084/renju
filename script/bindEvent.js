@@ -365,6 +365,24 @@ window.bindEvent = (function() {
 		}
 		return result;
 	}
+	
+	function onEvent(htmlElement, type, x = 1, y = 1, ...args) {
+		const list = EVENTLIST[type];
+		let result = false;
+		if (list) {
+			for (let i = 0; i < list.length; i++) {
+				const evtObj = list[i];
+				if (evtObj.element == htmlElement) {
+					for (let j = 0; j < evtObj.callbackList.length; j++) {
+						const callback = evtObj.callbackList[j];
+						try { callback(x, y, ...args) } catch (e) {};
+						result = true;
+					}
+				}
+			}
+		}
+		return result;
+	}
 
 	//------------------------ exports ---------------------------
 
@@ -416,6 +434,7 @@ window.bindEvent = (function() {
 		setBodyDiv: setBodyDiv,
 		addEventListener: addEventListener,
 		removeEventListener: removeEventListener,
+		onEvent: onEvent,
 		get enabled() { return enabled },
 		set enabled(b) { enabled = !!b },
 	}

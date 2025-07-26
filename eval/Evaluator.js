@@ -922,7 +922,8 @@ function getScore(idx, color, arr) {
 /** check game position. 
  * if side win return 1, 
  * else if side lose return -1, 
- * else if side foul return -2,
+ * else if side foul return -2, 
+ * else if board full return -3,
  * else return 0
  * @arr position
  * @side stone color
@@ -935,5 +936,8 @@ function getGameOver(arr, side, idx = -1) {
 	if (level == LEVEL_WIN) return 1;
 	level = getLevel(arr, 3 - side)
 	if (level == LEVEL_WIN) return -1;
-	return 0
+	for (let i = 0; i < 225; i++) {
+		if (arr[i] == 0) return 0;
+	}
+	return -3
 }

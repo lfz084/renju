@@ -360,7 +360,8 @@ window.fullscreenUI = (() => {
 			const contentDocument = IFRAME.contentWindow.document;
 			const backgroundColor = contentDocument.body.style.backgroundColor || contentDocument.body.style.background || "white";
 			bodyDiv.style.backgroundColor = backgroundColor;
-
+			
+			btnBoard.scale = scale;
 			btnBoard.moveCenter(dw / 2, parseInt(IFRAME.style.height) / 2 + sh / 2 / scale - butWidth, fullscreenDiv, "absolute")
 
 			btnBoard.leftButtons[1].clickFunctionIndex = 1;
@@ -381,6 +382,7 @@ window.fullscreenUI = (() => {
 			bodyDiv.style.width = dw + "px";
 			bodyDiv.style.height = bodyHeight + "px";
 
+			btnBoard.scale = 1;
 			btnBoard.moveCenter(dw / 2, dh - butWidth, document.body, "fixed")
 
 			btnBoard.leftButtons[1].clickFunctionIndex = 0;

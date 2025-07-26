@@ -43,7 +43,7 @@ window.puzzleAI = (() => {
 		let processOutput = () => {};
 		self["gomocalc"] && gomocalc.init(gomocalcOutput);
 		engine.ready().then(() => aiState = aiState | STATE_RENJU_READY)
-		//setInterval(() => processOutput({sideLabel: aiState})}, 1000)
+		
 		function idx2Pos(idx = -1) {
 			if (idx < 0 || idx > 224) return [-1, -1]
 			else return [idx % 15, ~~(idx / 15)]
@@ -145,16 +145,6 @@ window.puzzleAI = (() => {
 			}
 			const tree = await engine.createTreeVCF(param);
 			processOutput({ state: game.STATE.READ, sideLabel: "参考答案", tree: tree });
-			/*
-			const levelInfo = getLevel(param.arr, param.color);
-			if(levelInfo >= LEVEL_NOFREEFOUR) {
-				processOutput({ pos: idx2Pos(levelInfo >> 8 & 0xFF) })
-			}
-			else {
-				const vcfMoves = (await engine.findVCF(param)).winMoves[0];
-				processOutput({ pos: idx2Pos(vcfMoves[0] || -1) })
-			}
-			*/
 			aiState = aiState & ~STATE_RENJU_THINKING;
 		}
 
@@ -282,6 +272,7 @@ window.puzzleAI = (() => {
 		filtetlrOptionsCallback[puzzleCoder.MODE.BASE_DOUBLE_VCF_43] = function(node) { return "W" == getBoardText(node) }
 		
 		async function getOptions(game) {
+			engine.gameRules != RENJU_RULE[game.puzzle.rule] && (engine.gameRules = RENJU_RULE[game.puzzle.rule]);
 			if (game.options) {
 				return game.options;
 			}
@@ -344,6 +335,12 @@ window.puzzleAI = (() => {
 		
 		//-------------------- createTree ------------------------------------
 		
+		/**
+		 * 解题VCF
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeVCF (arr, color) {
 			return engine.createTreeVCF({
 				arr,
@@ -354,6 +351,12 @@ window.puzzleAI = (() => {
 			})
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreePointsVCT(arr, color) {
 			return engine.createTreePointsVCT({
 				color: color,
@@ -365,6 +368,12 @@ window.puzzleAI = (() => {
 			})
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeVCT3(arr, color) {
 			return engine.createTreeSimpleWin({
 				arr,
@@ -378,6 +387,12 @@ window.puzzleAI = (() => {
 			})
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeFoul(arr, color) {
 			return engine.createTreeTestFoul({
 			 	arr,
@@ -385,6 +400,12 @@ window.puzzleAI = (() => {
 			});
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeNodes(arr, color) {
 			return await engine.createTreeNodes({
 				arr,
@@ -392,6 +413,12 @@ window.puzzleAI = (() => {
 			})
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeBlockCatchFoul(arr, color) {
 			return engine.createTreeBlockCatchFoul({
 				arr,
@@ -402,6 +429,12 @@ window.puzzleAI = (() => {
 			});
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeMakeVCF(arr, color) {
 			return engine.createTreeLevelThree({
 				arr,
@@ -413,6 +446,12 @@ window.puzzleAI = (() => {
 			})
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeMakeVCF43(arr, color) {
 			return engine.createTreeLevelThree({
 				arr,
@@ -424,6 +463,12 @@ window.puzzleAI = (() => {
 			})
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeMakeVCF44(arr, color) {
 			return engine.createTreeLevelThree({
 				arr,
@@ -435,6 +480,12 @@ window.puzzleAI = (() => {
 			})
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeBlockVCF(arr, color) {
 			return engine.createTreeBlockVCF({
 				arr,
@@ -446,6 +497,12 @@ window.puzzleAI = (() => {
 			});
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeDoubleVCF(arr, color) {
 			return engine.createTreeDoubleVCF({
 				arr,
@@ -456,6 +513,12 @@ window.puzzleAI = (() => {
 			});
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeDoubleVCF43(arr, color) {
 			return engine.createTreeNumberWin({
 				arr,
@@ -467,6 +530,12 @@ window.puzzleAI = (() => {
 			});
 		}
 		
+		/**
+		 * 
+		 * @param {*} arr 
+		 * @param {*} color 
+		 * @returns 
+		 */
 		async function createTreeBlockVCFDepth(arr, color) {
 			return engine.createTreeBlockVCF({
 				arr,
@@ -480,24 +549,54 @@ window.puzzleAI = (() => {
 		
 		//--------------------------------------------------------------------------
 		
+		/**
+		 * 判断棋局是否分出胜负
+		 * @param {*} game 
+		 * @param {*} idx 最后一手座标
+		 */
 		async function checkWin(game, idx) {
 			engine.board = undefined;
-			if ((game.puzzle.mode & puzzleCoder.MODE.BASE) == puzzleCoder.MODE.BASE) {
+			if ((game.puzzle.mode & 0xE0) == puzzleCoder.MODE.BASE) {
 				//checkWinBASE(game);
 			}
 			else {
 				const side = game.board.getArray()[idx];
 				const sw = side == game.playerSide ? 1 : -1;
-				let state = getGameOver(game.board.getArray(), side, idx);
-				state == 0 && game.board.getArray().filter(v => v == 0).length == 0 && (state = -3 * sw)
-				state = state * sw;
-				const GAME_STATE = {"0": game.STATE.PLAYING, "1": game.STATE.WIN, "-1": game.STATE.LOST, "-2": game.STATE.LOST, "-5": game.STATE.LOST}
-				const COMMENT = {"1": "你赢了", "-1": "你输了", "-2": "你禁手犯规，输了"}
-				const WARN = {"1": "你赢了", "-1": "你输了", "-2": "禁手犯规"}
-				state && processOutput({ state: GAME_STATE[state], sideLabel: "棋局结束", comment: COMMENT[state]});
+				engine.gameRules != RENJU_RULE[game.puzzle.rule] && (engine.gameRules = RENJU_RULE[game.puzzle.rule]);
+				const state = sw * getGameOver(game.board.getArray(), side, idx);
+				const GAME_STATE = {
+					"0": game.STATE.PLAYING,
+					"1": game.STATE.WIN,
+					"-1": game.STATE.LOST,
+					"2": game.STATE.WIN,
+					"-2": game.STATE.LOST,
+					"3": game.STATE.LOST,
+					"-3": game.STATE.LOST
+				}
+				const COMMENT = {
+					"1": "你赢了",
+					"-1": "你输了",
+					"2": "对手禁手犯规，你赢了",
+					"-2": "你禁手犯规，输了",
+					"3": "棋规已满，平局",
+					"-3": "棋盘已满，平局"
+				}
+				const WARN = {
+					"1": "你赢了",
+					"-1": "你输了",
+					"2": "禁手犯规",
+					"-2": "禁手犯规",
+					"3": "棋规已满",
+					"-3": "棋规已满"
+				}
+				state && processOutput({ state: GAME_STATE[state], sideLabel: "棋局结束", comment: COMMENT[state], warn: WARN[state]});
 			}
 		}
 		
+		/**
+		 * 验证点点题答案
+		 * @param {*} game 
+		 */
 		async function checkWinBASE(game) {
 			engine.board = undefined;
 			aiState = aiState | STATE_RENJU_THINKING;
@@ -512,16 +611,22 @@ window.puzzleAI = (() => {
 			const isRight = selectPoints.length == options.length &&  0 == options.map(idx => selectPoints.indexOf(idx)).filter(index => index < 0).length;
 			if (isRight) {
 				const comment = "回答正确";
-				processOutput({ state: game.STATE.WIN, sideLabel: "回答正确", comment})
+				processOutput({ state: game.STATE.WIN, sideLabel: comment, warn: comment, comment})
 			}
 			else {
 				const errorPoints = selectPoints.filter(idx => options.indexOf(idx) == -1);
 				const comment = `解题失败\n${errorPoints.length && errorPoints.length + "处错误\n" || ""}${lastCount && lastCount + "处漏选\n" || ""}`;
-				processOutput({ state: game.STATE.LOST, sideLabel: "解题失败", comment, errorPoints: errorPoints})
+				const label = `解题失败`;
+				processOutput({ state: game.STATE.LOST, sideLabel: label, warn: label, comment, errorPoints: errorPoints})
 			}
 			aiState = aiState & ~STATE_RENJU_THINKING;
 		}
 
+		/**
+		 *  测试玩家走棋，不合解题规则返回 state < 0
+		 * 	@game	game 对象
+		 * 	@idx	玩家走棋对标
+		 */
 		async function checkMove(game, idx) {
 			engine.board = undefined;
 			if (game.board.getArray()[idx] != game.playerSide) return;
@@ -529,23 +634,23 @@ window.puzzleAI = (() => {
 			if (state < 0) {
 				const warn = CHECKMOVE_OUTPUT[state].warn;
 				const comment = "失败原因：\n" + CHECKMOVE_OUTPUT[state].comment;
-				processOutput({ state: game.STATE.LOST, sideLabel: "解题失败", comment });
+				processOutput({ state: game.STATE.LOST, sideLabel: "解题失败", warn, comment });
 			}
 		}
 		
 		/**
 		 *  测试残局是否有误, 无误返回 true, 有误返回 false,
 		 * @arr		game position 
-		 * @side	 playSide
-		 * @rule	 rapfi rule
-		 * @mode	 puzzle mode
-		 * @board
+		 * @side	playSide
+		 * @rule	rapfi rule
+		 * @mode	puzzle mode
+		 * @board	CheckBoard
 		 */
 		async function checkPuzzle(arr, side, rule, mode, board) {
 			aiState = aiState | STATE_RENJU_THINKING;
 			try{
 			log(`checkPuzzle\narr: ${arr}\nside: ${side}\nrule: ${rule}\nmode: ${mode}`, "info")
-			engine.gameRules = RENJU_RULE[rule];
+			engine.gameRules != RENJU_RULE[rule] && (engine.gameRules = RENJU_RULE[rule]);
 			const over = getGameOver(arr, side);
 			if (over) return false;
 				
@@ -563,7 +668,9 @@ window.puzzleAI = (() => {
 		}
 		
 		/**
-		 * 
+		 * 自动设置 puzzle 题目类型
+		 * @puzzle	puzzle 对象
+		 * @board	CheckBoard
  		*/
 		async function autoSetMode(puzzle, board) {
 			for (let i = 0; i < 32; i+=8) {
@@ -664,8 +771,8 @@ window.puzzleAI = (() => {
 			if (aiState == STATE_AI_READY) {
 				engine.board = undefined;
 				processOutput({ sideLabel: "思考中..." })
-				engine.gameRules = RENJU_RULE[game.puzzle.rule];
-				if ((game.puzzle.mode & puzzleCoder.MODE.BASE) == puzzleCoder.MODE.BASE) {
+				engine.gameRules != RENJU_RULE[game.puzzle.rule] && (engine.gameRules = RENJU_RULE[game.puzzle.rule]);
+				if ((game.puzzle.mode & 0xE0) == puzzleCoder.MODE.BASE) {
 					filterThink[puzzleCoder.MODE.BASE](game);
 				}
 				else {
@@ -678,8 +785,8 @@ window.puzzleAI = (() => {
 			if (aiState == STATE_AI_READY) {
 				engine.board = game.board;
 				processOutput({ sideLabel: "思考中..." })
-				engine.gameRules = RENJU_RULE[game.puzzle.rule];
-				if ((game.puzzle.mode & puzzleCoder.MODE.BASE) == puzzleCoder.MODE.BASE) {
+				engine.gameRules != RENJU_RULE[game.puzzle.rule] && (engine.gameRules = RENJU_RULE[game.puzzle.rule]);
+				if ((game.puzzle.mode & 0xE0) == puzzleCoder.MODE.BASE) {
 					(filterAIHelp[puzzleCoder.MODE.BASE] || function() {})(game);
 				}
 				else {

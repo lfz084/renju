@@ -127,6 +127,15 @@
 	 * 与btn在页面上左上角对齐
  	*/
 	InputButton.prototype.bindButton = function(btn, scale = 1) {
+		function isVisible(btn) {
+			let node = btn.parent || btn.parentNode;
+			while (node) { 
+				if (node == document.body) return true;
+				node = node.parentNode;
+			}
+			return false;
+		}
+		if (!isVisible(btn)) return;
 		let p = xyObjToPage({x:parseInt(btn.left), y:parseInt(btn.top)}, btn.parent || btn.parentNode );
 		p = xyPageToObj(p, this.parentNode);
 		this.move(p.x * scale, p.y * scale, parseInt(btn.width), parseInt(btn.height));

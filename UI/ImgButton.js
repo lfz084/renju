@@ -50,6 +50,61 @@
             return true;
         }
     })();
+    
+    function animationMoveBoard(x, y) {
+    	try{
+    	const body = document.body;
+    	let isExitAnima = false;
+    	const bodyScale = 1;
+    	const scale = this.scale;
+    
+    	const setMove = function() {
+    		const touche = event.type == "mousemove" ? event : event.changedTouches[0];
+    		if (event.type == "mousemove" || event.changedTouches.length == 1) {
+    			moveX = touche.pageX / bodyScale;
+    			moveY = touche.pageY / bodyScale;
+    		}
+    	}.bind(this)
+    
+    	function exitAnima() {
+    		isExitAnima = true;
+    	}
+    
+    	let startX = x / bodyScale,
+    		startY = y / bodyScale,
+    		moveX = x / bodyScale,
+    		moveY = y / bodyScale,
+    		startLeft = parseInt(this.board.style.left),
+    		startTop = parseInt(this.board.style.top);
+    	
+    	body.addEventListener("touchmove", setMove, true);
+    	body.addEventListener("touchend", exitAnima, true);
+    	body.addEventListener("touchcancel", exitAnima, true);
+    	body.addEventListener("touchleave", exitAnima, true);
+    	body.addEventListener("mousemove", setMove, true);
+    	body.addEventListener("mouseup", exitAnima, true);
+    	body.addEventListener("mouseout", exitAnima, true);
+    	body.addEventListener("mouseleave", exitAnima, true);
+    
+    	animation(() => !isExitAnima,
+    		() => {
+    			this.board.style.left = startLeft + (moveX - startX) / scale + "px";
+    			this.board.style.top = startTop + (moveY - startY) / scale + "px";
+    		},
+    		() => {},
+    		() => {
+    			body.removeEventListener("touchmove", setMove, true);
+    			body.removeEventListener("touchend", exitAnima, true);
+    			body.removeEventListener("touchcancel", exitAnima, true);
+    			body.removeEventListener("touchleave", exitAnima, true);
+    			body.removeEventListener("mousemove", setMove, true);
+    			body.removeEventListener("mouseup", exitAnima, true);
+    			body.removeEventListener("mouseout", exitAnima, true);
+    			body.removeEventListener("mouseleave", exitAnima, true);
+    		})
+    	}catch(e){alert(e.stack)}
+    }
+    
     const animaLine32 = [0,0.000033567184720217515,0.0002685374777617401,0.000906313987445873,0.002148299822093921,0.00419589809002719,0.007250511899566984,0.011513544359034608,0.017186398576751367,0.02447047766103857,0.03356718472021752,0.04467792286260951,0.05800409519653587,0.07374710483031788,0.09210835487227687,0.11328924843073411,0.13749118861401094,0.16491557853042865,0.19576382128830855,0.23023731999597194,0.26853747776174014,0.3108656976939344,0.3574233829008761,0.40841193649088653,0.46403276157228696,0.5244872612533987,0.589976838642543,0.6607028968480414,0.7368668389782149,0.818670068141385,0.9063139874458729,1];
     const animaLine16 = [0,0.0002962962962962963,0.0023703703703703703,0.008,0.018962962962962963,0.037037037037037035,0.064,0.10162962962962963,0.1517037037037037,0.216,0.2962962962962963,0.39437037037037037,0.512,0.650962962962963,0.813037037037037,1];
     //------------------------ ImgButton --------------------------
@@ -161,6 +216,7 @@
 			this.state = 0;
 			this.frameIndex = 0;
 			this.showWidth = width * numButtons;
+			this.scale = 1;
 			
 			this.board = document.createElement("div");
 			this.leftBoard = document.createElement("div");
@@ -216,8 +272,15 @@
 			this.topButtons[0].setIcons([svgShowButtons, svgHideButtons])
 			//this.topButtons[0].div.style.transform = `rotate(0.125turn)`;
 			
-			this.board.addEventListener("touchstart", () => { event.preventDefault() }, true)
-			this.board.addEventListener("mousedown", () => { event.preventDefault() }, true)
+			this.board.addEventListener("touchstart", () => {
+            	event.preventDefault();
+            	const touche = event.changedTouches[0];
+            	animationMoveBoard.call(this, touche.pageX, touche.pageY);
+            }, true)
+            this.board.addEventListener("mousedown", () => {
+                event.preventDefault();
+                animationMoveBoard.call(this, event.pageX, event.pageY);
+            }, true)
 		}
 	}
 	

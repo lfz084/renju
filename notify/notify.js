@@ -72,25 +72,37 @@ fetch(url)
             width: wdWidth + "px",
             height: wdHeight + "px",
             top: wdTop,
-            left: wdLeft,
-            backgroundColor: backgroundColor,
-            border: `0px solid `
+            left: wdLeft
         })
         const fontSize = ~~(wdWidth / 20);
-        const textWidth = ~~(wdWidth - 10 * 2);
+        const textWidth = ~~(wdWidth);
         const textHeight = textWidth;
         Object.assign(textarea.style, {
             position: "absolute",
             width: textWidth + "px",
             height: textHeight + "px",
-            top: 10 + "px",
-            left: 10 + "px",
+            top: "0px",
+            left: "0px",
             backgroundColor: textareaBackgroundColor,
-            border: `0px solid black`,
+            border: `5px solid black`,
             fontSize: fontSize + "px",
             wordBreak: "break-all",
             overflowY: "auto"
         })
+        
+        async function setTheme() {
+        	const themeKey = localStorage.getItem("theme");
+			const data = window.settingData && ( await settingData.getDataByKey("themes"));
+			const theme = data && data.themes[themeKey] || ( await loadJSON(`UI/theme/${themeKey}/theme.json`));
+			if (theme && theme["exWindow"]) {
+				const exWindowTheme = theme["exWindow"];
+				Object.assign(textarea.style, {
+					color: exWindowTheme["color"],
+					backgroundColor: exWindowTheme["backgroundColor"],
+					border: `5px solid ${exWindowTheme["borderColor"]}`
+				})
+			}
+        }
 
         function open() {
             document.body.appendChild(coverArea);
@@ -104,7 +116,7 @@ fetch(url)
                 resolve();
             }
             const innerHTML = notify.innerHTML || notify.html || notify.innerText || notify.text || notify.msg;
-            textarea.innerHTML = innerHTML + `<br><br><a onclick="window._notify_resolve()">关闭通知</a>`;
+            textarea.innerHTML = innerHTML + `<br><br><a onclick="window._notify_resolve()">关闭通知</a><br>`;
         }
 
         function close() {
@@ -116,7 +128,9 @@ fetch(url)
             delete window._notify_resolve
         }
         
-        open()
+        setTheme()
+        	.catch(() => {})
+        	.then(() => open())
     }catch(e){reject(e)}
     })
     
