@@ -35,4 +35,4 @@ window.matchMedia('(display-mode: standalone)').matches
 五子茶馆解题大赛小题目大全： 2✔, 4✔, 110✔，96✔
 
 入门白先三手吉: 61✔，174✔
-黑先胜100题：2✔，34✔
+黑先胜100题：3✔, 34✔

@@ -12,6 +12,18 @@
 		DEBUG_PUZZLEDATA && window.DEBUG && (window.vConsole || window.parent.vConsole) && print(`puzzleData.js: ${ param}`);
 	}
 	
+	function freshJSON(url) {
+		return fetch(url + "?cache=netFirst")
+			.then(response => response.ok && response.json())
+			.catch(e => (console.error(e.message), null))
+	}
+	
+	function freshTXT(url) {
+		return fetch(url + "?cache=netFirst")
+			.then(response => response.ok && response.text())
+			.catch(e => (console.error(e.message), ""))
+	}
+	
 	//--------------------------------------------------------------------------------------
 	
 	const TEMP_TIME = 1;
@@ -83,7 +95,9 @@
 		}
 		const rt = [];
 		const path = _path || document.currentScript.src.slice(0, document.currentScript.src.lastIndexOf("/") + 1) + "json/";
-		const fileNames = [
+		const fileName = "defaultPuzzles.json";
+		const filenameArr = await freshJSON(path + fileName);
+		const fileNames = Array.isArray(filenameArr) ? filenameArr : [
 			"例题演示.json",
 			"错题复习.json",
 			"你的收藏.json",
@@ -161,7 +175,7 @@
 	async function upPuzzles(_path, callback = () => {}) {
 		const path = _path || document.currentScript.src.slice(0, document.currentScript.src.lastIndexOf("/") + 1) + "json/";
 		const fileName = "upPuzzles.json";
-		const jsonString = await window.loadTxT(path + fileName);
+		const jsonString = await freshTXT(path + fileName);
 		const oldData = await puzzleData.getDataByKey(jsonString);
 		if (!oldData) {
 			let logStr = "错题更正...\n";

@@ -22,12 +22,17 @@ function post(cmd, param, transfer) {
         postMessage({ "cmd": cmd, "parameter": param }, transfer)
 }
 
-async function getArrBuf(file, start = 0, byteLength = file.size) {
-	try {
-    	return await file.slice(start, start + byteLength).arrayBuffer();
-	}catch(e) { 
-		return Promise.reject("❌打开文件出错\n手机请用Edeg浏览器，获得更大内存\n" + (e && e.message || ""));
-	}
+function getArrBuf(file) {
+	return new Promise(function(resolve, reject) {
+		let fr = new FileReader();
+		fr.onload = function() {
+			resolve(fr.result)
+		};
+		fr.onerror = function(e) {
+			reject("❌打开文件出错\n手机请用Edeg浏览器，获得更大内存\n" + (fr.error.message || ""))
+		};
+		fr.readAsArrayBuffer(file)
+	})
 }
 
 var recordDB = {

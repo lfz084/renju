@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		textarea {
+			width: 955px;
+			height: 600px;
+			border: "3px solid black";
+		}
+		button {
+			width: 300px;
+			height: 80px;
+		}
+	</style>
+</head>
+
+<body>
+<textarea id="source"></textarea>
+<button id="btn1">createTXT</button>
+<button id="btn2">createJSON</button>
+<textarea id="target"></textarea>
+<script>
+	const btn1 = document.getElementById("btn1");
+	const btn2 = document.getElementById("btn2");
+	const source = document.getElementById("source");
+	const target = document.getElementById("target");
+	
+	let pCount = 0;
+	let canvasCount = 0;
+		
+	function catchErr(callback, ...args) {
+		try{
+			callback(...args)
+		}
+		catch(e) {
+			alert(e.stack)
+		}
+	}
+	
+	function idxToName(idx) {
+		const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		let x = (idx % 15);
+		let y = ~~(idx / 15);
+		return alpha.charAt(x) + (15 - y);
+	}
+	
+	function getBoardMove(board) {
+		let numCount = 0;
+		const str = board[1];
+		for (let j = 0; j < str.length; j++) {
+			const char = str[j];
+			/[0-9]/.test(char) && (j++, numCount++);
+		}
+		const strBoardWidth = Math.min(15, str.length - numCount);
+		const strBoardHeight = Math.min(15, board.length);
+		
+		const moveX = (15 - strBoardWidth) >> 1;
+		const moveY = (15 - strBoardHeight) >> 1;
+		//alert([moveX, moveY])
+		return {moveX, moveY}
+	}
+	
+	function createPuzzle(canvasStr) {
+		const board = canvasStr.split("\n");
+		board.shift();
+		board.length -= 2;
+		const[, ltX, ltY, rbX, rbY] = board.shift().split(/\s+/);
+		const {moveX, moveY} = getBoardMove(board, ltX, ltY, rbX, rbY);
+		const title = canvasStr.match(/id='(\w+)'/)[1];
+		const blackStones = [];
+		const whiteStones = [];
+		const moves = [];
+		const labels = [];
+		
+		for(let i = 0; i < board.length; i++) {
+			let numCount = 0;
+			const str = board[i];
+			for(let j = 0; j < str.length; j++) {
+				const x = moveX + j - numCount;
+				const y = moveY + i;
+				const idx = (x + y * 15);
+				const code = idxToName(idx);
+				let char = str[j];
+				if (char == "・") {
+					//empty
+				}
+				else if(char == "○") {
+					whiteStones.push(code);
+				}
+				else if(char == "●") {
+					blackStones.push(code);
+				}
+				else if (/[0-9]/.test(char)) {
+					numCount++;
+					const num = (char + str[++j]) * 1;
+					moves.push({code, num});
+					labels.push(`${code},${num}`)
+				}
+				else {
+					labels.push(`${code},${char}`)
+				}
+				
+			}
+		}
+		
+		moves.map(move => {
+			const {code, num} = move;
+			const offset = blackStones.length > whiteStones.length ? 1 : 0;
+			const stones = (offset + num & 1) ? blackStones : whiteStones;
+			stones.push(code);
+		})
+		return {title, blackStones: blackStones.join(""), whiteStones: whiteStones.join(""), labels};
+	}
+	
+	function createComment(pStr) {
+		return pStr.replace(/\n/g, "");
+	}
+	
+	function filterCanvas(sourceStr) {
+		let result = "";
+		let st = 0;
+		let ed = 0;
+		st = sourceStr.indexOf("<canvas");
+		if (st == -1) return;
+		ed = sourceStr.indexOf("<\/canvas>", st);
+		if (ed == -1) return;
+		result += sourceStr.slice(st, ed + 9) + "\n";
+		canvasCount++;
+		//alert(result);
+		return result;
+	}
+	
+	function filterComment(sourceStr) {
+		let result = "";
+		let st = 0;
+		let ed = 0;
+		while(true) {
+			st = sourceStr.indexOf("<p", ed);
+			if (st == -1) break;
+			ed = sourceStr.indexOf("<\/p>", st);
+			if (ed == -1) break;
+			const p = sourceStr.slice(st, ed + 4) + "\n";
+			if (/解答ページへは|問題を解くページへ/.exec(p)) continue;
+			result += p;
+			pCount++;
+		}
+		//alert(result);
+		return result;
+	}
+	
+	function loopFilter(callback) {
+		pCount = 0;
+		canvasCount = 0;
+		
+		const sourceStr = source.value;
+		let st = sourceStr.indexOf("<canvas");
+		let ed = 0;
+		while(1 + (ed = sourceStr.indexOf("<canvas", st + 1))) {
+			const chunkStr = sourceStr.slice(st, ed);
+			st = ed;
+			callback(chunkStr);
+		}
+		const chunkStr = sourceStr.slice(st);
+		callback(chunkStr);
+		
+		alert(`pCount: ${pCount}, canvasCount: ${canvasCount}`)
+	}
+	
+	btn1.onclick = () => catchErr(
+		() => {
+			let tzt = "";
+			loopFilter(chunkStr => {
+				tzt += filterCanvas(chunkStr);
+				tzt += filterComment(chunkStr);
+			})
+			target.value = tzt;
+		});
+	btn2.onclick = () => catchErr(
+		() => {
+			const puzzles = [];
+			loopFilter(chunkStr => {
+				const puzzle =  createPuzzle(filterCanvas(chunkStr));
+				puzzle.comment = createComment(filterComment(chunkStr));
+				puzzles.push(puzzle);
+			})
+			target.value = JSON.stringify({puzzles}, null, 2);
+		});
+</script>
+</body>
+
+</html>

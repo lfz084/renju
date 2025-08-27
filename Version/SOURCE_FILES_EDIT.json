@@ -1,5 +1,5 @@
 {
-  "version": "v2025.35",
+  "version": "v2025.39",
   "files": {
     "CheckerBoard": "CheckerBoard/CheckerBoard.js",
     "image2board": "CheckerBoard/image2board.js",
@@ -52,6 +52,7 @@
     "puzzleAI": "puzzle/puzzleAI.js",
     "puzzleSources": "puzzle/sources.js",
     "puzzleData": "puzzle/puzzleData.js",
+    "defaultPuzzles": "puzzle/json/defaultPuzzles.json",
     "upPuzzles": "puzzle/json/upPuzzles.json",
     "ひとりでも楽しめる詰連珠の部屋": "puzzle/json/ひとりでも楽しめる詰連珠の部屋_puzzle.json",
     "一手の詰連珠HT": "puzzle/json/一手の詰連珠HT_puzzle.json",

@@ -1326,7 +1326,7 @@
 					this.board.canvas.style.opacity = 1;
 					(this.puzzle.randomRotate || rotate != undefined) && !this.notRotate ? this.randomRotate(rotate) : (this.rotate = 0);
 					this.puzzle.rotate = this.rotate;
-					warn(`${sideLabel_01.innerHTML} ${modeStr.replace("模式","").replace("自由对弈","胜")}`)
+					// warn(`${sideLabel_01.innerHTML} ${modeStr.replace("模式","").replace("自由对弈","胜")}`)
 				}
 
 				const isLocation = 0 && window.location.href.indexOf("http://") > -1;

@@ -144,6 +144,12 @@
 		        {
 		            "index": 2,
 		            "puzzle": {
+    					"stones": "I11I10H10J10J9G9E8I9G8F8H8I8G7H7J7E6G6K6"
+		            }
+		        },
+		        {
+		            "index": 3,
+		            "puzzle": {
 		                "stones": "H10F10F9G10H9I9J9E8H8G8I8J8F7G7I7H7G6H6I6J6"
 		            }
 		        },
