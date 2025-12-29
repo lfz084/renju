@@ -1698,7 +1698,8 @@ void testThree(char* arr, char color, DWORD* infoArr) {
                             BYTE i = 1;
                             for (i=1; i<=freeFourPoints[0]; i++) { 
                                 BYTE f = isFoul(freeFourPoints[i], arr);
-                                if (!f) break; //freeFourPoints[i] is freeFour point
+                                BYTE f5 = FIVE == (MAX_FREE & testPointFour(freeFourPoints[i], 1, arr));
+                                if (!f && !f5) break; //freeFourPoints[i] is freeFour point
                             }
                             if (i > freeFourPoints[0]) markArr[idx] &= 0xf8fe; //clear free
                             arr[idx] = 0;

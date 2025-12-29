@@ -27,7 +27,7 @@ window.puzzleCoder = (() => {
 	
 	//------------------------ renju json ---------------------------
 	/**
-	 * json: {defaultSettings: {}, puzles: [{puzzle1},{puzzle2}...]}
+	 * json: {defaultSettings: {}, puzzles: [{puzzle1},{puzzle2}...]}
 	 * defaultSettings: {title, size, rule, mode, comment, level} 
 	 * puzzle: {stones, blackStones, whiteStones, side, ...}
 	 * * @stones		{strings}			黑白顺序棋子代码, 例: "H8I9I7" 代表浦月开局

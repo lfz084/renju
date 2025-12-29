@@ -262,7 +262,7 @@ async function openDatabass(file, callback) {
         let uint8 = new Uint8Array(await getArrBuf(file));
         const _islz4 = isLZ4(uint8);
         const avlBytes = (getNumRecords(uint8) + 1) * wasmExports.nodeBytes();
-        const fileBytes = _islz4 ? uint8.length * 8 : Math.max(uint8.length, avlBytes);
+        const fileBytes = _islz4 ? lz4.decompressBound(uint8) : Math.max(uint8.length, avlBytes);
         callback(`申请内存......`);
 
         const buffers = await getMaxBuffes(1, hashTableBytes, Math.max(uint8.length, avlBytes), fileBytes);

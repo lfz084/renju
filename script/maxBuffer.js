@@ -111,7 +111,7 @@ async function getMaxBuffes(scl = 1, freeBytes = 0, ...byteBuffers) {
         const start = memory.buffer.byteLength;
         function max(scl, freeBytes, ...byteBuffers) {
             const buffers = getBuffers(scl, start, freeBytes, ...byteBuffers);
-            scl -= 0.1;
+            scl *= 0.9;
             if (buffers) resolve(buffers);
             else if (scl > 0.1) setTimeout(() => max(scl, freeBytes, ...byteBuffers), 0);
             else reject(`浏览器申请内存失败,请关闭后台应用、刷新网页，再试一下\n手机请用Edeg浏览器，获得更大内存`);
