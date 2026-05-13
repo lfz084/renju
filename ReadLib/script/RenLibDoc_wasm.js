@@ -169,7 +169,7 @@
         })
     }
 
-    function outputSGFCache(pBuffer, byteLen) {
+    function _outputSGFCache(pBuffer, byteLen) {
         let uint8 = new Uint8Array(memory.buffer, pBuffer, byteLen);
         for (let i = 0; i < byteLen; i++) {
             sgfUint8[sgfUint8Len++] = uint8[i];
@@ -286,28 +286,20 @@
 
     function grow(pages = 100) {
         try {
-            memory.grow(pages)
-            /*let size = 1024 * 64 * pages,
-                len = size / 4,
-                buf = new Uint32Array(memory.buffer, memory.buffer.byteLength - size, len);
-            for (let i = 0; i < len; i++) {
-                buf[i] = 0;
-            }
-            post(`warn`, `memory.grow(${pages}), buffer size = ${memory.buffer.byteLength/1024/1024}M`);
-            */
+        	memory.grow(pages);
             return pages;
         }
         catch (err) {
-            post(`error`, `申请 ${parseInt(pages/16)+1}M 内存失败，请确保你的手机有足够的空闲内存`);
+        	post(`error`, `申请 ${parseInt(pages/16)+1}M 内存失败，请确保你的手机有足够的空闲内存`);
             return 0;
         }
     }
 
     function resetBuffer(libSize, scl) {
-        let data_buf = wasm_exports._Z13getDataBufferv(),
+        let data_buf = wasm_exports.getDataBuffer(),
             data_buf_size = parseInt(libSize * scl) + 1,
             bufSize = data_buf + data_buf_size,
-            pages = parseInt((bufSize - memory.buffer.byteLength) / 1024 / 64) + 1;
+            pages = Math.max(1, parseInt((bufSize - memory.buffer.byteLength) / 1024 / 64) + 1);
         return grow(pages);
     }
 
@@ -326,6 +318,25 @@
         });
     }
     
+    function _getBuffer(pBuffer, size) {
+    	post("loading", { current: jFile.m_current, end: jFile.m_end * 1.1 });
+    	let buf = new Uint8Array(memory.buffer, pBuffer, size),
+    		rt = jFile.read(buf, size);
+    	post("log", `pBuffer = ${pBuffer}, size = ${size}, rt = ${rt}`);
+    	return rt;
+    }
+    
+    function _loading(current, end) {
+    	post("loading", { current: current, end: end });
+    }
+    
+    function _memoryBound(){
+    	post("alert", `当前浏览器内存只能打开 ${parseInt((jFile.m_current / jFile.m_end)*10000)/100}% 棋谱\n手机请用Edeg浏览器，获得更大内存`);
+    }
+    
+    
+    
+    
     
 
     let jFile,
@@ -337,39 +348,18 @@
         log_buffer,
         data_buffer,
         startTime,
-        importObject = {
+        wasmImports = {
             env: {
-                memcpy: function(param1, param2, param3) {
-                    post("log", `memcpy: start=${param1}, value=${param2}, length=${param3}`);
-                    let buf = new Uint8Array(memory.buffer, 0, memory.buffer.byteLength);
-                    for (let i = 0; i < param3; i++) {
-                        buf[param1 + i] = buf[param2 + i];
-                    }
-                    return param1;
-                },
-                memset: function(param1, param2, param3) {
-                    post("log", `memset: start=${param1}, value=${param2}, length=${param3}`);
-                    let buf = new Uint8Array(memory.buffer, param1, param3);
-                    for (let i = 0; i < param3; i++) {
-                        buf[i] = param2;
-                    }
-                    return param1;
-                },
-                _Z9getBufferPhj: function(pBuffer, size) {
-                    post("loading", { current: jFile.m_current, end: jFile.m_end * 1.1 });
-                    let buf = new Uint8Array(memory.buffer, pBuffer, size),
-                        rt = jFile.read(buf, size);
-                    post("log", `pBuffer = ${pBuffer}, size = ${size}, rt = ${rt}`);
-                    return rt;
-                },
-                _Z7loadingjj: function(current, end) {
-                    post("loading", { current: current, end: end });
-                },
-                _Z11memoryBoundv: () => {
-                    post("alert", `当前浏览器内存只能打开 ${parseInt((jFile.m_current / jFile.m_end)*10000)/100}% 棋谱\n手机请用Edeg浏览器，获得更大内存`);
-                },
-                _Z14outputSGFCachePcj: outputSGFCache,
-                _Z4growj: () => 0,
+                getBuffer: _getBuffer,
+                loading: _loading,
+                memoryBound: _memoryBound,
+                outputSGFCache: _outputSGFCache,
+            },
+            a: {
+            	b: _getBuffer,
+            	c: _loading,
+            	d: _memoryBound,
+            	a: _outputSGFCache
             }
         };
 
@@ -385,7 +375,7 @@
             .then(bytes => {
                 post("log", `WebAssembly.instantiate >> ${bytes}`);
                 //通过浏览器提供的标准WebAssembly接口来编译和初始化一个Wasm模块
-                return WebAssembly.instantiate(bytes, importObject);
+                return WebAssembly.instantiate(bytes, wasmImports);
             })
             .then(results => {
                 wasm_exports = results.instance.exports;
@@ -393,11 +383,11 @@
                 //输出下载，编译及实例化模块花费的时间
                 post("log", `TIME = ${new Date().getTime() - startTime}`);
                 //取出从Wasm模块中导出的函数
-                //post("log", Object.keys(wasm_exports).join("\n"));
-                out_buffer = wasm_exports._Z12getOutBufferv();
-                in_buffer = wasm_exports._Z11getInBufferv();
-                log_buffer = wasm_exports._Z12getLogBufferv();
-                data_buffer = wasm_exports._Z13getDataBufferv();
+                //post("alert", Object.keys(wasm_exports).join("\n"));
+                out_buffer = wasm_exports.getOutBuffer();
+                in_buffer = wasm_exports.getInBuffer();
+                log_buffer = wasm_exports.getLogBuffer();
+                data_buffer = wasm_exports.getDataBuffer();
             });
     }
 
@@ -433,14 +423,14 @@
     RenLibDoc.prototype.addLibrary = function(buf) {
         return loadWASM("./RenLib.wasm")
             .then(() => {
-                wasm_exports._Z4initv(buf.byteLength);
+                wasm_exports.init(buf.byteLength);
             })
             .then(() => {
                 return maxMemory(buf.byteLength, buffer_scale);
             })
             .then((pages) => {
                 post(`warn`, `申请 ${parseInt(pages/16)+1}M 内存 OK`);
-                wasm_exports._Z12setMemoryEndj(memory.buffer.byteLength - wasm_exports._Z13getDataBufferv());
+                wasm_exports.setMemoryEnd(memory.buffer.byteLength - wasm_exports.getDataBuffer());
                 if (this.m_file.open(buf)) {
                     return Promise.resolve();
                 }
@@ -453,13 +443,13 @@
                 jFile = this.m_file;
             })
             .then(function() {
-                if (wasm_exports._Z12checkVersionv())
+                if (wasm_exports.checkVersion())
                     return Promise.resolve();
                 else
                     return Promise.reject(`不是五子棋棋谱`);
             })
             .then(function() {
-                let number = wasm_exports._Z15loadAllMoveNodev(),
+                let number = wasm_exports.loadAllMoveNode(),
                     dataSize = 1804 + 908 + 16 + 16 + number * 16; // Stack + MoveList + LibraryFile + RootMoveNode + libNode;
                 if (memory.buffer.byteLength < data_buffer + dataSize)
                     return Promise.reject(`默认内存不足 请先设置 ${parseInt(dataSize/buf.byteLength*100+1)/100} 倍以上内存`);
@@ -469,7 +459,7 @@
                     return Promise.reject(`loadAllMoveNode Error`);
             })
             .then(function() {
-                if (wasm_exports._Z15createRenjuTreev())
+                if (wasm_exports.createRenjuTree())
                     return Promise.resolve();
                 else
                     return Promise.reject(`createRenjuTree Error`);
@@ -527,7 +517,7 @@
         function getInnerHTMLInfo(pBuffer) {
             let innerHTML = getComment(getUINT(pBuffer)),
                 depth = getINT(pBuffer + 4);
-            innerHTML && (innerHTML = `<br><br>${innerHTML.split("\n").join("<br>")}<br><br>`);
+            innerHTML && (innerHTML = `<br><br>${innerHTML.split(/[\b\n]/).join("<br>")}<br><br>`);
             return { innerHTML: innerHTML, depth: depth };
         }
 
@@ -544,13 +534,13 @@
             PH = transposePath(path, i);
             putPath(PH);
             //post("log",`${new Uint8Array(memory.buffer, in_buffer, path.length*POINT_SIZE)}`);
-            wasm_exports._Z14getBranchNodesP6CPointi(in_buffer, path.length);
+            wasm_exports.getBranchNodes(in_buffer, path.length);
             NS = getNodes(out_buffer, path.length & 1 ? "○" : "●");
             //post("log",NS)
             normalizeNS = normalizeNodes(NS, i);
             //post("log",normalizeNS)
             nodes = pushNodes(nodes, normalizeNS);
-            wasm_exports._Z19searchInnerHTMLInfoP6CPointj(in_buffer, path.length);
+            wasm_exports.searchInnerHTMLInfo(in_buffer, path.length);
             let info = getInnerHTMLInfo(out_buffer);
             if (info.depth > innerHTMLInfo.depth) innerHTMLInfo = info;
         }
@@ -559,7 +549,7 @@
 
 
     RenLibDoc.prototype.getAutoMove = function() {
-        let len = wasm_exports._Z11getAutoMovev(),
+        let len = wasm_exports.getAutoMove(),
             path = [];
         for (let i = 0; i < len; i++) {
             path.push(Point2Idx(getPoint(out_buffer + i * 2)));
@@ -569,11 +559,11 @@
     
     RenLibDoc.prototype.lib2sgf = function() {
         let isFormat = false;
-        return  createSGFBuffer(wasm_exports._Z16getSGFByteLengthb(isFormat))
+        return  createSGFBuffer(wasm_exports.getSGFByteLength(isFormat))
         .then(function(buf) {
             sgfUint8 = new Uint8Array(buf);
             sgfUint8Len = 0;
-            wasm_exports._Z7lib2sgfb(isFormat);
+            wasm_exports.lib2sgf(isFormat);
         })
         .then(function() {
             return {buf: sgfUint8.buffer, byteLen: sgfUint8Len}
