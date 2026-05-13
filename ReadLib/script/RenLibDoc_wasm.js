@@ -384,7 +384,9 @@
                 //输出下载，编译及实例化模块花费的时间
                 post("log", `TIME = ${new Date().getTime() - startTime}`);
                 //取出从Wasm模块中导出的函数
-                //post("alert", Object.keys(wasm_exports).join("\n"));
+                post("log", Object.keys(wasm_exports).join("\n"));
+                post("log", `memory bytes: ${memory.buffer.byteLength >>> 20}mb`)
+                
                 out_buffer = wasm_exports.getOutBuffer();
                 in_buffer = wasm_exports.getInBuffer();
                 log_buffer = wasm_exports.getLogBuffer();
