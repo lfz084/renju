@@ -237,8 +237,9 @@
     function getNode(pBuffer, defaultTxT) {
         let buf = new Uint8Array(memory.buffer, pBuffer, NODE_SIZE),
             idx = Point2Idx(getPoint(pBuffer)),
-            txt = getBoardText(getUINT(pBuffer + 4)) || defaultTxT;
-        return new Node(idx, txt);
+            txt = getBoardText(getUINT(pBuffer + 4)) || defaultTxT,
+            level = getUINT(pBuffer + 8);
+        return new Node(idx, txt, level);
     }
 
     function getNodes(pBuffer = out_buffer, defaultTxT) {
@@ -394,9 +395,10 @@
     //------------------ Doc ------------------------- 
 
     class Node {
-        constructor(idx, txt = "", color = "black") {
+        constructor(idx, txt = "", level = 0, color = "black") {
             this.idx = idx;
             this.txt = txt;
+            this.level = level;
             this.color = color;
         }
     }
@@ -480,11 +482,13 @@
         function normalizeNodes(nodes, nMatch) {
             let idx,
                 txt,
+                level,
                 rt = [];
             for (let i = 0; i < nodes.length; i++) {
-                idx = Point2Idx(normalizeCoord(Idx2Point(nodes[i].idx), nMatch))
+                idx = Point2Idx(normalizeCoord(Idx2Point(nodes[i].idx), nMatch));
                 txt = nodes[i].txt;
-                rt[i] = new Node(idx, txt, nMatch > 0 ? "green" : "black");
+                level = nodes[i].level;
+                rt[i] = new Node(idx, txt, level, nMatch > 0 ? "green" : "black");
             }
             return rt;
         }
@@ -507,8 +511,7 @@
             for (let i = nodes2.length - 1; i >= 0; i--) {
                 let idx = indexOf(nodes1, nodes2[i]);
                 if (idx > -1) {
-                    !nodes1[idx].txt && (nodes1[idx].txt = nodes2[i].txt);
-                    nodes2.splice(i, 1);
+                    nodes1[idx].level < nodes2[i].level ? nodes1.splice(idx, 1) : nodes2.splice(i, 1);
                 }
             }
             return nodes1.concat(nodes2);
@@ -538,7 +541,7 @@
             NS = getNodes(out_buffer, path.length & 1 ? "○" : "●");
             //post("log",NS)
             normalizeNS = normalizeNodes(NS, i);
-            //post("log",normalizeNS)
+            //post("log",JSON.stringify(normalizeNS, null, 2))
             nodes = pushNodes(nodes, normalizeNS);
             wasm_exports.searchInnerHTMLInfo(in_buffer, path.length);
             let info = getInnerHTMLInfo(out_buffer);
