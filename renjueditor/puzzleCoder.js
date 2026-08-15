@@ -59,7 +59,7 @@ window.puzzleCoder = (() => {
 	163		三子五连模式
 	164		四子五连模式
 	165		五子五连模式
-	192		点点题模式
+	192		选点题模式
 	193		选择题
 	194		找活三点
 	195		找复活三点
@@ -647,31 +647,31 @@ window.puzzleCoder = (() => {
 		STONES4: { value: 5 << 5 | 4, name: "四子五连模式", title: "四子五连", comment: "玩家只剩下四颗棋子，必须在四颗棋子内取胜。判断取胜的标准：1.玩家五连,2.对手（黑棋）禁手。" },
 		STONES5: { value: 5 << 5 | 5, name: "五子五连模式", title: "五子五连", comment: "玩家只剩下五颗棋子，必须在五颗棋子内取胜。判断取胜的标准：1.玩家五连,2.对手（黑棋）禁手。" },
 		
-		BASE: { value: 6 << 5, name: "点点题模式", title: "点点题模式", comment: "出题者没有指定这题的点点题类型" },
-		BASE_OPTION: { value: 6 << 5 | 1, name: "点点题模式", title: "选择题", comment: "出题者忘记写下解题要求了" },
+		BASE: { value: 6 << 5, name: "选点题模式", title: "选点题", comment: "出题者没有指定这题的点点题类型" },
+		BASE_OPTION: { value: 6 << 5 | 1, name: "选择题模式", title: "选择题", comment: "出题者忘记写下解题要求了" },
 		
-		BASE_FREE_THREE: { value: 6 << 5 | 2, name: "点点题模式", title: "找活三点", comment: "找全活三点（有活四点的三）" },
-		BASE_REVIVE_FREE_THREE: { value: 6 << 5 | 3, name: "点点题模式", title: "找复活三点", comment: "找全复活三点（这个点不是直接活三点，但是它可以让棋盘上面的某个禁手点变成活四点）" },
-		BASE_NOTFREE_THREE: { value: 6 << 5 | 4, name: "点点题模式", title: "找眠三点", comment: "找全眠三点（只有冲四点，没有活四点的三）" },
-		BASE_FREE_FOUR: { value: 6 << 5 | 5, name: "点点题模式", title: "找活四点", comment: "找全活四点（两边各有一个五连点的连四）" },
-		BASE_NOTFREE_FOUR: { value: 6 << 5 | 6, name: "点点题模式", title: "找冲四点", comment: "找全冲四点（有且只有一个五连点的四）" },
+		BASE_FREE_THREE: { value: 6 << 5 | 2, name: "选点题模式", title: "找活三点", comment: "找全活三点（有活四点的三）" },
+		BASE_REVIVE_FREE_THREE: { value: 6 << 5 | 3, name: "选点题模式", title: "找复活三点", comment: "找全复活三点（这个点不是直接活三点，但是它可以让棋盘上面的某个禁手点变成活四点）" },
+		BASE_NOTFREE_THREE: { value: 6 << 5 | 4, name: "选点题模式", title: "找眠三点", comment: "找全眠三点（只有冲四点，没有活四点的三）" },
+		BASE_FREE_FOUR: { value: 6 << 5 | 5, name: "选点题模式", title: "找活四点", comment: "找全活四点（两边各有一个五连点的连四）" },
+		BASE_NOTFREE_FOUR: { value: 6 << 5 | 6, name: "选点题模式", title: "找冲四点", comment: "找全冲四点（有且只有一个五连点的四）" },
 		
-		BASE_FOUL: { value: 6 << 5 | 7, name: "点点题模式", title: "找禁手点", comment: "找全所有的禁手点" },
-		BASE_FOUL_33: { value: 6 << 5 | 8, name: "点点题模式", title: "找三三禁点", comment: "找全所有的三三禁手点\n注意：一个禁手点可能包括好几种禁手" },
-		BASE_FOUL_44: { value: 6 << 5 | 9, name: "点点题模式", title: "找四四禁点", comment: "找全所有的四四禁手点\n注意：一个禁手点可能包括好几种禁手" },
-		BASE_FOUL_6: { value: 6 << 5 | 10, name: "点点题模式", title: "找长连点", comment: "找全所有的长连禁手点\n注意：一个禁手点可能包括好几种禁手" },
-		BASE_BLOCK_CATCH_FOUL: { value: 6 << 5 | 11, name: "点点题模式", title: "找防冲四抓禁点", comment: "防冲四抓禁手\r\n白棋准备冲四抓禁手,黑棋找出所有让冲4抓禁不成立的点" },
+		BASE_FOUL: { value: 6 << 5 | 7, name: "选点题模式", title: "找禁手点", comment: "找全所有的禁手点" },
+		BASE_FOUL_33: { value: 6 << 5 | 8, name: "选点题模式", title: "找三三禁点", comment: "找全所有的三三禁手点\n注意：一个禁手点可能包括好几种禁手" },
+		BASE_FOUL_44: { value: 6 << 5 | 9, name: "选点题模式", title: "找四四禁点", comment: "找全所有的四四禁手点\n注意：一个禁手点可能包括好几种禁手" },
+		BASE_FOUL_6: { value: 6 << 5 | 10, name: "选点题模式", title: "找长连点", comment: "找全所有的长连禁手点\n注意：一个禁手点可能包括好几种禁手" },
+		BASE_BLOCK_CATCH_FOUL: { value: 6 << 5 | 11, name: "选点题模式", title: "找防冲四抓禁点", comment: "防冲四抓禁手\r\n白棋准备冲四抓禁手,黑棋找出所有让冲4抓禁不成立的点" },
 		
-		BASE_MAKE_VCF: { value: 6 << 5 | 12, name: "点点题模式", title: "找做V点", comment: "找全做V点\r\n做V点：做一手棋，如果对手不防，下一手能够形成成立的VCF的点。茶馆点点题解题规则的VCF，必须要连续冲四两次以上(包括两次)，四三杀不算VCF" },
-		BASE_MAKE_VCF_43: { value: 6 << 5 | 13, name: "点点题模式", title: "找做43点", comment: "找全做43点\r\n做43点：做一手棋，如果对手不防，下一手可以形成成立的四三杀的点" },
-		BASE_MAKE_VCF_44: { value: 6 << 5 | 14, name: "点点题模式", title: "找做44点", comment: "找全做44点，白棋做四四杀" },
-		BASE_BLOCK_VCF: { value: 6 << 5 | 15, name: "点点题模式", title: "找VCF防点", comment: "找全VCF防点" },
-		BASE_BLOCK_VCF_4: { value: 6 << 5 | 16, name: "点点题模式", title: "找VCF反防点", comment: "找全VCF反防点，在防点里面选出可以形成反四的防点" },
+		BASE_MAKE_VCF: { value: 6 << 5 | 12, name: "选点题模式", title: "找做V点", comment: "找全做V点\r\n做V点：做一手棋，如果对手不防，下一手能够形成成立的VCF的点。茶馆点点题解题规则的VCF，必须要连续冲四两次以上(包括两次)，四三杀不算VCF" },
+		BASE_MAKE_VCF_43: { value: 6 << 5 | 13, name: "选点题模式", title: "找做43点", comment: "找全做43点\r\n做43点：做一手棋，如果对手不防，下一手可以形成成立的四三杀的点" },
+		BASE_MAKE_VCF_44: { value: 6 << 5 | 14, name: "选点题模式", title: "找做44点", comment: "找全做44点，白棋做四四杀" },
+		BASE_BLOCK_VCF: { value: 6 << 5 | 15, name: "选点题模式", title: "找VCF防点", comment: "找全VCF防点" },
+		BASE_BLOCK_VCF_4: { value: 6 << 5 | 16, name: "选点题模式", title: "找VCF反防点", comment: "找全VCF反防点，在防点里面选出可以形成反四的防点" },
 		
-		BASE_DOUBLE_VCF: { value: 6 << 5 | 17, name: "点点题模式", title: "找狭义双杀点", comment: "找全做一子双杀点\r\n一子双杀点， 指狭义的一子双杀， 即一子落下， 同时形成两个或以上的与冲四有关的杀（ 包括“ 做一步冲四杀” 和“ 做连续冲四杀， 即做V”）， 无论对手如何防守， 下一手都可冲四杀（ 特例： 复活三也视作“ 做冲四杀”； 白棋抓禁的情况， 看似做一个杀， 但无论如何防守， 依然还能冲四取胜）。\n常规可能有三种组合：\n（ 1） 做一步冲四杀 + 做一步冲四杀\n（ 2） 做一步冲四杀 + 做V\n（ 3） 做V + 做V" },
-		BASE_BLOCK_DOUBLE_VCF: { value: 6 << 5 | 18, name: "点点题模式", title: "找狭义双防点", comment: "找全双杀防点\r\n双杀防点，可以是“一子双防”，也可以是“先手防”（如果是先手防，只标注第一手棋）" },
+		BASE_DOUBLE_VCF: { value: 6 << 5 | 17, name: "选点题模式", title: "找狭义双杀点", comment: "找全做一子双杀点\r\n一子双杀点， 指狭义的一子双杀， 即一子落下， 同时形成两个或以上的与冲四有关的杀（ 包括“ 做一步冲四杀” 和“ 做连续冲四杀， 即做V”）， 无论对手如何防守， 下一手都可冲四杀（ 特例： 复活三也视作“ 做冲四杀”； 白棋抓禁的情况， 看似做一个杀， 但无论如何防守， 依然还能冲四取胜）。\n常规可能有三种组合：\n（ 1） 做一步冲四杀 + 做一步冲四杀\n（ 2） 做一步冲四杀 + 做V\n（ 3） 做V + 做V" },
+		BASE_BLOCK_DOUBLE_VCF: { value: 6 << 5 | 18, name: "选点题模式", title: "找狭义双防点", comment: "找全双杀防点\r\n双杀防点，可以是“一子双防”，也可以是“先手防”（如果是先手防，只标注第一手棋）" },
 		
-		BASE_DOUBLE_VCF_43: { value: 6 << 5 | 19, name: "点点题模式", title: "找两手四三胜点", comment: "玩家两颗棋子内形成成立的43杀，也就是四手五连" },
+		BASE_DOUBLE_VCF_43: { value: 6 << 5 | 19, name: "选点题模式", title: "找两手四三胜点", comment: "玩家两颗棋子内形成成立的43杀，也就是四手五连" },
 	}
 	Object.freeze(MODE_VALUE_NAME_TITLE_COMMENT)
 	

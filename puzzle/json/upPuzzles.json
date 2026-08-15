@@ -1,5 +1,52 @@
 [
 	{
+		"title": "例题",
+		"puzzles": [
+			{
+				"index": 18,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 19,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 20,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 21,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 22,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 23,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 24,
+				"puzzle": {
+					"mode": 192
+				}
+			}
+		]
+	},
+	{
 		"title": "五子茶馆小题目大全",
 		"puzzles": [
 			{
@@ -65,41 +112,821 @@
 				}
 				},
 			{
+				"index": 30,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 31,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 32,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 38,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 39,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 40,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 41,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 42,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 44,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 45,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 49,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 50,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 51,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 56,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 61,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
 				"index": 66,
 				"puzzle": {
 					"options": "A9B10B12D9D11D14D15F12F14G12G15I12"
 				}
 				},
 			{
+				"index": 67,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 68,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+
+			{
+				"index": 72,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 74,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 75,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 77,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 78,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 81,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 83,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 84,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 85,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
 				"index": 90,
 				"puzzle": {
+					"mode": 192,
 					"comment": "黑1做四三杀，白棋找出所有(先手防点)"
 				}
 				},
 			{
 				"index": 91,
 				"puzzle": {
+					"mode": 192,
 					"options": "k8g14g11d13d11c12b11"
 				}
+				},
+			{
+				"index": 92,
+				"puzzle": {
+					"mode": 192
 				}
+				},
+			{
+				"index": 93,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 96,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 97,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 101,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 102,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 104,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 105,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 108,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 110,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 111,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 112,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 113,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 119,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 121,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 122,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 124,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 125,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 128,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 130,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 131,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 133,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 139,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 140,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 141,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 142,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 146,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 147,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 148,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 149,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 152,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 158,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 159,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 160,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 161,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 162,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 165,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 166,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 168,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 170,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 172,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 173,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 178,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 179,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 181,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 182,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 185,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 186,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 188,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 190,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 192,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 198,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 199,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 201,
+				"puzzle": {
+					"mode": 192
+				}
+				}
+
 			]
 	},
 	{
 		"title": "五子茶馆解题大赛11~20届",
 		"puzzles": [
 			{
-				"index": 5,
+				"index": 2,
 				"puzzle": {
-					"options": "F12H12"
+					"mode": 192
 				}
 			},
+			{
+				"index": 3,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 4,
+				"puzzle": {
+					"mode": 192
+				}
+			},
+			{
+				"index": 5,
+				"puzzle": {
+					"options": "F12H12",
+					"mode": 192
+				}
+			},
+			{
+				"index": 6,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 7,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 8,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 9,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 10,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 11,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 12,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 13,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 14,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 15,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 16,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 17,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 18,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 19,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 20,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 24,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 25,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 26,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 27,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 28,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 30,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 31,
+				"puzzle": {
+					"mode": 192
+				}
+				},
 			{
 				"index": 32,
 				"puzzle": {
 					"options": "J14H4",
-					"whiteStones": "A15B14B1C2D3E14L12M15N11O14O13"
+					"whiteStones": "A15B14B1C2D3E14L12M15N11O14O13",
+					"mode": 192
 				}
 			},
+			{
+				"index": 33,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 34,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 36,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 37,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 38,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 42,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 45,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 49,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 50,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 51,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 52,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 53,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 54,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 55,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 56,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 57,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 58,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 59,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 60,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 61,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 62,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 63,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 67,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 70,
+				"puzzle": {
+					"mode": 192
+				}
+				},
 			{
 				"index": 74,
 				"puzzle": {
@@ -112,30 +939,242 @@
 					"options": "J2"
 				}
 			},
+			
+			{
+				"index": 78,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 82,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 91,
+				"puzzle": {
+					"mode": 192
+				}
+				},
 			{
 				"index": 94,
 				"puzzle": {
-					"rotate": 0
+					"rotate": 0,
+					"mode": 192
 				}
 			},
+			{
+				"index": 95,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 98,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 99,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 100,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 101,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 124,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 125,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 126,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 130,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 134,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 141,
+				"puzzle": {
+  					"mode": 193
+				}
+				},
+			{
+				"index": 142,
+				"puzzle": {
+  					"mode": 193
+				}
+				},
+			{
+				"index": 146,
+				"puzzle": {
+  					"mode": 193
+				}
+				},
 			{
 				"index": 150,
 				"puzzle": {
 					"comment": "图中X是几层禁手判断\nA: 2层\nB: 3层\nC: 4层\nD: 5层",
 					"labels": ["B2,A","E2,B","K2,C","N2,D","D13,X"]
 				}
-			}
+			},
+			{
+				"index": 158,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 165,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 183,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 190,
+				"puzzle": {
+					"mode": 192
+				}
+				},
+			{
+				"index": 208,
+				"puzzle": {
+					"mode": 192
+				}
+				}
 		]
 	},
 	{
 		"title": "五子茶馆解题大赛21~47届",
 		"puzzles": [
 			{
+		    	"index": 19,
+		        "puzzle": {
+		        	"mode": 192
+		         }
+		    },
+		    {
+		    	"index": 44,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 69,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 94,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 99,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 119,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 124,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 144,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 150,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 156,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 157,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 160,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+		    {
+		    	"index": 161,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    },
+			{
 				"index": 189,
 				"puzzle": {
 					"options": "I7"
 				}
-			}
+			},
+		    {
+		    	"index": 221,
+		    	"puzzle": {
+		    		"mode": 192
+		    	}
+		    }
 		]
 	},
 	{
@@ -159,6 +1198,7 @@
 				        "blackStones": "E8F10G10G9G7H11H8I8J6"
 				    }
 				}
+
 			]
 	}
 ]
